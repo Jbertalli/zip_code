@@ -53,11 +53,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <center style={{ marginTop: '2%' }}>
-        <b>
+        <h1>
           Where the Heck am I?
-        </b>
+        </h1>
       </center>
-      <Container maxWidth="lg">
+      {/* <Container maxWidth="lg">
         <table>
           <tr>
             <td>
@@ -126,8 +126,8 @@ export default function Home() {
             </td>
           </tr>
         </table>
-      </Container>
-      {/* <Container maxWidth="lg" style={{ marginTop: '2%' }}>
+      </Container> */}
+      <Container maxWidth="lg" style={{ marginTop: '2%' }}>
         <div style={{ display: 'flex', justifyContent: 'space-around' }}>
           <Button onClick={() => setZip(zipCode.zipcode)} className={styles.button} variant="contained">
             <TagIcon fontSize="small" />&nbsp;
@@ -162,7 +162,7 @@ export default function Home() {
             <h1>{state}</h1>
             <h1>{stateAbbreviation}</h1>
         </div>
-      </Container> */}
+      </Container>
     </>
   );
 }
