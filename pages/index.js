@@ -1,6 +1,7 @@
 import Head from 'next/head';
 
 export default function Home() {
+
   return (
     <>
       <Head>
@@ -9,7 +10,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        Zip code push test
+        hello
       </div>
     </>
   );
