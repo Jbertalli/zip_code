@@ -60,7 +60,7 @@ export default function Home() {
         <Button onClick={() => setLongCoord(zipCode.longitude)} style={{ background: 'blue' }} variant="contained">
           Longitude
         </Button>
-        <Button style={{ background: 'red' }} variant="contained">
+        <Button onClick={() => setState(zipCode.state)} style={{ background: 'blue' }} variant="contained">
           State
         </Button>
         <Button style={{ background: 'red' }} variant="contained">
@@ -72,8 +72,8 @@ export default function Home() {
           <h1>{city}</h1>
           <h1>{latCoord}</h1>
           <h1>{longCoord}</h1>
+          <h1>{state}</h1>
           
-          <h1>{zipCode.state}</h1>
           <h1>{zipCode.state_abbr}</h1>
       </div>
     </>
