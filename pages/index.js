@@ -3,6 +3,7 @@ import axios from 'axios';
 import React, { useEffect, useState} from 'react';
 import reverse from 'reverse-geocode';
 import Button from '@mui/material/Button';
+import styles from '../styles/zip.module.css';
 
 const API_endpoint = `https://api.openweathermap.org/data/2.5/weather?`;
 const API_key = `0a6c7a4e56dfa967793cbd7761dde032`;
@@ -48,22 +49,22 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-        <Button onClick={() => setZip(zipCode.zipcode)} style={{ background: 'blue' }} variant="contained">
+        <Button onClick={() => setZip(zipCode.zipcode)} className={styles.button} variant="contained">
           Zip Code
         </Button>
-        <Button onClick={() => setCity(zipCode.city)} style={{ background: 'blue' }} variant="contained">
+        <Button onClick={() => setCity(zipCode.city)} className={styles.button} variant="contained">
           City
         </Button>
-        <Button onClick={() => setLatCoord(zipCode.latitude)} style={{ background: 'blue' }} variant="contained">
+        <Button onClick={() => setLatCoord(zipCode.latitude)} className={styles.button} variant="contained">
           Latitude
         </Button>
-        <Button onClick={() => setLongCoord(zipCode.longitude)} style={{ background: 'blue' }} variant="contained">
+        <Button onClick={() => setLongCoord(zipCode.longitude)} className={styles.button} variant="contained">
           Longitude
         </Button>
-        <Button onClick={() => setState(zipCode.state)} style={{ background: 'blue' }} variant="contained">
+        <Button onClick={() => setState(zipCode.state)} className={styles.button} variant="contained">
           State
         </Button>
-        <Button style={{ background: 'red' }} variant="contained">
+        <Button onClick={() => setStateAbbreviation(zipCode.state_abbr)} className={styles.button} variant="contained">
           State Abbreviation
         </Button>
       </div>
@@ -73,8 +74,7 @@ export default function Home() {
           <h1>{latCoord}</h1>
           <h1>{longCoord}</h1>
           <h1>{state}</h1>
-          
-          <h1>{zipCode.state_abbr}</h1>
+          <h1>{stateAbbreviation}</h1>
       </div>
     </>
   );
