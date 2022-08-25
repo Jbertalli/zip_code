@@ -17,7 +17,6 @@ export default function Home() {
     const [latitude, setLatitude] = useState('');
     const [longitude, setLongitude] = useState('');
     const [responseData, setResponseData] = useState({});
-
     const [zip, setZip] = useState('');
     const [city, setCity] = useState('');
     const [latCoord, setLatCoord] = useState('');
@@ -68,7 +67,7 @@ export default function Home() {
               </Button>
             </td>
             <td>
-              <h1>{zip}</h1>
+              <h1 className={styles.text}>{zip}</h1>
             </td>
           </tr>
           <tr>
@@ -79,7 +78,7 @@ export default function Home() {
               </Button>
             </td>
             <td>
-              <h1>{city}</h1>
+              <h1 className={styles.text}>{city}</h1>
             </td>
           </tr>
           <tr>
@@ -90,7 +89,7 @@ export default function Home() {
               </Button>
             </td>
             <td>
-              <h1>{latCoord}</h1>
+              <h1 className={styles.text}>{latCoord}</h1>
             </td>
           </tr>
           <tr>
@@ -101,7 +100,7 @@ export default function Home() {
               </Button>
             </td>
             <td>
-              <h1>{longCoord}</h1>
+              <h1 className={styles.text}>{longCoord}</h1>
             </td>
           </tr>
           <tr>
@@ -112,7 +111,7 @@ export default function Home() {
               </Button>
             </td>
             <td>
-              <h1>{state}</h1>
+              <h1 className={styles.text}>{state}</h1>
             </td>
           </tr>
           <tr>
@@ -123,7 +122,7 @@ export default function Home() {
               </Button>
             </td>
             <td>
-              <h1>{stateAbbreviation}</h1>
+              <h1 className={styles.text}>{stateAbbreviation}</h1>
             </td>
           </tr>
         </table>
