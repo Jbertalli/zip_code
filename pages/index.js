@@ -51,19 +51,19 @@ export default function Home() {
         <Button onClick={() => setZip(zipCode.zipcode)} style={{ background: 'blue' }} variant="contained">
           Zip Code
         </Button>
-        <Button onClick={() => setCity(zipCode.city)} variant="contained">
+        <Button onClick={() => setCity(zipCode.city)} style={{ background: 'blue' }} variant="contained">
           City
         </Button>
-        <Button onClick={() => setLatCoord(zipCode.latitude)} variant="contained">
+        <Button onClick={() => setLatCoord(zipCode.latitude)} style={{ background: 'blue' }} variant="contained">
           Latitude
         </Button>
-        <Button variant="contained">
+        <Button onClick={() => setLongCoord(zipCode.longitude)} style={{ background: 'blue' }} variant="contained">
           Longitude
         </Button>
-        <Button variant="contained">
+        <Button style={{ background: 'red' }} variant="contained">
           State
         </Button>
-        <Button variant="contained">
+        <Button style={{ background: 'red' }} variant="contained">
           State Abbreviation
         </Button>
       </div>
@@ -71,8 +71,8 @@ export default function Home() {
           <h1>{zip}</h1>
           <h1>{city}</h1>
           <h1>{latCoord}</h1>
+          <h1>{longCoord}</h1>
           
-          <h1>{zipCode.longitude}</h1>
           <h1>{zipCode.state}</h1>
           <h1>{zipCode.state_abbr}</h1>
       </div>
