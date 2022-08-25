@@ -53,7 +53,82 @@ export default function Home() {
         <meta name="description" content="zip code" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Container maxWidth="lg" style={{ marginTop: '2%' }}>
+      <center style={{ marginTop: '2%' }}>
+        <b>
+          Where the Heck am I?
+        </b>
+      </center>
+      <Container maxWidth="lg">
+        <table>
+          <tr>
+            <td>
+              <Button onClick={() => setZip(zipCode.zipcode)} className={styles.button} variant="contained">
+                <TagIcon fontSize="small" />&nbsp;
+                Zip Code
+              </Button>
+            </td>
+            <td>
+              <h1>{zip}</h1>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <Button onClick={() => setCity(zipCode.city)} className={styles.button} variant="contained">
+                <LocationCityIcon fontSize="small" />&nbsp;
+                City
+              </Button>
+            </td>
+            <td>
+              <h1>{city}</h1>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <Button onClick={() => setLatCoord(zipCode.latitude)} className={styles.button} variant="contained">
+                <HeightIcon fontSize="small" style={{ transform: 'rotate(90deg)' }} />&nbsp;
+                Latitude
+              </Button>
+            </td>
+            <td>
+              <h1>{latCoord}</h1>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <Button onClick={() => setLongCoord(zipCode.longitude)} className={styles.button} variant="contained">
+                <HeightIcon fontSize="small" />&nbsp;
+                Longitude
+              </Button>
+            </td>
+            <td>
+              <h1>{longCoord}</h1>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <Button onClick={() => setState(zipCode.state)} className={styles.button} variant="contained">
+                <PlaceIcon fontSize="small" />&nbsp;
+                State
+              </Button>
+            </td>
+            <td>
+              <h1>{state}</h1>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <Button onClick={() => setStateAbbreviation(zipCode.state_abbr)} className={styles.button} variant="contained">
+                <PlaceIcon fontSize="small" style={{ transform: 'scale(0.7)'}} />&nbsp;
+                State Abbreviation
+              </Button>
+            </td>
+            <td>
+              <h1>{stateAbbreviation}</h1>
+            </td>
+          </tr>
+        </table>
+      </Container>
+      {/* <Container maxWidth="lg" style={{ marginTop: '2%' }}>
         <div style={{ display: 'flex', justifyContent: 'space-around' }}>
           <Button onClick={() => setZip(zipCode.zipcode)} className={styles.button} variant="contained">
             <TagIcon fontSize="small" />&nbsp;
@@ -88,7 +163,7 @@ export default function Home() {
             <h1>{state}</h1>
             <h1>{stateAbbreviation}</h1>
         </div>
-      </Container>
+      </Container> */}
     </>
   );
 }
