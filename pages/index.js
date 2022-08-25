@@ -54,7 +54,7 @@ export default function Home() {
         <Button onClick={() => setCity(zipCode.city)} variant="contained">
           City
         </Button>
-        <Button variant="contained">
+        <Button onClick={() => setLatCoord(zipCode.latitude)} variant="contained">
           Latitude
         </Button>
         <Button variant="contained">
@@ -70,8 +70,8 @@ export default function Home() {
       <div>
           <h1>{zip}</h1>
           <h1>{city}</h1>
+          <h1>{latCoord}</h1>
           
-          <h1>{zipCode.latitude}</h1>
           <h1>{zipCode.longitude}</h1>
           <h1>{zipCode.state}</h1>
           <h1>{zipCode.state_abbr}</h1>
