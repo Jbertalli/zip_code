@@ -3,10 +3,10 @@ import axios from 'axios';
 import React, { useEffect, useState} from 'react';
 import reverse from 'reverse-geocode';
 import Button from '@mui/material/Button';
+import Container from '@mui/material/Container';
 import LocationCityIcon from '@mui/icons-material/LocationCity';
 import TagIcon from '@mui/icons-material/Tag';
 import HeightIcon from '@mui/icons-material/Height';
-import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 import PlaceIcon from '@mui/icons-material/Place';
 import styles from '../styles/zip.module.css';
 
@@ -53,40 +53,42 @@ export default function Home() {
         <meta name="description" content="zip code" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-        <Button onClick={() => setZip(zipCode.zipcode)} className={styles.button} variant="contained">
-          <TagIcon fontSize="small" />&nbsp;
-          Zip Code
-        </Button>
-        <Button onClick={() => setCity(zipCode.city)} className={styles.button} variant="contained">
-          <LocationCityIcon fontSize="small" />&nbsp;
-          City
-        </Button>
-        <Button onClick={() => setLatCoord(zipCode.latitude)} className={styles.button} variant="contained">
-          <HeightIcon fontSize="small" style={{ transform: 'rotate(90deg)' }} />&nbsp;
-          Latitude
-        </Button>
-        <Button onClick={() => setLongCoord(zipCode.longitude)} className={styles.button} variant="contained">
-          <HeightIcon fontSize="small" />&nbsp;
-          Longitude
-        </Button>
-        <Button onClick={() => setState(zipCode.state)} className={styles.button} variant="contained">
-          <PlaceIcon fontSize="small" />&nbsp;
-          State
-        </Button>
-        <Button onClick={() => setStateAbbreviation(zipCode.state_abbr)} className={styles.button} variant="contained">
-          <PlaceIcon fontSize="small" style={{ transform: 'scale(0.7)'}} />&nbsp;
-          State Abbreviation
-        </Button>
-      </div>
-      <div>
-          <h1>{zip}</h1>
-          <h1>{city}</h1>
-          <h1>{latCoord}</h1>
-          <h1>{longCoord}</h1>
-          <h1>{state}</h1>
-          <h1>{stateAbbreviation}</h1>
-      </div>
+      <Container maxWidth="lg" style={{ marginTop: '2%' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+          <Button onClick={() => setZip(zipCode.zipcode)} className={styles.button} variant="contained">
+            <TagIcon fontSize="small" />&nbsp;
+            Zip Code
+          </Button>
+          <Button onClick={() => setCity(zipCode.city)} className={styles.button} variant="contained">
+            <LocationCityIcon fontSize="small" />&nbsp;
+            City
+          </Button>
+          <Button onClick={() => setLatCoord(zipCode.latitude)} className={styles.button} variant="contained">
+            <HeightIcon fontSize="small" style={{ transform: 'rotate(90deg)' }} />&nbsp;
+            Latitude
+          </Button>
+          <Button onClick={() => setLongCoord(zipCode.longitude)} className={styles.button} variant="contained">
+            <HeightIcon fontSize="small" />&nbsp;
+            Longitude
+          </Button>
+          <Button onClick={() => setState(zipCode.state)} className={styles.button} variant="contained">
+            <PlaceIcon fontSize="small" />&nbsp;
+            State
+          </Button>
+          <Button onClick={() => setStateAbbreviation(zipCode.state_abbr)} className={styles.button} variant="contained">
+            <PlaceIcon fontSize="small" style={{ transform: 'scale(0.7)'}} />&nbsp;
+            State Abbreviation
+          </Button>
+        </div>
+        <div>
+            <h1>{zip}</h1>
+            <h1>{city}</h1>
+            <h1>{latCoord}</h1>
+            <h1>{longCoord}</h1>
+            <h1>{state}</h1>
+            <h1>{stateAbbreviation}</h1>
+        </div>
+      </Container>
     </>
   );
 }
