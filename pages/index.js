@@ -12,6 +12,13 @@ export default function Home() {
     const [longitude, setLongitude] = useState('');
     const [responseData, setResponseData] = useState({});
 
+    const [zip, setZip] = useState('');
+    const [city, setCity] = useState('');
+    const [latCoord, setLatCoord] = useState('');
+    const [longCoord, setLongCoord] = useState('');
+    const [state, setState] = useState('');
+    const [stateAbbreviation, setStateAbbreviation] = useState('');
+
     useEffect(() => {
         navigator.geolocation.getCurrentPosition((position) => {
           setLatitude(position.coords.latitude);
@@ -41,7 +48,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-        <Button style={{ background: 'blue' }} variant="contained">
+        <Button onClick={() => setZip(zipCode.zipcode)} style={{ background: 'blue' }} variant="contained">
           Zip Code
         </Button>
         <Button variant="contained">
@@ -61,8 +68,8 @@ export default function Home() {
         </Button>
       </div>
       <div>
-          {/* <h1>{responseData.name}</h1> */}
-          <h1>{zipCode.zipcode}</h1>
+          <h1>{zip}</h1>
+          
           <h1>{zipCode.city}</h1>
           <h1>{zipCode.latitude}</h1>
           <h1>{zipCode.longitude}</h1>
