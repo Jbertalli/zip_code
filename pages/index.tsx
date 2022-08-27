@@ -13,6 +13,7 @@ import styles from '../styles/zip.module.css';
 import Map from '../components/map';
 import ZipClose from '../components/close_buttons/zipClose';
 import CityClose from '../components/close_buttons/cityClose';
+import LatClose from '../components/close_buttons/latClose';
 
 const API_endpoint = process.env.API_ENDPOINT;
 const API_key = process.env.API_KEY;
@@ -181,9 +182,13 @@ export default function Home() {
               <h1>{city}</h1>
               <CityClose city={city} setCity={setCity} />
             </div>
+            <div>
+              <h1>{latCoord}</h1>
+              <LatClose latCoord={latCoord} setLatCoord={setLatCoord} />
+            </div>
             
 
-            <h1>{latCoord}</h1>
+            
             <h1>{longCoord}</h1>
             <h1>{state}</h1>
             <h1>{stateAbbreviation}</h1>
