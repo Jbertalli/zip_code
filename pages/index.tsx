@@ -11,7 +11,8 @@ import PlaceIcon from '@mui/icons-material/Place';
 import ClearIcon from '@mui/icons-material/Clear';
 import styles from '../styles/zip.module.css';
 import Map from '../components/map';
-import ZipClose from '../components/close buttons/zipClose';
+import ZipClose from '../components/close_buttons/zipClose';
+import CityClose from '../components/close_buttons/cityClose';
 
 const API_endpoint = process.env.API_ENDPOINT;
 const API_key = process.env.API_KEY;
@@ -172,11 +173,16 @@ export default function Home() {
           </Button>
         </div>
         <div>
-            <h1>{zip}</h1>
-            <div style={{ transform: 'translate(100px, -56px)', position: 'absolute' }}>
+            <div>
+              <h1>{zip}</h1>
               <ZipClose zip={zip} setZip={setZip} />
             </div>
-            <h1>{city}</h1>
+            <div>
+              <h1>{city}</h1>
+              <CityClose city={city} setCity={setCity} />
+            </div>
+            
+
             <h1>{latCoord}</h1>
             <h1>{longCoord}</h1>
             <h1>{state}</h1>
