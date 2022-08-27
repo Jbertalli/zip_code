@@ -165,7 +165,7 @@ export default function Home() {
         </div>
       </Container>
       <Container>
-        <Map />
+        <Map latCoord={latCoord} longCoord={longCoord} />
       </Container>
     </>
   );

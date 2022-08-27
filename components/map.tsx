@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 
 const containerStyle = {
@@ -11,7 +11,11 @@ const center = {
   lng: -76.1474
 };
 
-function MyComponent() {
+function MyComponent({ latCoord, longCoord }) {
+
+  console.log(latCoord);
+  console.log(longCoord);
+
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: 'AIzaSyBEQ-ARtxsdwKqfkMjCxo4RF4YN3k1xP5g'
