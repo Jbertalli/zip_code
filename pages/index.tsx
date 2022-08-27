@@ -9,11 +9,10 @@ import TagIcon from '@mui/icons-material/Tag';
 import HeightIcon from '@mui/icons-material/Height';
 import PlaceIcon from '@mui/icons-material/Place';
 import styles from '../styles/zip.module.css';
-import { Google } from '../node_modules/@mui/icons-material/index';
+import Map from '../components/map';
 
 const API_endpoint = `https://api.openweathermap.org/data/2.5/weather?`;
 const API_key = `0a6c7a4e56dfa967793cbd7761dde032`;
-const API_maps = `AIzaSyBEQ-ARtxsdwKqfkMjCxo4RF4YN3k1xP5g`;
 
 export default function Home() {
     const [latitude, setLatitude] = useState('');
@@ -166,7 +165,7 @@ export default function Home() {
         </div>
       </Container>
       <Container style={{ border: '1px solid red', height: '50vh' }}>
-        Google Maps placeholder
+        <Map />
       </Container>
     </>
   );
