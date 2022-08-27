@@ -3,6 +3,12 @@
     margin-top: 20px;
 }
 
+.clearButton {
+    color: white;
+    background: red;
+    margin-top: 20px;
+}
+
 .text {
     transform: translateY(9px);
 }

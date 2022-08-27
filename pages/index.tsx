@@ -8,6 +8,7 @@ import LocationCityIcon from '@mui/icons-material/LocationCity';
 import TagIcon from '@mui/icons-material/Tag';
 import HeightIcon from '@mui/icons-material/Height';
 import PlaceIcon from '@mui/icons-material/Place';
+import ClearIcon from '@mui/icons-material/Clear';
 import styles from '../styles/zip.module.css';
 import Map from '../components/map';
 
@@ -153,6 +154,10 @@ export default function Home() {
           <Button onClick={() => setStateAbbreviation(zipCode.state_abbr)} className={styles.button} variant="contained">
             <PlaceIcon fontSize="small" style={{ transform: 'scale(0.7)'}} />&nbsp;
             State Abbreviation
+          </Button>
+          <Button className={styles.clearButton} variant="container">
+            <ClearIcon fontSize="small" />&nbsp;
+            Clear all
           </Button>
         </div>
         <div>
