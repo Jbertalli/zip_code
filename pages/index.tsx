@@ -15,6 +15,7 @@ import ZipClose from '../components/close_buttons/zipClose';
 import CityClose from '../components/close_buttons/cityClose';
 import LatClose from '../components/close_buttons/latClose';
 import LongClose from '../components/close_buttons/longClose';
+import StateClose from '../components/close_buttons/stateClose';
 
 const API_endpoint = process.env.API_ENDPOINT;
 const API_key = process.env.API_KEY;
@@ -191,11 +192,14 @@ export default function Home() {
               <h1>{longCoord}</h1>
               <LongClose longCoord={longCoord} setLongCoord={setLongCoord} />
             </div>
-            
+            <div>
+              <h1>{state}</h1>
+              <StateClose state={state} setState={setState} />
+            </div>
+            <div>
+              <h1>{stateAbbreviation}</h1>
 
-            
-            <h1>{state}</h1>
-            <h1>{stateAbbreviation}</h1>
+            </div>
         </div>
         <div>
             <Button 
