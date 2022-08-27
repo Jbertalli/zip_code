@@ -121,7 +121,11 @@ const center = {
   lng: -73.93
 };
 
-export default function Map() {
+export default function Map({ latCoord, longCoord }) {
+
+  console.log(latCoord);
+  console.log(longCoord);
+
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: "AIzaSyBEQ-ARtxsdwKqfkMjCxo4RF4YN3k1xP5g",
     libraries,
