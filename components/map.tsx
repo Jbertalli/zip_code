@@ -127,7 +127,7 @@ export default function Map({ latCoord, longCoord }) {
   console.log(longCoord);
 
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: "AIzaSyBEQ-ARtxsdwKqfkMjCxo4RF4YN3k1xP5g",
+    googleMapsApiKey: process.env.MAPS_API_KEY,
     libraries,
   });
 
