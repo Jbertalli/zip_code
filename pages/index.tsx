@@ -14,6 +14,7 @@ import Map from '../components/map';
 import ZipClose from '../components/close_buttons/zipClose';
 import CityClose from '../components/close_buttons/cityClose';
 import LatClose from '../components/close_buttons/latClose';
+import LongClose from '../components/close_buttons/longClose';
 
 const API_endpoint = process.env.API_ENDPOINT;
 const API_key = process.env.API_KEY;
@@ -186,10 +187,13 @@ export default function Home() {
               <h1>{latCoord}</h1>
               <LatClose latCoord={latCoord} setLatCoord={setLatCoord} />
             </div>
+            <div>
+              <h1>{longCoord}</h1>
+              <LongClose longCoord={longCoord} setLongCoord={setLongCoord} />
+            </div>
             
 
             
-            <h1>{longCoord}</h1>
             <h1>{state}</h1>
             <h1>{stateAbbreviation}</h1>
         </div>
