@@ -11,8 +11,8 @@ import PlaceIcon from '@mui/icons-material/Place';
 import styles from '../styles/zip.module.css';
 import Map from '../components/map';
 
-const API_endpoint = `https://api.openweathermap.org/data/2.5/weather?`;
-const API_key = `0a6c7a4e56dfa967793cbd7761dde032`;
+const API_endpoint = process.env.API_ENDPOINT;
+const API_key = process.env.API_KEY;
 
 export default function Home() {
     const [latitude, setLatitude] = useState('');
