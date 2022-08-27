@@ -31,6 +31,8 @@ export default function Home() {
     const [longCoord, setLongCoord] = useState('');
     const [state, setState] = useState('');
     const [stateAbbreviation, setStateAbbreviation] = useState('');
+    const [OppLat, setOppLat] = useState('');
+    const [OppLong, setOppLong] = useState('');
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition((position) => {
@@ -63,6 +65,13 @@ export default function Home() {
       console.log('%c cleared', 'color: red');
     }
 
+    function opposite() {
+        let oppositeLat = (parseFloat(latCoord) - (parseFloat(latCoord) * 2)); 
+        let oppositeLong = (parseFloat(longCoord) + 180);
+        setOppLat(oppositeLat);
+        setOppLong(oppositeLong);
+    }
+
   return (
     <>
       <Head>
@@ -75,76 +84,6 @@ export default function Home() {
           Where the Heck am I?
         </h1>
       </center>
-      {/* <Container maxWidth="lg">
-        <table>
-          <tr>
-            <td>
-              <Button onClick={() => setZip(zipCode.zipcode)} className={styles.button} variant="contained">
-                <TagIcon fontSize="small" />&nbsp;
-                Zip Code
-              </Button>
-            </td>
-            <td>
-              <h1 className={styles.text}>{zip}</h1>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <Button onClick={() => setCity(zipCode.city)} className={styles.button} variant="contained">
-                <LocationCityIcon fontSize="small" />&nbsp;
-                City
-              </Button>
-            </td>
-            <td>
-              <h1 className={styles.text}>{city}</h1>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <Button onClick={() => setLatCoord(zipCode.latitude)} className={styles.button} variant="contained">
-                <HeightIcon fontSize="small" style={{ transform: 'rotate(90deg)' }} />&nbsp;
-                Latitude
-              </Button>
-            </td>
-            <td>
-              <h1 className={styles.text}>{latCoord}</h1>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <Button onClick={() => setLongCoord(zipCode.longitude)} className={styles.button} variant="contained">
-                <HeightIcon fontSize="small" />&nbsp;
-                Longitude
-              </Button>
-            </td>
-            <td>
-              <h1 className={styles.text}>{longCoord}</h1>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <Button onClick={() => setState(zipCode.state)} className={styles.button} variant="contained">
-                <PlaceIcon fontSize="small" />&nbsp;
-                State
-              </Button>
-            </td>
-            <td>
-              <h1 className={styles.text}>{state}</h1>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <Button onClick={() => setStateAbbreviation(zipCode.state_abbr)} className={styles.button} variant="contained">
-                <PlaceIcon fontSize="small" style={{ transform: 'scale(0.7)'}} />&nbsp;
-                State Abbreviation
-              </Button>
-            </td>
-            <td>
-              <h1 className={styles.text}>{stateAbbreviation}</h1>
-            </td>
-          </tr>
-        </table>
-      </Container> */}
       <Container maxWidth="lg" style={{ marginTop: '2%' }}>
         <div style={{ display: 'flex', justifyContent: 'space-around' }}>
           <Button onClick={() => setZip(zipCode.zipcode)} className={styles.button} variant="contained">
@@ -203,14 +142,23 @@ export default function Home() {
             </div>
         </div>
         <div>
+          {(latCoord && longCoord) ? (
+          <>
             <Button 
               variant="contained"
               className={styles.button}
+              onClick={opposite}
             >
                 Opposite
             </Button>
-            <h1>{parseFloat(latCoord) - (parseFloat(latCoord) * 2)}</h1>
-            <h1>{parseFloat(longCoord) + 180}</h1>
+            <h1>{OppLat}</h1>
+            <h1>{OppLong}</h1>
+          </>
+          ):(
+          <>
+            &nbsp;
+          </>
+          )}
         </div>
       </Container>
       <Container>
