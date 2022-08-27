@@ -16,6 +16,7 @@ import CityClose from '../components/close_buttons/cityClose';
 import LatClose from '../components/close_buttons/latClose';
 import LongClose from '../components/close_buttons/longClose';
 import StateClose from '../components/close_buttons/stateClose';
+import AbbrClose from '../components/close_buttons/abbrClose';
 
 const API_endpoint = process.env.API_ENDPOINT;
 const API_key = process.env.API_KEY;
@@ -198,7 +199,7 @@ export default function Home() {
             </div>
             <div>
               <h1>{stateAbbreviation}</h1>
-
+              <AbbrClose stateAbbreviation={stateAbbreviation} setStateAbbreviation={setStateAbbreviation} />
             </div>
         </div>
         <div>
