@@ -47,6 +47,16 @@ export default function Home() {
     // console.log(zipCode);
     // console.log(zipCode.zipcode);
 
+    function handleClear() {
+      setZip('');
+      setCity('');
+      setLatCoord('');
+      setLongCoord('');
+      setState('');
+      setStateAbbreviation('');
+      console.log('%c cleared', 'color: red');
+    }
+
   return (
     <>
       <Head>
@@ -155,7 +165,7 @@ export default function Home() {
             <PlaceIcon fontSize="small" style={{ transform: 'scale(0.7)'}} />&nbsp;
             State Abbreviation
           </Button>
-          <Button className={styles.clearButton} variant="container">
+          <Button onClick={handleClear} className={styles.clearButton} variant="container">
             <ClearIcon fontSize="small" />&nbsp;
             Clear all
           </Button>
