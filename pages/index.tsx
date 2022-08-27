@@ -172,6 +172,16 @@ export default function Home() {
         </div>
         <div>
             <h1>{zip}</h1>
+            <div style={{ transform: 'translate(100px, -56px)', position: 'absolute' }}>
+              {zip ? (
+              <>
+                <Button onClick={() => setZip('')} variant="container" style={{ color: 'red' }}>X</Button>
+              </>
+              ):(
+              <>
+              </>
+              )}
+            </div>
             <h1>{city}</h1>
             <h1>{latCoord}</h1>
             <h1>{longCoord}</h1>

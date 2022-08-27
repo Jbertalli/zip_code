@@ -24,8 +24,8 @@ const center = {
 
 export default function Map({ latCoord, longCoord }) {
 
-  console.log(latCoord);
-  console.log(longCoord);
+//   console.log(latCoord);
+//   console.log(longCoord);
 
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.MAPS_API_KEY,
