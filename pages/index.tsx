@@ -163,6 +163,16 @@ export default function Home() {
             <h1>{state}</h1>
             <h1>{stateAbbreviation}</h1>
         </div>
+        <div>
+            <Button 
+              variant="contained"
+              className={styles.button}
+            >
+                Opposite
+            </Button>
+            <h1>{parseFloat(latCoord) - (parseFloat(latCoord) * 2)}</h1>
+            <h1>{parseFloat(longCoord) + 180}</h1>
+        </div>
       </Container>
       <Container>
         <Map latCoord={latCoord} longCoord={longCoord} />

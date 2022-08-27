@@ -60,7 +60,7 @@ export default function Map({ latCoord, longCoord }) {
   if (!isLoaded) return "Loading...";
 
   return (
-    <Container maxWidth="xl" style={{ display: 'flex', justifyContent: 'center' }}>
+    <Container maxWidth="xl" style={{ display: 'flex', justifyContent: 'center', marginBottom: '3%' }}>
         <div>
             <Locate panTo={panTo} />
             <Search panTo={panTo} />
