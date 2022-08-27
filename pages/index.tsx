@@ -163,6 +163,9 @@ export default function Home() {
             <h1>{stateAbbreviation}</h1>
         </div>
       </Container>
+      <Container style={{ border: '1px solid red', height: '50vh' }}>
+        Google Maps placeholder
+      </Container>
     </>
   );
 }
