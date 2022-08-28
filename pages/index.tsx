@@ -18,8 +18,8 @@ import LongClose from '../components/close_buttons/longClose';
 import StateClose from '../components/close_buttons/stateClose';
 import AbbrClose from '../components/close_buttons/abbrClose';
 
-const API_endpoint = process.env.API_ENDPOINT;
-const API_key = process.env.API_KEY;
+const API_endpoint: string = process.env.API_ENDPOINT;
+const API_key: string = process.env.API_KEY;
 
 export default function Home() {
     const [latitude, setLatitude] = useState('');
@@ -41,7 +41,7 @@ export default function Home() {
         })
 
         //fetch data with axios
-        let finalAPIEndPoint = `${API_endpoint}lat=${latitude}&lon=${longitude}&exclude=hourly,daily&appid=${API_key}`
+        let finalAPIEndPoint: string = `${API_endpoint}lat=${latitude}&lon=${longitude}&exclude=hourly,daily&appid=${API_key}`
         axios.get(finalAPIEndPoint)
           .then((response) => {
             setResponseData(response.data);
@@ -51,11 +51,11 @@ export default function Home() {
 
     // syracuse coordinates for testing
     // let zipCode = reverse.lookup(43.0481, -76.1474, 'us');
-    let zipCode = reverse.lookup(latitude, longitude, 'us');
+    let zipCode: any = reverse.lookup(latitude, longitude, 'us');
     // console.log(zipCode);
     // console.log(zipCode.zipcode);
 
-    function handleClear() {
+    function handleClear(): void {
       setZip('');
       setCity('');
       setLatCoord('');
@@ -65,14 +65,14 @@ export default function Home() {
       console.log('%c cleared', 'color: red');
     }
 
-    function opposite() {
-        let oppositeLat = (parseFloat(latCoord) - (parseFloat(latCoord) * 2)); 
-        let oppositeLong = (parseFloat(longCoord) + 180);
+    function opposite(): void {
+        let oppositeLat: number = (parseFloat(latCoord) - (parseFloat(latCoord) * 2)); 
+        let oppositeLong: number = (parseFloat(longCoord) + 180);
         setOppLat(oppositeLat);
         setOppLong(oppositeLong);
     }
 
-    function clearOpposite() {
+    function clearOpposite(): void {
       setOppLat('');
       setOppLong('');
     }
