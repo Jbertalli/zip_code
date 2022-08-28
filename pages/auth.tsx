@@ -1,7 +1,8 @@
 import React from "react";
+import Head from 'next/head';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from '../firebase/clientApp';
-import { getAuth } from "firebase/auth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 //Configure FirebaseUI
 const uiConfig = {
@@ -12,20 +13,39 @@ const uiConfig = {
 };
 
 function SignInScreen() {
+
+    const auth = getAuth();
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+       console.log("Current user:", user);
+        const uid = user.uid;
+      } else {
+        console.log("No user signed in");
+      }
+    });
+
     return (
-      <div
-        style={{
-          maxWidth: "320px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <h1>Zip Code Login</h1>
-        <p>Please Sign-In:</p>
-        <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={getAuth()} />
-      </div>
+      <>
+        <Head>
+            <title>Sign In</title>
+            <meta name="description" content="sign in" />
+            <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <div
+            style={{
+            maxWidth: "320px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            }}
+        >
+            <h1>Zip Code Login</h1>
+            <p>Please Sign-In:</p>
+            <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={getAuth()} />
+        </div>
+      </>
     );
 }
 

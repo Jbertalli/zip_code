@@ -14,6 +14,7 @@ const clientCredentials = {
 
 // Version 9 Code
 const app = initializeApp(clientCredentials);
+const defaultProject = initializeApp(clientCredentials);
 
 // Version 8 Code
 // if (!firebase.apps.length) {

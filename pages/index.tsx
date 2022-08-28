@@ -17,6 +17,7 @@ import LatClose from '../components/close_buttons/latClose';
 import LongClose from '../components/close_buttons/longClose';
 import StateClose from '../components/close_buttons/stateClose';
 import AbbrClose from '../components/close_buttons/abbrClose';
+// import firebase from '../firebase/clientApp';
 
 const API_endpoint: string = process.env.API_ENDPOINT;
 const API_key: string = process.env.API_KEY;
