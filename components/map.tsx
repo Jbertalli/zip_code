@@ -6,7 +6,7 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import styles from '../styles/zip.module.css';
 
-const libraries = ["places"];
+const libraries: string[] = ["places"];
 const mapContainerStyle = {
   height: "80vh",
   width: "80vw",
@@ -22,7 +22,7 @@ const center = {
   lng: -73.93
 };
 
-export default function Map({ latCoord, longCoord }) {
+export default function Map({ latCoord, longCoord }): any {
 
 //   console.log(latCoord);
 //   console.log(longCoord);
@@ -108,7 +108,7 @@ export default function Map({ latCoord, longCoord }) {
   );
 }
 
-function Locate({ panTo }) {
+function Locate({ panTo }): any {
   return (
     <Button
       variant="contained"
@@ -130,7 +130,7 @@ function Locate({ panTo }) {
   );
 }
 
-function Search({ panTo }) {
+function Search({ panTo }): any {
   const {
     ready,
     value,
@@ -144,7 +144,7 @@ function Search({ panTo }) {
     },
   });
 
-  const handleInput = (e) => {
+  const handleInput = (e): void => {
     setValue(e.target.value);
   };
 
