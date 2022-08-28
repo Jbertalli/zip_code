@@ -22,8 +22,8 @@ const API_endpoint: string = process.env.API_ENDPOINT;
 const API_key: string = process.env.API_KEY;
 
 export default function Home() {
-    const [latitude, setLatitude] = useState('');
-    const [longitude, setLongitude] = useState('');
+    const [latitude, setLatitude] = useState<number | undefined>();
+    const [longitude, setLongitude] = useState<number | undefined>();
     const [responseData, setResponseData] = useState({});
     const [zip, setZip] = useState('');
     const [city, setCity] = useState('');
@@ -31,8 +31,8 @@ export default function Home() {
     const [longCoord, setLongCoord] = useState('');
     const [state, setState] = useState('');
     const [stateAbbreviation, setStateAbbreviation] = useState('');
-    const [OppLat, setOppLat] = useState('');
-    const [OppLong, setOppLong] = useState('');
+    const [OppLat, setOppLat] = useState<number | undefined>();
+    const [OppLong, setOppLong] = useState<number | undefined>();
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition((position) => {
@@ -72,9 +72,9 @@ export default function Home() {
         setOppLong(oppositeLong);
     }
 
-    function clearOpposite(): void {
-      setOppLat('');
-      setOppLong('');
+    function clearOpposite() {
+      setOppLat(null);
+      setOppLong(null);
     }
 
   return (
