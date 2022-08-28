@@ -1,6 +1,6 @@
 import Button from '@mui/material/Button';
 
-export default function LatClose({ latCoord, setLatCoord }) {
+export default function LatClose({ latCoord, setLatCoord }): any {
     // console.log(latCoord);
     return (
         <>

@@ -1,6 +1,6 @@
 import Button from '@mui/material/Button';
 
-export default function AbbrClose({ stateAbbreviation, setStateAbbreviation }) {
+export default function AbbrClose({ stateAbbreviation, setStateAbbreviation }): any {
     // console.log(stateAbbreviation);
     return (
         <>

@@ -1,6 +1,6 @@
 import Button from '@mui/material/Button';
 
-export default function CityClose({ city, setCity }) {
+export default function CityClose({ city, setCity }): any {
     // console.log(city);
     return (
         <>

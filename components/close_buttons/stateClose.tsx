@@ -1,6 +1,6 @@
 import Button from '@mui/material/Button';
 
-export default function StateClose({ state, setState }) {
+export default function StateClose({ state, setState }): any {
     // console.log(state);
     return (
         <>
