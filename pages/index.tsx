@@ -17,7 +17,23 @@ import LatClose from '../components/close_buttons/latClose';
 import LongClose from '../components/close_buttons/longClose';
 import StateClose from '../components/close_buttons/stateClose';
 import AbbrClose from '../components/close_buttons/abbrClose';
-// import firebase from '../firebase/clientApp';
+import firebase from '../firebase/clientApp';
+import { initializeApp } from 'firebase/app';
+import { getFirestore, getDocs, collection  } from 'firebase/firestore';
+
+const clientCredential = {
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+};
+
+// console.log(clientCredentials);
+
+const app = initializeApp(clientCredential);
+const db = getFirestore();
 
 const API_endpoint: string = process.env.API_ENDPOINT;
 const API_key: string = process.env.API_KEY;
@@ -77,6 +93,19 @@ export default function Home() {
       setOppLat(null);
       setOppLong(null);
     }
+
+    // console.log data
+    const logged = async () => {
+      const colRef = collection(db, "location");
+      const docsSnap = await getDocs(colRef);
+      docsSnap.forEach(doc => {
+        console.log(doc.data());
+      })
+    }
+    
+    useEffect(() => {
+      logged();
+    }, [])
 
   return (
     <>
