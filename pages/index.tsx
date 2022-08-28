@@ -72,6 +72,11 @@ export default function Home() {
         setOppLong(oppositeLong);
     }
 
+    function clearOpposite() {
+      setOppLat('');
+      setOppLong('');
+    }
+
   return (
     <>
       <Head>
@@ -148,8 +153,16 @@ export default function Home() {
               variant="contained"
               className={styles.button}
               onClick={opposite}
+              style={{ marginRight: '20px' }}
             >
                 Opposite
+            </Button>
+            <Button
+              variant="container"
+              className={styles.clearButton}
+              onClick={clearOpposite}
+            >
+              Clear Opposite
             </Button>
             <h1>{OppLat}</h1>
             <h1>{OppLong}</h1>
