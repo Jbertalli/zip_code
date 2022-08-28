@@ -7,7 +7,7 @@ export default function ZipClose({ zip, setZip }): any {
             <div style={{ transform: 'translate(250px, -56px)', position: 'absolute' }}>
                 {zip ? (
                 <>
-                    <Button onClick={() => setZip('')} variant="container" style={{ color: 'red' }}>
+                    <Button onClick={() => setZip('')} style={{ color: 'red' }}>
                         X
                     </Button>
                 </>

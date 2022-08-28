@@ -84,38 +84,38 @@ export default function Home() {
         <meta name="description" content="zip code" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <center style={{ marginTop: '2%' }}>
+      <div style={{ marginTop: '2%', display: 'flex', justifyContent: 'center' }}>
         <h1>
           Where the Heck am I?
         </h1>
-      </center>
+      </div>
       <Container maxWidth="lg" style={{ marginTop: '2%' }}>
         <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-          <Button onClick={() => setZip(zipCode.zipcode)} className={styles.button} variant="contained">
+          <Button onClick={() => setZip(zipCode.zipcode)} className={styles.button}>
             <TagIcon fontSize="small" />&nbsp;
             Zip Code
           </Button>
-          <Button onClick={() => setCity(zipCode.city)} className={styles.button} variant="contained">
+          <Button onClick={() => setCity(zipCode.city)} className={styles.button}>
             <LocationCityIcon fontSize="small" />&nbsp;
             City
           </Button>
-          <Button onClick={() => setLatCoord(zipCode.latitude)} className={styles.button} variant="contained">
+          <Button onClick={() => setLatCoord(zipCode.latitude)} className={styles.button}>
             <HeightIcon fontSize="small" style={{ transform: 'rotate(90deg)' }} />&nbsp;
             Latitude
           </Button>
-          <Button onClick={() => setLongCoord(zipCode.longitude)} className={styles.button} variant="contained">
+          <Button onClick={() => setLongCoord(zipCode.longitude)} className={styles.button}>
             <HeightIcon fontSize="small" />&nbsp;
             Longitude
           </Button>
-          <Button onClick={() => setState(zipCode.state)} className={styles.button} variant="contained">
+          <Button onClick={() => setState(zipCode.state)} className={styles.button}>
             <PlaceIcon fontSize="small" />&nbsp;
             State
           </Button>
-          <Button onClick={() => setStateAbbreviation(zipCode.state_abbr)} className={styles.button} variant="contained">
+          <Button onClick={() => setStateAbbreviation(zipCode.state_abbr)} className={styles.button}>
             <PlaceIcon fontSize="small" style={{ transform: 'scale(0.7)'}} />&nbsp;
             State Abbreviation
           </Button>
-          <Button onClick={handleClear} className={styles.clearButton} variant="container">
+          <Button onClick={handleClear} className={styles.clearButton}>
             <ClearIcon fontSize="small" />&nbsp;
             Clear all
           </Button>
@@ -149,8 +149,7 @@ export default function Home() {
         <div>
           {(latCoord && longCoord) ? (
           <>
-            <Button 
-              variant="contained"
+            <Button
               className={styles.button}
               onClick={opposite}
               style={{ marginRight: '20px' }}
@@ -160,7 +159,6 @@ export default function Home() {
             {(OppLat && OppLong) ? (
             <>
               <Button
-                variant="container"
                 className={styles.clearButton}
                 onClick={clearOpposite}
               >

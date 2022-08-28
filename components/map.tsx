@@ -111,7 +111,6 @@ export default function Map({ latCoord, longCoord }): any {
 function Locate({ panTo }): any {
   return (
     <Button
-      variant="contained"
       className={styles.button}
       onClick={() => {
         navigator.geolocation.getCurrentPosition(
