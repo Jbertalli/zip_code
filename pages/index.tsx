@@ -157,13 +157,21 @@ export default function Home() {
             >
                 Opposite
             </Button>
-            <Button
-              variant="container"
-              className={styles.clearButton}
-              onClick={clearOpposite}
-            >
-              Clear Opposite
-            </Button>
+            {(OppLat && OppLong) ? (
+            <>
+              <Button
+                variant="container"
+                className={styles.clearButton}
+                onClick={clearOpposite}
+              >
+                Clear Opposite
+              </Button>
+            </>
+            ):(
+            <>
+              &nbsp;
+            </>
+            )}
             <h1>{OppLat}</h1>
             <h1>{OppLong}</h1>
           </>
