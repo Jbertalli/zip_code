@@ -12,7 +12,7 @@ const clientCredentials = {
     appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-console.log(clientCredentials);
+// console.log(clientCredentials);
 
 // Version 9 Code
 const app = initializeApp(clientCredentials);

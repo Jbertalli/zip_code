@@ -19,7 +19,8 @@ import StateClose from '../components/close_buttons/stateClose';
 import AbbrClose from '../components/close_buttons/abbrClose';
 import firebase from '../firebase/clientApp';
 import { initializeApp } from 'firebase/app';
-import { getFirestore, getDocs, collection  } from 'firebase/firestore';
+import { getFirestore, doc, getDocs, setDoc, collection, Timestamp  } from 'firebase/firestore';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const clientCredential = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -50,6 +51,17 @@ export default function Home() {
     const [stateAbbreviation, setStateAbbreviation] = useState('');
     const [OppLat, setOppLat] = useState<number | undefined>();
     const [OppLong, setOppLong] = useState<number | undefined>();
+
+    const auth = getAuth();
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+       console.log("Current user:", user);
+        const uid = user.uid;
+      } else {
+        console.log("No user signed in");
+      }
+    });
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition((position) => {
@@ -107,6 +119,13 @@ export default function Home() {
       logged();
     }, [])
 
+    // Create new document from within code
+    const addZipDocument = async (Zip: number) => {
+      await setDoc(doc(db, "location", "Zip"), {
+        Zip: zip,
+      });
+    }
+
   return (
     <>
       <Head>
@@ -120,6 +139,7 @@ export default function Home() {
         </h1>
       </div>
       <Container maxWidth="lg" style={{ marginTop: '2%' }}>
+<Button onClick={() => addZipDocument(11111)} className={styles.button}>db Zip</Button>
         <div style={{ display: 'flex', justifyContent: 'space-around' }}>
           <Button onClick={() => setZip(zipCode.zipcode)} className={styles.button}>
             <TagIcon fontSize="small" />&nbsp;
