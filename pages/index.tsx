@@ -186,6 +186,14 @@ export default function Home() {
       })
     }
 
+    const latRef = doc(db, "location", "User Data2");
+
+    const deleteLat = async(Latitude: number) => {
+      await updateDoc(latRef, {
+        Latitude: deleteField()
+      })
+    }
+
   return (
     <>
       <Head>
@@ -209,6 +217,7 @@ export default function Home() {
 
 <Button onClick={() => deleteZip(zip)} className={styles.clearButton}>Delete Zip</Button>
 <Button onClick={() => deleteCity(city)} className={styles.clearButton}>Delete City</Button>
+<Button onClick={() => deleteLat(latitude)} className={styles.clearButton}>Delete Latitude</Button>
         <div style={{ display: 'flex', justifyContent: 'space-around' }}>
           <Button onClick={() => setZip(zipCode.zipcode)} className={styles.button}>
             <TagIcon fontSize="small" />&nbsp;
