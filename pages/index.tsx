@@ -19,7 +19,7 @@ import StateClose from '../components/close_buttons/stateClose';
 import AbbrClose from '../components/close_buttons/abbrClose';
 import firebase from '../firebase/clientApp';
 import { initializeApp } from 'firebase/app';
-import { getFirestore, doc, getDocs, setDoc, deleteDoc, collection, Timestamp  } from 'firebase/firestore';
+import { getFirestore, doc, getDocs, setDoc, deleteDoc, deleteField, updateDoc, collection, Timestamp  } from 'firebase/firestore';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const clientCredential = {
@@ -170,8 +170,12 @@ export default function Home() {
       })
     }
 
+    const zipRef = doc(db, "location", "User Data2")
+
     const deleteZip = async(Zip: number) => {
-      await deleteDoc(doc(db, "location", "User Data2"))
+      await updateDoc(zipRef, {
+        Zip: deleteField()
+      })
     }
 
   return (
@@ -196,6 +200,7 @@ export default function Home() {
 <Button onClick={() => addStateAbbr(stateAbbreviation)} className={styles.dbButtons}>db State Abbr</Button>
 
 <Button onClick={() => deleteZip(zip)} className={styles.clearButton}>Delete Zip</Button>
+<Button onClick={() => deleteCity(city)} className={styles.clearButton}>Delete City</Button>
         <div style={{ display: 'flex', justifyContent: 'space-around' }}>
           <Button onClick={() => setZip(zipCode.zipcode)} className={styles.button}>
             <TagIcon fontSize="small" />&nbsp;
