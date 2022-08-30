@@ -158,6 +158,12 @@ export default function Home() {
       })
     }
 
+    const addState = async(State: string) => {
+      await setDoc(doc(db, "location", "User Data2"), {
+        State,
+      })
+    }
+
   return (
     <>
       <Head>
@@ -176,6 +182,7 @@ export default function Home() {
 <Button onClick={() => addCity(city)} className={styles.dbButtons}>db City</Button>
 <Button onClick={() => addLat(latitude)} className={styles.dbButtons}>db Latitude</Button>
 <Button onClick={() => addLong(longitude)} className={styles.dbButtons}>db Longitude</Button>
+<Button onClick={() => addState(state)} className={styles.dbButtons}>db State</Button>
         <div style={{ display: 'flex', justifyContent: 'space-around' }}>
           <Button onClick={() => setZip(zipCode.zipcode)} className={styles.button}>
             <TagIcon fontSize="small" />&nbsp;
