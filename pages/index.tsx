@@ -57,6 +57,7 @@ export default function Home() {
     onAuthStateChanged(auth, (user) => {
       if (user) {
        console.log("Current user:", user);
+       console.log(user.displayName);
         const uid = user.uid;
       } else {
         console.log("No user signed in");
@@ -119,10 +120,17 @@ export default function Home() {
       logged();
     }, [])
 
+    // console.log(user.displayName);
+
     // Create new document from within code
-    const addZipDocument = async (Zip: number) => {
-      await setDoc(doc(db, "location", "Zip"), {
+    const addDocument = async (Zip: number, City: string, Latitude: number, Longitude: number, State: string, State_Abbreviation: string) => {
+      await setDoc(doc(db, "location", "User Data1"), {
         Zip: zip,
+        City: city,
+        Latitude: latCoord,
+        Longitude: longCoord,
+        State: state,
+        State_Abbreviation: stateAbbreviation,
       });
     }
 
@@ -139,7 +147,7 @@ export default function Home() {
         </h1>
       </div>
       <Container maxWidth="lg" style={{ marginTop: '2%' }}>
-<Button onClick={() => addZipDocument(11111)} className={styles.button}>db Zip</Button>
+<Button onClick={() => addDocument()} className={styles.button}>db Zip</Button>
         <div style={{ display: 'flex', justifyContent: 'space-around' }}>
           <Button onClick={() => setZip(zipCode.zipcode)} className={styles.button}>
             <TagIcon fontSize="small" />&nbsp;
