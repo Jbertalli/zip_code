@@ -210,6 +210,14 @@ export default function Home() {
       })
     }
 
+    const abbrRef = doc(db, "location", "User Data2");
+
+    const deleteAbbr = async(State_Abbreviation: string) => {
+      await updateDoc(abbrRef, {
+        State_Abbreviation: deleteField()
+      })
+    } 
+
   return (
     <>
       <Head>
@@ -236,6 +244,7 @@ export default function Home() {
 <Button onClick={() => deleteLat(latitude)} className={styles.clearButton}>Delete Latitude</Button>
 <Button onClick={() => deleteLong(longitude)} className={styles.clearButton}>Delete Longitude</Button>
 <Button onClick={() => deleteState(state)} className={styles.clearButton}>Delete State</Button>
+<Button onClick={() => deleteAbbr(stateAbbreviation)} className={styles.clearButton}>Delete State Abbr</Button>
         <div style={{ display: 'flex', justifyContent: 'space-around' }}>
           <Button onClick={() => setZip(zipCode.zipcode)} className={styles.button}>
             <TagIcon fontSize="small" />&nbsp;
