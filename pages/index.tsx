@@ -170,6 +170,17 @@ export default function Home() {
       })
     }
 
+    const deleteAll = async (Zip: number, City: string, Latitude: number, Longitude: number, State: string, State_Abbreviation: string) => {
+      await updateDoc(doc(db, "location", "User Data3"), {
+        Zip: deleteField(),
+        City: deleteField(),
+        Latitude: deleteField(),
+        Longitude: deleteField(),
+        State: deleteField(),
+        State_Abbreviation: deleteField(),
+      });
+    }
+
     const zipRef = doc(db, "location", "User Data2");
 
     const deleteZip = async(Zip: number) => {
@@ -239,6 +250,7 @@ export default function Home() {
 <Button onClick={() => addState(state)} className={styles.dbButtons}>db State</Button>
 <Button onClick={() => addStateAbbr(stateAbbreviation)} className={styles.dbButtons}>db State Abbr</Button>
 
+<Button onClick={() => deleteAll(zip, city, latCoord, longCoord, state, stateAbbreviation)} className={styles.clearButton}>Delete All</Button>
 <Button onClick={() => deleteZip(zip)} className={styles.clearButton}>Delete Zip</Button>
 <Button onClick={() => deleteCity(city)} className={styles.clearButton}>Delete City</Button>
 <Button onClick={() => deleteLat(latitude)} className={styles.clearButton}>Delete Latitude</Button>
