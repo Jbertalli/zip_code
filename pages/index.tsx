@@ -202,6 +202,14 @@ export default function Home() {
       })
     }
 
+    const stateRef = doc(db, "location", "User Data2");
+
+    const deleteState = async(State: string) => {
+      await updateDoc(stateRef, {
+        State: deleteField()
+      })
+    }
+
   return (
     <>
       <Head>
@@ -227,6 +235,7 @@ export default function Home() {
 <Button onClick={() => deleteCity(city)} className={styles.clearButton}>Delete City</Button>
 <Button onClick={() => deleteLat(latitude)} className={styles.clearButton}>Delete Latitude</Button>
 <Button onClick={() => deleteLong(longitude)} className={styles.clearButton}>Delete Longitude</Button>
+<Button onClick={() => deleteState(state)} className={styles.clearButton}>Delete State</Button>
         <div style={{ display: 'flex', justifyContent: 'space-around' }}>
           <Button onClick={() => setZip(zipCode.zipcode)} className={styles.button}>
             <TagIcon fontSize="small" />&nbsp;
