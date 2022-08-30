@@ -4,6 +4,12 @@
     margin-top: 20px;
 }
 
+.dbButtons {
+    background: orange;
+    color: white;
+    margin-top: 20px;
+}
+
 .clearButton {
     color: white;
     background: red;

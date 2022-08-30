@@ -124,13 +124,19 @@ export default function Home() {
 
     // Create new document from within code
     const addDocument = async (Zip: number, City: string, Latitude: number, Longitude: number, State: string, State_Abbreviation: string) => {
-      await setDoc(doc(db, "location", "User Data1"), {
+      await setDoc(doc(db, "location", "User Data3"), {
         Zip: zip,
         City: city,
         Latitude: latCoord,
         Longitude: longCoord,
         State: state,
         State_Abbreviation: stateAbbreviation,
+      });
+    }
+
+    const addZip = async(Zip: number) => {
+      await setDoc(doc(db, "location", "User Data2"), {
+        Zip,
       });
     }
 
@@ -147,7 +153,8 @@ export default function Home() {
         </h1>
       </div>
       <Container maxWidth="lg" style={{ marginTop: '2%' }}>
-<Button onClick={() => addDocument()} className={styles.button}>db Zip</Button>
+<Button onClick={() => addDocument()} className={styles.dbButtons}>db All</Button>
+<Button onClick={() => addZip(zip)} className={styles.dbButtons}>db Zip</Button>
         <div style={{ display: 'flex', justifyContent: 'space-around' }}>
           <Button onClick={() => setZip(zipCode.zipcode)} className={styles.button}>
             <TagIcon fontSize="small" />&nbsp;
