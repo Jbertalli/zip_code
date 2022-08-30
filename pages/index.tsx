@@ -170,11 +170,19 @@ export default function Home() {
       })
     }
 
-    const zipRef = doc(db, "location", "User Data2")
+    const zipRef = doc(db, "location", "User Data2");
 
     const deleteZip = async(Zip: number) => {
       await updateDoc(zipRef, {
         Zip: deleteField()
+      })
+    }
+
+    const cityRef = doc(db, "location", "User Data2");
+
+    const deleteCity = async(City: string) => {
+      await updateDoc(cityRef, {
+        City: deleteField()
       })
     }
 
