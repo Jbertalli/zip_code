@@ -146,6 +146,12 @@ export default function Home() {
       })
     }
 
+    const addLat = async(Latitude: number) => {
+      await setDoc(doc(db, "location", "User Data2"), {
+        Latitude,
+      })
+    }
+
   return (
     <>
       <Head>
@@ -162,6 +168,7 @@ export default function Home() {
 <Button onClick={() => addDocument(zip, city, latCoord, longCoord, state, stateAbbreviation)} className={styles.dbButtons}>db All</Button>
 <Button onClick={() => addZip(zip)} className={styles.dbButtons}>db Zip</Button>
 <Button onClick={() => addCity(city)} className={styles.dbButtons}>db City</Button>
+<Button onClick={() => addLat(latitude)} className={styles.dbButtons}>db Latitude</Button>
         <div style={{ display: 'flex', justifyContent: 'space-around' }}>
           <Button onClick={() => setZip(zipCode.zipcode)} className={styles.button}>
             <TagIcon fontSize="small" />&nbsp;
