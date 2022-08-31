@@ -59,7 +59,7 @@ export default function Home() {
     const [OppLong, setOppLong] = useState<number | undefined>();
 
     const auth = getAuth();
-    const [user, error] = useAuthState(getAuth());
+    const [user] = useAuthState(getAuth());
 
     onAuthStateChanged(auth, (user) => {
       if (user) {
