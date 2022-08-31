@@ -22,7 +22,6 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore, doc, getDocs, setDoc, deleteDoc, deleteField, updateDoc, collection, Timestamp } from 'firebase/firestore';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
-import Auth from '../components/Auth';
 import Dropdown from '../components/Dropdown';
 
 const clientCredential = {
@@ -249,7 +248,6 @@ export default function Home() {
         <h1>
           Where the Heck am I?{' '}
           {/* {user.displayName} */}
-          {/* {!user && <Auth />} */}
         </h1>
       </div>
       <Container maxWidth="lg" style={{ marginTop: '2%' }}>
