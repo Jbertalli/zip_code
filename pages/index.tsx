@@ -20,9 +20,9 @@ import AbbrClose from '../components/close_buttons/abbrClose';
 import firebase from '../firebase/clientApp';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, doc, getDocs, setDoc, deleteDoc, deleteField, updateDoc, collection, Timestamp } from 'firebase/firestore';
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { useAuthState } from "react-firebase-hooks/auth";
 import Auth from '../components/Auth';
+// import { getAuth, onAuthStateChanged } from "firebase/auth";
+// import { useAuthState } from "react-firebase-hooks/auth";
 
 const clientCredential = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -58,18 +58,18 @@ export default function Home() {
     const [OppLat, setOppLat] = useState<number | undefined>();
     const [OppLong, setOppLong] = useState<number | undefined>();
 
-    const auth = getAuth();
-    const [user] = useAuthState(getAuth());
+    // const auth = getAuth();
+    // const [user] = useAuthState(getAuth());
 
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-       console.log("Current user:", user);
-       console.log(user.displayName);
-        const uid = user.uid;
-      } else {
-        console.log("No user signed in");
-      }
-    });
+    // onAuthStateChanged(auth, (user) => {
+    //   if (user) {
+    //    console.log("Current user:", user);
+    //    console.log(user.displayName);
+    //     const uid = user.uid;
+    //   } else {
+    //     console.log("No user signed in");
+    //   }
+    // });
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition((position) => {

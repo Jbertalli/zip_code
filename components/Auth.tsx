@@ -20,10 +20,10 @@ function SignInScreen() {
 
     onAuthStateChanged(auth, (user) => {
       if (user) {
-       console.log("Current user:", user);
+       console.log("%c Current user:", "color: green", user);
         const uid = user.uid;
       } else {
-        console.log("No user signed in");
+        console.log("%c No user signed in", "color: red");
       }
     });
 
