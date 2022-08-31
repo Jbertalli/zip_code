@@ -20,7 +20,7 @@ function SignInScreen() {
     onAuthStateChanged(auth, (user) => {
       if (user) {
        console.log("%c Current user:", "color: green", user);
-        const uid = user.uid;
+        // const uid = user.uid;
       } else {
         console.log("%c No user signed in", "color: red");
       }
@@ -29,13 +29,15 @@ function SignInScreen() {
     const SignOut = () => {
         signOut(auth).then(() => {
             // Sign-out successful.
+            console.log("%c signed out", "color: red");
         }).catch((error) => {
             // An error happened.
+            console.log("Error", error);
         });
     }
     
     const user = auth.currentUser;
-    console.log(user);
+    // console.log(user);
 
     return (
       <>
