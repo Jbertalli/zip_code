@@ -19,7 +19,7 @@ import StateClose from '../components/close_buttons/stateClose';
 import AbbrClose from '../components/close_buttons/abbrClose';
 import firebase from '../firebase/clientApp';
 import { initializeApp } from 'firebase/app';
-import { getFirestore, doc, getDocs, setDoc, deleteDoc, deleteField, updateDoc, collection, Timestamp  } from 'firebase/firestore';
+import { getFirestore, doc, getDocs, setDoc, deleteDoc, deleteField, updateDoc, collection, Timestamp } from 'firebase/firestore';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const clientCredential = {
@@ -35,6 +35,10 @@ const clientCredential = {
 
 const app = initializeApp(clientCredential);
 const db = getFirestore();
+
+const auth = getAuth();
+const CurrentUser = auth.currentUser;
+// console.log(CurrentUser.displayName);
 
 const API_endpoint: string = process.env.API_ENDPOINT;
 const API_key: string = process.env.API_KEY;
@@ -238,7 +242,8 @@ export default function Home() {
       </Head>
       <div style={{ marginTop: '2%', display: 'flex', justifyContent: 'center' }}>
         <h1>
-          Where the Heck am I?
+          Where the Heck am I?{' '}
+          {/* {CurrentUser.displayName} */}
         </h1>
       </div>
       <Container maxWidth="lg" style={{ marginTop: '2%' }}>
