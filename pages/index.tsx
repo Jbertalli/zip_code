@@ -243,7 +243,7 @@ export default function Home() {
         <meta name="description" content="zip code" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Dropdown />
+      <Dropdown user={user} />
       <div style={{ marginTop: '2%', display: 'flex', justifyContent: 'center' }}>
         <h1>
           Where the Heck am I?{' '}
