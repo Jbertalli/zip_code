@@ -1,5 +1,4 @@
 import React from "react";
-import Head from 'next/head';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from '../firebase/clientApp';
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
@@ -40,11 +39,6 @@ function SignInScreen() {
 
     return (
       <>
-        <Head>
-            <title>Sign In</title>
-            <meta name="description" content="sign in" />
-            <link rel="icon" href="/favicon.ico" />
-        </Head>
         <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
             {!user ? (
             <>
