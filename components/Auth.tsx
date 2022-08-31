@@ -2,7 +2,9 @@ import React from "react";
 import Head from 'next/head';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from '../firebase/clientApp';
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import LogoutIcon from '@mui/icons-material/Logout';
+import Button from '@mui/material/Button';
 
 //Configure FirebaseUI
 const uiConfig = {
@@ -25,6 +27,17 @@ function SignInScreen() {
       }
     });
 
+    const SignOut = () => {
+        signOut(auth).then(() => {
+            // Sign-out successful.
+        }).catch((error) => {
+            // An error happened.
+        });
+    }
+    
+    const user = auth.currentUser;
+    console.log(user);
+
     return (
       <>
         <Head>
@@ -32,16 +45,41 @@ function SignInScreen() {
             <meta name="description" content="sign in" />
             <link rel="icon" href="/favicon.ico" />
         </Head>
-        <div
-            style={{
-            maxWidth: "320px",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            }}
-        >
-            <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={getAuth()} />
+        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+            {!user ? (
+            <>
+                <div
+                    style={{
+                    maxWidth: "320px",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    }}
+                >
+                    <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={getAuth()} />
+                </div>
+            </>
+            ):(
+            <>
+                <Button 
+                    onClick={SignOut} 
+                    style={{ 
+                        color: 'white', 
+                        fontSize: '14px', 
+                        fontWeight: 500, 
+                        background: 'red', 
+                        borderRadius: '2px', 
+                        width: '185px', 
+                        height: '40px', 
+                        margin: '10px',
+                        display: 'flex'
+                    }}>
+                    <LogoutIcon fontSize="small" />&nbsp;
+                    Log Out
+                </Button>
+            </>
+            )}
         </div>
       </>
     );
