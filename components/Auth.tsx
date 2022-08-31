@@ -41,8 +41,6 @@ function SignInScreen() {
             justifyContent: "center",
             }}
         >
-            <h3>Zip Code Login</h3>
-            <p>Please Sign-In:</p>
             <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={getAuth()} />
         </div>
       </>

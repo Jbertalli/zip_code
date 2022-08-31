@@ -23,6 +23,7 @@ import { getFirestore, doc, getDocs, setDoc, deleteDoc, deleteField, updateDoc, 
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Auth from '../components/Auth';
+import Dropdown from '../components/Dropdown';
 
 const clientCredential = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -243,11 +244,12 @@ export default function Home() {
         <meta name="description" content="zip code" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Dropdown />
       <div style={{ marginTop: '2%', display: 'flex', justifyContent: 'center' }}>
         <h1>
           Where the Heck am I?{' '}
-          {/* {CurrentUser.displayName} */}
-          {!user && <Auth />}
+          {/* {user.displayName} */}
+          {/* {!user && <Auth />} */}
         </h1>
       </div>
       <Container maxWidth="lg" style={{ marginTop: '2%' }}>
