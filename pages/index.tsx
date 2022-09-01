@@ -47,7 +47,7 @@ const API_endpoint: string = process.env.API_ENDPOINT;
 const API_key: string = process.env.API_KEY;
 
 // const LOCAL_STORAGE_KEY_ZIP = 'UserZip';
-const LOCAL_STORAGE_KEY_CITY = 'UserCity';
+// const LOCAL_STORAGE_KEY_CITY = 'UserCity';
 
 export default function Home() {
     const [latitude, setLatitude] = useState<number | undefined>();
@@ -141,15 +141,15 @@ export default function Home() {
     //   JSON.stringify(zip))
     // }, [zip]);
 
-    useEffect(() => {
-      const storedCity = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_CITY))
-      if (storedCity) setCity(storedCity)
-    }, [])
+    // useEffect(() => {
+    //   const storedCity = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_CITY))
+    //   if (storedCity) setCity(storedCity)
+    // }, [])
 
-    useEffect(() => {
-      localStorage.setItem(LOCAL_STORAGE_KEY_CITY, 
-      JSON.stringify(city))
-    }, [city]);
+    // useEffect(() => {
+    //   localStorage.setItem(LOCAL_STORAGE_KEY_CITY, 
+    //   JSON.stringify(city))
+    // }, [city]);
 
     // console.log(user.displayName);
 
@@ -268,7 +268,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Auth />
-      <Local setZip={setZip} zip={zip} />
+      <Local setZip={setZip} zip={zip} setCity={setCity} city={city} />
       <div style={{ marginTop: '2%', display: 'flex', justifyContent: 'center' }}>
         <h1>
           Where the Heck am I?{' '}
