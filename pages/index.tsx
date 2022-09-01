@@ -253,21 +253,24 @@ export default function Home() {
         </h1>
       </div>
       <Container maxWidth="lg" style={{ marginTop: '2%' }}>
-        <Button onClick={() => addDocument(zip, city, latCoord, longCoord, state, stateAbbreviation)} className={styles.dbButtons}>db All</Button>
-        <Button onClick={() => addZip(zip)} className={styles.dbButtons}>db Zip</Button>
-        <Button onClick={() => addCity(city)} className={styles.dbButtons}>db City</Button>
-        <Button onClick={() => addLat(latitude)} className={styles.dbButtons}>db Latitude</Button>
-        <Button onClick={() => addLong(longitude)} className={styles.dbButtons}>db Longitude</Button>
-        <Button onClick={() => addState(state)} className={styles.dbButtons}>db State</Button>
-        <Button onClick={() => addStateAbbr(stateAbbreviation)} className={styles.dbButtons}>db State Abbr</Button>
-
-        <Button onClick={() => deleteAll(zip, city, latCoord, longCoord, state, stateAbbreviation)} className={styles.clearButton}>Delete All</Button>
-        <Button onClick={() => deleteZip(zip)} className={styles.clearButton}>Delete Zip</Button>
-        <Button onClick={() => deleteCity(city)} className={styles.clearButton}>Delete City</Button>
-        <Button onClick={() => deleteLat(latitude)} className={styles.clearButton}>Delete Latitude</Button>
-        <Button onClick={() => deleteLong(longitude)} className={styles.clearButton}>Delete Longitude</Button>
-        <Button onClick={() => deleteState(state)} className={styles.clearButton}>Delete State</Button>
-        <Button onClick={() => deleteAbbr(stateAbbreviation)} className={styles.clearButton}>Delete State Abbr</Button>
+        <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+          <Button onClick={() => addZip(zip)} className={styles.dbButtons}>db Zip</Button>
+          <Button onClick={() => addCity(city)} className={styles.dbButtons}>db City</Button>
+          <Button onClick={() => addLat(latitude)} className={styles.dbButtons}>db Latitude</Button>
+          <Button onClick={() => addLong(longitude)} className={styles.dbButtons}>db Longitude</Button>
+          <Button onClick={() => addState(state)} className={styles.dbButtons}>db State</Button>
+          <Button onClick={() => addStateAbbr(stateAbbreviation)} className={styles.dbButtons}>db State Abbr</Button>
+          <Button onClick={() => addDocument(zip, city, latCoord, longCoord, state, stateAbbreviation)} className={styles.dbButtons}>db All</Button>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+          <Button onClick={() => deleteZip(zip)} className={styles.clearButton}>Delete Zip</Button>
+          <Button onClick={() => deleteCity(city)} className={styles.clearButton}>Delete City</Button>
+          <Button onClick={() => deleteLat(latitude)} className={styles.clearButton}>Delete Latitude</Button>
+          <Button onClick={() => deleteLong(longitude)} className={styles.clearButton}>Delete Longitude</Button>
+          <Button onClick={() => deleteState(state)} className={styles.clearButton}>Delete State</Button>
+          <Button onClick={() => deleteAbbr(stateAbbreviation)} className={styles.clearButton}>Delete State Abbr</Button>
+          <Button onClick={() => deleteAll(zip, city, latCoord, longCoord, state, stateAbbreviation)} className={styles.clearButton}>Delete All</Button>
+        </div>
         <div style={{ display: 'flex', justifyContent: 'space-around' }}>
           <Button onClick={() => setZip(zipCode.zipcode)} className={styles.button}>
             <TagIcon fontSize="small" />&nbsp;
@@ -293,10 +296,18 @@ export default function Home() {
             <PlaceIcon fontSize="small" style={{ transform: 'scale(0.7)'}} />&nbsp;
             State Abbreviation
           </Button>
-          <Button onClick={handleClear} className={styles.clearButton}>
+          {(zip && city && latCoord && longCoord && state && stateAbbreviation) ? (
+          <>
+            <Button onClick={handleClear} className={styles.clearButton}>
+              <ClearIcon fontSize="small" />&nbsp;
+              Clear all
+            </Button>
+          </>
+          ): null}
+          {/* <Button onClick={handleClear} className={styles.clearButton}>
             <ClearIcon fontSize="small" />&nbsp;
             Clear all
-          </Button>
+          </Button> */}
         </div>
         <div>
             <div>
