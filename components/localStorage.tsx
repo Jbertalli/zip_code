@@ -3,8 +3,9 @@ import React, { useEffect } from "react";
 const LOCAL_STORAGE_KEY_ZIP = 'UserZip';
 const LOCAL_STORAGE_KEY_CITY = 'UserCity';
 const LOCAL_STORAGE_KEY_LAT = 'UserLatitude';
+const LOCAL_STORAGE_KEY_LONG = 'UserLongitude';
 
-export default function Local({ setZip, zip, setCity, city, latCoord, setLatCoord }) {
+export default function Local({ setZip, zip, setCity, city, latCoord, setLatCoord, longCoord, setLongCoord }) {
 
     //zip
     useEffect(() => {
@@ -38,6 +39,17 @@ export default function Local({ setZip, zip, setCity, city, latCoord, setLatCoor
         localStorage.setItem(LOCAL_STORAGE_KEY_LAT, 
         JSON.stringify(latCoord))
       }, [latCoord]);
+
+      //longitude
+      useEffect(() => {
+        const storedLong = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_LONG))
+        if (storedLong) setLongCoord(storedLong)
+      }, [])
+  
+      useEffect(() => {
+        localStorage.setItem(LOCAL_STORAGE_KEY_LONG, 
+        JSON.stringify(longCoord))
+      }, [longCoord]);
 
     return (
         <>

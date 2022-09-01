@@ -245,7 +245,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Auth />
-      <Local setZip={setZip} zip={zip} setCity={setCity} city={city} latCoord={latCoord} setLatCoord={setLatCoord} />
+      <Local setZip={setZip} zip={zip} setCity={setCity} city={city} latCoord={latCoord} setLatCoord={setLatCoord} longCoord={longCoord} setLongCoord={setLongCoord} />
       <div style={{ marginTop: '2%', display: 'flex', justifyContent: 'center' }}>
         <h1>
           Where the Heck am I?{' '}
