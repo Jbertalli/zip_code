@@ -45,6 +45,8 @@ const db = getFirestore();
 const API_endpoint: string = process.env.API_ENDPOINT;
 const API_key: string = process.env.API_KEY;
 
+const LOCAL_STORAGE_KEY = 'UserInfo';
+
 export default function Home() {
     const [latitude, setLatitude] = useState<number | undefined>();
     const [longitude, setLongitude] = useState<number | undefined>();
@@ -125,7 +127,17 @@ export default function Home() {
     
     useEffect(() => {
       logged();
-    }, [])
+    }, []);
+
+    useEffect(() => {
+      const storedZip = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
+      if (storedZip) setZip(storedZip)
+    }, []);
+
+    useEffect(() => {
+      localStorage.setItem(LOCAL_STORAGE_KEY, 
+      JSON.stringify(zip))
+    }, [zip]);
 
     // console.log(user.displayName);
 
