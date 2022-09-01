@@ -4,8 +4,9 @@ const LOCAL_STORAGE_KEY_ZIP = 'UserZip';
 const LOCAL_STORAGE_KEY_CITY = 'UserCity';
 const LOCAL_STORAGE_KEY_LAT = 'UserLatitude';
 const LOCAL_STORAGE_KEY_LONG = 'UserLongitude';
+const LOCAL_STORAGE_KEY_STATE = 'UserState';
 
-export default function Local({ setZip, zip, setCity, city, latCoord, setLatCoord, longCoord, setLongCoord }) {
+export default function Local({ setZip, zip, setCity, city, latCoord, setLatCoord, longCoord, setLongCoord, state, setState }) {
 
     //zip
     useEffect(() => {
@@ -50,6 +51,17 @@ export default function Local({ setZip, zip, setCity, city, latCoord, setLatCoor
         localStorage.setItem(LOCAL_STORAGE_KEY_LONG, 
         JSON.stringify(longCoord))
       }, [longCoord]);
+
+      //state
+      useEffect(() => {
+        const storedState = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_STATE))
+        if (storedState) setState(storedState)
+      }, [])
+  
+      useEffect(() => {
+        localStorage.setItem(LOCAL_STORAGE_KEY_STATE, 
+        JSON.stringify(state))
+      }, [state]);
 
     return (
         <>
