@@ -22,8 +22,9 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore, doc, getDocs, setDoc, deleteDoc, deleteField, updateDoc, collection, Timestamp } from 'firebase/firestore';
 import Auth from '../components/Auth';
 // import { getAuth, onAuthStateChanged } from "firebase/auth";
-// import { useAuthState } from "react-firebase-hooks/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
 import Local from '../components/localStorage';
+import { getAuth } from '@firebase/auth';
 
 const clientCredential = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -59,8 +60,8 @@ export default function Home() {
     const [OppLat, setOppLat] = useState<number | undefined>();
     const [OppLong, setOppLong] = useState<number | undefined>();
 
-    // const auth = getAuth();
-    // const [user] = useAuthState(getAuth());
+    const auth = getAuth();
+    const [user] = useAuthState(getAuth());
 
     // onAuthStateChanged(auth, (user) => {
     //   if (user) {
@@ -249,6 +250,11 @@ export default function Home() {
       <div style={{ marginTop: '2%', display: 'flex', justifyContent: 'center' }}>
         <h1>
           Where the Heck am I?{' '}
+          {user ? (
+          <>
+            {user.displayName}
+          </>
+          ): null}
           {/* {user.displayName} */}
         </h1>
       </div>
@@ -304,10 +310,6 @@ export default function Home() {
             </Button>
           </>
           ): null}
-          {/* <Button onClick={handleClear} className={styles.clearButton}>
-            <ClearIcon fontSize="small" />&nbsp;
-            Clear all
-          </Button> */}
         </div>
         <div>
             <div>
