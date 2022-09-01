@@ -4,6 +4,8 @@ import usePlacesAutocomplete, { getGeocode, getLatLng } from "use-places-autocom
 import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption } from "@reach/combobox";
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import FlipCameraAndroidIcon from '@mui/icons-material/FlipCameraAndroid';
 import styles from '../styles/zip.module.css';
 
 const libraries: string[] = ["places"];
@@ -110,22 +112,48 @@ export default function Map({ latCoord, longCoord }): any {
 
 function Locate({ panTo }): any {
   return (
-    <Button
-      className={styles.button}
-      onClick={() => {
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            panTo({
-              lat: position.coords.latitude,
-              lng: position.coords.longitude,
-            });
-          },
-          () => null
-        );
-      }}
-    >
-      Location
-    </Button>
+    <>
+      <div>
+        <Button
+          className={styles.button}
+          onClick={() => {
+            navigator.geolocation.getCurrentPosition(
+              (position) => {
+                panTo({
+                  lat: position.coords.latitude,
+                  lng: position.coords.longitude,
+                });
+              },
+              () => null
+            );
+          }}
+        > 
+          <LocationOnIcon fontSize="small" />&nbsp;
+          Location
+        </Button>
+      </div>
+      {/* (parseFloat(position.coords.latitude) - (parseFloat(position.coords.latitude) * 2))
+      (parseFloat(position.coords.longitude) + 180); */}
+      <div>
+        <Button
+          className={styles.button}
+          onClick={() => {
+            navigator.geolocation.getCurrentPosition(
+              (position) => {
+                panTo({
+                  lat: (parseFloat(position.coords.latitude) - (parseFloat(position.coords.latitude) * 2)),
+                  lng: (parseFloat(position.coords.longitude) + 180),
+                });
+              },
+              () => null
+            );
+          }}
+        >
+          <FlipCameraAndroidIcon fontSize="small" />&nbsp;
+          Opposite
+        </Button>
+      </div>
+    </>
   );
 }
 
