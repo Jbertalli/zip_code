@@ -23,6 +23,7 @@ import { getFirestore, doc, getDocs, setDoc, deleteDoc, deleteField, updateDoc, 
 import Auth from '../components/Auth';
 // import { getAuth, onAuthStateChanged } from "firebase/auth";
 // import { useAuthState } from "react-firebase-hooks/auth";
+import Local from '../components/localStorage';
 
 const clientCredential = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -45,7 +46,7 @@ const db = getFirestore();
 const API_endpoint: string = process.env.API_ENDPOINT;
 const API_key: string = process.env.API_KEY;
 
-const LOCAL_STORAGE_KEY_ZIP = 'UserZip';
+// const LOCAL_STORAGE_KEY_ZIP = 'UserZip';
 const LOCAL_STORAGE_KEY_CITY = 'UserCity';
 
 export default function Home() {
@@ -130,15 +131,15 @@ export default function Home() {
       logged();
     }, []);
 
-    useEffect(() => {
-      const storedZip = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_ZIP))
-      if (storedZip) setZip(storedZip)
-    }, []);
+    // useEffect(() => {
+    //   const storedZip = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_ZIP))
+    //   if (storedZip) setZip(storedZip)
+    // }, []);
 
-    useEffect(() => {
-      localStorage.setItem(LOCAL_STORAGE_KEY_ZIP, 
-      JSON.stringify(zip))
-    }, [zip]);
+    // useEffect(() => {
+    //   localStorage.setItem(LOCAL_STORAGE_KEY_ZIP, 
+    //   JSON.stringify(zip))
+    // }, [zip]);
 
     useEffect(() => {
       const storedCity = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_CITY))
@@ -267,6 +268,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Auth />
+      <Local setZip={setZip} zip={zip} />
       <div style={{ marginTop: '2%', display: 'flex', justifyContent: 'center' }}>
         <h1>
           Where the Heck am I?{' '}
