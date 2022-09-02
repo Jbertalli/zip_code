@@ -31,27 +31,27 @@ export default function Local({ setZip, zip, setCity, city, latCoord, setLatCoor
         JSON.stringify(city))
       }, [city]);
 
-      //latitude
-      useEffect(() => {
-        const storedLat = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_LAT))
-        if (storedLat) setLatCoord(storedLat)
-      }, [])
+    //   //latitude
+    //   useEffect(() => {
+    //     const storedLat = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_LAT))
+    //     if (storedLat) setLatCoord(storedLat)
+    //   }, [])
   
-      useEffect(() => {
-        localStorage.setItem(LOCAL_STORAGE_KEY_LAT, 
-        JSON.stringify(latCoord))
-      }, [latCoord]);
+    //   useEffect(() => {
+    //     localStorage.setItem(LOCAL_STORAGE_KEY_LAT, 
+    //     JSON.stringify(latCoord))
+    //   }, [latCoord]);
 
-      //longitude
-      useEffect(() => {
-        const storedLong = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_LONG))
-        if (storedLong) setLongCoord(storedLong)
-      }, [])
+    //   //longitude
+    //   useEffect(() => {
+    //     const storedLong = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_LONG))
+    //     if (storedLong) setLongCoord(storedLong)
+    //   }, [])
   
-      useEffect(() => {
-        localStorage.setItem(LOCAL_STORAGE_KEY_LONG, 
-        JSON.stringify(longCoord))
-      }, [longCoord]);
+    //   useEffect(() => {
+    //     localStorage.setItem(LOCAL_STORAGE_KEY_LONG, 
+    //     JSON.stringify(longCoord))
+    //   }, [longCoord]);
 
       //state
       useEffect(() => {

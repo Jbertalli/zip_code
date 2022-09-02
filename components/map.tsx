@@ -129,11 +129,11 @@ function Locate({ panTo }): any {
           }}
         > 
           <LocationOnIcon fontSize="small" />&nbsp;
-          Location
+          Current Location
         </Button>
       </div>
       {/* (parseFloat(position.coords.latitude) - (parseFloat(position.coords.latitude) * 2))
-      (parseFloat(position.coords.longitude) + 180); */}
+      (parseFloat(position.coords.longitude) + 180) */}
       <div>
         <Button
           className={styles.button}
@@ -150,7 +150,7 @@ function Locate({ panTo }): any {
           }}
         >
           <FlipCameraAndroidIcon fontSize="small" />&nbsp;
-          Opposite
+          Opposite Location
         </Button>
       </div>
     </>
