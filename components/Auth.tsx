@@ -41,7 +41,7 @@ function SignInScreen() {
 
     return (
       <>
-        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+        <div style={{ display: 'flex', justifyContent: 'flex-end', transform: 'translateY(80px)' }}>
             {!user ? (
             <>
                 <div
