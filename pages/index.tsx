@@ -25,6 +25,7 @@ import Auth from '../components/Auth';
 import { useAuthState } from "react-firebase-hooks/auth";
 import Local from '../components/localStorage';
 import { getAuth } from '@firebase/auth';
+import SideMenu from '../components/SideMenu';
 
 const clientCredential = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -361,8 +362,8 @@ export default function Home() {
               &nbsp;
             </>
             )}
-            <h1>{OppLat}</h1>
-            <h1>{OppLong}</h1>
+            <div style={{ fontSize: '50px', fontWeight: '100' }}>{OppLat}</div>
+            <div style={{ fontSize: '50px', fontWeight: '100' }}>{OppLong}</div>
           </>
           ):(
           <>
@@ -371,9 +372,10 @@ export default function Home() {
           )}
         </div>
       </Container>
-      <Container>
+      <SideMenu />
+      <div style={{ transform: 'translateY(-530px)', position: 'relative', zIndex: '0' }}>
         <Map latCoord={latCoord} longCoord={longCoord} />
-      </Container>
+      </div>
     </>
   );
 }
