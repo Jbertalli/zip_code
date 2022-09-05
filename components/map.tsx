@@ -10,8 +10,8 @@ import styles from '../styles/zip.module.css';
 
 const libraries: string[] = ["places"];
 const mapContainerStyle = {
-  height: "80vh",
-  width: "80vw",
+  height: "100vh",
+  width: "100vw",
 };
 
 const options = {
