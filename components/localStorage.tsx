@@ -21,15 +21,15 @@ export default function Local({ setZip, zip, setCity, city, latCoord, setLatCoor
     //   }, [zip]);
 
       //city
-      useEffect(() => {
-        const storedCity = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_CITY))
-        if (storedCity) setCity(storedCity)
-      }, [])
+      // useEffect(() => {
+      //   const storedCity = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_CITY))
+      //   if (storedCity) setCity(storedCity)
+      // }, [])
   
-      useEffect(() => {
-        localStorage.setItem(LOCAL_STORAGE_KEY_CITY, 
-        JSON.stringify(city))
-      }, [city]);
+      // useEffect(() => {
+      //   localStorage.setItem(LOCAL_STORAGE_KEY_CITY, 
+      //   JSON.stringify(city))
+      // }, [city]);
 
     //   //latitude
     //   useEffect(() => {
@@ -54,26 +54,26 @@ export default function Local({ setZip, zip, setCity, city, latCoord, setLatCoor
     //   }, [longCoord]);
 
       //state
-      useEffect(() => {
-        const storedState = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_STATE))
-        if (storedState) setState(storedState)
-      }, [])
+      // useEffect(() => {
+      //   const storedState = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_STATE))
+      //   if (storedState) setState(storedState)
+      // }, [])
   
-      useEffect(() => {
-        localStorage.setItem(LOCAL_STORAGE_KEY_STATE, 
-        JSON.stringify(state))
-      }, [state]);
+      // useEffect(() => {
+      //   localStorage.setItem(LOCAL_STORAGE_KEY_STATE, 
+      //   JSON.stringify(state))
+      // }, [state]);
 
-      //state abbreviation
-      useEffect(() => {
-        const storedStateAbbr = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_STATE_ABBR))
-        if (storedStateAbbr) setStateAbbreviation(storedStateAbbr)
-      }, [])
+      // //state abbreviation
+      // useEffect(() => {
+      //   const storedStateAbbr = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_STATE_ABBR))
+      //   if (storedStateAbbr) setStateAbbreviation(storedStateAbbr)
+      // }, [])
   
-      useEffect(() => {
-        localStorage.setItem(LOCAL_STORAGE_KEY_STATE_ABBR, 
-        JSON.stringify(stateAbbreviation))
-      }, [stateAbbreviation]);
+      // useEffect(() => {
+      //   localStorage.setItem(LOCAL_STORAGE_KEY_STATE_ABBR, 
+      //   JSON.stringify(stateAbbreviation))
+      // }, [stateAbbreviation]);
 
     return (
         <>

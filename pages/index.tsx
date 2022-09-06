@@ -372,7 +372,7 @@ export default function Home() {
           )}
         </div>
       </Container>
-      <SideMenu setZip={setZip} zipCode={zipCode} />
+      <SideMenu setZip={setZip} setCity={setCity} zipCode={zipCode} />
       <div style={{ transform: 'translateY(-530px)', position: 'fixed', zIndex: '0' }}>
         <Map latCoord={latCoord} longCoord={longCoord} />
       </div>
