@@ -278,40 +278,14 @@ export default function Home() {
           <Button onClick={() => deleteAbbr(stateAbbreviation)} className={styles.clearButton}>Delete State Abbr</Button>
           <Button onClick={() => deleteAll(zip, city, latCoord, longCoord, state, stateAbbreviation)} className={styles.clearButton}>Delete All</Button>
         </div>
-        <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-          <Button onClick={() => setZip(zipCode.zipcode)} className={styles.button}>
-            <TagIcon fontSize="small" />&nbsp;
-            Zip Code
-          </Button>
-          <Button onClick={() => setCity(zipCode.city)} className={styles.button}>
-            <LocationCityIcon fontSize="small" />&nbsp;
-            City
-          </Button>
-          <Button onClick={() => setLatCoord(zipCode.latitude)} className={styles.button}>
-            <HeightIcon fontSize="small" style={{ transform: 'rotate(90deg)' }} />&nbsp;
-            Latitude
-          </Button>
-          <Button onClick={() => setLongCoord(zipCode.longitude)} className={styles.button}>
-            <HeightIcon fontSize="small" />&nbsp;
-            Longitude
-          </Button>
-          <Button onClick={() => setState(zipCode.state)} className={styles.button}>
-            <PlaceIcon fontSize="small" />&nbsp;
-            State
-          </Button>
-          <Button onClick={() => setStateAbbreviation(zipCode.state_abbr)} className={styles.button}>
-            <PlaceIcon fontSize="small" style={{ transform: 'scale(0.7)'}} />&nbsp;
-            State Abbreviation
-          </Button>
-          {(zip && city && latCoord && longCoord && state && stateAbbreviation) ? (
+          {/* {(zip && city && latCoord && longCoord && state && stateAbbreviation) ? (
           <>
             <Button onClick={handleClear} className={styles.clearButton}>
               <ClearIcon fontSize="small" />&nbsp;
               Clear all
             </Button>
           </>
-          ): null}
-        </div>
+          ): null} */}
         <div style={{ color: 'blue', position: 'absolute' }}>
             <div>
               <div style={{ fontSize: '50px', fontWeight: '100' }}>{zip}</div>
