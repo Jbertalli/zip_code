@@ -65,7 +65,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
-export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLongCoord, setState }) {
+export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLongCoord, setState, setStateAbbreviation }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -232,7 +232,7 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
                 </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
-                <ListItemButton>
+                <ListItemButton onClick={() => setStateAbbreviation(zipCode.state_abbr)} style={{ background: 'red' }}>
                     State Abbreviation
                 </ListItemButton>
             </ListItem>
