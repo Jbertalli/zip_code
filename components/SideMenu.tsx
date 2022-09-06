@@ -70,7 +70,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
-export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLongCoord, setState, setStateAbbreviation, handleClear, latCoord, longCoord, opposite, clearOpposite, OppLat, OppLong, zip, city, state, stateAbbreviation, addZip, deleteZip, addCity, deleteCity, addLat, latitude, deleteLat, addLong, longitude }) {
+export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLongCoord, setState, setStateAbbreviation, handleClear, latCoord, longCoord, opposite, clearOpposite, OppLat, OppLong, zip, city, state, stateAbbreviation, addZip, deleteZip, addCity, deleteCity, addLat, latitude, deleteLat, addLong, longitude, deleteLong }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -189,7 +189,7 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
                 </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
-                <ListItemButton>
+                <ListItemButton onClick={() => deleteLong(longitude)} style={{ background: 'blue' }}>
                     Delete Longitude
                 </ListItemButton>
             </ListItem>
