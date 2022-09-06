@@ -314,41 +314,12 @@ export default function Home() {
               <AbbrClose stateAbbreviation={stateAbbreviation} setStateAbbreviation={setStateAbbreviation} />
             </div>
         </div>
-        <div style={{ color: 'blue', position: 'absolute' }}>
-          {(latCoord && longCoord) ? (
-          <>
-            <Button
-              className={styles.button}
-              onClick={opposite}
-              style={{ marginRight: '20px' }}
-            >
-                Opposite
-            </Button>
-            {(OppLat && OppLong) ? (
-            <>
-              <Button
-                className={styles.clearButton}
-                onClick={clearOpposite}
-              >
-                Clear Opposite
-              </Button>
-            </>
-            ):(
-            <>
-              &nbsp;
-            </>
-            )}
-            <div style={{ fontSize: '50px', fontWeight: '100' }}>{OppLat}</div>
-            <div style={{ fontSize: '50px', fontWeight: '100' }}>{OppLong}</div>
-          </>
-          ):(
-          <>
-            &nbsp;
-          </>
-          )}
+        <div style={{ position: 'absolute', zIndex: '10', transform: 'translate(300px)' }}>
+          <div style={{ fontSize: '50px', fontWeight: '100', color: 'green' }}>{OppLat}</div>
+          <div style={{ fontSize: '50px', fontWeight: '100', color: 'green' }}>{OppLong}</div>
         </div>
       </Container>
-      <SideMenu zipCode={zipCode} setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} handleClear={handleClear} />
+      <SideMenu zipCode={zipCode} setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} handleClear={handleClear} latCoord={latCoord} longCoord={longCoord} opposite={opposite} clearOpposite={clearOpposite} OppLat={OppLat} OppLong={OppLong} />
       <div style={{ transform: 'translateY(-530px)', position: 'fixed', zIndex: '0' }}>
         <Map latCoord={latCoord} longCoord={longCoord} />
       </div>

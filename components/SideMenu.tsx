@@ -70,7 +70,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
-export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLongCoord, setState, setStateAbbreviation, handleClear }) {
+export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLongCoord, setState, setStateAbbreviation, handleClear, latCoord, longCoord, opposite, clearOpposite, OppLat, OppLong }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -256,16 +256,32 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
         </List>
         <Divider />
         <List>
-            <ListItem disablePadding>
-                <ListItemButton>
-                    Opposite Latitude
-                </ListItemButton>
-            </ListItem>
-            <ListItem disablePadding>
-                <ListItemButton>
-                    Opposite Longitude
-                </ListItemButton>
-            </ListItem>
+            {(latCoord && longCoord) ? (
+            <>
+                <ListItem disablePadding>
+                    <ListItemButton onClick={opposite} style={{ background: 'blue' }}>
+                        Opposite
+                    </ListItemButton>
+                </ListItem>
+                {(OppLat && OppLong) ? (
+                <>
+                    <ListItem disablePadding>
+                        <ListItemButton onClick={clearOpposite} style={{ background: 'blue' }}>
+                            Clear Opposite
+                        </ListItemButton>
+                    </ListItem>
+                </>
+                ):(
+                <>
+                    &nbsp;
+                </>
+                )}
+            </>
+            ):(
+            <>
+                &nbsp;
+            </>
+            )}
         </List>
       </Drawer>
     </Box>
