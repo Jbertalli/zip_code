@@ -2,7 +2,6 @@ import Head from 'next/head';
 import axios from 'axios';
 import React, { useEffect, useState} from 'react';
 import reverse from 'reverse-geocode';
-import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import styles from '../styles/zip.module.css';
 import Map from '../components/map';
@@ -244,7 +243,7 @@ export default function Home() {
       <div style={{ position: 'relative', zIndex: '10' }}>
         <Auth />
       </div>
-      <Local setZip={setZip} zip={zip} setCity={setCity} city={city} latCoord={latCoord} setLatCoord={setLatCoord} longCoord={longCoord} setLongCoord={setLongCoord} state={state} setState={setState} stateAbbreviation={stateAbbreviation} setStateAbbreviation={setStateAbbreviation} />
+      <Local setZip={setZip} zip={zip} setCity={setCity} city={city} latCoord={latCoord} setLatCoord={setLatCoord} longCoord={longCoord} setLongCoord={setLongCoord} state={state} setState={setState} stateAbbreviation={stateAbbreviation} setStateAbbreviation={setStateAbbreviation} OppLat={OppLat} OppLong={OppLong} setOppLat={setOppLat} setOppLong={setOppLong} />
       <div style={{ marginTop: '2%', display: 'flex', justifyContent: 'center', position: 'relative', zIndex: '10' }}>
         <div style={{ fontSize: '50px', fontWeight: '100' }}>
           Where the Heck am I?{' '}

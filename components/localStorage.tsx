@@ -6,8 +6,10 @@ const LOCAL_STORAGE_KEY_LAT = 'UserLatitude';
 const LOCAL_STORAGE_KEY_LON = 'UserLongitude';
 const LOCAL_STORAGE_KEY_STATE = 'UserState';
 const LOCAL_STORAGE_KEY_STATE_ABBR = 'UserStateAbbr';
+const LOCAL_STORAGE_KEY_OPPOSITE_LAT = 'UserOppositeLatitude';
+const LOCAL_STORAGE_KEY_OPPOSITE_LONG = 'UserOppositeLongitude';
 
-export default function Local({ setZip, zip, setCity, city, latCoord, setLatCoord, longCoord, setLongCoord, state, setState, stateAbbreviation, setStateAbbreviation }) {
+export default function Local({ setZip, zip, setCity, city, latCoord, setLatCoord, longCoord, setLongCoord, state, setState, stateAbbreviation, setStateAbbreviation, OppLat, OppLong, setOppLat, setOppLong }) {
 
   // zip
   useEffect(() => {
@@ -74,6 +76,19 @@ export default function Local({ setZip, zip, setCity, city, latCoord, setLatCoor
     localStorage.setItem(LOCAL_STORAGE_KEY_STATE_ABBR, 
     JSON.stringify(stateAbbreviation))
   }, [stateAbbreviation]);
+
+  // opposite latitude
+  useEffect(() => {
+    const storedOppLat = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_OPPOSITE_LAT))
+    if (storedOppLat) setOppLat(storedOppLat)
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY_OPPOSITE_LAT, 
+    JSON.stringify(OppLat))
+  }, [OppLat]);
+
+  // opposite longitude
 
   return (
     <>
