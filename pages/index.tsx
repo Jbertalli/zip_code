@@ -319,7 +319,7 @@ export default function Home() {
           <div style={{ fontSize: '50px', fontWeight: '100', color: 'green' }}>{OppLong}</div>
         </div>
       </Container>
-      <SideMenu zipCode={zipCode} setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} handleClear={handleClear} latCoord={latCoord} longCoord={longCoord} opposite={opposite} clearOpposite={clearOpposite} OppLat={OppLat} OppLong={OppLong} />
+      <SideMenu zipCode={zipCode} setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} handleClear={handleClear} latCoord={latCoord} longCoord={longCoord} opposite={opposite} clearOpposite={clearOpposite} OppLat={OppLat} OppLong={OppLong} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} />
       <div style={{ transform: 'translateY(-530px)', position: 'fixed', zIndex: '0' }}>
         <Map latCoord={latCoord} longCoord={longCoord} />
       </div>

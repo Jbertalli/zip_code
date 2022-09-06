@@ -70,7 +70,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
-export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLongCoord, setState, setStateAbbreviation, handleClear, latCoord, longCoord, opposite, clearOpposite, OppLat, OppLong }) {
+export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLongCoord, setState, setStateAbbreviation, handleClear, latCoord, longCoord, opposite, clearOpposite, OppLat, OppLong, zip, city, state, stateAbbreviation }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -247,12 +247,16 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
                     State Abbreviation
                 </ListItemButton>
             </ListItem>
-            <ListItem disablePadding>
-                <ListItemButton onClick={() => handleClear()} style={{ background: 'blue' }}>
-                    <ClearIcon fontSize="small" />&nbsp;
-                    All
-                </ListItemButton>
-            </ListItem>
+            {(zip && city && latCoord && longCoord && state && stateAbbreviation) ? (
+                <>
+                    <ListItem disablePadding>
+                        <ListItemButton onClick={() => handleClear()} style={{ background: 'blue' }}>
+                            <ClearIcon fontSize="small" />&nbsp;
+                            Clear All
+                        </ListItemButton>
+                    </ListItem>
+                </>
+            ): null}
         </List>
         <Divider />
         <List>
