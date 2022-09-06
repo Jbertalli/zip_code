@@ -62,51 +62,53 @@ export default function Map({ latCoord, longCoord }): any {
   if (!isLoaded) return "Loading...";
 
   return (
-    <Container maxWidth="xl" style={{ display: 'flex', justifyContent: 'center', marginBottom: '3%' }}>
-        <div>
-            <Locate panTo={panTo} />
-            <Search panTo={panTo} />
-        </div>
-      <GoogleMap
-        id="map"
-        mapContainerStyle={mapContainerStyle}
-        zoom={10}
-        center={center}
-        options={options}
-        onClick={onMapClick}
-        onLoad={onMapLoad}
-      >
-        {markers.map((marker) => (
-          <Marker
-            key={`${marker.lat}-${marker.lng}`}
-            position={{ lat: marker.lat, lng: marker.lng }}
-            onClick={() => {
-              setSelected(marker);
-            }}
-            icon={{
-              origin: new window.google.maps.Point(0, 0),
-              anchor: new window.google.maps.Point(15, 15),
-              scaledSize: new window.google.maps.Size(30, 30),
-            }}
-          />
-        ))}
+    <>
+      <div style={{ transform: 'translate(500px, 400px)', position: 'relative' }}>
+          <Locate panTo={panTo} />
+          <Search panTo={panTo} />
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <GoogleMap
+          id="map"
+          mapContainerStyle={mapContainerStyle}
+          zoom={10}
+          center={center}
+          options={options}
+          onClick={onMapClick}
+          onLoad={onMapLoad}
+        >
+          {markers.map((marker) => (
+            <Marker
+              key={`${marker.lat}-${marker.lng}`}
+              position={{ lat: marker.lat, lng: marker.lng }}
+              onClick={() => {
+                setSelected(marker);
+              }}
+              icon={{
+                origin: new window.google.maps.Point(0, 0),
+                anchor: new window.google.maps.Point(15, 15),
+                scaledSize: new window.google.maps.Size(30, 30),
+              }}
+            />
+          ))}
 
-        {selected ? (
-          <InfoWindow
-            position={{ lat: selected.lat, lng: selected.lng }}
-            onCloseClick={() => {
-              setSelected(null);
-            }}
-          >
-            <div>
-              <h2>
-                Dropped Pin
-              </h2>
-            </div>
-          </InfoWindow>
-        ) : null}
-      </GoogleMap>
-    </Container>
+          {selected ? (
+            <InfoWindow
+              position={{ lat: selected.lat, lng: selected.lng }}
+              onCloseClick={() => {
+                setSelected(null);
+              }}
+            >
+              <div>
+                <h2>
+                  Dropped Pin
+                </h2>
+              </div>
+            </InfoWindow>
+          ) : null}
+        </GoogleMap>
+      </div>
+    </>
   );
 }
 

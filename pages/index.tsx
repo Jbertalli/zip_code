@@ -259,7 +259,7 @@ export default function Home() {
           {/* {user.displayName} */}
         </h1>
       </div>
-      <Container maxWidth="lg" style={{ marginTop: '2%' }}>
+      <Container maxWidth="lg" style={{ marginTop: '2%', position: 'relative', zIndex: '10' }}>
         <div style={{ display: 'flex', justifyContent: 'space-around' }}>
           <Button onClick={() => addZip(zip)} className={styles.dbButtons}>db Zip</Button>
           <Button onClick={() => addCity(city)} className={styles.dbButtons}>db City</Button>
@@ -312,33 +312,33 @@ export default function Home() {
           </>
           ): null}
         </div>
-        <div>
+        <div style={{ color: 'blue', position: 'absolute' }}>
             <div>
-              <h1>{zip}</h1>
+              <div style={{ fontSize: '50px', fontWeight: '100' }}>{zip}</div>
               <ZipClose zip={zip} setZip={setZip} />
             </div>
             <div>
-              <h1>{city}</h1>
+              <div style={{ fontSize: '50px', fontWeight: '100' }}>{city}</div>
               <CityClose city={city} setCity={setCity} />
             </div>
             <div>
-              <h1>{latCoord}</h1>
+              <div style={{ fontSize: '50px', fontWeight: '100' }}>{latCoord}</div>
               <LatClose latCoord={latCoord} setLatCoord={setLatCoord} />
             </div>
             <div>
-              <h1>{longCoord}</h1>
+              <div style={{ fontSize: '50px', fontWeight: '100' }}>{longCoord}</div>
               <LongClose longCoord={longCoord} setLongCoord={setLongCoord} />
             </div>
             <div>
-              <h1>{state}</h1>
+              <div style={{ fontSize: '50px', fontWeight: '100' }}>{state}</div>
               <StateClose state={state} setState={setState} />
             </div>
             <div>
-              <h1>{stateAbbreviation}</h1>
+              <div style={{ fontSize: '50px', fontWeight: '100' }}>{stateAbbreviation}</div>
               <AbbrClose stateAbbreviation={stateAbbreviation} setStateAbbreviation={setStateAbbreviation} />
             </div>
         </div>
-        <div>
+        <div style={{ color: 'blue', position: 'absolute' }}>
           {(latCoord && longCoord) ? (
           <>
             <Button
@@ -372,8 +372,8 @@ export default function Home() {
           )}
         </div>
       </Container>
-      <SideMenu />
-      <div style={{ transform: 'translateY(-530px)', position: 'relative', zIndex: '0' }}>
+      <SideMenu setZip={setZip} zipCode={zipCode} />
+      <div style={{ transform: 'translateY(-530px)', position: 'fixed', zIndex: '0' }}>
         <Map latCoord={latCoord} longCoord={longCoord} />
       </div>
     </>

@@ -10,15 +10,15 @@ const LOCAL_STORAGE_KEY_STATE_ABBR = 'UserStateAbbr';
 export default function Local({ setZip, zip, setCity, city, latCoord, setLatCoord, longCoord, setLongCoord, state, setState, stateAbbreviation, setStateAbbreviation }) {
 
     //zip
-    useEffect(() => {
-        const storedZip = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_ZIP))
-        if (storedZip) setZip(storedZip)
-      }, []);
+    // useEffect(() => {
+    //     const storedZip = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_ZIP))
+    //     if (storedZip) setZip(storedZip)
+    //   }, []);
   
-      useEffect(() => {
-        localStorage.setItem(LOCAL_STORAGE_KEY_ZIP, 
-        JSON.stringify(zip))
-      }, [zip]);
+    //   useEffect(() => {
+    //     localStorage.setItem(LOCAL_STORAGE_KEY_ZIP, 
+    //     JSON.stringify(zip))
+    //   }, [zip]);
 
       //city
       useEffect(() => {

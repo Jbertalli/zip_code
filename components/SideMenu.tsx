@@ -61,7 +61,6 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   padding: theme.spacing(0, 1),
-                                                                        // necessary for content to be below app bar
   ...theme.mixins.toolbar,
   justifyContent: 'flex-end',
 }));
@@ -113,7 +112,7 @@ export default function SideMenu({ setZip, zipCode }) {
         open={open}
       >
         <DrawerHeader>
-          <IconButton onClick={handleDrawerClose} style={{ color: 'red' }}>
+          <IconButton onClick={handleDrawerClose} style={{ color: 'white' }}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </DrawerHeader>
@@ -168,18 +167,6 @@ export default function SideMenu({ setZip, zipCode }) {
             </ListItem>
         </List>
         <Divider />
-        {/* <List>
-          {['Delete Zip', 'Delete City', 'Delete Latitude', 'Delete Longitude', 'Delete State', 'Delete State Abbreviation', 'Delete All'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List> */}
         <List>
             <ListItem disablePadding>
                 <ListItemButton>
@@ -218,21 +205,9 @@ export default function SideMenu({ setZip, zipCode }) {
             </ListItem>
         </List>
         <Divider />
-        {/* <List>
-          {['Zip', 'City', 'Latitude', 'Longitude', 'State', 'State Abbreviation', 'All'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List> */}
         <List>
             <ListItem disablePadding>
-                <ListItemButton>
+                <ListItemButton onClick={() => setZip(zipCode.zipcode)} style={{ background: 'red' }}>
                     Zip
                 </ListItemButton>
             </ListItem>
