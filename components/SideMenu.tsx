@@ -70,7 +70,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
-export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLongCoord, setState, setStateAbbreviation, handleClear, latCoord, longCoord, opposite, clearOpposite, OppLat, OppLong, zip, city, state, stateAbbreviation, addZip }) {
+export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLongCoord, setState, setStateAbbreviation, handleClear, latCoord, longCoord, opposite, clearOpposite, OppLat, OppLong, zip, city, state, stateAbbreviation, addZip, deleteZip }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -174,7 +174,7 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
         <Divider />
         <List>
             <ListItem disablePadding>
-                <ListItemButton>
+                <ListItemButton onClick={() => deleteZip(zip)} style={{ background: 'blue' }}>
                     Delete Zip
                 </ListItemButton>
             </ListItem>
