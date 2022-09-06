@@ -4,11 +4,6 @@ import React, { useEffect, useState} from 'react';
 import reverse from 'reverse-geocode';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
-import LocationCityIcon from '@mui/icons-material/LocationCity';
-import TagIcon from '@mui/icons-material/Tag';
-import HeightIcon from '@mui/icons-material/Height';
-import PlaceIcon from '@mui/icons-material/Place';
-import ClearIcon from '@mui/icons-material/Clear';
 import styles from '../styles/zip.module.css';
 import Map from '../components/map';
 import ZipClose from '../components/close_buttons/zipClose';
@@ -311,7 +306,7 @@ export default function Home() {
           <div style={{ fontSize: '50px', fontWeight: '100', color: 'green' }}>{OppLong}</div>
         </div>
       </Container>
-      <SideMenu zipCode={zipCode} setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} handleClear={handleClear} latCoord={latCoord} longCoord={longCoord} opposite={opposite} clearOpposite={clearOpposite} OppLat={OppLat} OppLong={OppLong} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} />
+      <SideMenu zipCode={zipCode} setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} handleClear={handleClear} latCoord={latCoord} longCoord={longCoord} opposite={opposite} clearOpposite={clearOpposite} OppLat={OppLat} OppLong={OppLong} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} addZip={addZip} />
       <div style={{ transform: 'translateY(-530px)', position: 'fixed', zIndex: '0' }}>
         <Map latCoord={latCoord} longCoord={longCoord} />
       </div>
