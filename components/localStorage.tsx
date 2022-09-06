@@ -6,8 +6,8 @@ const LOCAL_STORAGE_KEY_LAT = 'UserLatitude';
 const LOCAL_STORAGE_KEY_LON = 'UserLongitude';
 const LOCAL_STORAGE_KEY_STATE = 'UserState';
 const LOCAL_STORAGE_KEY_STATE_ABBR = 'UserStateAbbr';
-const LOCAL_STORAGE_KEY_OPPOSITE_LAT = 'UserOppositeLatitude';
-const LOCAL_STORAGE_KEY_OPPOSITE_LONG = 'UserOppositeLongitude';
+// const LOCAL_STORAGE_KEY_OPPOSITE = 'OppositeLatitude';
+// const LOCAL_STORAGE_KEY_OPPOSITE1 = 'OppositeLongitude';
 
 export default function Local({ setZip, zip, setCity, city, latCoord, setLatCoord, longCoord, setLongCoord, state, setState, stateAbbreviation, setStateAbbreviation, OppLat, OppLong, setOppLat, setOppLong }) {
 
@@ -77,18 +77,27 @@ export default function Local({ setZip, zip, setCity, city, latCoord, setLatCoor
     JSON.stringify(stateAbbreviation))
   }, [stateAbbreviation]);
 
-  // opposite latitude
-  useEffect(() => {
-    const storedOppLat = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_OPPOSITE_LAT))
-    if (storedOppLat) setOppLat(storedOppLat)
-  }, [])
+  // // opposite latitude
+  // useEffect(() => {
+  //   const storedOppLat = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_OPPOSITE))
+  //   if (storedOppLat) setOppLat(storedOppLat)
+  // }, [])
 
-  useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_KEY_OPPOSITE_LAT, 
-    JSON.stringify(OppLat))
-  }, [OppLat]);
+  // useEffect(() => {
+  //   localStorage.setItem(LOCAL_STORAGE_KEY_OPPOSITE, 
+  //   JSON.stringify(OppLat))
+  // }, [OppLat]);
 
-  // opposite longitude
+  // // opposite longitude
+  // useEffect(() => {
+  //   const storedOppLong = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_OPPOSITE1))
+  //   if (storedOppLong) setOppLong(storedOppLong)
+  // }, [])
+
+  // useEffect(() => {
+  //   localStorage.setItem(LOCAL_STORAGE_KEY_OPPOSITE1, 
+  //   JSON.stringify(OppLong))
+  // }, [OppLong]);
 
   return (
     <>

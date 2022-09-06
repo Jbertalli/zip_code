@@ -17,6 +17,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import Database from '../components/Database';
 import Delete from '../components/Delete';
 import UI_Buttons from '../components/UI_Buttons';
+import GetLocation from '../components/GetLocation';
 
 const drawerWidth = 300;
 
@@ -132,6 +133,8 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
             </ListItem>
           ))}
         </List> */}
+        <GetLocation />
+        <Divider />
         <Database latCoord={latCoord} longCoord={longCoord} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} addZip={addZip} addCity={addCity} addLat={addLat} latitude={latitude} addLong={addLong} longitude={longitude} addState={addState} addStateAbbr={addStateAbbr} addDocument={addDocument} />
         <Divider />
         <Delete latCoord={latCoord} longCoord={longCoord} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} deleteZip={deleteZip} deleteCity={deleteCity} latitude={latitude} deleteLat={deleteLat} longitude={longitude} deleteLong={deleteLong} deleteState={deleteState} deleteAbbr={deleteAbbr} deleteAll={deleteAll} />

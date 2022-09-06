@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useRef } from "react";
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api";
-import usePlacesAutocomplete, { getGeocode, getLatLng } from "use-places-autocomplete";
-import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption } from "@reach/combobox";
+// import usePlacesAutocomplete, { getGeocode, getLatLng } from "use-places-autocomplete";
+// import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption } from "@reach/combobox";
 import Button from '@mui/material/Button';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import FlipCameraAndroidIcon from '@mui/icons-material/FlipCameraAndroid';
@@ -64,7 +64,7 @@ export default function Map({ latCoord, longCoord }): any {
     <>
       <div style={{ transform: 'translate(500px, 800px)', position: 'relative', zIndex: '10' }}>
           <Locate panTo={panTo} />
-          <Search panTo={panTo} />
+          {/* <Search panTo={panTo} /> */}
       </div>
       <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(230px)' }}>
         <GoogleMap
@@ -158,55 +158,55 @@ function Locate({ panTo }): any {
   );
 }
 
-function Search({ panTo }): any {
-  const {
-    ready,
-    value,
-    suggestions: { status, data },
-    setValue,
-    clearSuggestions,
-  } = usePlacesAutocomplete({
-    requestOptions: {
-      location: { lat: () => 40.73, lng: () => -73.93 },
-      radius: 100 * 1000,
-    },
-  });
+// function Search({ panTo }): any {
+//   const {
+//     ready,
+//     value,
+//     suggestions: { status, data },
+//     setValue,
+//     clearSuggestions,
+//   } = usePlacesAutocomplete({
+//     requestOptions: {
+//       location: { lat: () => 40.73, lng: () => -73.93 },
+//       radius: 100 * 1000,
+//     },
+//   });
 
-  const handleInput = (e): void => {
-    setValue(e.target.value);
-  };
+//   const handleInput = (e): void => {
+//     setValue(e.target.value);
+//   };
 
-  const handleSelect = async (address) => {
-    setValue(address, false);
-    clearSuggestions();
+//   const handleSelect = async (address) => {
+//     setValue(address, false);
+//     clearSuggestions();
 
-    try {
-      const results = await getGeocode({ address });
-      const { lat, lng } = await getLatLng(results[0]);
-      panTo({ lat, lng });
-    } catch (error) {
-      console.log("Error: ", error);
-    }
-  };
+//     try {
+//       const results = await getGeocode({ address });
+//       const { lat, lng } = await getLatLng(results[0]);
+//       panTo({ lat, lng });
+//     } catch (error) {
+//       console.log("Error: ", error);
+//     }
+//   };
 
-  return (
-    <div>
-      <Combobox onSelect={handleSelect}>
-        <ComboboxInput
-          value={value}
-          onChange={handleInput}
-          disabled={!ready}
-          placeholder="Search your location"
-        />
-        <ComboboxPopover>
-          <ComboboxList>
-            {status === "OK" &&
-              data.map(({ id, description }) => (
-                <ComboboxOption key={id} value={description} />
-              ))}
-          </ComboboxList>
-        </ComboboxPopover>
-      </Combobox>
-    </div>
-  );
-}
+//   return (
+//     <div>
+//       <Combobox onSelect={handleSelect}>
+//         <ComboboxInput
+//           value={value}
+//           onChange={handleInput}
+//           disabled={!ready}
+//           placeholder="Search your location"
+//         />
+//         <ComboboxPopover>
+//           <ComboboxList>
+//             {status === "OK" &&
+//               data.map(({ id, description }) => (
+//                 <ComboboxOption key={id} value={description} />
+//               ))}
+//           </ComboboxList>
+//         </ComboboxPopover>
+//       </Combobox>
+//     </div>
+//   );
+// }

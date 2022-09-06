@@ -231,7 +231,7 @@ export default function Home() {
       await updateDoc(abbrRef, {
         State_Abbreviation: deleteField()
       })
-    } 
+    }
 
   return (
     <>
@@ -257,30 +257,30 @@ export default function Home() {
       </div>
       <Container maxWidth="lg" style={{ marginTop: '2%', position: 'relative', zIndex: '10' }}>
         <div style={{ color: 'blue', position: 'absolute' }}>
-            <div>
-              <div style={{ fontSize: '50px', fontWeight: '100' }}>{zip}</div>
-              <ZipClose zip={zip} setZip={setZip} />
-            </div>
-            <div>
-              <div style={{ fontSize: '50px', fontWeight: '100' }}>{city}</div>
-              <CityClose city={city} setCity={setCity} />
-            </div>
-            <div>
-              <div style={{ fontSize: '50px', fontWeight: '100' }}>{latCoord}</div>
-              <LatClose latCoord={latCoord} setLatCoord={setLatCoord} />
-            </div>
-            <div>
-              <div style={{ fontSize: '50px', fontWeight: '100' }}>{longCoord}</div>
-              <LongClose longCoord={longCoord} setLongCoord={setLongCoord} />
-            </div>
-            <div>
-              <div style={{ fontSize: '50px', fontWeight: '100' }}>{state}</div>
-              <StateClose state={state} setState={setState} />
-            </div>
-            <div>
-              <div style={{ fontSize: '50px', fontWeight: '100' }}>{stateAbbreviation}</div>
-              <AbbrClose stateAbbreviation={stateAbbreviation} setStateAbbreviation={setStateAbbreviation} />
-            </div>
+          <div>
+            <div style={{ fontSize: '50px', fontWeight: '100' }}>{zip}</div>
+            <ZipClose zip={zip} setZip={setZip} />
+          </div>
+          <div>
+            <div style={{ fontSize: '50px', fontWeight: '100' }}>{city}</div>
+            <CityClose city={city} setCity={setCity} />
+          </div>
+          <div>
+            <div style={{ fontSize: '50px', fontWeight: '100' }}>{latCoord}</div>
+            <LatClose latCoord={latCoord} setLatCoord={setLatCoord} />
+          </div>
+          <div>
+            <div style={{ fontSize: '50px', fontWeight: '100' }}>{longCoord}</div>
+            <LongClose longCoord={longCoord} setLongCoord={setLongCoord} />
+          </div>
+          <div>
+            <div style={{ fontSize: '50px', fontWeight: '100' }}>{state}</div>
+            <StateClose state={state} setState={setState} />
+          </div>
+          <div>
+            <div style={{ fontSize: '50px', fontWeight: '100' }}>{stateAbbreviation}</div>
+            <AbbrClose stateAbbreviation={stateAbbreviation} setStateAbbreviation={setStateAbbreviation} />
+          </div>
         </div>
         <div style={{ position: 'absolute', zIndex: '10', transform: 'translate(300px)' }}>
           <div style={{ fontSize: '50px', fontWeight: '100', color: 'green' }}>{OppLat}</div>
