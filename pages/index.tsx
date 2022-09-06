@@ -263,7 +263,7 @@ export default function Home() {
           {/* <Button onClick={() => addLat(latitude)} className={styles.dbButtons}>db Latitude</Button> */}
           {/* <Button onClick={() => addLong(longitude)} className={styles.dbButtons}>db Longitude</Button> */}
           {/* <Button onClick={() => addState(state)} className={styles.dbButtons}>db State</Button> */}
-          <Button onClick={() => addStateAbbr(stateAbbreviation)} className={styles.dbButtons}>db State Abbr</Button>
+          {/* <Button onClick={() => addStateAbbr(stateAbbreviation)} className={styles.dbButtons}>db State Abbr</Button> */}
           <Button onClick={() => addDocument(zip, city, latCoord, longCoord, state, stateAbbreviation)} className={styles.dbButtons}>db All</Button>
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-around' }}>
@@ -272,7 +272,7 @@ export default function Home() {
           {/* <Button onClick={() => deleteLat(latitude)} className={styles.clearButton}>Delete Latitude</Button> */}
           {/* <Button onClick={() => deleteLong(longitude)} className={styles.clearButton}>Delete Longitude</Button> */}
           {/* <Button onClick={() => deleteState(state)} className={styles.clearButton}>Delete State</Button> */}
-          <Button onClick={() => deleteAbbr(stateAbbreviation)} className={styles.clearButton}>Delete State Abbr</Button>
+          {/* <Button onClick={() => deleteAbbr(stateAbbreviation)} className={styles.clearButton}>Delete State Abbr</Button> */}
           <Button onClick={() => deleteAll(zip, city, latCoord, longCoord, state, stateAbbreviation)} className={styles.clearButton}>Delete All</Button>
         </div>
         <div style={{ color: 'blue', position: 'absolute' }}>
@@ -306,7 +306,7 @@ export default function Home() {
           <div style={{ fontSize: '50px', fontWeight: '100', color: 'green' }}>{OppLong}</div>
         </div>
       </Container>
-      <SideMenu zipCode={zipCode} setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} handleClear={handleClear} latCoord={latCoord} longCoord={longCoord} opposite={opposite} clearOpposite={clearOpposite} OppLat={OppLat} OppLong={OppLong} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} addZip={addZip} deleteZip={deleteZip} addCity={addCity} deleteCity={deleteCity} addLat={addLat} latitude={latitude} deleteLat={deleteLat} addLong={addLong} longitude={longitude} deleteLong={deleteLong} addState={addState} deleteState={deleteState} addStateAbbr={addStateAbbr} />
+      <SideMenu zipCode={zipCode} setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} handleClear={handleClear} latCoord={latCoord} longCoord={longCoord} opposite={opposite} clearOpposite={clearOpposite} OppLat={OppLat} OppLong={OppLong} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} addZip={addZip} deleteZip={deleteZip} addCity={addCity} deleteCity={deleteCity} addLat={addLat} latitude={latitude} deleteLat={deleteLat} addLong={addLong} longitude={longitude} deleteLong={deleteLong} addState={addState} deleteState={deleteState} addStateAbbr={addStateAbbr} deleteAbbr={deleteAbbr} />
       <div style={{ transform: 'translateY(-530px)', position: 'fixed', zIndex: '0' }}>
         <Map latCoord={latCoord} longCoord={longCoord} />
       </div>
