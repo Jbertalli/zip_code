@@ -65,7 +65,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
-export default function SideMenu({ zipCode, setZip, setCity, setLatCoord }) {
+export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLongCoord }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -222,7 +222,7 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord }) {
                 </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
-                <ListItemButton>
+                <ListItemButton onClick={() => setLongCoord(zipCode.latitude)} style={{ background: 'red' }}>
                     Longitude
                 </ListItemButton>
             </ListItem>
