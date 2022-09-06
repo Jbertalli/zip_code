@@ -66,7 +66,7 @@ export default function Map({ latCoord, longCoord }): any {
           <Locate panTo={panTo} />
           <Search panTo={panTo} />
       </div>
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(230px)' }}>
         <GoogleMap
           id="map"
           mapContainerStyle={mapContainerStyle}

@@ -19,6 +19,7 @@ import TagIcon from '@mui/icons-material/Tag';
 import HeightIcon from '@mui/icons-material/Height';
 import PlaceIcon from '@mui/icons-material/Place';
 import ClearIcon from '@mui/icons-material/Clear';
+import Delete from '../components/Delete';
 
 const drawerWidth = 300;
 
@@ -172,7 +173,8 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
             </ListItem>
         </List>
         <Divider />
-        <List>
+        <Delete latCoord={latCoord} longCoord={longCoord} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} deleteZip={deleteZip} deleteCity={deleteCity} latitude={latitude} deleteLat={deleteLat} longitude={longitude} deleteLong={deleteLong} deleteState={deleteState} deleteAbbr={deleteAbbr} deleteAll={deleteAll} />
+        {/* <List>
             <ListItem disablePadding>
                 <ListItemButton onClick={() => deleteZip(zip)}>
                     Delete Zip
@@ -208,7 +210,7 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
                     Delete All
                 </ListItemButton>
             </ListItem>
-        </List>
+        </List> */}
         <Divider />
         <List>
             <ListItem disablePadding>
