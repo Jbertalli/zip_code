@@ -19,6 +19,7 @@ import TagIcon from '@mui/icons-material/Tag';
 import HeightIcon from '@mui/icons-material/Height';
 import PlaceIcon from '@mui/icons-material/Place';
 import ClearIcon from '@mui/icons-material/Clear';
+import Database from '../components/Database';
 import Delete from '../components/Delete';
 
 const drawerWidth = 300;
@@ -135,7 +136,8 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
             </ListItem>
           ))}
         </List> */}
-        <List>
+        <Database latCoord={latCoord} longCoord={longCoord} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} addZip={addZip} addCity={addCity} addLat={addLat} latitude={latitude} addLong={addLong} longitude={longitude} addState={addState} addStateAbbr={addStateAbbr} addDocument={addDocument} />
+        {/* <List>
             <ListItem disablePadding>
                 <ListItemButton onClick={() => addZip(zip)}>
                     DB Zip
@@ -171,7 +173,7 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
                     DB All
                 </ListItemButton>
             </ListItem>
-        </List>
+        </List> */}
         <Divider />
         <Delete latCoord={latCoord} longCoord={longCoord} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} deleteZip={deleteZip} deleteCity={deleteCity} latitude={latitude} deleteLat={deleteLat} longitude={longitude} deleteLong={deleteLong} deleteState={deleteState} deleteAbbr={deleteAbbr} deleteAll={deleteAll} />
         {/* <List>
