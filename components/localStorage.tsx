@@ -6,8 +6,8 @@ const LOCAL_STORAGE_KEY_LAT = 'UserLatitude';
 const LOCAL_STORAGE_KEY_LON = 'UserLongitude';
 const LOCAL_STORAGE_KEY_STATE = 'UserState';
 const LOCAL_STORAGE_KEY_STATE_ABBR = 'UserStateAbbr';
-// const LOCAL_STORAGE_KEY_OPPOSITE = 'OppositeLatitude';
-// const LOCAL_STORAGE_KEY_OPPOSITE1 = 'OppositeLongitude';
+const LOCAL_STORAGE_KEY_OPPOSITE = 'OppositeLat';
+const LOCAL_STORAGE_KEY_OPPOSITE1 = 'OppositeLong';
 
 export default function Local({ setZip, zip, setCity, city, latCoord, setLatCoord, longCoord, setLongCoord, state, setState, stateAbbreviation, setStateAbbreviation, OppLat, OppLong, setOppLat, setOppLong }) {
 
