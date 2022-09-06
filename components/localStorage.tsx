@@ -83,10 +83,10 @@ export default function Local({ setZip, zip, setCity, city, latCoord, setLatCoor
   //   if (storedOppLat) setOppLat(storedOppLat)
   // }, [])
 
-  // useEffect(() => {
-  //   localStorage.setItem(LOCAL_STORAGE_KEY_OPPOSITE, 
-  //   JSON.stringify(OppLat))
-  // }, [OppLat]);
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY_OPPOSITE, 
+    JSON.stringify(OppLat))
+  }, [OppLat]);
 
   // // opposite longitude
   // useEffect(() => {
@@ -94,10 +94,10 @@ export default function Local({ setZip, zip, setCity, city, latCoord, setLatCoor
   //   if (storedOppLong) setOppLong(storedOppLong)
   // }, [])
 
-  // useEffect(() => {
-  //   localStorage.setItem(LOCAL_STORAGE_KEY_OPPOSITE1, 
-  //   JSON.stringify(OppLong))
-  // }, [OppLong]);
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY_OPPOSITE1, 
+    JSON.stringify(OppLong))
+  }, [OppLong]);
 
   return (
     <>

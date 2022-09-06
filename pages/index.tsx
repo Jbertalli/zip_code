@@ -244,7 +244,7 @@ export default function Home() {
         <Auth />
       </div>
       <Local setZip={setZip} zip={zip} setCity={setCity} city={city} latCoord={latCoord} setLatCoord={setLatCoord} longCoord={longCoord} setLongCoord={setLongCoord} state={state} setState={setState} stateAbbreviation={stateAbbreviation} setStateAbbreviation={setStateAbbreviation} OppLat={OppLat} OppLong={OppLong} setOppLat={setOppLat} setOppLong={setOppLong} />
-      <div style={{ marginTop: '2%', display: 'flex', justifyContent: 'center', position: 'relative', zIndex: '10000', transform: 'translateY(-122px)' }}>
+      <div style={{ marginTop: '2%', display: 'flex', justifyContent: 'center', position: 'relative', zIndex: '10000', transform: 'translateY(0px)' }}>
         <div style={{ fontSize: '50px', fontWeight: '100' }}>
           Where the Heck am I?{' '}
           {user ? (
