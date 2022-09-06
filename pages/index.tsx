@@ -280,14 +280,6 @@ export default function Home() {
           <Button onClick={() => deleteAbbr(stateAbbreviation)} className={styles.clearButton}>Delete State Abbr</Button>
           <Button onClick={() => deleteAll(zip, city, latCoord, longCoord, state, stateAbbreviation)} className={styles.clearButton}>Delete All</Button>
         </div>
-          {/* {(zip && city && latCoord && longCoord && state && stateAbbreviation) ? (
-          <>
-            <Button onClick={handleClear} className={styles.clearButton}>
-              <ClearIcon fontSize="small" />&nbsp;
-              Clear all
-            </Button>
-          </>
-          ): null} */}
         <div style={{ color: 'blue', position: 'absolute' }}>
             <div>
               <div style={{ fontSize: '50px', fontWeight: '100' }}>{zip}</div>

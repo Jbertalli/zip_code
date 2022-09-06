@@ -2,7 +2,6 @@ import React, { useState, useCallback, useRef } from "react";
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api";
 import usePlacesAutocomplete, { getGeocode, getLatLng } from "use-places-autocomplete";
 import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption } from "@reach/combobox";
-import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import FlipCameraAndroidIcon from '@mui/icons-material/FlipCameraAndroid';
@@ -63,7 +62,7 @@ export default function Map({ latCoord, longCoord }): any {
 
   return (
     <>
-      <div style={{ transform: 'translate(500px, 400px)', position: 'relative' }}>
+      <div style={{ transform: 'translate(500px, 800px)', position: 'relative', zIndex: '10' }}>
           <Locate panTo={panTo} />
           <Search panTo={panTo} />
       </div>
