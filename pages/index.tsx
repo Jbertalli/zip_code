@@ -246,10 +246,12 @@ export default function Home() {
         <meta name="description" content="zip code" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Auth />
+      <div style={{ position: 'relative', zIndex: '10' }}>
+        <Auth />
+      </div>
       <Local setZip={setZip} zip={zip} setCity={setCity} city={city} latCoord={latCoord} setLatCoord={setLatCoord} longCoord={longCoord} setLongCoord={setLongCoord} state={state} setState={setState} stateAbbreviation={stateAbbreviation} setStateAbbreviation={setStateAbbreviation} />
-      <div style={{ marginTop: '2%', display: 'flex', justifyContent: 'center' }}>
-        <h1>
+      <div style={{ marginTop: '2%', display: 'flex', justifyContent: 'center', position: 'relative', zIndex: '10' }}>
+        <div style={{ fontSize: '50px', fontWeight: '100' }}>
           Where the Heck am I?{' '}
           {user ? (
           <>
@@ -257,7 +259,7 @@ export default function Home() {
           </>
           ): null}
           {/* {user.displayName} */}
-        </h1>
+        </div>
       </div>
       <Container maxWidth="lg" style={{ marginTop: '2%', position: 'relative', zIndex: '10' }}>
         <div style={{ display: 'flex', justifyContent: 'space-around' }}>

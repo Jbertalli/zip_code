@@ -212,43 +212,43 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
         <Divider />
         <List>
             <ListItem disablePadding>
-                <ListItemButton onClick={() => setZip(zipCode.zipcode)} style={{ background: 'red' }}>
+                <ListItemButton onClick={() => setZip(zipCode.zipcode)} style={{ background: 'blue' }}>
                     <TagIcon fontSize="small" />&nbsp;
                     Zip
                 </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
-                <ListItemButton onClick={() => setCity(zipCode.city)} style={{ background: 'red' }}>
+                <ListItemButton onClick={() => setCity(zipCode.city)} style={{ background: 'blue' }}>
                     <LocationCityIcon fontSize="small" />&nbsp;
                     City
                 </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
-                <ListItemButton onClick={() => setLatCoord(zipCode.latitude)} style={{ background: 'red' }}>
+                <ListItemButton onClick={() => setLatCoord(zipCode.latitude)} style={{ background: 'blue' }}>
                     <HeightIcon fontSize="small" style={{ transform: 'rotate(90deg)' }} />&nbsp;
                     Latitude
                 </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
-                <ListItemButton onClick={() => setLongCoord(zipCode.longitude)} style={{ background: 'red' }}>
+                <ListItemButton onClick={() => setLongCoord(zipCode.longitude)} style={{ background: 'blue' }}>
                     <HeightIcon fontSize="small" />&nbsp;
                     Longitude
                 </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
-                <ListItemButton onClick={() => setState(zipCode.state)} style={{ background: 'red' }}>
+                <ListItemButton onClick={() => setState(zipCode.state)} style={{ background: 'blue' }}>
                     <PlaceIcon fontSize="small" />&nbsp;
                     State
                 </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
-                <ListItemButton onClick={() => setStateAbbreviation(zipCode.state_abbr)} style={{ background: 'red' }}>
+                <ListItemButton onClick={() => setStateAbbreviation(zipCode.state_abbr)} style={{ background: 'blue' }}>
                     <PlaceIcon fontSize="small" style={{ transform: 'scale(0.7)'}} />&nbsp;
                     State Abbreviation
                 </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
-                <ListItemButton onClick={() => handleClear()} style={{ background: 'red' }}>
+                <ListItemButton onClick={() => handleClear()} style={{ background: 'blue' }}>
                     <ClearIcon fontSize="small" />&nbsp;
                     All
                 </ListItemButton>
@@ -268,13 +268,6 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
             </ListItem>
         </List>
       </Drawer>
-      <Main open={open}>
-        <DrawerHeader />
-        <Typography paragraph>
-        </Typography>
-        <Typography paragraph>
-        </Typography>
-      </Main>
     </Box>
   );
 }
