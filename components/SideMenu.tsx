@@ -135,7 +135,7 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
         </List> */}
         <GetLocation />
         <Divider />
-        <Database latCoord={latCoord} longCoord={longCoord} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} addZip={addZip} addCity={addCity} addLat={addLat} latitude={latitude} addLong={addLong} longitude={longitude} addState={addState} addStateAbbr={addStateAbbr} addDocument={addDocument} />
+        <Database latCoord={latCoord} longCoord={longCoord} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} addZip={addZip} addCity={addCity} addLat={addLat} latitude={latitude} addLong={addLong} longitude={longitude} addState={addState} addStateAbbr={addStateAbbr} addDocument={addDocument} deleteZip={deleteZip} />
         <Divider />
         <Delete latCoord={latCoord} longCoord={longCoord} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} deleteZip={deleteZip} deleteCity={deleteCity} latitude={latitude} deleteLat={deleteLat} longitude={longitude} deleteLong={deleteLong} deleteState={deleteState} deleteAbbr={deleteAbbr} deleteAll={deleteAll} />
         <Divider />

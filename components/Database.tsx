@@ -2,9 +2,27 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 
-export default function Database({ latCoord, longCoord, zip, city, state, stateAbbreviation, addZip, addCity, addLat, latitude, addLong, longitude, addState, addStateAbbr, addDocument }) {
+export default function Database({ latCoord, longCoord, zip, city, state, stateAbbreviation, addZip, addCity, addLat, latitude, addLong, longitude, addState, addStateAbbr, addDocument, deleteZip }) {
+    
     return (
         <List>
+            {/* { ? (
+            <>
+                <ListItem disablePadding>
+                    <ListItemButton onClick={() => {addZip(zip), setZipClicked(false)}}>
+                        DB Zip
+                    </ListItemButton>
+                </ListItem>
+            </>
+            ):(
+            <>
+                <ListItem disablePadding>
+                    <ListItemButton onClick={() => {deleteZip(zip), setZipClicked(true)}}>
+                        Delete Zip
+                    </ListItemButton>
+                </ListItem>
+            </>
+            )} */}
             <ListItem disablePadding>
                 <ListItemButton onClick={() => addZip(zip)}>
                     DB Zip
