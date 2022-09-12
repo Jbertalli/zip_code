@@ -1,9 +1,8 @@
 import Head from 'next/head';
 import axios from 'axios';
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import reverse from 'reverse-geocode';
 import Container from '@mui/material/Container';
-import styles from '../styles/zip.module.css';
 import Map from '../components/map';
 import ZipClose from '../components/close_buttons/zipClose';
 import CityClose from '../components/close_buttons/cityClose';
@@ -20,6 +19,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import Local from '../components/localStorage';
 import { getAuth } from '@firebase/auth';
 import SideMenu from '../components/SideMenu';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const clientCredential = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -56,7 +56,7 @@ export default function Home() {
     const [OppLong, setOppLong] = useState<number | undefined>();
 
     const auth = getAuth();
-    const [user] = useAuthState(getAuth());
+    const [user, loading] = useAuthState(getAuth());
 
     // onAuthStateChanged(auth, (user) => {
     //   if (user) {
@@ -243,6 +243,16 @@ export default function Home() {
       <div style={{ position: 'relative', zIndex: '10' }}>
         <Auth />
       </div>
+      {loading && 
+          <div style={{ display: 'flex', justifyContent: 'center', fontSize: '50px', fontWeight: '100', position: 'absolute', zIndex: '100' }}>
+            <div style={{ transform: 'translateY(-10px)' }}>
+              Loading...
+            </div>
+            <div style={{  transform: 'scale(2.5)' }}>
+              <CircularProgress />
+            </div>
+          </div>
+        }
       <Local setZip={setZip} zip={zip} setCity={setCity} city={city} latCoord={latCoord} setLatCoord={setLatCoord} longCoord={longCoord} setLongCoord={setLongCoord} state={state} setState={setState} stateAbbreviation={stateAbbreviation} setStateAbbreviation={setStateAbbreviation} OppLat={OppLat} OppLong={OppLong} setOppLat={setOppLat} setOppLong={setOppLong} />
       <div style={{ marginTop: '2%', display: 'flex', justifyContent: 'center', position: 'relative', zIndex: '10000', transform: 'translateY(0px)' }}>
         <div style={{ fontSize: '50px', fontWeight: '100' }}>
