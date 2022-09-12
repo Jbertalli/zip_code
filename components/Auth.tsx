@@ -68,25 +68,26 @@ function SignInScreen() {
                 >
                     <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={getAuth()} />
                 </div>
-                <div style={{ transform: 'translate(-600px, 0px)' }}>
+                <div style={{ transform: 'translate(-209px, 66px)' }}>
                   <Button onClick={signInWithGoogle} 
                     style={{ 
                         background: '#FFFFFF', 
-                        position: 'absolute', 
-                        paddingLeft: '50px', 
+                        position: 'absolute',
                         borderRadius: '2px', 
+                        paddingLeft: '46px',
                         border: '.5px solid #80808099', 
                         color: 'black',
                         width: '185px',
                         height: '40px',
                         fontSize: '14px', 
                         fontWeight: '500',
+                        textTransform: 'none',
                     }}
                   >
                     <div 
                         className={styles.google} 
                         style={{ 
-                            transform: 'translate(-100px, -40px) scale(0.07)', 
+                            transform: 'translate(-86px, -41px) scale(0.07)', 
                             position: 'absolute', 
                             marginTop: '82px' 
                         }} 
