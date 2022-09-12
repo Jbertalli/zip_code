@@ -18,6 +18,9 @@ import Database from '../components/Database';
 import Delete from '../components/Delete';
 import UI_Buttons from '../components/UI_Buttons';
 import GetLocation from '../components/GetLocation';
+import { useAuthState } from "react-firebase-hooks/auth";
+import { getAuth } from '@firebase/auth';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const drawerWidth = 300;
 
@@ -81,6 +84,9 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
     setOpen(false);
   };
 
+  const auth = getAuth();
+  const [user, loading] = useAuthState(getAuth());
+
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -100,6 +106,18 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
           </Typography>
         </Toolbar>
       </AppBar>
+      <div>
+      {loading && 
+          <div style={{ display: 'flex', justifyContent: 'center', fontSize: '50px', fontWeight: '100', position: 'absolute', zIndex: '100' }}>
+            <div style={{ transform: 'translateY(-10px)' }}>
+              Loading...
+            </div>
+            <div style={{  transform: 'scale(2.5)' }}>
+              <CircularProgress />
+            </div>
+          </div>
+        }
+      </div>
       <Drawer
         sx={{
           width: drawerWidth,
