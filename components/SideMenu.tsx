@@ -88,106 +88,93 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
   const [user, loading] = useAuthState(getAuth());
 
   return (
-    <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
-      <AppBar position="fixed" open={open} style={{ background: '#313e4c', color: 'white' }}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{ mr: 2, ...(open && { display: 'none' }) }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Dashboard
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <div>
-      {loading && 
-          <div style={{ display: 'flex', justifyContent: 'center', fontSize: '50px', fontWeight: '100', position: 'absolute', zIndex: '100' }}>
-            <div style={{ transform: 'translateY(-10px)' }}>
-              Loading...
-            </div>
-            <div style={{  transform: 'scale(2.5)' }}>
-              <CircularProgress />
-            </div>
-          </div>
-        }
-      </div>
-      <Drawer
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          '& .MuiDrawer-paper': {
-            width: drawerWidth,
-            boxSizing: 'border-box',
-            background: '#313e4c',
-            color: 'white'
-          },
-        }}
-        variant="persistent"
-        anchor="left"
-        open={open}
-      >
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose} style={{ color: 'white' }}>
-            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-          </IconButton>
-        </DrawerHeader>
-        <Divider />
-        {/* <List>
-          {['DB Zip', 'DB City', 'DB Latitude', 'DB Longitude', 'DB State', 'DB State Abbreviation', 'DB All'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List> */}
-        <GetLocation />
-        <Divider />
-        <Database latCoord={latCoord} longCoord={longCoord} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} addZip={addZip} addCity={addCity} addLat={addLat} latitude={latitude} addLong={addLong} longitude={longitude} addState={addState} addStateAbbr={addStateAbbr} addDocument={addDocument} deleteZip={deleteZip} />
-        <Divider />
-        <Delete latCoord={latCoord} longCoord={longCoord} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} deleteZip={deleteZip} deleteCity={deleteCity} latitude={latitude} deleteLat={deleteLat} longitude={longitude} deleteLong={deleteLong} deleteState={deleteState} deleteAbbr={deleteAbbr} deleteAll={deleteAll} />
-        <Divider />
-        <UI_Buttons zipCode={zipCode} setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} handleClear={handleClear} latCoord={latCoord} longCoord={longCoord} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} />
-        <Divider />
-        <List>
-            {(latCoord && longCoord) ? (
-            <>
-                <ListItem disablePadding>
-                    <ListItemButton onClick={opposite}>
-                        Opposite
-                    </ListItemButton>
-                </ListItem>
-                {(OppLat && OppLong) ? (
-                <>
-                    <ListItem disablePadding>
-                        <ListItemButton onClick={clearOpposite}>
-                            Clear Opposite
-                        </ListItemButton>
-                    </ListItem>
-                </>
-                ):(
-                <>
-                    &nbsp;
-                </>
-                )}
-            </>
-            ):(
-            <>
-                &nbsp;
-            </>
-            )}
-        </List>
-      </Drawer>
-    </Box>
+    <>
+        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+            {loading &&
+                <div style={{ position: 'absolute', zIndex: '10000', transform: 'scale(0.8) translateY(10px)', top: '5px' }}>
+                    <CircularProgress />
+                </div>
+            }
+        </div>
+        <Box sx={{ display: 'flex' }}>
+            <CssBaseline />
+            <AppBar position="fixed" open={open} style={{ background: '#313e4c', color: 'white' }}>
+                <Toolbar>
+                <IconButton
+                    color="inherit"
+                    aria-label="open drawer"
+                    onClick={handleDrawerOpen}
+                    edge="start"
+                    sx={{ mr: 2, ...(open && { display: 'none' }) }}
+                >
+                    <MenuIcon />
+                </IconButton>
+                <Typography variant="h6" noWrap component="div">
+                    <div style={{ fontSize: '25px', fontWeight: '100' }}>
+                        Dashboard
+                    </div>
+                </Typography>
+                </Toolbar>
+            </AppBar>
+            <Drawer
+                sx={{
+                width: drawerWidth,
+                flexShrink: 0,
+                '& .MuiDrawer-paper': {
+                    width: drawerWidth,
+                    boxSizing: 'border-box',
+                    background: '#313e4c',
+                    color: 'white'
+                },
+                }}
+                variant="persistent"
+                anchor="left"
+                open={open}
+            >
+                <DrawerHeader>
+                    <IconButton onClick={handleDrawerClose} style={{ color: 'white' }}>
+                        {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+                    </IconButton>
+                </DrawerHeader>
+                <Divider />
+                <GetLocation />
+                <Divider />
+                <Database latCoord={latCoord} longCoord={longCoord} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} addZip={addZip} addCity={addCity} addLat={addLat} latitude={latitude} addLong={addLong} longitude={longitude} addState={addState} addStateAbbr={addStateAbbr} addDocument={addDocument} deleteZip={deleteZip} />
+                <Divider />
+                <Delete latCoord={latCoord} longCoord={longCoord} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} deleteZip={deleteZip} deleteCity={deleteCity} latitude={latitude} deleteLat={deleteLat} longitude={longitude} deleteLong={deleteLong} deleteState={deleteState} deleteAbbr={deleteAbbr} deleteAll={deleteAll} />
+                <Divider />
+                <UI_Buttons zipCode={zipCode} setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} handleClear={handleClear} latCoord={latCoord} longCoord={longCoord} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} />
+                <Divider />
+                <List>
+                    {(latCoord && longCoord) ? (
+                    <>
+                        <ListItem disablePadding>
+                            <ListItemButton onClick={opposite}>
+                                Opposite
+                            </ListItemButton>
+                        </ListItem>
+                        {(OppLat && OppLong) ? (
+                        <>
+                            <ListItem disablePadding>
+                                <ListItemButton onClick={clearOpposite}>
+                                    Clear Opposite
+                                </ListItemButton>
+                            </ListItem>
+                        </>
+                        ):(
+                        <>
+                            &nbsp;
+                        </>
+                        )}
+                    </>
+                    ):(
+                    <>
+                        &nbsp;
+                    </>
+                    )}
+                </List>
+            </Drawer>
+        </Box>
+    </>
   );
 }
