@@ -1,7 +1,7 @@
 import React from "react";
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from '../firebase/clientApp';
-import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, onAuthStateChanged, signOut, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import LogoutIcon from '@mui/icons-material/Logout';
 import Button from '@mui/material/Button';
 
@@ -39,6 +39,18 @@ function SignInScreen() {
     const user = auth.currentUser;
     // console.log(user);
 
+    const signInWithGoogle = () => {
+        const provider = new GoogleAuthProvider();
+        signInWithPopup(auth, provider)
+        .then((re) => {
+            console.log(re);
+            // router.push('/');
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    }
+
     return (
       <>
         <div style={{ display: 'flex', justifyContent: 'flex-end', transform: 'translateY(80px)' }}>
@@ -55,6 +67,9 @@ function SignInScreen() {
                 >
                     <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={getAuth()} />
                 </div>
+                <Button onClick={signInWithGoogle}>
+                    Google Login
+                </Button>
             </>
             ):(
             <>
