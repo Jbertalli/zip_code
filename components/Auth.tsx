@@ -4,6 +4,7 @@ import firebase from '../firebase/clientApp';
 import { getAuth, onAuthStateChanged, signOut, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import LogoutIcon from '@mui/icons-material/Logout';
 import Button from '@mui/material/Button';
+import styles from '../styles/zip.module.css';
 
 //Configure FirebaseUI
 const uiConfig = {
@@ -58,18 +59,41 @@ function SignInScreen() {
             <>
                 <div
                     style={{
-                    maxWidth: "320px",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "center",
+                        maxWidth: "320px",
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        justifyContent: "center",
                     }}
                 >
                     <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={getAuth()} />
                 </div>
-                <Button onClick={signInWithGoogle}>
-                    Google Login
-                </Button>
+                <div style={{ transform: 'translate(-600px, 0px)' }}>
+                  <Button onClick={signInWithGoogle} 
+                    style={{ 
+                        background: '#FFFFFF', 
+                        position: 'absolute', 
+                        paddingLeft: '50px', 
+                        borderRadius: '2px', 
+                        border: '.5px solid #80808099', 
+                        color: 'black',
+                        width: '185px',
+                        height: '40px',
+                        fontSize: '14px', 
+                        fontWeight: '500',
+                    }}
+                  >
+                    <div 
+                        className={styles.google} 
+                        style={{ 
+                            transform: 'translate(-100px, -40px) scale(0.07)', 
+                            position: 'absolute', 
+                            marginTop: '82px' 
+                        }} 
+                    />
+                    Sign in with Google
+                  </Button>
+                </div>
             </>
             ):(
             <>
@@ -78,7 +102,7 @@ function SignInScreen() {
                     style={{ 
                         color: 'white', 
                         fontSize: '14px', 
-                        fontWeight: 500, 
+                        fontWeight: '500', 
                         background: 'red', 
                         borderRadius: '2px', 
                         width: '185px', 
