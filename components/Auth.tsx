@@ -2,6 +2,7 @@ import React from "react";
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from '../firebase/clientApp';
 import { getAuth, onAuthStateChanged, signOut, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { setPersistence, browserSessionPersistence } from '@firebase/auth';
 import LogoutIcon from '@mui/icons-material/Logout';
 import Button from '@mui/material/Button';
 import styles from '../styles/zip.module.css';
@@ -41,6 +42,7 @@ function SignInScreen() {
     // console.log(user);
 
     const signInWithGoogle = () => {
+        setPersistence(auth, browserSessionPersistence)
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
         .then((re) => {
@@ -68,11 +70,12 @@ function SignInScreen() {
                 >
                     <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={getAuth()} />
                 </div>
-                <div style={{ transform: 'translate(-209px, 66px)' }}>
+                <div style={{ transform: 'translate(-209px, 116px)' }}>
                   <Button onClick={signInWithGoogle} 
                     style={{ 
                         background: '#FFFFFF', 
                         position: 'absolute',
+                        zIndex: '100000',
                         borderRadius: '2px', 
                         paddingLeft: '46px',
                         border: '.5px solid #80808099', 
