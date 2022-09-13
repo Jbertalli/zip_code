@@ -51,8 +51,8 @@ export default function Home() {
     const [longCoord, setLongCoord] = useState('');
     const [state, setState] = useState('');
     const [stateAbbreviation, setStateAbbreviation] = useState('');
-    const [OppLat, setOppLat] = useState<number | undefined>();
-    const [OppLong, setOppLong] = useState<number | undefined>();
+    const [OppLat, setOppLat] = useState('');
+    const [OppLong, setOppLong] = useState('');
 
     const auth = getAuth();
     const [user] = useAuthState(getAuth());
