@@ -42,17 +42,17 @@ const API_endpoint: string = process.env.API_ENDPOINT;
 const API_key: string = process.env.API_KEY;
 
 export default function Home() {
-    const [latitude, setLatitude] = useState<number | undefined>();
-    const [longitude, setLongitude] = useState<number | undefined>();
+    const [latitude, setLatitude] = useState<number>();
+    const [longitude, setLongitude] = useState<number>();
     const [responseData, setResponseData] = useState({});
-    const [zip, setZip] = useState('');
-    const [city, setCity] = useState('');
-    const [latCoord, setLatCoord] = useState('');
-    const [longCoord, setLongCoord] = useState('');
-    const [state, setState] = useState('');
-    const [stateAbbreviation, setStateAbbreviation] = useState('');
-    const [OppLat, setOppLat] = useState('');
-    const [OppLong, setOppLong] = useState('');
+    const [zip, setZip] = useState<string>('');
+    const [city, setCity] = useState<string>('');
+    const [latCoord, setLatCoord] = useState<string>('');
+    const [longCoord, setLongCoord] = useState<string>('');
+    const [state, setState] = useState<string>('');
+    const [stateAbbreviation, setStateAbbreviation] = useState<string>('');
+    const [OppLat, setOppLat] = useState<string>('');
+    const [OppLong, setOppLong] = useState<string>('');
 
     const auth = getAuth();
     const [user] = useAuthState(getAuth());
