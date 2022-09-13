@@ -136,13 +136,21 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
                         {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
                     </IconButton>
                 </DrawerHeader>
-                <Divider />
+                    <Divider />
                 <GetLocation />
-                <Divider />
-                <Database latCoord={latCoord} longCoord={longCoord} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} addZip={addZip} addCity={addCity} addLat={addLat} latitude={latitude} addLong={addLong} longitude={longitude} addState={addState} addStateAbbr={addStateAbbr} addDocument={addDocument} deleteZip={deleteZip} />
-                <Divider />
-                <Delete latCoord={latCoord} longCoord={longCoord} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} deleteZip={deleteZip} deleteCity={deleteCity} latitude={latitude} deleteLat={deleteLat} longitude={longitude} deleteLong={deleteLong} deleteState={deleteState} deleteAbbr={deleteAbbr} deleteAll={deleteAll} />
-                <Divider />
+                    <Divider />
+                {user ? (
+                <>
+                    <Database latCoord={latCoord} longCoord={longCoord} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} addZip={addZip} addCity={addCity} addLat={addLat} latitude={latitude} addLong={addLong} longitude={longitude} addState={addState} addStateAbbr={addStateAbbr} addDocument={addDocument} deleteZip={deleteZip} />
+                        <Divider />
+                    <Delete latCoord={latCoord} longCoord={longCoord} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} deleteZip={deleteZip} deleteCity={deleteCity} latitude={latitude} deleteLat={deleteLat} longitude={longitude} deleteLong={deleteLong} deleteState={deleteState} deleteAbbr={deleteAbbr} deleteAll={deleteAll} />
+                        <Divider />
+                </>
+                ):(
+                <>
+                    &nbsp;
+                </>
+                )}
                 <UI_Buttons zipCode={zipCode} setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} handleClear={handleClear} latCoord={latCoord} longCoord={longCoord} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} />
                 <Divider />
                 <List>

@@ -42,7 +42,7 @@ function SignInScreen() {
     // console.log(user);
 
     const signInWithGoogle = () => {
-        setPersistence(auth, browserSessionPersistence)
+        setPersistence(auth, browserSessionPersistence);
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
         .then((re) => {
