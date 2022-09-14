@@ -290,6 +290,13 @@ export default function Home() {
               <CityClose city={city} setCity={setCity} />
             </div>
             <div>
+              <div style={{ color: 'white', fontSize: '15px', transform: 'translateY(10px)' }}>
+                {(latCoord.length > 0) ? (
+                <>
+                  Latitude
+                </>
+                ): null}
+              </div>
               <div>{latCoord}</div>
               <LatClose latCoord={latCoord} setLatCoord={setLatCoord} />
             </div>
