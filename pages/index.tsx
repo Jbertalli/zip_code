@@ -248,44 +248,44 @@ export default function Home() {
       <Local setZip={setZip} zip={zip} setCity={setCity} city={city} latCoord={latCoord} setLatCoord={setLatCoord} longCoord={longCoord} setLongCoord={setLongCoord} state={state} setState={setState} stateAbbreviation={stateAbbreviation} setStateAbbreviation={setStateAbbreviation} OppLat={OppLat} OppLong={OppLong} setOppLat={setOppLat} setOppLong={setOppLong} />
       <Container maxWidth="lg" style={{ marginTop: '2%', position: 'relative', zIndex: '10' }}>
         <Draggable>
-          <div style={{ color: 'blue', position: 'absolute', background: 'rgb(255, 255, 255, 0.8)', cursor: 'move' }}>
+          <div style={{ color: 'blue', position: 'absolute', background: 'rgb(255, 255, 255, 0.8)', cursor: 'move', fontSize: '50px', fontWeight: '100' }}>
             <div style={{ color: 'blue', display: 'flex', justifyContent: 'center' }}>
               Drag into position
             </div>
             <div>
-              <div style={{ fontSize: '50px', fontWeight: '100' }}>{zip}</div>
+              <div>{zip}</div>
               <ZipClose zip={zip} setZip={setZip} />
             </div>
             <div>
-              <div style={{ fontSize: '50px', fontWeight: '100' }}>{city}</div>
+              <div>{city}</div>
               <CityClose city={city} setCity={setCity} />
             </div>
             <div>
-              <div style={{ fontSize: '50px', fontWeight: '100' }}>{latCoord}</div>
+              <div>{latCoord}</div>
               <LatClose latCoord={latCoord} setLatCoord={setLatCoord} />
             </div>
             <div>
-              <div style={{ fontSize: '50px', fontWeight: '100' }}>{longCoord}</div>
+              <div>{longCoord}</div>
               <LongClose longCoord={longCoord} setLongCoord={setLongCoord} />
             </div>
             <div>
-              <div style={{ fontSize: '50px', fontWeight: '100' }}>{state}</div>
+              <div>{state}</div>
               <StateClose state={state} setState={setState} />
             </div>
             <div>
-              <div style={{ fontSize: '50px', fontWeight: '100' }}>{stateAbbreviation}</div>
+              <div>{stateAbbreviation}</div>
               <AbbrClose stateAbbreviation={stateAbbreviation} setStateAbbreviation={setStateAbbreviation} />
             </div>
           </div>
         </Draggable>
         <Draggable>
-          <div style={{ position: 'absolute', zIndex: '10', transform: 'translate(300px)', background: 'rgb(255, 255, 255, 0.8)', cursor: 'move' }}>
+          <div style={{ position: 'absolute', zIndex: '10', transform: 'translate(300px)', background: 'rgb(255, 255, 255, 0.8)', cursor: 'move', fontSize: '50px', fontWeight: '100', color: 'green'  }}>
             <div style={{ color: 'green', display: 'flex', justifyContent: 'center' }}>
               Drag into position
             </div>
-            <div style={{ fontSize: '50px', fontWeight: '100', color: 'green' }}>{OppLat}</div>
+            <div>{OppLat}</div>
             <OppLatClose OppLat={OppLat} setOppLat={setOppLat} />
-            <div style={{ fontSize: '50px', fontWeight: '100', color: 'green' }}>{OppLong}</div>
+            <div>{OppLong}</div>
             <OppLongClose OppLong={OppLong} setOppLong={setOppLong} />
           </div>
         </Draggable>
