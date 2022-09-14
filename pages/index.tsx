@@ -22,6 +22,7 @@ import SideMenu from '../components/SideMenu';
 import Draggable from 'react-draggable';
 import OppLatClose from '../components/close_buttons/OppLatClose';
 import OppLongClose from '../components/close_buttons/OppLongClose';
+import ZipText from '../components/textTernary/zipTextTernary';
 
 const clientCredential = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -268,13 +269,7 @@ export default function Home() {
             </>
             ): null}
             <div>
-              <div style={{ color: 'white', fontSize: '15px', transform: 'translateY(10px)' }}>
-                {(zip.length > 0) ? (
-                <>
-                  Zip Code
-                </>
-                ): null}
-              </div>
+              <ZipText zip={zip} />
               <div>{zip}</div>
               <ZipClose zip={zip} setZip={setZip} />
             </div>
