@@ -29,6 +29,7 @@ import LongitudeText from '../components/textTernary/longitudeTextTernary';
 import OppositeLatitudeText from '../components/textTernary/oppositeLatitudeTextTernary';
 import OppositeLongitudeText from '../components/textTernary/oppositeLongitudeTextTernary';
 import StateText from '../components/textTernary/stateTextTernary';
+import StateAbbreviationText from '../components/textTernary/StateAbbrTextTernary';
 
 const clientCredential = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -310,13 +311,7 @@ export default function Home() {
               <StateClose state={state} setState={setState} />
             </div>
             <div>
-              <div style={{ color: 'white', fontSize: '15px', transform: 'translateY(10px)' }}>
-                {(stateAbbreviation.length > 0) ? (
-                <>
-                  State Abbreviation
-                </>
-                ): null}
-              </div>
+              <StateAbbreviationText stateAbbreviation={stateAbbreviation} />
               <div>{stateAbbreviation}</div>
               <AbbrClose stateAbbreviation={stateAbbreviation} setStateAbbreviation={setStateAbbreviation} />
             </div>
