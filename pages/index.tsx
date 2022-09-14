@@ -246,7 +246,7 @@ export default function Home() {
         <Auth />
       </div>
       <Local setZip={setZip} zip={zip} setCity={setCity} city={city} latCoord={latCoord} setLatCoord={setLatCoord} longCoord={longCoord} setLongCoord={setLongCoord} state={state} setState={setState} stateAbbreviation={stateAbbreviation} setStateAbbreviation={setStateAbbreviation} OppLat={OppLat} OppLong={OppLong} setOppLat={setOppLat} setOppLong={setOppLong} />
-      <Container maxWidth="lg" style={{ marginTop: '2%', position: 'relative', zIndex: '10' }}>
+      <Container maxWidth="lg" style={{ marginTop: '2%', position: 'relative', zIndex: '10', transform: 'translate(22px, -55px)' }}>
         <Draggable>
           <div style={{ 
             color: 'white', 
@@ -291,13 +291,14 @@ export default function Home() {
             </div>
           </div>
         </Draggable>
+      </Container>
+      <Container maxWidth="lg" style={{ marginTop: '2%', position: 'relative', zIndex: '10', transform: 'translate(367px, -55px)' }}>
         <Draggable>
           <div style={{ 
             color: 'white', 
             background: 'rgb(49, 62, 76, 0.8)', 
             position: 'absolute', 
             zIndex: '10', 
-            transform: 'translate(300px)', 
             cursor: 'move', 
             fontSize: '40px', 
             fontWeight: '300', 

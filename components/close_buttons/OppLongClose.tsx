@@ -7,7 +7,7 @@ export default function OppLongClose({ OppLong, setOppLong }): any {
             <div style={{ transform: 'translate(250px, -56px)', position: 'absolute' }}>
                 {OppLong ? (
                 <>
-                    <Button onClick={() => setOppLong('')} style={{ color: 'red' }}>
+                    <Button onClick={() => setOppLong('')} style={{ color: 'white' }}>
                         X
                     </Button>
                 </>

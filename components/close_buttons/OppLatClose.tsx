@@ -7,7 +7,7 @@ export default function OppLatClose({ OppLat, setOppLat }): any {
             <div style={{ transform: 'translate(250px, -56px)', position: 'absolute' }}>
                 {OppLat ? (
                 <>
-                    <Button onClick={() => setOppLat('')} style={{ color: 'red' }}>
+                    <Button onClick={() => setOppLat('')} style={{ color: 'white' }}>
                         X
                     </Button>
                 </>
