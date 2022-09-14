@@ -27,7 +27,8 @@ import CityText from '../components/textTernary/cityTextTernary';
 import LatitudeText from '../components/textTernary/latitudeTextTernary';
 import LongitudeText from '../components/textTernary/longitudeTextTernary';
 import OppositeLatitudeText from '../components/textTernary/oppositeLatitudeTextTernary';
-import OppositeLongitudeText from '../components/textTernary/oppositeLongitudeTernaryText';
+import OppositeLongitudeText from '../components/textTernary/oppositeLongitudeTextTernary';
+import StateText from '../components/textTernary/stateTextTernary';
 
 const clientCredential = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -299,25 +300,12 @@ export default function Home() {
               <OppLatClose OppLat={OppLat} setOppLat={setOppLat} />
             </div>
             <div>
-              {/* <div style={{ color: 'white', fontSize: '15px', transform: 'translateY(10px)' }}>
-                {(OppLong.length > 0) ? (
-                <>
-                  Opposite Longitude
-                </>
-                ): null}
-              </div> */}
               <OppositeLongitudeText OppLong={OppLong} />
               <div>{OppLong}</div>
               <OppLongClose OppLong={OppLong} setOppLong={setOppLong} />
             </div>
             <div>
-              <div style={{ color: 'white', fontSize: '15px', transform: 'translateY(10px)' }}>
-                {(state.length > 0) ? (
-                <>
-                  State
-                </>
-                ): null}
-              </div>
+              <StateText state={state} />
               <div>{state}</div>
               <StateClose state={state} setState={setState} />
             </div>
