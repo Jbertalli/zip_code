@@ -301,6 +301,13 @@ export default function Home() {
               <LatClose latCoord={latCoord} setLatCoord={setLatCoord} />
             </div>
             <div>
+              <div style={{ color: 'white', fontSize: '15px', transform: 'translateY(10px)' }}>
+                {(longCoord.length > 0) ? (
+                <>
+                  Longitude
+                </>
+                ): null}
+              </div>
               <div>{longCoord}</div>
               <LongClose longCoord={longCoord} setLongCoord={setLongCoord} />
             </div>
