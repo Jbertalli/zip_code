@@ -27,6 +27,7 @@ import CityText from '../components/textTernary/cityTextTernary';
 import LatitudeText from '../components/textTernary/latitudeTextTernary';
 import LongitudeText from '../components/textTernary/longitudeTextTernary';
 import OppositeLatitudeText from '../components/textTernary/oppositeLatitudeTextTernary';
+import OppositeLongitudeText from '../components/textTernary/oppositeLongitudeTernaryText';
 
 const clientCredential = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -293,25 +294,19 @@ export default function Home() {
               <LongClose longCoord={longCoord} setLongCoord={setLongCoord} />
             </div>
             <div>
-              {/* <div style={{ color: 'white', fontSize: '15px', transform: 'translateY(10px)' }}>
-                {(OppLat.length > 0) ? (
-                <>
-                  Opposite Latitude
-                </>
-                ): null}
-              </div> */}
               <OppositeLatitudeText OppLat={OppLat} />
               <div>{OppLat}</div>
               <OppLatClose OppLat={OppLat} setOppLat={setOppLat} />
             </div>
             <div>
-              <div style={{ color: 'white', fontSize: '15px', transform: 'translateY(10px)' }}>
+              {/* <div style={{ color: 'white', fontSize: '15px', transform: 'translateY(10px)' }}>
                 {(OppLong.length > 0) ? (
                 <>
                   Opposite Longitude
                 </>
                 ): null}
-              </div>
+              </div> */}
+              <OppositeLongitudeText OppLong={OppLong} />
               <div>{OppLong}</div>
               <OppLongClose OppLong={OppLong} setOppLong={setOppLong} />
             </div>
