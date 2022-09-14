@@ -268,7 +268,7 @@ export default function Home() {
             </>
             ): null}
             <div>
-              <div style={{ color: 'red', fontSize: '15px' }}>
+              <div style={{ color: 'white', fontSize: '15px', transform: 'translateY(10px)' }}>
                 {(zip.length > 0) ? (
                 <>
                   Zip Code
@@ -279,6 +279,13 @@ export default function Home() {
               <ZipClose zip={zip} setZip={setZip} />
             </div>
             <div>
+              <div style={{ color: 'white', fontSize: '15px', transform: 'translateY(10px)' }}>
+                {(city.length > 0) ? (
+                <>
+                  City
+                </>
+                ): null}
+              </div>
               <div>{city}</div>
               <CityClose city={city} setCity={setCity} />
             </div>
