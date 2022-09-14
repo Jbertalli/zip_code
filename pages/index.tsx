@@ -345,6 +345,13 @@ export default function Home() {
               <StateClose state={state} setState={setState} />
             </div>
             <div>
+              <div style={{ color: 'white', fontSize: '15px', transform: 'translateY(10px)' }}>
+                {(stateAbbreviation.length > 0) ? (
+                <>
+                  State Abbreviation
+                </>
+                ): null}
+              </div>
               <div>{stateAbbreviation}</div>
               <AbbrClose stateAbbreviation={stateAbbreviation} setStateAbbreviation={setStateAbbreviation} />
             </div>
