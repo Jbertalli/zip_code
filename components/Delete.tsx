@@ -2,7 +2,7 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 
-export default function Delete({ latCoord, longCoord, zip, city, state, stateAbbreviation, deleteZip, deleteCity, latitude, deleteLat, longitude, deleteLong, deleteState, deleteAbbr, deleteAll }) {
+export default function Delete({ latCoord, longCoord, zip, city, state, stateAbbreviation, OppLat, OppLong, deleteZip, deleteCity, latitude, deleteLat, longitude, deleteLong, deleteState, deleteAbbr, deleteAll, deleteOppositeLat, deleteOppositeLong }) {
     return (
         <List>
             <ListItem disablePadding>
@@ -25,16 +25,16 @@ export default function Delete({ latCoord, longCoord, zip, city, state, stateAbb
                     Delete Longitude
                 </ListItemButton>
             </ListItem>
-                    {/* <ListItem disablePadding>
-                        <ListItemButton onClick={() => deleteLat(latitude)}>
-                            Delete Opposite Latitude
-                        </ListItemButton>
-                    </ListItem>
-                    <ListItem disablePadding>
-                        <ListItemButton onClick={() => deleteLat(latitude)}>
-                            Delete Opposite Longitude
-                        </ListItemButton>
-                    </ListItem> */}
+            <ListItem disablePadding>
+                <ListItemButton onClick={() => deleteOppositeLat(OppLat)}>
+                    Delete Opposite Latitude
+                </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding>
+                <ListItemButton onClick={() => deleteOppositeLong(OppLong)}>
+                    Delete Opposite Longitude
+                </ListItemButton>
+            </ListItem>
             <ListItem disablePadding>
                 <ListItemButton onClick={() => deleteState(state)}>
                     Delete State
