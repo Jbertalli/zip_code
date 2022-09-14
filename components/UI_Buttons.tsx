@@ -7,7 +7,7 @@ import HeightIcon from '@mui/icons-material/Height';
 import PlaceIcon from '@mui/icons-material/Place';
 import ClearIcon from '@mui/icons-material/Clear';
 
-export default function UI_Buttons({ zipCode, setZip, setCity, setLatCoord, setLongCoord, setState, setStateAbbreviation, handleClear, latCoord, longCoord, zip, city, state, stateAbbreviation }) {
+export default function UI_Buttons({ zipCode, setZip, setCity, setLatCoord, setLongCoord, setState, setStateAbbreviation, handleClear, latCoord, longCoord, zip, city, state, stateAbbreviation, opposite, OppLat, OppLong, clearOpposite }) {
     return (
         <List>
             <ListItem disablePadding>
@@ -34,6 +34,24 @@ export default function UI_Buttons({ zipCode, setZip, setCity, setLatCoord, setL
                     Longitude
                 </ListItemButton>
             </ListItem>
+            {(latCoord && longCoord) ? (
+            <>
+                <ListItem disablePadding>
+                    <ListItemButton onClick={opposite}>
+                        Opposite
+                    </ListItemButton>
+                </ListItem>
+                {(OppLat && OppLong) ? (
+                <>
+                    <ListItem disablePadding>
+                        <ListItemButton onClick={clearOpposite}>
+                            Clear Opposite
+                        </ListItemButton>
+                    </ListItem>
+                </>
+                ): null}
+            </>
+            ): null}
             <ListItem disablePadding>
                 <ListItemButton onClick={() => setState(zipCode.state)}>
                     <PlaceIcon fontSize="small" />&nbsp;

@@ -160,36 +160,8 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
                     &nbsp;
                 </>
                 )}
-                <UI_Buttons zipCode={zipCode} setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} handleClear={handleClear} latCoord={latCoord} longCoord={longCoord} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} />
+                <UI_Buttons zipCode={zipCode} setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} handleClear={handleClear} latCoord={latCoord} longCoord={longCoord} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} opposite={opposite} OppLat={OppLat} OppLong={OppLong} clearOpposite={clearOpposite} />
                 <Divider />
-                <List>
-                    {(latCoord && longCoord) ? (
-                    <>
-                        <ListItem disablePadding>
-                            <ListItemButton onClick={opposite}>
-                                Opposite
-                            </ListItemButton>
-                        </ListItem>
-                        {(OppLat && OppLong) ? (
-                        <>
-                            <ListItem disablePadding>
-                                <ListItemButton onClick={clearOpposite}>
-                                    Clear Opposite
-                                </ListItemButton>
-                            </ListItem>
-                        </>
-                        ):(
-                        <>
-                            &nbsp;
-                        </>
-                        )}
-                    </>
-                    ):(
-                    <>
-                        &nbsp;
-                    </>
-                    )}
-                </List>
             </Drawer>
         </Box>
     </>
