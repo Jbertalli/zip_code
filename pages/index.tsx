@@ -334,6 +334,13 @@ export default function Home() {
               <OppLongClose OppLong={OppLong} setOppLong={setOppLong} />
             </div>
             <div>
+              <div style={{ color: 'white', fontSize: '15px', transform: 'translateY(10px)' }}>
+                {(state.length > 0) ? (
+                <>
+                  State
+                </>
+                ): null}
+              </div>
               <div>{state}</div>
               <StateClose state={state} setState={setState} />
             </div>
