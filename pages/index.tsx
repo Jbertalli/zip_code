@@ -312,6 +312,13 @@ export default function Home() {
               <LongClose longCoord={longCoord} setLongCoord={setLongCoord} />
             </div>
             <div>
+              <div style={{ color: 'white', fontSize: '15px', transform: 'translateY(10px)' }}>
+                {(OppLat.length > 0) ? (
+                <>
+                  Opposite Latitude
+                </>
+                ): null}
+              </div>
               <div>{OppLat}</div>
               <OppLatClose OppLat={OppLat} setOppLat={setOppLat} />
             </div>
