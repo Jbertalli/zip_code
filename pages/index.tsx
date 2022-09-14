@@ -24,6 +24,7 @@ import OppLatClose from '../components/close_buttons/OppLatClose';
 import OppLongClose from '../components/close_buttons/OppLongClose';
 import ZipText from '../components/textTernary/zipTextTernary';
 import CityText from '../components/textTernary/cityTextTernary';
+import LatitudeText from '../components/textTernary/latitudeTextTernary';
 
 const clientCredential = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -280,13 +281,7 @@ export default function Home() {
               <CityClose city={city} setCity={setCity} />
             </div>
             <div>
-              <div style={{ color: 'white', fontSize: '15px', transform: 'translateY(10px)' }}>
-                {(latCoord.length > 0) ? (
-                <>
-                  Latitude
-                </>
-                ): null}
-              </div>
+              <LatitudeText latCoord={latCoord} />
               <div>{latCoord}</div>
               <LatClose latCoord={latCoord} setLatCoord={setLatCoord} />
             </div>
