@@ -11,10 +11,7 @@ export default function LongClose({ longCoord, setLongCoord }): any {
                         X
                     </Button>
                 </>
-                ):(
-                <>
-                </>
-                )}
+                ): null}
             </div>
         </>
     );

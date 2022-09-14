@@ -11,10 +11,7 @@ export default function AbbrClose({ stateAbbreviation, setStateAbbreviation }): 
                         X
                     </Button>
                 </>
-                ):(
-                <>
-                </>
-                )}
+                ): null}
             </div>
         </>
     );

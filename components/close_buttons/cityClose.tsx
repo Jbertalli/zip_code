@@ -11,10 +11,7 @@ export default function CityClose({ city, setCity }): any {
                         X
                     </Button>
                 </>
-                ):(
-                <>
-                </>
-                )}
+                ): null}
             </div>
         </>
     );

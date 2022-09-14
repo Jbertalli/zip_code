@@ -11,10 +11,7 @@ export default function OppLatClose({ OppLat, setOppLat }): any {
                         X
                     </Button>
                 </>
-                ):(
-                <>
-                </>
-                )}
+                ): null}
             </div>
         </>
     );

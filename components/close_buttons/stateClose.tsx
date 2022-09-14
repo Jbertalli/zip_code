@@ -11,10 +11,7 @@ export default function StateClose({ state, setState }) {
                         X
                     </Button>
                 </>
-                ):(
-                <>
-                </>
-                )}
+                ): null}
             </div>
         </>
     );

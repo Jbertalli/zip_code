@@ -11,10 +11,7 @@ export default function ZipClose({ zip, setZip }): any {
                         X
                     </Button>
                 </>
-                ):(
-                <>
-                </>
-                )}
+                ): null}
             </div>
         </>
     );

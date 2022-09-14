@@ -11,10 +11,7 @@ export default function OppLongClose({ OppLong, setOppLong }): any {
                         X
                     </Button>
                 </>
-                ):(
-                <>
-                </>
-                )}
+                ): null}
             </div>
         </>
     );

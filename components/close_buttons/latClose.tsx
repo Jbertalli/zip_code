@@ -11,10 +11,7 @@ export default function LatClose({ latCoord, setLatCoord }): any {
                         X
                     </Button>
                 </>
-                ):(
-                <>
-                </>
-                )}
+                ): null}
             </div>
         </>
     );
