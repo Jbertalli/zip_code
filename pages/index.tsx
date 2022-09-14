@@ -139,7 +139,7 @@ export default function Home() {
     // console.log(user.displayName);
 
     // Create new document from within code
-    const addDocument = async (Zip: number, City: string, Latitude: number, Longitude: number, State: string, State_Abbreviation: string, Opposite_Latitude: string, Opposite_Longitude: string) => {
+    const addDocument = async (Zip: number, City: string, Latitude: number, Longitude: number, Opposite_Latitude: string, Opposite_Longitude: string, State: string, State_Abbreviation: string) => {
       await setDoc(doc(db, "location", "User Data3"), {
         Zip,
         City,
