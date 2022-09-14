@@ -64,7 +64,7 @@ export default function UI_Buttons({ zipCode, setZip, setCity, setLatCoord, setL
                     State Abbreviation
                 </ListItemButton>
             </ListItem>
-            {(zip && city && latCoord && longCoord && state && stateAbbreviation) ? (
+            {(zip && city && latCoord && longCoord && state && stateAbbreviation && OppLat && OppLong) ? (
                 <>
                     <ListItem disablePadding>
                         <ListItemButton onClick={() => handleClear()}>

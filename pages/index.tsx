@@ -98,6 +98,8 @@ export default function Home() {
       setLongCoord('');
       setState('');
       setStateAbbreviation('');
+      setOppLat('');
+      setOppLong('');
       console.log('%c cleared', 'color: red');
     }
 
