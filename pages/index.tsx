@@ -323,6 +323,13 @@ export default function Home() {
               <OppLatClose OppLat={OppLat} setOppLat={setOppLat} />
             </div>
             <div>
+              <div style={{ color: 'white', fontSize: '15px', transform: 'translateY(10px)' }}>
+                {(OppLong.length > 0) ? (
+                <>
+                  Opposite Longitude
+                </>
+                ): null}
+              </div>
               <div>{OppLong}</div>
               <OppLongClose OppLong={OppLong} setOppLong={setOppLong} />
             </div>
