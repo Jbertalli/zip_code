@@ -279,10 +279,14 @@ export default function Home() {
           </div>
         </Draggable>
         <Draggable>
-          <div style={{ position: 'absolute', zIndex: '10', transform: 'translate(300px)', background: 'rgb(255, 255, 255, 0.8)', cursor: 'move', fontSize: '50px', fontWeight: '100', color: 'green'  }}>
-            <div style={{ color: 'green', display: 'flex', justifyContent: 'center' }}>
-              Drag into position
-            </div>
+          <div style={{ position: 'absolute', zIndex: '10', transform: 'translate(300px)', background: 'rgb(255, 255, 255, 0.8)', cursor: 'move', fontSize: '50px', fontWeight: '100', color: 'green' }}>
+            {(OppLat || OppLong) ? (
+            <>
+              <div style={{ color: 'green', display: 'flex', justifyContent: 'center' }}>
+                Drag into position
+              </div>
+            </>
+            ): null}
             <div>{OppLat}</div>
             <OppLatClose OppLat={OppLat} setOppLat={setOppLat} />
             <div>{OppLong}</div>
