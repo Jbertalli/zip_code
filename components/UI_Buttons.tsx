@@ -6,6 +6,7 @@ import TagIcon from '@mui/icons-material/Tag';
 import HeightIcon from '@mui/icons-material/Height';
 import PlaceIcon from '@mui/icons-material/Place';
 import ClearIcon from '@mui/icons-material/Clear';
+import SyncAltIcon from '@mui/icons-material/SyncAlt';
 
 export default function UI_Buttons({ zipCode, setZip, setCity, setLatCoord, setLongCoord, setState, setStateAbbreviation, handleClear, latCoord, longCoord, zip, city, state, stateAbbreviation, opposite, OppLat, OppLong, clearOpposite }) {
     return (
@@ -38,6 +39,7 @@ export default function UI_Buttons({ zipCode, setZip, setCity, setLatCoord, setL
             <>
                 <ListItem disablePadding>
                     <ListItemButton onClick={opposite}>
+                        <SyncAltIcon fontSize="small" />&nbsp;
                         Opposite
                     </ListItemButton>
                 </ListItem>
@@ -45,6 +47,7 @@ export default function UI_Buttons({ zipCode, setZip, setCity, setLatCoord, setL
                 <>
                     <ListItem disablePadding>
                         <ListItemButton onClick={clearOpposite}>
+                            <ClearIcon fontSize="small" />&nbsp;
                             Clear Opposite
                         </ListItemButton>
                     </ListItem>
