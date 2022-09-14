@@ -282,6 +282,14 @@ export default function Home() {
               <LongClose longCoord={longCoord} setLongCoord={setLongCoord} />
             </div>
             <div>
+              <div>{OppLat}</div>
+              <OppLatClose OppLat={OppLat} setOppLat={setOppLat} />
+            </div>
+            <div>
+              <div>{OppLong}</div>
+              <OppLongClose OppLong={OppLong} setOppLong={setOppLong} />
+            </div>
+            <div>
               <div>{state}</div>
               <StateClose state={state} setState={setState} />
             </div>
@@ -312,10 +320,10 @@ export default function Home() {
               </div>
             </>
             ): null}
-            <div>{OppLat}</div>
+            {/* <div>{OppLat}</div>
             <OppLatClose OppLat={OppLat} setOppLat={setOppLat} />
             <div>{OppLong}</div>
-            <OppLongClose OppLong={OppLong} setOppLong={setOppLong} />
+            <OppLongClose OppLong={OppLong} setOppLong={setOppLong} /> */}
           </div>
         </Draggable>
       </Container>
