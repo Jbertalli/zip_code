@@ -102,8 +102,8 @@ export default function Home() {
     }
 
     function opposite(): void {
-        let oppositeLat: number = (parseFloat(latCoord) - (parseFloat(latCoord) * 2)); 
-        let oppositeLong: number = (parseFloat(longCoord) + 180);
+        let oppositeLat: string = (parseFloat(latCoord) - (parseFloat(latCoord) * 2)).toFixed(6); 
+        let oppositeLong: string = (parseFloat(longCoord) + 180).toFixed(6);
         setOppLat(oppositeLat);
         setOppLong(oppositeLong);
     }
@@ -255,7 +255,8 @@ export default function Home() {
             cursor: 'move', 
             fontSize: '40px', 
             fontWeight: '300', 
-            padding: '15px 35px 15px 35px' 
+            padding: '15px 35px 15px 35px',
+            minWidth: '345px'
           }}>
             {(zip || city || latCoord || longCoord || state || stateAbbreviation) ? (
             <>
@@ -300,7 +301,8 @@ export default function Home() {
             cursor: 'move', 
             fontSize: '40px', 
             fontWeight: '300', 
-            padding: '15px 35px 15px 35px' 
+            padding: '15px 35px 15px 35px' ,
+            minWidth: '345px'
           }}>
             {(OppLat || OppLong) ? (
             <>
