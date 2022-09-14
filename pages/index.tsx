@@ -243,18 +243,8 @@ export default function Home() {
         <Auth />
       </div>
       <Local setZip={setZip} zip={zip} setCity={setCity} city={city} latCoord={latCoord} setLatCoord={setLatCoord} longCoord={longCoord} setLongCoord={setLongCoord} state={state} setState={setState} stateAbbreviation={stateAbbreviation} setStateAbbreviation={setStateAbbreviation} OppLat={OppLat} OppLong={OppLong} setOppLat={setOppLat} setOppLong={setOppLong} />
-      {/* <div style={{ marginTop: '2%', display: 'flex', justifyContent: 'center', position: 'absolute', zIndex: '10000', transform: 'translateY(0px)' }}>
-        <div style={{ fontSize: '50px', fontWeight: '100' }}>
-          Where the Heck am I?{' '}
-          {user ? (
-          <>
-            {user.displayName}
-          </>
-          ): null}
-        </div>
-      </div> */}
       <Container maxWidth="lg" style={{ marginTop: '2%', position: 'relative', zIndex: '10' }}>
-        <div style={{ color: 'blue', position: 'absolute' }}>
+        <div style={{ color: 'blue', position: 'absolute', background: 'rgb(255, 255, 255, 0.8)' }}>
           <div>
             <div style={{ fontSize: '50px', fontWeight: '100' }}>{zip}</div>
             <ZipClose zip={zip} setZip={setZip} />
@@ -280,7 +270,7 @@ export default function Home() {
             <AbbrClose stateAbbreviation={stateAbbreviation} setStateAbbreviation={setStateAbbreviation} />
           </div>
         </div>
-        <div style={{ position: 'absolute', zIndex: '10', transform: 'translate(300px)' }}>
+        <div style={{ position: 'absolute', zIndex: '10', transform: 'translate(300px)', background: 'rgb(255, 255, 255, 0.8)' }}>
           <div style={{ fontSize: '50px', fontWeight: '100', color: 'green' }}>{OppLat}</div>
           <div style={{ fontSize: '50px', fontWeight: '100', color: 'green' }}>{OppLong}</div>
         </div>
