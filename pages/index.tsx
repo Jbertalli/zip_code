@@ -248,7 +248,7 @@ export default function Home() {
       <Local setZip={setZip} zip={zip} setCity={setCity} city={city} latCoord={latCoord} setLatCoord={setLatCoord} longCoord={longCoord} setLongCoord={setLongCoord} state={state} setState={setState} stateAbbreviation={stateAbbreviation} setStateAbbreviation={setStateAbbreviation} OppLat={OppLat} OppLong={OppLong} setOppLat={setOppLat} setOppLong={setOppLong} />
       <Container maxWidth="lg" style={{ marginTop: '2%', position: 'relative', zIndex: '10' }}>
         <Draggable>
-          <div style={{ color: 'blue', position: 'absolute', background: 'rgb(255, 255, 255, 0.8)' }}>
+          <div style={{ color: 'blue', position: 'absolute', background: 'rgb(255, 255, 255, 0.8)', cursor: 'move' }}>
             <div>
               <div style={{ fontSize: '50px', fontWeight: '100' }}>{zip}</div>
               <ZipClose zip={zip} setZip={setZip} />
@@ -276,7 +276,7 @@ export default function Home() {
           </div>
         </Draggable>
         <Draggable>
-          <div style={{ position: 'absolute', zIndex: '10', transform: 'translate(300px)', background: 'rgb(255, 255, 255, 0.8)' }}>
+          <div style={{ position: 'absolute', zIndex: '10', transform: 'translate(300px)', background: 'rgb(255, 255, 255, 0.8)', cursor: 'move' }}>
             <div style={{ fontSize: '50px', fontWeight: '100', color: 'green' }}>{OppLat}</div>
             <OppLatClose OppLat={OppLat} setOppLat={setOppLat} />
             <div style={{ fontSize: '50px', fontWeight: '100', color: 'green' }}>{OppLong}</div>
