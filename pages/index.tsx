@@ -249,9 +249,13 @@ export default function Home() {
       <Container maxWidth="lg" style={{ marginTop: '2%', position: 'relative', zIndex: '10' }}>
         <Draggable>
           <div style={{ color: 'blue', position: 'absolute', background: 'rgb(255, 255, 255, 0.8)', cursor: 'move', fontSize: '50px', fontWeight: '100' }}>
-            <div style={{ color: 'blue', display: 'flex', justifyContent: 'center' }}>
-              Drag into position
-            </div>
+            {(zip || city || latCoord || longCoord || state || stateAbbreviation) ? (
+            <>
+              <div style={{ color: 'blue', display: 'flex', justifyContent: 'center' }}>
+                Drag into position
+              </div>
+            </>
+            ): null}
             <div>
               <div>{zip}</div>
               <ZipClose zip={zip} setZip={setZip} />
