@@ -23,6 +23,7 @@ import Draggable from 'react-draggable';
 import OppLatClose from '../components/close_buttons/OppLatClose';
 import OppLongClose from '../components/close_buttons/OppLongClose';
 import ZipText from '../components/textTernary/zipTextTernary';
+import CityText from '../components/textTernary/cityTextTernary';
 
 const clientCredential = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -274,13 +275,7 @@ export default function Home() {
               <ZipClose zip={zip} setZip={setZip} />
             </div>
             <div>
-              <div style={{ color: 'white', fontSize: '15px', transform: 'translateY(10px)' }}>
-                {(city.length > 0) ? (
-                <>
-                  City
-                </>
-                ): null}
-              </div>
+              <CityText city={city} />
               <div>{city}</div>
               <CityClose city={city} setCity={setCity} />
             </div>
