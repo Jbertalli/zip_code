@@ -268,6 +268,13 @@ export default function Home() {
             </>
             ): null}
             <div>
+              <div style={{ color: 'red', fontSize: '15px' }}>
+                {(zip.length > 0) ? (
+                <>
+                  Zip Code
+                </>
+                ): null}
+              </div>
               <div>{zip}</div>
               <ZipClose zip={zip} setZip={setZip} />
             </div>
