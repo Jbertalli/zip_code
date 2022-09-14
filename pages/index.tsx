@@ -19,6 +19,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import Local from '../components/localStorage';
 import { getAuth } from '@firebase/auth';
 import SideMenu from '../components/SideMenu';
+import Draggable from 'react-draggable';
 
 const clientCredential = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -244,36 +245,40 @@ export default function Home() {
       </div>
       <Local setZip={setZip} zip={zip} setCity={setCity} city={city} latCoord={latCoord} setLatCoord={setLatCoord} longCoord={longCoord} setLongCoord={setLongCoord} state={state} setState={setState} stateAbbreviation={stateAbbreviation} setStateAbbreviation={setStateAbbreviation} OppLat={OppLat} OppLong={OppLong} setOppLat={setOppLat} setOppLong={setOppLong} />
       <Container maxWidth="lg" style={{ marginTop: '2%', position: 'relative', zIndex: '10' }}>
-        <div style={{ color: 'blue', position: 'absolute', background: 'rgb(255, 255, 255, 0.8)' }}>
-          <div>
-            <div style={{ fontSize: '50px', fontWeight: '100' }}>{zip}</div>
-            <ZipClose zip={zip} setZip={setZip} />
+        <Draggable>
+          <div style={{ color: 'blue', position: 'absolute', background: 'rgb(255, 255, 255, 0.8)' }}>
+            <div>
+              <div style={{ fontSize: '50px', fontWeight: '100' }}>{zip}</div>
+              <ZipClose zip={zip} setZip={setZip} />
+            </div>
+            <div>
+              <div style={{ fontSize: '50px', fontWeight: '100' }}>{city}</div>
+              <CityClose city={city} setCity={setCity} />
+            </div>
+            <div>
+              <div style={{ fontSize: '50px', fontWeight: '100' }}>{latCoord}</div>
+              <LatClose latCoord={latCoord} setLatCoord={setLatCoord} />
+            </div>
+            <div>
+              <div style={{ fontSize: '50px', fontWeight: '100' }}>{longCoord}</div>
+              <LongClose longCoord={longCoord} setLongCoord={setLongCoord} />
+            </div>
+            <div>
+              <div style={{ fontSize: '50px', fontWeight: '100' }}>{state}</div>
+              <StateClose state={state} setState={setState} />
+            </div>
+            <div>
+              <div style={{ fontSize: '50px', fontWeight: '100' }}>{stateAbbreviation}</div>
+              <AbbrClose stateAbbreviation={stateAbbreviation} setStateAbbreviation={setStateAbbreviation} />
+            </div>
           </div>
-          <div>
-            <div style={{ fontSize: '50px', fontWeight: '100' }}>{city}</div>
-            <CityClose city={city} setCity={setCity} />
+        </Draggable>
+        <Draggable>
+          <div style={{ position: 'absolute', zIndex: '10', transform: 'translate(300px)', background: 'rgb(255, 255, 255, 0.8)' }}>
+            <div style={{ fontSize: '50px', fontWeight: '100', color: 'green' }}>{OppLat}</div>
+            <div style={{ fontSize: '50px', fontWeight: '100', color: 'green' }}>{OppLong}</div>
           </div>
-          <div>
-            <div style={{ fontSize: '50px', fontWeight: '100' }}>{latCoord}</div>
-            <LatClose latCoord={latCoord} setLatCoord={setLatCoord} />
-          </div>
-          <div>
-            <div style={{ fontSize: '50px', fontWeight: '100' }}>{longCoord}</div>
-            <LongClose longCoord={longCoord} setLongCoord={setLongCoord} />
-          </div>
-          <div>
-            <div style={{ fontSize: '50px', fontWeight: '100' }}>{state}</div>
-            <StateClose state={state} setState={setState} />
-          </div>
-          <div>
-            <div style={{ fontSize: '50px', fontWeight: '100' }}>{stateAbbreviation}</div>
-            <AbbrClose stateAbbreviation={stateAbbreviation} setStateAbbreviation={setStateAbbreviation} />
-          </div>
-        </div>
-        <div style={{ position: 'absolute', zIndex: '10', transform: 'translate(300px)', background: 'rgb(255, 255, 255, 0.8)' }}>
-          <div style={{ fontSize: '50px', fontWeight: '100', color: 'green' }}>{OppLat}</div>
-          <div style={{ fontSize: '50px', fontWeight: '100', color: 'green' }}>{OppLong}</div>
-        </div>
+        </Draggable>
       </Container>
       <SideMenu zipCode={zipCode} setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} handleClear={handleClear} latCoord={latCoord} longCoord={longCoord} opposite={opposite} clearOpposite={clearOpposite} OppLat={OppLat} OppLong={OppLong} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} addZip={addZip} deleteZip={deleteZip} addCity={addCity} deleteCity={deleteCity} addLat={addLat} latitude={latitude} deleteLat={deleteLat} addLong={addLong} longitude={longitude} deleteLong={deleteLong} addState={addState} deleteState={deleteState} addStateAbbr={addStateAbbr} deleteAbbr={deleteAbbr} addDocument={addDocument} deleteAll={deleteAll} />
       <div style={{ transform: 'translateY(-530px)', position: 'fixed', zIndex: '0' }}>
