@@ -65,7 +65,7 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
                 </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
-                <ListItemButton onClick={() => addDocument(zip, city, latCoord, longCoord, state, stateAbbreviation)}>
+                <ListItemButton onClick={() => addDocument(zip, city, latCoord, longCoord, OppLat, OppLong, state, stateAbbreviation)}>
                     DB All
                 </ListItemButton>
             </ListItem>
