@@ -59,10 +59,6 @@ function SignInScreen() {
         <div style={{ display: 'flex', justifyContent: 'flex-end', transform: 'translateY(80px)' }}>
             {!user ? (
             <>
-                <table>
-                    <tr>
-
-                
                 <div
                     style={{
                         maxWidth: "320px",
@@ -74,12 +70,7 @@ function SignInScreen() {
                 >
                     <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={getAuth()} />
                 </div>
-                </tr>
-                    <tr>
-                        
-                    
-                {/* <div style={{ transform: 'translate(-209px, 116px)' }}> */}
-                <div style={{ transform: 'translate(24px, -10px)' }}>
+                <div style={{ transform: 'translate(-209px, 116px)' }}>
                   <Button onClick={signInWithGoogle} 
                     style={{ 
                         background: '#FFFFFF', 
@@ -107,8 +98,6 @@ function SignInScreen() {
                     Sign in with Google
                   </Button>
                 </div>
-                </tr>
-                </table>
             </>
             ):(
             <>

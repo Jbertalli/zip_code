@@ -114,9 +114,9 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
                         <span>
                             {user ? (
                             <>
-                                {user.displayName}
+                                {user.displayName}'s{' '}
                             </>
-                            ): null}'s{' '}
+                            ): null}
                         </span>
                         <span>
                             Dashboard
