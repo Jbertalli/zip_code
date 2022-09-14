@@ -283,9 +283,9 @@ export default function Home() {
             <div style={{ color: 'green', display: 'flex', justifyContent: 'center' }}>
               Drag into position
             </div>
-            <div style={{ fontSize: '50px', fontWeight: '100', color: 'green' }}>{OppLat}</div>
+            <div style={{ fontSize: '50px', fontWeight: '100', color: 'green' }}>{OppLat.toFixed(6)}</div>
             <OppLatClose OppLat={OppLat} setOppLat={setOppLat} />
-            <div style={{ fontSize: '50px', fontWeight: '100', color: 'green' }}>{OppLong}</div>
+            <div style={{ fontSize: '50px', fontWeight: '100', color: 'green' }}>{OppLong.toFixed(6)}</div>
             <OppLongClose OppLong={OppLong} setOppLong={setOppLong} />
           </div>
         </Draggable>
