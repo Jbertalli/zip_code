@@ -2,7 +2,7 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 
-export default function Database({ latCoord, longCoord, zip, city, state, stateAbbreviation, addZip, addCity, addLat, latitude, addLong, longitude, addState, addStateAbbr, addDocument, deleteZip, addOppLat, OppLat }) {
+export default function Database({ latCoord, longCoord, zip, city, state, stateAbbreviation, addZip, addCity, addLat, latitude, addLong, longitude, addState, addStateAbbr, addDocument, deleteZip, addOppLat, OppLat, addOppLong, OppLong }) {
     
     return (
         <List>
@@ -49,11 +49,11 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
                     DB Opposite Latitude
                 </ListItemButton>
             </ListItem>
-            {/* <ListItem disablePadding>
-                <ListItemButton onClick={() => addOppLong(longitude)}>
+            <ListItem disablePadding>
+                <ListItemButton onClick={() => addOppLong(OppLong)}>
                     DB Opposite Longitude
                 </ListItemButton>
-            </ListItem> */}
+            </ListItem>
             <ListItem disablePadding>
                 <ListItemButton onClick={() => addState(state)}>
                     DB State
