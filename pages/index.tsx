@@ -20,6 +20,7 @@ import Local from '../components/localStorage';
 import { getAuth } from '@firebase/auth';
 import SideMenu from '../components/SideMenu';
 import Draggable from 'react-draggable';
+import OppLatClose from '../components/close_buttons/OppLatClose';
 
 const clientCredential = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -276,6 +277,7 @@ export default function Home() {
         <Draggable>
           <div style={{ position: 'absolute', zIndex: '10', transform: 'translate(300px)', background: 'rgb(255, 255, 255, 0.8)' }}>
             <div style={{ fontSize: '50px', fontWeight: '100', color: 'green' }}>{OppLat}</div>
+            <OppLatClose OppLat={OppLat} setOppLat={setOppLat} />
             <div style={{ fontSize: '50px', fontWeight: '100', color: 'green' }}>{OppLong}</div>
           </div>
         </Draggable>
