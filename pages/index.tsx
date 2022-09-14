@@ -26,6 +26,7 @@ import ZipText from '../components/textTernary/zipTextTernary';
 import CityText from '../components/textTernary/cityTextTernary';
 import LatitudeText from '../components/textTernary/latitudeTextTernary';
 import LongitudeText from '../components/textTernary/longitudeTextTernary';
+import OppositeLatitudeText from '../components/textTernary/oppositeLatitudeTextTernary';
 
 const clientCredential = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -292,13 +293,14 @@ export default function Home() {
               <LongClose longCoord={longCoord} setLongCoord={setLongCoord} />
             </div>
             <div>
-              <div style={{ color: 'white', fontSize: '15px', transform: 'translateY(10px)' }}>
+              {/* <div style={{ color: 'white', fontSize: '15px', transform: 'translateY(10px)' }}>
                 {(OppLat.length > 0) ? (
                 <>
                   Opposite Latitude
                 </>
                 ): null}
-              </div>
+              </div> */}
+              <OppositeLatitudeText OppLat={OppLat} />
               <div>{OppLat}</div>
               <OppLatClose OppLat={OppLat} setOppLat={setOppLat} />
             </div>
