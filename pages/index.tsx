@@ -300,33 +300,6 @@ export default function Home() {
           </div>
         </Draggable>
       </Container>
-      <Container maxWidth="lg" style={{ marginTop: '2%', position: 'relative', zIndex: '10', transform: 'translate(367px, -55px)' }}>
-        <Draggable>
-          <div style={{ 
-            color: 'white', 
-            background: 'rgb(49, 62, 76, 0.8)', 
-            position: 'absolute', 
-            zIndex: '10', 
-            cursor: 'move', 
-            fontSize: '40px', 
-            fontWeight: '300', 
-            padding: '15px 35px 15px 35px' ,
-            minWidth: '345px'
-          }}>
-            {(OppLat || OppLong) ? (
-            <>
-              <div style={{ display: 'flex', justifyContent: 'flex-start', fontSize: '15px' }}>
-                *Drag into position
-              </div>
-            </>
-            ): null}
-            {/* <div>{OppLat}</div>
-            <OppLatClose OppLat={OppLat} setOppLat={setOppLat} />
-            <div>{OppLong}</div>
-            <OppLongClose OppLong={OppLong} setOppLong={setOppLong} /> */}
-          </div>
-        </Draggable>
-      </Container>
       <SideMenu zipCode={zipCode} setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} handleClear={handleClear} latCoord={latCoord} longCoord={longCoord} opposite={opposite} clearOpposite={clearOpposite} OppLat={OppLat} OppLong={OppLong} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} addZip={addZip} deleteZip={deleteZip} addCity={addCity} deleteCity={deleteCity} addLat={addLat} latitude={latitude} deleteLat={deleteLat} addLong={addLong} longitude={longitude} deleteLong={deleteLong} addState={addState} deleteState={deleteState} addStateAbbr={addStateAbbr} deleteAbbr={deleteAbbr} addDocument={addDocument} deleteAll={deleteAll} />
       <div style={{ transform: 'translateY(-530px)', position: 'fixed', zIndex: '0' }}>
         <Map latCoord={latCoord} longCoord={longCoord} />
