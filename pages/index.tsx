@@ -248,7 +248,15 @@ export default function Home() {
       <Local setZip={setZip} zip={zip} setCity={setCity} city={city} latCoord={latCoord} setLatCoord={setLatCoord} longCoord={longCoord} setLongCoord={setLongCoord} state={state} setState={setState} stateAbbreviation={stateAbbreviation} setStateAbbreviation={setStateAbbreviation} OppLat={OppLat} OppLong={OppLong} setOppLat={setOppLat} setOppLong={setOppLong} />
       <Container maxWidth="lg" style={{ marginTop: '2%', position: 'relative', zIndex: '10' }}>
         <Draggable>
-          <div style={{ color: 'white', background: 'rgb(49, 62, 76, 0.7)', position: 'absolute', cursor: 'move', fontSize: '40px', fontWeight: '300', padding: '15px 35px 15px 35px' }}>
+          <div style={{ 
+            color: 'white', 
+            background: 'rgb(49, 62, 76, 0.7)', 
+            position: 'absolute', 
+            cursor: 'move', 
+            fontSize: '40px', 
+            fontWeight: '300', 
+            padding: '15px 35px 15px 35px' 
+          }}>
             {(zip || city || latCoord || longCoord || state || stateAbbreviation) ? (
             <>
               <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -283,7 +291,17 @@ export default function Home() {
           </div>
         </Draggable>
         <Draggable>
-          <div style={{ color: 'white', background: 'rgb(49, 62, 76, 0.7)', position: 'absolute', zIndex: '10', transform: 'translate(300px)', cursor: 'move', fontSize: '40px', fontWeight: '300', padding: '15px 35px 15px 35px' }}>
+          <div style={{ 
+            color: 'white', 
+            background: 'rgb(49, 62, 76, 0.7)', 
+            position: 'absolute', 
+            zIndex: '10', 
+            transform: 'translate(300px)', 
+            cursor: 'move', 
+            fontSize: '40px', 
+            fontWeight: '300', 
+            padding: '15px 35px 15px 35px' 
+          }}>
             {(OppLat || OppLong) ? (
             <>
               <div style={{ display: 'flex', justifyContent: 'center' }}>
