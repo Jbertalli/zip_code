@@ -249,7 +249,7 @@ export default function Home() {
       <Container maxWidth="lg" style={{ marginTop: '2%', position: 'relative', zIndex: '10' }}>
         <Draggable>
           <div style={{ color: 'blue', position: 'absolute', background: 'rgb(255, 255, 255, 0.8)', cursor: 'move' }}>
-            <div>
+            <div style={{ color: 'blue', display: 'flex', justifyContent: 'center' }}>
               Drag into position
             </div>
             <div>
@@ -280,7 +280,7 @@ export default function Home() {
         </Draggable>
         <Draggable>
           <div style={{ position: 'absolute', zIndex: '10', transform: 'translate(300px)', background: 'rgb(255, 255, 255, 0.8)', cursor: 'move' }}>
-            <div style={{ color: 'black' }}>
+            <div style={{ color: 'green', display: 'flex', justifyContent: 'center' }}>
               Drag into position
             </div>
             <div style={{ fontSize: '50px', fontWeight: '100', color: 'green' }}>{OppLat}</div>
