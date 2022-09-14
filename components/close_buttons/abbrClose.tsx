@@ -7,7 +7,7 @@ export default function AbbrClose({ stateAbbreviation, setStateAbbreviation }): 
             <div style={{ transform: 'translate(250px, -56px)', position: 'absolute' }}>
                 {stateAbbreviation ? (
                 <>
-                    <Button onClick={() => setStateAbbreviation('')} style={{ color: 'white' }}>
+                    <Button onClick={() => setStateAbbreviation('')} style={{ color: 'white', transform: 'translateY(-7px)' }}>
                         X
                     </Button>
                 </>

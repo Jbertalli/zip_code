@@ -7,7 +7,7 @@ export default function CityClose({ city, setCity }): any {
             <div style={{ transform: 'translate(250px, -56px)', position: 'absolute' }}>
                 {city ? (
                 <>
-                    <Button onClick={() => setCity('')} style={{ color: 'white' }}>
+                    <Button onClick={() => setCity('')} style={{ color: 'white', transform: 'translateY(-7px)' }}>
                         X
                     </Button>
                 </>

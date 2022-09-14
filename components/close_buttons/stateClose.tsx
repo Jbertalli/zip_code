@@ -7,7 +7,7 @@ export default function StateClose({ state, setState }) {
             <div style={{ transform: 'translate(250px, -56px)', position: 'absolute' }}>
                 {state ? (
                 <>
-                    <Button onClick={() => setState('')} style={{ color: 'white' }}>
+                    <Button onClick={() => setState('')} style={{ color: 'white', transform: 'translateY(-7px)' }}>
                         X
                     </Button>
                 </>
