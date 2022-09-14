@@ -250,7 +250,7 @@ export default function Home() {
         <Draggable>
           <div style={{ 
             color: 'white', 
-            background: 'rgb(49, 62, 76, 0.7)', 
+            background: 'rgb(49, 62, 76, 0.8)', 
             position: 'absolute', 
             cursor: 'move', 
             fontSize: '40px', 
@@ -259,8 +259,8 @@ export default function Home() {
           }}>
             {(zip || city || latCoord || longCoord || state || stateAbbreviation) ? (
             <>
-              <div style={{ display: 'flex', justifyContent: 'center' }}>
-                Drag into position
+              <div style={{ display: 'flex', justifyContent: 'flex-start', fontSize: '15px' }}>
+                *Drag into position
               </div>
             </>
             ): null}
@@ -293,7 +293,7 @@ export default function Home() {
         <Draggable>
           <div style={{ 
             color: 'white', 
-            background: 'rgb(49, 62, 76, 0.7)', 
+            background: 'rgb(49, 62, 76, 0.8)', 
             position: 'absolute', 
             zIndex: '10', 
             transform: 'translate(300px)', 
@@ -304,8 +304,8 @@ export default function Home() {
           }}>
             {(OppLat || OppLong) ? (
             <>
-              <div style={{ display: 'flex', justifyContent: 'center' }}>
-                Drag into position
+              <div style={{ display: 'flex', justifyContent: 'flex-start', fontSize: '15px' }}>
+                *Drag into position
               </div>
             </>
             ): null}
