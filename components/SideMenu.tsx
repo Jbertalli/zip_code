@@ -111,7 +111,16 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
                 </IconButton>
                 <Typography variant="h6" noWrap component="div">
                     <div style={{ fontSize: '25px', fontWeight: '100' }}>
-                        Dashboard
+                        <span>
+                            {user ? (
+                            <>
+                                {user.displayName}
+                            </>
+                            ): null}'s{' '}
+                        </span>
+                        <span>
+                            Dashboard
+                        </span>
                     </div>
                 </Typography>
                 </Toolbar>
