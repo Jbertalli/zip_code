@@ -62,7 +62,6 @@ export default function Map({ latCoord, longCoord }) {
     <>
       <div style={{ transform: 'translate(500px, 800px)', position: 'relative', zIndex: '10' }}>
       <Locate panTo={panTo} />
-          {/* <Search panTo={panTo} /> */}
       </div>
       <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(364px)' }}>
         <GoogleMap
