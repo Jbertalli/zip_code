@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Map from '../components/map';
 import Button from '@mui/material/Button';
+import Divider from '@mui/material/Divider';
 
 export default function Antinode() {
     return (
@@ -9,16 +10,19 @@ export default function Antinode() {
                 <title>Antinode</title>
                 <meta name="description" content="antinode" />
             </Head>
-            {/* <div style={{ position: 'absolute' }}>
-                <Button style={{ background: 'blue', color: 'white', width: '50vw', height: '5vh' }}>
+            <div style={{ position: 'absolute' }}>
+                <Button style={{ background: 'blue', color: 'white' }}>
                     Antinode
                 </Button>
-            </div> */}
-            <div>
-                <div style={{ color: 'red', position: 'absolute', fontSize: '50px' }}>
+            </div>
+            <div style={{ fontWeight: '300', color: 'white', transform: 'translateY(40px)' }}>
+                <div style={{ background: 'white', opacity: '0.4' }}>
+                    <Divider />
+                </div>
+                <div style={{ position: 'absolute', transform: 'translate(25vw, 3px)' }}>
                     Current Location
                 </div>
-                <div style={{ color: 'red', position: 'absolute', fontSize: '50px', transform: 'translate(50vw)' }}>
+                <div style={{ position: 'absolute', transform: 'translate(75vw, 3px)' }}>
                     Antinode Location
                 </div>
             </div>
