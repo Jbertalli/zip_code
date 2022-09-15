@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Map from '../components/map';
+import Button from '@mui/material/Button';
 
 export default function Antinode() {
     return (
@@ -9,9 +10,11 @@ export default function Antinode() {
                 <meta name="description" content="antinode" />
             </Head>
             <div style={{ position: 'absolute' }}>
-                Antinode
+                <Button style={{ background: 'blue', color: 'white', width: '50vw', height: '5vh' }}>
+                    Antinode
+                </Button>
             </div>
-            <div style={{ transform: 'translateY(-371px)' }}>
+            <div style={{ transform: 'translateY(-411px)' }}>
                 <div style={{ position: 'absolute', zIndex: '1000000000', width: '50%', height: '100%' }}>
                     <Map />
                 </div>

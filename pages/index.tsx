@@ -221,6 +221,17 @@ export default function Home() {
       })
     }
 
+    // const getZipDoc = async(Zip: number) => {
+    //   let zipDocRef = doc(db, "location", "User Data2");
+    //   let docSnap = await getDoc(zipDocRef);
+
+    //   if(docSnap.exists) {
+    //     alert('exists');
+    //   } else {
+    //     alert('No document exists');
+    //   }
+    // }
+
     const cityRef = doc(db, "location", "User Data2");
 
     const deleteCity = async(City: string) => {
