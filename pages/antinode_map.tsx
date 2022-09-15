@@ -80,7 +80,7 @@ export default function Antinode() {
                     Antinode Location
                 </div>
             </div>
-            <div style={{ transform: 'translateY(-411px)' }}>
+            <div style={{ transform: 'translateY(-299px)' }}>
                 <div style={{ position: 'absolute', zIndex: '1000000000', width: '50%', height: '100%' }}>
                     {/* <Map /> */}
                     <>
@@ -183,3 +183,48 @@ export default function Antinode() {
         </>
     );
 }
+
+// function Locate({ panTo }) {
+//     return (
+//       <>
+//         <div>
+//           <Button
+//             className={styles.button}
+//             onClick={() => {
+//               navigator.geolocation.getCurrentPosition(
+//                 (position) => {
+//                   panTo({
+//                     lat: position.coords.latitude,
+//                     lng: position.coords.longitude,
+//                   });
+//                 },
+//                 () => null
+//               );
+//             }}
+//           > 
+//             <LocationOnIcon fontSize="small" />&nbsp;
+//             Current Location
+//           </Button>
+//         </div>
+//         <div>
+//           <Button
+//             className={styles.button}
+//             onClick={() => {
+//               navigator.geolocation.getCurrentPosition(
+//                 (position) => {
+//                   panTo({
+//                     lat: (parseFloat(position.coords.latitude) - (parseFloat(position.coords.latitude) * 2)),
+//                     lng: (parseFloat(position.coords.longitude) + 180),
+//                   });
+//                 },
+//                 () => null
+//               );
+//             }}
+//           >
+//             <FlipCameraAndroidIcon fontSize="small" />&nbsp;
+//             Opposite Location
+//           </Button>
+//         </div>
+//       </>
+//     );
+//   }
