@@ -84,8 +84,8 @@ export default function Antinode() {
                 <div style={{ position: 'absolute', zIndex: '1000000000', width: '50%', height: '100%' }}>
                     {/* <Map /> */}
                     <>
-                        <div style={{ transform: 'translate(500px, 800px)', position: 'relative', zIndex: '10' }}>
-                        {/* <Locate panTo={panTo} /> */}
+                        <div style={{ transform: 'translate(500px, 800px)', position: 'absolute', zIndex: '10' }}>
+                        <Locate panTo={panTo} />
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(364px)' }}>
                             <GoogleMap
@@ -133,8 +133,8 @@ export default function Antinode() {
                 <div style={{ position: 'absolute', zIndex: '1000000000', width: '50%', height: '100%', transform: 'translate(100%)' }}>
                     {/* <Map /> */}
                     <>
-                        <div style={{ transform: 'translate(500px, 800px)', position: 'relative', zIndex: '10' }}>
-                        {/* <Locate panTo={panTo} /> */}
+                        <div style={{ transform: 'translate(500px, 800px)', position: 'absolute', zIndex: '10' }}>
+                            <Locate panTo={panTo} />
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(364px)' }}>
                             <GoogleMap
@@ -184,47 +184,47 @@ export default function Antinode() {
     );
 }
 
-// function Locate({ panTo }) {
-//     return (
-//       <>
-//         <div>
-//           <Button
-//             className={styles.button}
-//             onClick={() => {
-//               navigator.geolocation.getCurrentPosition(
-//                 (position) => {
-//                   panTo({
-//                     lat: position.coords.latitude,
-//                     lng: position.coords.longitude,
-//                   });
-//                 },
-//                 () => null
-//               );
-//             }}
-//           > 
-//             <LocationOnIcon fontSize="small" />&nbsp;
-//             Current Location
-//           </Button>
-//         </div>
-//         <div>
-//           <Button
-//             className={styles.button}
-//             onClick={() => {
-//               navigator.geolocation.getCurrentPosition(
-//                 (position) => {
-//                   panTo({
-//                     lat: (parseFloat(position.coords.latitude) - (parseFloat(position.coords.latitude) * 2)),
-//                     lng: (parseFloat(position.coords.longitude) + 180),
-//                   });
-//                 },
-//                 () => null
-//               );
-//             }}
-//           >
-//             <FlipCameraAndroidIcon fontSize="small" />&nbsp;
-//             Opposite Location
-//           </Button>
-//         </div>
-//       </>
-//     );
-//   }
+function Locate({ panTo }) {
+    return (
+      <>
+        <div>
+          <Button
+            className={styles.button}
+            onClick={() => {
+              navigator.geolocation.getCurrentPosition(
+                (position) => {
+                  panTo({
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude,
+                  });
+                },
+                () => null
+              );
+            }}
+          > 
+            <LocationOnIcon fontSize="small" />&nbsp;
+            Current Location
+          </Button>
+        </div>
+        <div>
+          <Button
+            className={styles.button}
+            onClick={() => {
+              navigator.geolocation.getCurrentPosition(
+                (position) => {
+                  panTo({
+                    lat: (parseFloat(position.coords.latitude) - (parseFloat(position.coords.latitude) * 2)),
+                    lng: (parseFloat(position.coords.longitude) + 180),
+                  });
+                },
+                () => null
+              );
+            }}
+          >
+            <FlipCameraAndroidIcon fontSize="small" />&nbsp;
+            Opposite Location
+          </Button>
+        </div>
+      </>
+    );
+  }
