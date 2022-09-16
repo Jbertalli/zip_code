@@ -1,6 +1,5 @@
 import React, { useState, useCallback, useRef } from "react";
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api";
-import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 
 const libraries: string[] = ["places"];
@@ -55,13 +54,6 @@ export default function AntinodeMap() {
     
     return (
         <>
-            <div style={{ position: 'absolute' }}>
-                <Button
-                    style={{ background: 'blue', color: 'white' }}
-                >
-                    Antinode
-                </Button>
-            </div>
             <div style={{ fontWeight: '300', color: 'white', transform: 'translateY(40px)' }}>
                 <div style={{ background: 'white', opacity: '0.4' }}>
                     <Divider />
