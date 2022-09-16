@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import React, { useState, useCallback, useRef } from "react";
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api";
 import Button from '@mui/material/Button';
@@ -56,10 +55,6 @@ export default function NodeMap() {
     
     return (
         <>
-            <Head>
-                <title>Antinode</title>
-                <meta name="description" content="antinode" />
-            </Head>
             <div style={{ position: 'absolute' }}>
                 <Button
                     style={{ background: 'blue', color: 'white' }}
