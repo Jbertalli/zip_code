@@ -12,8 +12,9 @@ export default function Navbar() {
 
     return (
         <>
-            <Box sx={{ width: '100%', bgcolor: 'background.paper' }} style={{ position: 'absolute', zIndex: '10000000000000', background: '#313e4c' }}>
+            <Box sx={{ width: '100%' }} style={{ position: 'absolute', zIndex: '1000', background: '#313e4c' }}>
                 <Tabs value={value} onChange={handleChange} centered>
+                    <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '100' }} label="Home" />
                     <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '100' }} label="Current Location" />
                     <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '100' }} label="Antinode Map" />
                 </Tabs>
