@@ -1,12 +1,8 @@
 import Head from 'next/head';
 import React, { useState, useCallback, useRef } from "react";
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api";
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import FlipCameraAndroidIcon from '@mui/icons-material/FlipCameraAndroid';
-import styles from '../styles/zip.module.css';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
-// import Map from '../components/map';
 
 const libraries: string[] = ["places"];
 const mapContainerStyle = {
@@ -74,6 +70,12 @@ export default function NodeMap() {
             <div style={{ fontWeight: '300', color: 'white', transform: 'translateY(40px)' }}>
                 <div style={{ background: 'white', opacity: '0.4' }}>
                     <Divider />
+                </div>
+                <div style={{ position: 'absolute', transform: 'translate(25vw, 3px)' }}>
+                    Current Location
+                </div>
+                <div style={{ position: 'absolute', transform: 'translate(75vw, 3px)' }}>
+                    Antinode Location
                 </div>
             </div>
             <Locate panTo={panTo} />
