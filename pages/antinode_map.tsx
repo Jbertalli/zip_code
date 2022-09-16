@@ -72,7 +72,7 @@ export default function Antinode() {
             </Head>
             <div style={{ position: 'absolute' }}>
                 <Button
-                    onClick={() => Locate()}
+                    onClick={() => {Locate(), AntinodeLocate()}}
                     style={{ background: 'blue', color: 'white' }}
                 >
                     Antinode

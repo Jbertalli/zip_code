@@ -75,16 +75,8 @@ export default function AntinodeMap() {
                 <div style={{ background: 'white', opacity: '0.4' }}>
                     <Divider />
                 </div>
-                <div style={{ position: 'absolute', transform: 'translate(25vw, 3px)' }}>
-                    Current Location
-                </div>
-                <div style={{ position: 'absolute', transform: 'translate(75vw, 3px)' }}>
-                    Antinode Location
-                </div>
             </div>
-            <div style={{ transform: 'translate(300px, 00px)', position: 'absolute', zIndex: '10' }}>
-                <AntinodeLocate panTo={panTo} />
-            </div>
+            <AntinodeLocate panTo={panTo} />
             <div style={{ transform: 'translateY(-299px)' }}>
                 <div style={{ position: 'absolute', zIndex: '1000000000', width: '50%', height: '100%', transform: 'translate(100%)' }}>
                     <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(364px)' }}>
@@ -145,7 +137,7 @@ export function AntinodeLocate({ panTo }) {
         },
         () => null
     );
-    
+
     // return (
     //     <>
     //         <div>
