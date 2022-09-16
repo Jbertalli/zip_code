@@ -12,8 +12,6 @@ const libraries: string[] = ["places"];
 const mapContainerStyle = {
   height: "95vh",
   width: "100vw",
-    // height: "50vh",
-    // width: "100vw",
 };
 
 const options = {

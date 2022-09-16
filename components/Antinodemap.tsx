@@ -12,8 +12,6 @@ const libraries: string[] = ["places"];
 const mapContainerStyle = {
   height: "95vh",
   width: "100vw",
-    // height: "50vh",
-    // width: "100vw",
 };
 
 const options = {
@@ -54,7 +52,7 @@ export default function AntinodeMap() {
     
       const panTo = useCallback(({ lat, lng }) => {
         mapRef.current.panTo({ lat, lng });
-        mapRef.current.setZoom(14);
+        mapRef.current.setZoom(5);
       }, []);
 
       if (loadError) return "Error";
