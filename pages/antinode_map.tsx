@@ -3,6 +3,7 @@ import React from "react";
 import Button from '@mui/material/Button';
 import NodeMap from '../components/Nodemap';
 import AntinodeMap from '../components/Antinodemap';
+import Navbar from '../components/Navbar';
 // import Locate from '../components/Nodemap';
 // import AntinodeLocate from '../components/Antinodemap';
 
@@ -36,6 +37,7 @@ export default function Antinode() {
             <div>
                 <AntinodeMap />
             </div>
+            <Navbar />
         </>
     );
 }

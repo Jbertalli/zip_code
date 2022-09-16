@@ -15,9 +15,8 @@ export default function Navbar() {
         <>
             <Box sx={{ width: '100%' }} style={{ position: 'absolute', zIndex: '1000', background: '#313e4c', transform: 'translateY(1170px)' }}>
                 <Tabs value={value} onChange={handleChange} centered>
-                    <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '100' }} label="Home" />
                     <Link href='/' passHref>
-                        <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '100' }} label="Current Location" />
+                        <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '100' }} label="Home" />
                     </Link>
                     <Link href='/antinode_map' passHref>
                         <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '100' }} label="Antinode Map" />
