@@ -1,6 +1,5 @@
 import React, { useState, useCallback, useRef } from "react";
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api";
-import Divider from '@mui/material/Divider';
 
 const libraries: string[] = ["places"];
 const mapContainerStyle = {
@@ -54,17 +53,6 @@ export default function AntinodeMap() {
     
     return (
         <>
-            <div style={{ fontWeight: '300', color: 'white', transform: 'translateY(40px)' }}>
-                <div style={{ background: 'white', opacity: '0.4' }}>
-                    <Divider />
-                </div>
-                <div style={{ position: 'absolute', transform: 'translate(25vw, 3px)' }}>
-                    Current Location
-                </div>
-                <div style={{ position: 'absolute', transform: 'translate(75vw, 3px)' }}>
-                    Antinode Location
-                </div>
-            </div>
             <AntinodeLocate panTo={panTo} />
             <div style={{ transform: 'translateY(-299px)' }}>
                 <div style={{ position: 'absolute', zIndex: '1000000000', width: '50%', height: '100%', transform: 'translate(100%)' }}>
