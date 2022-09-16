@@ -135,27 +135,38 @@ export default function AntinodeMap() {
 }
 
 export function AntinodeLocate({ panTo }) {
-    return (
-        <>
-            <div>
-                <Button
-                    className={styles.button}
-                    onClick={() => {
-                    navigator.geolocation.getCurrentPosition(
-                        (position) => {
-                        panTo({
-                            lat: (parseFloat(position.coords.latitude) - (parseFloat(position.coords.latitude) * 2)),
-                            lng: (parseFloat(position.coords.longitude) + 180),
-                        });
-                        },
-                        () => null
-                    );
-                    }}
-                >
-                    <FlipCameraAndroidIcon fontSize="small" />&nbsp;
-                    Opposite Location
-                </Button>
-            </div>
-        </>
+
+    navigator.geolocation.getCurrentPosition(
+        (position) => {
+            panTo({
+                lat: (parseFloat(position.coords.latitude) - (parseFloat(position.coords.latitude) * 2)),
+                lng: (parseFloat(position.coords.longitude) + 180),
+            });
+        },
+        () => null
     );
+    
+    // return (
+    //     <>
+    //         <div>
+    //             <Button
+    //                 className={styles.button}
+    //                 onClick={() => {
+    //                     navigator.geolocation.getCurrentPosition(
+    //                         (position) => {
+    //                             panTo({
+    //                                 lat: (parseFloat(position.coords.latitude) - (parseFloat(position.coords.latitude) * 2)),
+    //                                 lng: (parseFloat(position.coords.longitude) + 180),
+    //                             });
+    //                         },
+    //                         () => null
+    //                     );
+    //                 }}
+    //             >
+    //                 <FlipCameraAndroidIcon fontSize="small" />&nbsp;
+    //                 Opposite Location
+    //             </Button>
+    //         </div>
+    //     </>
+    // );
 }

@@ -145,30 +145,28 @@ export function Locate({ panTo }) {
         },
         () => null
       );
-
-    return (
-      <>
-        {/* <div>
-          <Button
-            className={styles.button}
-            onClick={() => { */}
-          {/* <div
-            onClick={() => {
-              navigator.geolocation.getCurrentPosition(
-                (position) => {
-                  panTo({
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude,
-                  });
-                },
-                () => null
-              );
-            }}
-          />  */}
-            {/* <LocationOnIcon fontSize="small" />&nbsp;
-            Current Location
-          </Button>
-        </div> */}
-      </>
-    );
+      
+    // return (
+    //   <>
+    //     <div>
+    //       <Button
+    //         className={styles.button}
+    //         onClick={() => {
+    //           navigator.geolocation.getCurrentPosition(
+    //             (position) => {
+    //               panTo({
+    //                 lat: position.coords.latitude,
+    //                 lng: position.coords.longitude,
+    //               });
+    //             },
+    //             () => null
+    //           );
+    //         }}
+    //       > 
+    //         <LocationOnIcon fontSize="small" />&nbsp;
+    //         Current Location
+    //       </Button>
+    //     </div>
+    //   </>
+    // );
   }
