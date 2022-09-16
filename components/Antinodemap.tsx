@@ -134,7 +134,7 @@ export default function AntinodeMap() {
     );
 }
 
-function AntinodeLocate({ panTo }) {
+export function AntinodeLocate({ panTo }) {
     return (
         <>
             <div>

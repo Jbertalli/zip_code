@@ -134,12 +134,25 @@ export default function NodeMap() {
     );
 }
 
-function Locate({ panTo }) {
+export function Locate({ panTo }) {
+
+    navigator.geolocation.getCurrentPosition(
+        (position) => {
+          panTo({
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          });
+        },
+        () => null
+      );
+
     return (
       <>
-        <div>
+        {/* <div>
           <Button
             className={styles.button}
+            onClick={() => { */}
+          {/* <div
             onClick={() => {
               navigator.geolocation.getCurrentPosition(
                 (position) => {
@@ -151,11 +164,11 @@ function Locate({ panTo }) {
                 () => null
               );
             }}
-          > 
-            <LocationOnIcon fontSize="small" />&nbsp;
+          />  */}
+            {/* <LocationOnIcon fontSize="small" />&nbsp;
             Current Location
           </Button>
-        </div>
+        </div> */}
       </>
     );
   }

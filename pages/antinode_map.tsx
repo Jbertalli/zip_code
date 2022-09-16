@@ -9,6 +9,8 @@ import Divider from '@mui/material/Divider';
 // import Map from '../components/map';
 import NodeMap from '../components/Nodemap';
 import AntinodeMap from '../components/Antinodemap';
+import Locate from '../components/Nodemap';
+import AntinodeLocate from '../components/Antinodemap';
 
 // const libraries: string[] = ["places"];
 // const mapContainerStyle = {
@@ -70,6 +72,7 @@ export default function Antinode() {
             </Head>
             <div style={{ position: 'absolute' }}>
                 <Button
+                    onClick={() => Locate()}
                     style={{ background: 'blue', color: 'white' }}
                 >
                     Antinode
