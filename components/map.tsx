@@ -21,10 +21,10 @@ const center = {
   lng: -73.93
 };
 
-export default function Map({ latCoord, longCoord, lat, lng }) {
+export default function Map({ latCoord, longCoord }) {
 
-//   console.log(latCoord);
-//   console.log(longCoord);
+  // console.log(latCoord);
+  // console.log(longCoord);
 
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.MAPS_API_KEY,
