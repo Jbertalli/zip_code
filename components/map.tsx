@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useRef } from "react";
+import React, { useState, useCallback, useRef, useEffect } from "react";
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api";
 import Button from '@mui/material/Button';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
@@ -21,7 +21,7 @@ const center = {
   lng: -73.93
 };
 
-export default function Map({ latCoord, longCoord }) {
+export default function Map({ latCoord, longCoord, lat, lng }) {
 
 //   console.log(latCoord);
 //   console.log(longCoord);
