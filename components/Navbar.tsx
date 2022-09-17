@@ -13,7 +13,7 @@ export default function Navbar() {
 
     return (
         <>
-            <Box sx={{ width: '100%' }} style={{ position: 'absolute', zIndex: '1000', background: '#313e4c', transform: 'translateY(1170px)' }}>
+            <Box sx={{ width: '100%', height: '56px' }} style={{ position: 'absolute', zIndex: '1000', background: '#313e4c' }}>
                 <Tabs value={value} onChange={handleChange} centered>
                     <Link href='/' passHref>
                         <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '100' }} label="Home" />

@@ -98,7 +98,7 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
         </div>
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
-            <AppBar position="fixed" open={open} style={{ background: '#313e4c', color: 'white' }}>
+            <AppBar position="fixed" open={open} style={{ background: '#313e4c', color: 'white', transform: 'translateY(56px)' }}>
                 <Toolbar>
                 <IconButton
                     color="inherit"
