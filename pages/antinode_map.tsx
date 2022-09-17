@@ -33,7 +33,7 @@ export default function Antinode() {
                     <Link href='/antinode_map' passHref>
                         <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="Antinode Map" />
                     </Link>
-                    <Link href='/' passHref>
+                    <Link href='/history' passHref>
                         <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="User History" />
                     </Link>
                 </Tabs>
