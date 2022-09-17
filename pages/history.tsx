@@ -20,7 +20,7 @@ export default function History() {
     return (
         <>
             <Head>
-                <title>User History</title>
+                <title>User Information</title>
                 <meta name="description" content="history" />
             </Head>
             <div style={{ fontSize: '16px', fontWeight: '400', position: 'absolute', zIndex: '10000000', color: 'white', left: '16px', top: '21px' }}>

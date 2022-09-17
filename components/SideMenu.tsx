@@ -104,7 +104,7 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
                     <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="Antinode Map" />
                 </Link>
                 <Link href='/history' passHref>
-                    <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="User History" />
+                    <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="User Information" />
                 </Link>
             </Tabs>
         </div>
