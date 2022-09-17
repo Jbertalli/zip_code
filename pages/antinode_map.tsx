@@ -42,7 +42,8 @@ export default function Antinode() {
             <div style={{ position: 'absolute' }}>
                 <Divider />
             </div>
-            <div style={{ fontSize: '15px', fontWeight: '300', height: '20px', transform: 'translateY(0px)', position: 'absolute' }}>
+            <div style={{ background: 'red', width: '100%', height: '50px', position: 'absolute', zIndex: '100', top: '100px' }} />
+            <div style={{ fontSize: '15px', fontWeight: '300', opacity: '0.8', transform: 'translateY(60px)', position: 'absolute', zIndex: '10' }}>
                 <div style={{ position: 'absolute', transform: 'translate(20vw)', width: '300px' }}>
                     Current Location
                 </div>
