@@ -95,7 +95,7 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
                 </div>
             }
         </div>
-        <div style={{ fontSize: '25px', fontWeight: '400', position: 'absolute', zIndex: '10000000', color: 'white', right: '30px', top: '12.4px' }}>
+        <div style={{ fontSize: '25px', fontWeight: '400', position: 'absolute', zIndex: '10000000', color: 'white', opacity: '0.7', right: '30px', top: '12.4px' }}>
             <span>
                 {user ? (
                 <>
