@@ -107,13 +107,16 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
                 Dashboard
             </span>
         </div>
-        <div style={{ position: 'absolute', zIndex: '10000', right: '40vw', top: '5px' }}>
+        <div style={{ position: 'absolute', zIndex: '10000', right: '36vw', top: '5px' }}>
             <Tabs>
                 <Link href='/' passHref>
                     <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="Home" />
                 </Link>
                 <Link href='/antinode_map' passHref>
                     <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="Antinode Map" />
+                </Link>
+                <Link href='/antinode_map' passHref>
+                    <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="User History" />
                 </Link>
             </Tabs>
         </div>
