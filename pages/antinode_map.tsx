@@ -38,14 +38,14 @@ export default function Antinode() {
                     </Link>
                 </Tabs>
             </div>
-            <div style={{ fontSize: '30px', fontWeight: '300', color: 'white', transform: 'translateY(15px)' }}>
+            {/* <div style={{ fontSize: '30px', fontWeight: '300', color: 'white', transform: 'translateY(15px)' }}>
                 <div style={{ position: 'absolute', transform: 'translate(20vw)' }}>
                     Current Location
                 </div>
                 <div style={{ position: 'absolute', transform: 'translate(70vw)' }}>
                     Antinode Location
                 </div>
-            </div>
+            </div> */}
             <div>
                 <NodeMap />
             </div>
