@@ -95,18 +95,6 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
                 </div>
             }
         </div>
-        {/* <div style={{ fontSize: '25px', fontWeight: '400', position: 'absolute', zIndex: '10000000', color: 'white', opacity: '0.7', right: '30px', top: '12.4px' }}>
-            <span>
-                {user ? (
-                <>
-                    {user.displayName}'s{' '}
-                </>
-                ): null}
-            </span>
-            <span>
-                Dashboard
-            </span>
-        </div> */}
         <div style={{ position: 'absolute', zIndex: '10000', right: '36vw', top: '5px' }}>
             <Tabs>
                 <Link href='/' passHref>
@@ -115,7 +103,7 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
                 <Link href='/antinode_map' passHref>
                     <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="Antinode Map" />
                 </Link>
-                <Link href='/antinode_map' passHref>
+                <Link href='/' passHref>
                     <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="User History" />
                 </Link>
             </Tabs>
@@ -151,7 +139,7 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
                 open={open}
             >
                 <DrawerHeader>
-                    <div style={{ fontSize: '16px', fontWeight: '400', position: 'absolute', zIndex: '10000000', color: 'white', opacity: '0.7', left: '40px', top: '21px' }}>
+                    <div style={{ fontSize: '16px', fontWeight: '400', position: 'absolute', zIndex: '10000000', color: 'white', left: '16px', top: '21px' }}>
                         <span>
                             {user ? (
                             <>
