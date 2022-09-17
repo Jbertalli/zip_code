@@ -2,7 +2,6 @@ import Head from 'next/head';
 import Link from 'next/link';
 import React from "react";
 import Button from '@mui/material/Button';
-import Divider from '@mui/material/Divider';
 import NodeMap from '../components/Nodemap';
 import AntinodeMap from '../components/Antinodemap';
 import Tabs from '@mui/material/Tabs';
@@ -38,9 +37,6 @@ export default function Antinode() {
                         <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="User History" />
                     </Link>
                 </Tabs>
-            </div>
-            <div style={{ position: 'absolute' }}>
-                <Divider />
             </div>
             <div style={{ background: 'red', width: '100%', height: '20px', position: 'absolute', zIndex: '100', top: '100px', borderTop: '1px solid white' }} />
             <div style={{ fontSize: '15px', fontWeight: '300', opacity: '0.8', transform: 'translateY(65px)', position: 'absolute', zIndex: '10' }}>
