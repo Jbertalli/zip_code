@@ -1,19 +1,16 @@
 import * as React from 'react';
+import Link from 'next/link';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
-import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
 import Database from '../components/Database';
 import Delete from '../components/Delete';
 import UI_Buttons from '../components/UI_Buttons';
@@ -21,6 +18,8 @@ import GetLocation from '../components/GetLocation';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { getAuth } from '@firebase/auth';
 import CircularProgress from '@mui/material/CircularProgress';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
 
 const drawerWidth = 300;
 
@@ -107,6 +106,16 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
             <span>
                 Dashboard
             </span>
+        </div>
+        <div style={{ position: 'absolute', zIndex: '10000', right: '40vw', top: '5px' }}>
+            <Tabs>
+                <Link href='/' passHref>
+                    <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '400' }} label="Home" />
+                </Link>
+                <Link href='/antinode_map' passHref>
+                    <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '400' }} label="Antinode Map" />
+                </Link>
+            </Tabs>
         </div>
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
