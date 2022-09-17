@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import React from "react";
 import Button from '@mui/material/Button';
+import Divider from '@mui/material/Divider';
 import NodeMap from '../components/Nodemap';
 import AntinodeMap from '../components/Antinodemap';
 import Tabs from '@mui/material/Tabs';
@@ -38,11 +39,14 @@ export default function Antinode() {
                     </Link>
                 </Tabs>
             </div>
-            <div style={{ fontSize: '15px', fontWeight: '300', height: '20px', transform: 'translateY(40px)' }}>
-                <div style={{ position: 'absolute', transform: 'translate(20vw)' }}>
+            <div style={{ position: 'absolute' }}>
+                <Divider />
+            </div>
+            <div style={{ fontSize: '15px', fontWeight: '300', height: '20px', transform: 'translateY(0px)', position: 'absolute' }}>
+                <div style={{ position: 'absolute', transform: 'translate(20vw)', width: '300px' }}>
                     Current Location
                 </div>
-                <div style={{ position: 'absolute', transform: 'translate(70vw)' }}>
+                <div style={{ position: 'absolute', transform: 'translate(70vw)', width: '300px' }}>
                     Antinode Location
                 </div>
             </div>
