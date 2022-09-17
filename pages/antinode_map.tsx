@@ -37,7 +37,7 @@ export default function Antinode() {
             <div>
                 <AntinodeMap />
             </div>
-            <Navbar />
+            {/* <Navbar /> */}
         </>
     );
 }

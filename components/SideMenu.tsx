@@ -96,33 +96,31 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
                 </div>
             }
         </div>
+        <div style={{ fontSize: '25px', fontWeight: '400', position: 'absolute', zIndex: '10000000', color: 'white', right: '30px', top: '12.4px' }}>
+            <span>
+                {user ? (
+                <>
+                    {user.displayName}'s{' '}
+                </>
+                ): null}
+            </span>
+            <span>
+                Dashboard
+            </span>
+        </div>
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
-            <AppBar position="fixed" open={open} style={{ background: '#313e4c', color: 'white', transform: 'translateY(56px)' }}>
+            <AppBar position="fixed" open={open} style={{ background: '#313e4c', color: 'white' }}>
                 <Toolbar>
-                <IconButton
-                    color="inherit"
-                    aria-label="open drawer"
-                    onClick={handleDrawerOpen}
-                    edge="start"
-                    sx={{ mr: 2, ...(open && { display: 'none' }) }}
-                >
-                    <MenuIcon />
-                </IconButton>
-                <Typography variant="h6" noWrap component="div">
-                    <div style={{ fontSize: '25px', fontWeight: '100' }}>
-                        <span>
-                            {user ? (
-                            <>
-                                {user.displayName}'s{' '}
-                            </>
-                            ): null}
-                        </span>
-                        <span>
-                            Dashboard
-                        </span>
-                    </div>
-                </Typography>
+                    <IconButton
+                        color="inherit"
+                        aria-label="open drawer"
+                        onClick={handleDrawerOpen}
+                        edge="start"
+                        sx={{ mr: 2, ...(open && { display: 'none' }) }}
+                    >
+                        <MenuIcon />
+                    </IconButton>
                 </Toolbar>
             </AppBar>
             <Drawer
