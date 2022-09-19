@@ -25,7 +25,7 @@ export default function Antinode() {
                     Antinode
                 </Button>
             </div> */}
-            <div style={{ position: 'absolute', zIndex: '10000', right: '36vw', top: '5px' }}>
+            <div style={{ position: 'absolute', zIndex: '10000', right: '33vw', top: '5px' }}>
                 <Tabs>
                     <Link href='/' passHref>
                         <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="Home" />

@@ -12,7 +12,7 @@ import StateClose from '../components/close_buttons/stateClose';
 import AbbrClose from '../components/close_buttons/abbrClose';
 import firebase from '../firebase/clientApp';
 import { initializeApp } from 'firebase/app';
-import { getFirestore, doc, getDoc, getDocs, setDoc, deleteDoc, deleteField, updateDoc, collection, Timestamp } from 'firebase/firestore';
+import { getFirestore, doc, getDoc, getDocs, setDoc, deleteDoc, deleteField, updateDoc, collection, query, orderBy, onSnapshot, Timestamp } from 'firebase/firestore';
 import Auth from '../components/Auth';
 // import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -156,6 +156,7 @@ export default function Home() {
         Opposite_Longitude,
         State,
         State_Abbreviation,
+        Created: Timestamp.now()
       });
     }
 
@@ -227,17 +228,6 @@ export default function Home() {
         Zip: deleteField()
       })
     }
-
-    // const getZipDoc = async(Zip: number) => {
-    //   let zipDocRef = doc(db, "location", "User Data2");
-    //   let docSnap = await getDoc(zipDocRef);
-
-    //   if(docSnap.exists) {
-    //     alert('exists');
-    //   } else {
-    //     alert('No document exists');
-    //   }
-    // }
 
     const cityRef = doc(db, "location", "User Data2");
 

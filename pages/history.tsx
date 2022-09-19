@@ -1,8 +1,10 @@
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { getAuth } from '@firebase/auth';
 import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, query, orderBy, onSnapshot } from 'firebase/firestore';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 
@@ -17,6 +19,7 @@ export default function History() {
         appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
     };
 
+    const [userData, setUserData] = useState([]);
     const app = initializeApp(clientCredential);
     const [user] = useAuthState(getAuth());
 
@@ -26,7 +29,7 @@ export default function History() {
                 <title>User Information</title>
                 <meta name="description" content="history" />
             </Head>
-            <div style={{ position: 'absolute', zIndex: '10000', right: '36vw', top: '5px' }}>
+            <div style={{ position: 'absolute', zIndex: '10000', right: '33vw', top: '5px' }}>
                 <Tabs>
                     <Link href='/' passHref>
                         <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="Home" />

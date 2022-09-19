@@ -20,6 +20,7 @@ import { getAuth } from '@firebase/auth';
 import CircularProgress from '@mui/material/CircularProgress';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import { getFirestore, collection, query, orderBy, onSnapshot } from 'firebase/firestore';
 
 const drawerWidth = 300;
 
@@ -74,6 +75,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLongCoord, setState, setStateAbbreviation, handleClear, latCoord, longCoord, opposite, clearOpposite, OppLat, OppLong, zip, city, state, stateAbbreviation, addZip, deleteZip, addCity, deleteCity, addLat, latitude, deleteLat, addLong, longitude, deleteLong, addState, deleteState, addStateAbbr, deleteAbbr, addDocument, deleteAll, addOppLat, addOppLong, deleteOppositeLat, deleteOppositeLong }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [userData, setUserData] = React.useState([]);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -95,7 +97,7 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
                 </div>
             }
         </div>
-        <div style={{ position: 'absolute', zIndex: '10000', right: '36vw', top: '5px' }}>
+        <div style={{ position: 'absolute', zIndex: '10000', right: '33vw', top: '5px' }}>
             <Tabs>
                 <Link href='/' passHref>
                     <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="Home" />
