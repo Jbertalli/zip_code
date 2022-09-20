@@ -160,11 +160,13 @@ export default function Home() {
     let dbId = userInfo?.[0]?.id;
     let dbZip = userInfo?.[0]?.Zip;
     let dbCity = userInfo?.[0]?.City;
+    let dbLatitude = userInfo?.[0]?.Latitude;
     
     console.log(dbId);
     console.log(dbZip);
     console.log(dbCity);
-;
+    console.log(dbLatitude);
+
     // console.log(user.displayName);
 
     // Create new document from within code
