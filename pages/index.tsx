@@ -12,7 +12,7 @@ import StateClose from '../components/close_buttons/stateClose';
 import AbbrClose from '../components/close_buttons/abbrClose';
 import firebase from '../firebase/clientApp';
 import { initializeApp } from 'firebase/app';
-import { getFirestore, doc, getDoc, getDocs, setDoc, deleteDoc, deleteField, updateDoc, collection, query, orderBy, onSnapshot, Timestamp } from 'firebase/firestore';
+import { getFirestore, doc, getDoc, getDocs, setDoc, deleteDoc, deleteField, updateDoc, collection, query, orderBy, onSnapshot, Timestamp, QuerySnapshot } from 'firebase/firestore';
 import Auth from '../components/Auth';
 // import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -64,7 +64,7 @@ export default function Home() {
     const [stateAbbreviation, setStateAbbreviation] = useState<string>('');
     const [OppLat, setOppLat] = useState<string>('');
     const [OppLong, setOppLong] = useState<string>('');
-    const [userData, setUserData] = useState([]);
+    const [userInfo, setUserInfo] = useState([]);
 
     const auth = getAuth();
     const [user] = useAuthState(getAuth());
@@ -135,8 +135,19 @@ export default function Home() {
     let logged = async () => {
       const colRef = collection(db, "location");
       const docsSnap = await getDocs(colRef);
-      docsSnap.forEach(doc => {
-        console.log(doc.data());
+        docsSnap.forEach(doc => {
+          // console.log(doc.data());
+          setUserInfo(docsSnap.docs.map(doc => ({
+            id: doc.id,
+            Zip: doc.data().Zip,
+            City: doc.data().City,
+            Latitude: doc.data().Latitude,
+            Longitude: doc.data().Longitude,
+            Opposite_Latitude: doc.data().Opposite_Latitude,
+            Opposite_Longitude: doc.data().Opposite_Longitude,
+            State: doc.data().State,
+            State_Abbreviation: doc.data().State_Abbreviation
+        })))
       })
     }
     
@@ -144,6 +155,12 @@ export default function Home() {
       logged();
     }, []);
 
+    console.log(userInfo);
+
+    let dbId = userInfo?.[0]?.id;
+    
+    console.log(dbId)
+;
     // console.log(user.displayName);
 
     // Create new document from within code
@@ -162,15 +179,37 @@ export default function Home() {
     }
 
     // useEffect(() => {
+    //   const q = query(collection(db, "location"), orderBy('created', 'desc'));
+    //   onSnapshot(q, (querySnapshot) => {
+    //       setUserInfo(querySnapshot.docs.map(doc => ({
+    //           data: doc.data(),
+    //           id: doc.id,
+    //           Zip: doc.data().Zip,
+    //           City: doc.data().City,
+    //           Latitude: doc.data().Latitude,
+    //           Longitude: doc.data().Longitude,
+    //           Opposite_Latitude: doc.data().Opposite_Latitude,
+    //           Opposite_Longitude: doc.data().Opposite_Longitude,
+    //           State: doc.data().State,
+    //           State_Abbreviation: doc.data().State_Abbreviation
+    //       })))
+    //   })
+    // }, [])
+
+    // let dbZipped = userInfo;
+    // console.log(dbZipped);
+
+    // useEffect(() => {
     //   const q = query(collection(db, "location"), orderBy('created', 'desc'))
     //   onSnapshot(q, (querySnapshot) => {
-    //       setUserData(querySnapshot.docs.map(doc => ({
+    //       setUserInfo(querySnapshot.docs.map(doc => ({
+    //           id: doc.id,
     //           data: doc.data()
     //       })))
     //   })
     // }, [])
 
-    // console.log(userData);
+    // console.log(userInfo);
 
     const addZip = async(Zip: number) => {
       await setDoc(doc(db, "location", "User Data2"), {
@@ -230,6 +269,7 @@ export default function Home() {
         Opposite_Longitude: deleteField(),
         State: deleteField(),
         State_Abbreviation: deleteField(),
+        Created: deleteField(),
       });
     }
 
