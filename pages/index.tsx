@@ -64,6 +64,7 @@ export default function Home() {
     const [stateAbbreviation, setStateAbbreviation] = useState<string>('');
     const [OppLat, setOppLat] = useState<string>('');
     const [OppLong, setOppLong] = useState<string>('');
+    const [userData, setUserData] = useState([]);
 
     const auth = getAuth();
     const [user] = useAuthState(getAuth());
@@ -131,7 +132,7 @@ export default function Home() {
     }
 
     // console.log data
-    const logged = async () => {
+    let logged = async () => {
       const colRef = collection(db, "location");
       const docsSnap = await getDocs(colRef);
       docsSnap.forEach(doc => {
@@ -147,7 +148,7 @@ export default function Home() {
 
     // Create new document from within code
     const addDocument = async (Zip: number, City: string, Latitude: number, Longitude: number, Opposite_Latitude: string, Opposite_Longitude: string, State: string, State_Abbreviation: string) => {
-      await setDoc(doc(db, "location", "User Data3"), {
+      await setDoc(doc(db, "location", "User Data2"), {
         Zip,
         City,
         Latitude,
@@ -159,6 +160,17 @@ export default function Home() {
         Created: Timestamp.now()
       });
     }
+
+    // useEffect(() => {
+    //   const q = query(collection(db, "location"), orderBy('created', 'desc'))
+    //   onSnapshot(q, (querySnapshot) => {
+    //       setUserData(querySnapshot.docs.map(doc => ({
+    //           data: doc.data()
+    //       })))
+    //   })
+    // }, [])
+
+    // console.log(userData);
 
     const addZip = async(Zip: number) => {
       await setDoc(doc(db, "location", "User Data2"), {
@@ -209,7 +221,7 @@ export default function Home() {
     }
 
     const deleteAll = async (Zip: number, City: string, Latitude: number, Longitude: number, State: string, State_Abbreviation: string, Opposite_Latitude: string, Opposite_Longitude: string) => {
-      await updateDoc(doc(db, "location", "User Data3"), {
+      await updateDoc(doc(db, "location", "User Data2"), {
         Zip: deleteField(),
         City: deleteField(),
         Latitude: deleteField(),
