@@ -163,6 +163,7 @@ export default function Home() {
     let dbLatitude = userInfo?.[0]?.Latitude;
     let dbLongitude = userInfo?.[0]?.Longitude;
     let dbOppositeLatitude = userInfo?.[0]?.Opposite_Latitude;
+    let dbOppositeLongitude = userInfo?.[0]?.Opposite_Longitude;
     
     console.log(dbId);
     console.log(dbZip);
@@ -170,6 +171,7 @@ export default function Home() {
     console.log(dbLatitude);
     console.log(dbLongitude);
     console.log(dbOppositeLatitude);
+    console.log(dbOppositeLongitude);
 
     // console.log(user.displayName);
 
