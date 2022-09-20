@@ -161,11 +161,13 @@ export default function Home() {
     let dbZip = userInfo?.[0]?.Zip;
     let dbCity = userInfo?.[0]?.City;
     let dbLatitude = userInfo?.[0]?.Latitude;
+    let dbLongitude = userInfo?.[0]?.Longitude;
     
     console.log(dbId);
     console.log(dbZip);
     console.log(dbCity);
     console.log(dbLatitude);
+    console.log(dbLongitude);
 
     // console.log(user.displayName);
 
