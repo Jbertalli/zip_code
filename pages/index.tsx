@@ -158,8 +158,10 @@ export default function Home() {
     console.log(userInfo);
 
     let dbId = userInfo?.[0]?.id;
+    let dbZip = userInfo?.[0]?.Zip;
     
-    console.log(dbId)
+    console.log(dbId);
+    console.log(dbZip);
 ;
     // console.log(user.displayName);
 
