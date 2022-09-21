@@ -167,15 +167,15 @@ export default function Home() {
     let dbState = userInfo?.[0]?.State;
     let dbStateAbbreviation = userInfo?.[0]?.State_Abbreviation;
     
-    console.log(dbId);
-    console.log(dbZip);
-    console.log(dbCity);
-    console.log(dbLatitude);
-    console.log(dbLongitude);
-    console.log(dbOppositeLatitude);
-    console.log(dbOppositeLongitude);
-    console.log(dbState);
-    console.log(dbStateAbbreviation);
+    // console.log(dbId);
+    // console.log(dbZip);
+    // console.log(dbCity);
+    // console.log(dbLatitude);
+    // console.log(dbLongitude);
+    // console.log(dbOppositeLatitude);
+    // console.log(dbOppositeLongitude);
+    // console.log(dbState);
+    // console.log(dbStateAbbreviation);
 
     // console.log(user.displayName);
 
@@ -360,6 +360,17 @@ export default function Home() {
         <meta name="description" content="zip code" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      {/* <div style={{ color: 'white', position: 'absolute', zIndex: '10000000000000' }}>
+        {dbId}
+        {dbZip}
+        {dbCity}
+        {dbLatitude}
+        {dbLongitude}
+        {dbOppositeLatitude}
+        {dbOppositeLongitude}
+        {dbState}
+        {dbStateAbbreviation}
+      </div> */}
       <div style={{ position: 'relative', zIndex: '10' }}>
         <Auth />
       </div>
@@ -426,7 +437,7 @@ export default function Home() {
           </div>
         </Draggable>
       </Container>
-      <SideMenu zipCode={zipCode} setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} handleClear={handleClear} latCoord={latCoord} longCoord={longCoord} opposite={opposite} clearOpposite={clearOpposite} OppLat={OppLat} OppLong={OppLong} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} addZip={addZip} deleteZip={deleteZip} addCity={addCity} deleteCity={deleteCity} addLat={addLat} latitude={latitude} deleteLat={deleteLat} addLong={addLong} longitude={longitude} deleteLong={deleteLong} addState={addState} deleteState={deleteState} addStateAbbr={addStateAbbr} deleteAbbr={deleteAbbr} addDocument={addDocument} deleteAll={deleteAll} addOppLat={addOppLat} addOppLong={addOppLong} deleteOppositeLat={deleteOppositeLat} deleteOppositeLong={deleteOppositeLong} />
+      <SideMenu zipCode={zipCode} setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} handleClear={handleClear} latCoord={latCoord} longCoord={longCoord} opposite={opposite} clearOpposite={clearOpposite} OppLat={OppLat} OppLong={OppLong} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} addZip={addZip} deleteZip={deleteZip} addCity={addCity} deleteCity={deleteCity} addLat={addLat} latitude={latitude} deleteLat={deleteLat} addLong={addLong} longitude={longitude} deleteLong={deleteLong} addState={addState} deleteState={deleteState} addStateAbbr={addStateAbbr} deleteAbbr={deleteAbbr} addDocument={addDocument} deleteAll={deleteAll} addOppLat={addOppLat} addOppLong={addOppLong} deleteOppositeLat={deleteOppositeLat} deleteOppositeLong={deleteOppositeLong} dbId={dbId} dbZip={dbZip} dbCity={dbCity} dbLatitude={dbLatitude} dbLongitude={dbLongitude} dbOppositeLatitude={dbOppositeLatitude} dbOppositeLongitude={dbOppositeLongitude} dbState={dbState} dbStateAbbreviation={dbStateAbbreviation} />
       <div style={{ transform: 'translateY(-530px)' }}>
         <Map latCoord={latCoord} longCoord={longCoord} />
       </div>
