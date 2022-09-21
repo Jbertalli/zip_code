@@ -88,6 +88,16 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
   const auth = getAuth();
   const [user, loading] = useAuthState(getAuth());
 
+  console.log(dbId);
+  console.log(dbZip);
+  console.log(dbCity);
+  console.log(dbLatitude);
+  console.log(dbLongitude);
+  console.log(dbOppositeLatitude);
+  console.log(dbOppositeLongitude);
+  console.log(dbState);
+  console.log(dbStateAbbreviation);
+
   return (
     <>
         <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
