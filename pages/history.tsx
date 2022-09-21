@@ -86,7 +86,7 @@ export default function History() {
                     </Link>
                 </Tabs>
             </div>
-            <div style={{ fontSize: '16px', fontWeight: '400', position: 'absolute', zIndex: '10000000', color: 'white', left: '16px', top: '21px' }}>
+            {/* <div style={{ fontSize: '16px', fontWeight: '400', position: 'absolute', zIndex: '10000000', color: 'white', left: '16px', top: '21px' }}>
                 <span>
                     {user ? (
                     <>
@@ -97,13 +97,22 @@ export default function History() {
                 <span>
                     Information
                 </span>
-            </div>
+            </div> */}
             <div style={{ margin: '65px 15% 0px 15%' }}>
                 <table>
                     <tr>
                         <th />
                         <th>
-                            User Information
+                            <span>
+                                {user ? (
+                                <>
+                                    {user.displayName}'s{' '}
+                                </>
+                                ): null}
+                            </span>
+                            <span>
+                                Information
+                            </span>
                         </th>
                     </tr>
                     <tr>
