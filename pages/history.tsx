@@ -98,6 +98,33 @@ export default function History() {
                 <span>
                     Information
                 </span>
+                <div>
+                    {dbId}
+                </div>
+                <div>
+                    {dbZip}
+                </div>
+                <div>
+                    {dbCity}
+                </div>
+                <div>
+                    {dbLatitude}
+                </div>
+                <div>
+                    {dbLongitude}
+                </div>
+                <div>
+                    {dbOppositeLatitude}
+                </div>
+                <div>
+                    {dbOppositeLongitude}
+                </div>
+                <div>
+                    {dbState}
+                </div>
+                <div>
+                    {dbStateAbbreviation}
+                </div>
             </div>
         </>
     );
