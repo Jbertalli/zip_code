@@ -16,23 +16,23 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
     
     return (
         <List>
-            {/* { ? (
+            {!!dbZip ? (
             <>
                 <ListItem disablePadding>
-                    <ListItemButton onClick={() => {addZip(zip), setZipClicked(false)}}>
-                        DB Zip
+                    <ListItemButton onClick={() => deleteZip(zip)}>
+                        Delete Zip
                     </ListItemButton>
                 </ListItem>
             </>
             ):(
             <>
                 <ListItem disablePadding>
-                    <ListItemButton onClick={() => {deleteZip(zip), setZipClicked(true)}}>
-                        Delete Zip
+                    <ListItemButton onClick={() => addZip(zip)}>
+                        DB Zip
                     </ListItemButton>
                 </ListItem>
             </>
-            )} */}
+            )}
             <ListItem disablePadding>
                 <ListItemButton onClick={() => addZip(zip)}>
                     Save Zip Code
