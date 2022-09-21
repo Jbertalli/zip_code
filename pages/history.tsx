@@ -97,50 +97,78 @@ export default function History() {
                 <span>
                     Information
                 </span>
-                {/* <div>
-                    {dbId}
-                </div> */}
-                <div>
-                    {dbZip}
-                </div>
-                <div>
-                    {dbCity}
-                </div>
-                <div>
-                    {dbLatitude}
-                </div>
-                <div>
-                    {dbLongitude}
-                </div>
-                <div>
-                    {dbOppositeLatitude}
-                </div>
-                <div>
-                    {dbOppositeLongitude}
-                </div>
-                <div>
-                    {dbState}
-                </div>
-                <div>
-                    {dbStateAbbreviation}
-                </div>
             </div>
             <div style={{ margin: '65px 15% 0px 15%' }}>
                 <table>
                     <tr>
-                        <th>A</th>
-                        <th>B</th>
-                        <th>C</th>
+                        <th />
+                        <th>
+                            User Information
+                        </th>
                     </tr>
                     <tr>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>3</td>
+                        <td>
+                            Zip Code
+                        </td>
+                        <td>
+                            {dbZip}
+                        </td>
                     </tr>
                     <tr>
-                        <td>4</td>
-                        <td>5</td>
-                        <td>6</td>
+                        <td>
+                            City
+                        </td>
+                        <td>
+                            {dbCity}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Latitude
+                        </td>
+                        <td>
+                            {dbLatitude}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Longitude
+                        </td>
+                        <td>
+                            {dbLongitude}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Antinode Latitude
+                        </td>
+                        <td>
+                            {dbOppositeLatitude}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Antinode Longitude
+                        </td>
+                        <td>
+                            {dbOppositeLongitude}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            State
+                        </td>
+                        <td>
+                            {dbState}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            State Abbreviation
+                        </td>
+                        <td>
+                            {dbStateAbbreviation}
+                        </td>
                     </tr>
                 </table>
             </div>
