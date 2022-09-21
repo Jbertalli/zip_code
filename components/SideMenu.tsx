@@ -18,8 +18,7 @@ import GetLocation from '../components/GetLocation';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { getAuth } from '@firebase/auth';
 import CircularProgress from '@mui/material/CircularProgress';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
+import Header from '../components/Header';
 
 const drawerWidth = 300;
 
@@ -96,17 +95,7 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
             }
         </div>
         <div style={{ position: 'absolute', zIndex: '10000', right: '33vw', top: '5px' }}>
-            <Tabs>
-                <Link href='/' passHref>
-                    <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="Home" />
-                </Link>
-                <Link href='/antinode_map' passHref>
-                    <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="Antinode Map" />
-                </Link>
-                <Link href='/history' passHref>
-                    <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="User Information" />
-                </Link>
-            </Tabs>
+            <Header />
         </div>
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />

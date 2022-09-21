@@ -88,10 +88,12 @@ export default function History() {
                     </Tabs>
                 </div>
             </div>
-            <div style={{ margin: '65px 15% 0px 15%', display: 'flex', justifyContent: 'center' }}>
-                <table style={{ border: '1px solid black' }}>
+            <div style={{ margin: '65px 15% 0px 15%', display: 'flex', justifyContent: 'center', color: 'black' }}>
+                <table style={{ border: '1px solid black', padding: '3%', background: 'rgb(255, 255, 255, 0.8)' }}>
                     <tr>
-                        <th />
+                        <th>
+                            Category
+                        </th>
                         <th>
                             <span>
                                 {user ? (
