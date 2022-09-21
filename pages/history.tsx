@@ -73,33 +73,23 @@ export default function History() {
                 <title>User Information</title>
                 <meta name="description" content="history" />
             </Head>
-            <div style={{ position: 'absolute', zIndex: '10000', right: '33vw', top: '5px' }}>
-                <Tabs>
-                    <Link href='/' passHref>
-                        <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="Home" />
-                    </Link>
-                    <Link href='/antinode_map' passHref>
-                        <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="Antinode Map" />
-                    </Link>
-                    <Link href='/history' passHref>
-                        <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="User Information" />
-                    </Link>
-                </Tabs>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <div style={{ position: 'absolute', zIndex: '10000', top: '5px' }}>
+                    <Tabs>
+                        <Link href='/' passHref>
+                            <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="Home" />
+                        </Link>
+                        <Link href='/antinode_map' passHref>
+                            <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="Antinode Map" />
+                        </Link>
+                        <Link href='/history' passHref>
+                            <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="User Information" />
+                        </Link>
+                    </Tabs>
+                </div>
             </div>
-            {/* <div style={{ fontSize: '16px', fontWeight: '400', position: 'absolute', zIndex: '10000000', color: 'white', left: '16px', top: '21px' }}>
-                <span>
-                    {user ? (
-                    <>
-                        {user.displayName}'s{' '}
-                    </>
-                    ): null}
-                </span>
-                <span>
-                    Information
-                </span>
-            </div> */}
-            <div style={{ margin: '65px 15% 0px 15%' }}>
-                <table>
+            <div style={{ margin: '65px 15% 0px 15%', display: 'flex', justifyContent: 'center' }}>
+                <table style={{ border: '1px solid black' }}>
                     <tr>
                         <th />
                         <th>
