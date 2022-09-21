@@ -19,7 +19,6 @@ export default function History() {
         appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
     };
 
-    const [userData, setUserData] = useState([]);
     const app = initializeApp(clientCredential);
     const [user] = useAuthState(getAuth());
 

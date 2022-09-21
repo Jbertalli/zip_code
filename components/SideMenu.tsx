@@ -75,7 +75,6 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLongCoord, setState, setStateAbbreviation, handleClear, latCoord, longCoord, opposite, clearOpposite, OppLat, OppLong, zip, city, state, stateAbbreviation, addZip, deleteZip, addCity, deleteCity, addLat, latitude, deleteLat, addLong, longitude, deleteLong, addState, deleteState, addStateAbbr, deleteAbbr, addDocument, deleteAll, addOppLat, addOppLong, deleteOppositeLat, deleteOppositeLong, dbId, dbZip, dbCity, dbLatitude, dbLongitude, dbOppositeLatitude, dbOppositeLongitude, dbState, dbStateAbbreviation }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const [userData, setUserData] = React.useState([]);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -88,15 +87,15 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
   const auth = getAuth();
   const [user, loading] = useAuthState(getAuth());
 
-  console.log(dbId);
-  console.log(dbZip);
-  console.log(dbCity);
-  console.log(dbLatitude);
-  console.log(dbLongitude);
-  console.log(dbOppositeLatitude);
-  console.log(dbOppositeLongitude);
-  console.log(dbState);
-  console.log(dbStateAbbreviation);
+//   console.log(dbId);
+//   console.log(dbZip);
+//   console.log(dbCity);
+//   console.log(dbLatitude);
+//   console.log(dbLongitude);
+//   console.log(dbOppositeLatitude);
+//   console.log(dbOppositeLongitude);
+//   console.log(dbState);
+//   console.log(dbStateAbbreviation);
 
   return (
     <>
@@ -183,7 +182,7 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
                     <Divider />
                 {user ? (
                 <>
-                    <Database latCoord={latCoord} longCoord={longCoord} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} addZip={addZip} addCity={addCity} addLat={addLat} latitude={latitude} addLong={addLong} longitude={longitude} addState={addState} addStateAbbr={addStateAbbr} addDocument={addDocument} deleteZip={deleteZip} addOppLat={addOppLat} OppLat={OppLat} addOppLong={addOppLong} OppLong={OppLong} />
+                    <Database latCoord={latCoord} longCoord={longCoord} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} addZip={addZip} addCity={addCity} addLat={addLat} latitude={latitude} addLong={addLong} longitude={longitude} addState={addState} addStateAbbr={addStateAbbr} addDocument={addDocument} deleteZip={deleteZip} addOppLat={addOppLat} OppLat={OppLat} addOppLong={addOppLong} OppLong={OppLong} dbId={dbId} dbZip={dbZip} dbCity={dbCity} dbLatitude={dbLatitude} dbLongitude={dbLongitude} dbOppositeLatitude={dbOppositeLatitude} dbOppositeLongitude={dbOppositeLongitude} dbState={dbState} dbStateAbbreviation={dbStateAbbreviation} />
                         <Divider />
                     <Delete latCoord={latCoord} longCoord={longCoord} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} deleteZip={deleteZip} deleteCity={deleteCity} latitude={latitude} deleteLat={deleteLat} longitude={longitude} deleteLong={deleteLong} deleteState={deleteState} deleteAbbr={deleteAbbr} deleteAll={deleteAll} deleteOppositeLat={deleteOppositeLat} deleteOppositeLong={deleteOppositeLong} OppLat={OppLat} OppLong={OppLong} />
                         <Divider />

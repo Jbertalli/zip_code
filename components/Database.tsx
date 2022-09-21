@@ -2,7 +2,17 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 
-export default function Database({ latCoord, longCoord, zip, city, state, stateAbbreviation, addZip, addCity, addLat, latitude, addLong, longitude, addState, addStateAbbr, addDocument, deleteZip, addOppLat, OppLat, addOppLong, OppLong }) {
+export default function Database({ latCoord, longCoord, zip, city, state, stateAbbreviation, addZip, addCity, addLat, latitude, addLong, longitude, addState, addStateAbbr, addDocument, deleteZip, addOppLat, OppLat, addOppLong, OppLong, dbId, dbZip, dbCity, dbLatitude, dbLongitude, dbOppositeLatitude, dbOppositeLongitude, dbState, dbStateAbbreviation }) {
+
+    console.log(dbId);
+    console.log(dbZip);
+    console.log(dbCity);
+    console.log(dbLatitude);
+    console.log(dbLongitude);
+    console.log(dbOppositeLatitude);
+    console.log(dbOppositeLongitude);
+    console.log(dbState);
+    console.log(dbStateAbbreviation);
     
     return (
         <List>
