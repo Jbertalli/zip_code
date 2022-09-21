@@ -1,11 +1,9 @@
 import Head from 'next/head';
-import Link from 'next/link';
 import React from "react";
 import Button from '@mui/material/Button';
 import NodeMap from '../components/Nodemap';
 import AntinodeMap from '../components/Antinodemap';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
+import Header from '../components/Header';
 // import Locate from '../components/Nodemap';
 // import AntinodeLocate from '../components/Antinodemap';
 
@@ -27,17 +25,7 @@ export default function Antinode() {
             </div> */}
             <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <div style={{ position: 'absolute', zIndex: '10000', top: '5px' }}>
-                    <Tabs>
-                        <Link href='/' passHref>
-                            <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="Home" />
-                        </Link>
-                        <Link href='/antinode_map' passHref>
-                            <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="Antinode Map" />
-                        </Link>
-                        <Link href='/history' passHref>
-                            <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="User Information" />
-                        </Link>
-                    </Tabs>
+                    <Header />
                 </div>
             </div>
             <div style={{ background: '#313e4c', width: '100%', height: '20px', position: 'absolute', zIndex: '10', top: '65px', borderTop: '.5px solid #FFFFFF90' }} />

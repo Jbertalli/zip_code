@@ -7,6 +7,7 @@ import { getAuth } from '@firebase/auth';
 import { initializeApp } from 'firebase/app';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import Header from '../components/Header';
 
 const clientCredential = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -75,17 +76,7 @@ export default function History() {
             </Head>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <div style={{ position: 'absolute', zIndex: '10000', top: '5px' }}>
-                    <Tabs>
-                        <Link href='/' passHref>
-                            <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="Home" />
-                        </Link>
-                        <Link href='/antinode_map' passHref>
-                            <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="Antinode Map" />
-                        </Link>
-                        <Link href='/history' passHref>
-                            <Tab style={{ color: 'white', fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="User Information" />
-                        </Link>
-                    </Tabs>
+                    <Header />
                 </div>
             </div>
             <div style={{ margin: '65px 15% 0px 15%', display: 'flex', justifyContent: 'center', color: 'black' }}>
