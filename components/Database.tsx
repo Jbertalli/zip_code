@@ -25,48 +25,47 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
             )} */}
             <ListItem disablePadding>
                 <ListItemButton onClick={() => addZip(zip)}>
-                    DB Zip
+                    Save Zip Code
                 </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
                 <ListItemButton onClick={() => addCity(city)}>
-                    DB City
+                    Save City
                 </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
                 <ListItemButton onClick={() => addLat(latitude)}>
-                    DB Latitude
+                    Save Latitude
                 </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
                 <ListItemButton onClick={() => addLong(longitude)}>
-                    DB Longitude
+                    Save Longitude
                 </ListItemButton>
             </ListItem>
-
             <ListItem disablePadding>
                 <ListItemButton onClick={() => addOppLat(OppLat)}>
-                    DB Opposite Latitude
+                    Save Antinode Latitude
                 </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
                 <ListItemButton onClick={() => addOppLong(OppLong)}>
-                    DB Opposite Longitude
+                    Save Antinode Longitude
                 </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
                 <ListItemButton onClick={() => addState(state)}>
-                    DB State
+                    Save State
                 </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
                 <ListItemButton onClick={() => addStateAbbr(stateAbbreviation)}>
-                    DB State Abbreviation
+                    Save State Abbreviation
                 </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
                 <ListItemButton onClick={() => addDocument(zip, city, latCoord, longCoord, OppLat, OppLong, state, stateAbbreviation)}>
-                    DB All
+                    Save All
                 </ListItemButton>
             </ListItem>
         </List>

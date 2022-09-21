@@ -107,6 +107,17 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
                 </div>
             }
         </div>
+        <div style={{ position: 'absolute', zIndex: '100000000', color: 'red', fontSize: '100px' }}>
+            {dbZip ? (
+            <>
+                Hello
+            </>
+            ):(
+            <>
+                Goodbye
+            </>
+            )}
+        </div>
         <div style={{ position: 'absolute', zIndex: '10000', right: '33vw', top: '5px' }}>
             <Tabs>
                 <Link href='/' passHref>
