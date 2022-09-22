@@ -43,7 +43,7 @@ export default function UI_Buttons({ zipCode, setZip, setCity, setLatCoord, setL
                         Opposite
                     </ListItemButton>
                 </ListItem>
-                {(OppLat && OppLong) ? (
+                {/* {(OppLat && OppLong) ? (
                 <>
                     <ListItem disablePadding>
                         <ListItemButton onClick={clearOpposite}>
@@ -52,7 +52,7 @@ export default function UI_Buttons({ zipCode, setZip, setCity, setLatCoord, setL
                         </ListItemButton>
                     </ListItem>
                 </>
-                ): null}
+                ): null} */}
             </>
             ): null}
             <ListItem disablePadding>
