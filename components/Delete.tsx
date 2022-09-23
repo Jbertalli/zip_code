@@ -20,11 +20,11 @@ export default function Delete({ latCoord, longCoord, zip, city, state, stateAbb
                     Delete Latitude
                 </ListItemButton>
             </ListItem> */}
-            <ListItem disablePadding>
+            {/* <ListItem disablePadding>
                 <ListItemButton onClick={() => deleteLong(longitude)}>
                     Delete Longitude
                 </ListItemButton>
-            </ListItem>
+            </ListItem> */}
             <ListItem disablePadding>
                 <ListItemButton onClick={() => deleteOppositeLat(OppLat)}>
                     Delete Opposite Latitude
