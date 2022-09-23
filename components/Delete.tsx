@@ -5,16 +5,16 @@ import ListItemButton from '@mui/material/ListItemButton';
 export default function Delete({ latCoord, longCoord, zip, city, state, stateAbbreviation, OppLat, OppLong, deleteZip, deleteCity, latitude, deleteLat, longitude, deleteLong, deleteState, deleteAbbr, deleteAll, deleteOppositeLat, deleteOppositeLong }) {
     return (
         <List>
-            <ListItem disablePadding>
+            {/* <ListItem disablePadding>
                 <ListItemButton onClick={() => deleteZip(zip)}>
                     Delete Zip
                 </ListItemButton>
-            </ListItem>
-            <ListItem disablePadding>
+            </ListItem> */}
+            {/* <ListItem disablePadding>
                 <ListItemButton onClick={() => deleteCity(city)}>
                     Delete City
                 </ListItemButton>
-            </ListItem>
+            </ListItem> */}
             <ListItem disablePadding>
                 <ListItemButton onClick={() => deleteLat(latitude)}>
                     Delete Latitude

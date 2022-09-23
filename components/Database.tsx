@@ -3,10 +3,12 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import React, { useState, useEffect } from 'react';
 
-const LOCAL_STORAGE_KEY_UPDATEZIP = 'UpdateZip';
+const LOCAL_STORAGE_KEY_UPDATE_ZIP = 'UpdateZip';
+const LOCAL_STORAGE_KEY_UPDATE_CITY = 'UpdateCity';
 
-export default function Database({ latCoord, longCoord, zip, city, state, stateAbbreviation, addZip, addCity, addLat, latitude, addLong, longitude, addState, addStateAbbr, addDocument, deleteZip, addOppLat, OppLat, addOppLong, OppLong, dbId, dbZip, dbCity, dbLatitude, dbLongitude, dbOppositeLatitude, dbOppositeLongitude, dbState, dbStateAbbreviation }) {
+export default function Database({ latCoord, longCoord, zip, city, state, stateAbbreviation, addZip, addCity, addLat, latitude, addLong, longitude, addState, addStateAbbr, addDocument, deleteZip, addOppLat, OppLat, addOppLong, OppLong, dbId, dbZip, dbCity, dbLatitude, dbLongitude, dbOppositeLatitude, dbOppositeLongitude, dbState, dbStateAbbreviation, deleteCity }) {
     const [updateZip, setUpdateZip] = useState(null);
+    const [updateCity, setUpdateCity] = useState(null);
 
     console.log(dbId);
     console.log(dbZip);
@@ -19,16 +21,28 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
     console.log(dbStateAbbreviation);
 
     useEffect(() => {
-        const storedUpdateZip = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATEZIP))
+        const storedUpdateZip = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATE_ZIP))
         if (storedUpdateZip) setUpdateZip(storedUpdateZip)
       }, []);
     
     useEffect(() => {
-        localStorage.setItem(LOCAL_STORAGE_KEY_UPDATEZIP, 
+        localStorage.setItem(LOCAL_STORAGE_KEY_UPDATE_ZIP, 
         JSON.stringify(updateZip))
     }, [updateZip]);
 
     console.log(updateZip);
+
+    useEffect(() => {
+        const storedUpdateCity = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATE_CITY))
+        if (storedUpdateCity) setUpdateCity(storedUpdateCity)
+      }, []);
+    
+    useEffect(() => {
+        localStorage.setItem(LOCAL_STORAGE_KEY_UPDATE_CITY, 
+        JSON.stringify(updateCity))
+    }, [updateCity]);
+
+    console.log(updateCity);
 
     return (
         <List>
@@ -45,21 +59,33 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
             <>
                 <ListItem disablePadding>
                     <ListItemButton onClick={() => {addZip(zip), setUpdateZip(true)}}>
-                        DB Zip
+                        Save Zip
                     </ListItemButton>
                 </ListItem>
             </>
             )}
-            <ListItem disablePadding>
-                <ListItemButton onClick={() => addZip(zip)}>
-                    Save Zip Code
-                </ListItemButton>
-            </ListItem>
-            <ListItem disablePadding>
-                <ListItemButton onClick={() => addCity(city)}>
-                    Save City
-                </ListItemButton>
-            </ListItem>
+            {updateCity ? (
+            <>
+                <ListItem disablePadding>
+                    <ListItemButton onClick={() => {deleteCity(city), setUpdateCity(false)}}>
+                        Delete City
+                    </ListItemButton>
+                </ListItem>
+            </>
+            ):(
+            <>
+                <ListItem disablePadding>
+                    <ListItemButton onClick={() => {addCity(city), setUpdateCity(true)}}>
+                        Save City
+                    </ListItemButton>
+                </ListItem>
+            </>
+            )}
+            
+
+
+
+
             <ListItem disablePadding>
                 <ListItemButton onClick={() => addLat(latitude)}>
                     Save Latitude
