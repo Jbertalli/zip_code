@@ -15,7 +15,7 @@ export default function Local({ setZip, zip, setCity, city, latCoord, setLatCoor
   useEffect(() => {
     const storedZip = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_ZIP))
     if (storedZip) setZip(storedZip)
-  }, [])
+  }, []);
 
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY_ZIP, 
@@ -26,7 +26,7 @@ export default function Local({ setZip, zip, setCity, city, latCoord, setLatCoor
   useEffect(() => {
     const storedCity = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_CITY))
     if (storedCity) setCity(storedCity)
-  }, [])
+  }, []);
 
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY_CITY, 
@@ -37,7 +37,7 @@ export default function Local({ setZip, zip, setCity, city, latCoord, setLatCoor
   useEffect(() => {
     const storedLat = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_LAT))
     if (storedLat) setLatCoord(storedLat)
-  }, [])
+  }, []);
 
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY_LAT, 
@@ -48,7 +48,7 @@ export default function Local({ setZip, zip, setCity, city, latCoord, setLatCoor
   useEffect(() => {
     const storedLong = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_LON))
     if (storedLong) setLongCoord(storedLong)
-  }, [])
+  }, []);
 
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY_LON, 
@@ -59,7 +59,7 @@ export default function Local({ setZip, zip, setCity, city, latCoord, setLatCoor
   useEffect(() => {
     const storedState = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_STATE))
     if (storedState) setState(storedState)
-  }, [])
+  }, []);
 
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY_STATE, 
@@ -70,7 +70,7 @@ export default function Local({ setZip, zip, setCity, city, latCoord, setLatCoor
   useEffect(() => {
     const storedStateAbbr = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_STATE_ABBR))
     if (storedStateAbbr) setStateAbbreviation(storedStateAbbr)
-  }, [])
+  }, []);
 
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY_STATE_ABBR, 
@@ -81,7 +81,7 @@ export default function Local({ setZip, zip, setCity, city, latCoord, setLatCoor
   useEffect(() => {
     const storedOppLat = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_OPPOSITE))
     if (storedOppLat) setOppLat(storedOppLat)
-  }, [])
+  }, []);
 
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY_OPPOSITE, 
@@ -92,7 +92,7 @@ export default function Local({ setZip, zip, setCity, city, latCoord, setLatCoor
   useEffect(() => {
     const storedOppLong = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_OPPOSITE1))
     if (storedOppLong) setOppLong(storedOppLong)
-  }, [])
+  }, []);
 
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY_OPPOSITE1, 

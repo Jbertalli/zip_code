@@ -21,7 +21,7 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
     useEffect(() => {
         const storedUpdateZip = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATEZIP))
         if (storedUpdateZip) setUpdateZip(storedUpdateZip)
-      }, [])
+      }, []);
     
     useEffect(() => {
         localStorage.setItem(LOCAL_STORAGE_KEY_UPDATEZIP, 
@@ -30,16 +30,6 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
 
     console.log(updateZip);
 
-    // useEffect(() => {
-    //     if (!!dbZip) {
-    //         setUpdateZip()
-    //     } else if (!dbZip) {
-    //         setUpdateZip()
-    //     } else {
-    //         return;
-    //     }
-    // }, [])
-    
     return (
         <List>
             {/* {!!dbZip ? ( */}
