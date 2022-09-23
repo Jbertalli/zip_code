@@ -5,10 +5,12 @@ import React, { useState, useEffect } from 'react';
 
 const LOCAL_STORAGE_KEY_UPDATE_ZIP = 'UpdateZip';
 const LOCAL_STORAGE_KEY_UPDATE_CITY = 'UpdateCity';
+const LOCAL_STORAGE_KEY_UPDATE_LATITUDE = 'UpdateLatitude';
 
-export default function Database({ latCoord, longCoord, zip, city, state, stateAbbreviation, addZip, addCity, addLat, latitude, addLong, longitude, addState, addStateAbbr, addDocument, deleteZip, addOppLat, OppLat, addOppLong, OppLong, dbId, dbZip, dbCity, dbLatitude, dbLongitude, dbOppositeLatitude, dbOppositeLongitude, dbState, dbStateAbbreviation, deleteCity }) {
+export default function Database({ latCoord, longCoord, zip, city, state, stateAbbreviation, addZip, addCity, addLat, latitude, addLong, longitude, addState, addStateAbbr, addDocument, deleteZip, addOppLat, OppLat, addOppLong, OppLong, dbId, dbZip, dbCity, dbLatitude, dbLongitude, dbOppositeLatitude, dbOppositeLongitude, dbState, dbStateAbbreviation, deleteCity, deleteLat }) {
     const [updateZip, setUpdateZip] = useState(null);
     const [updateCity, setUpdateCity] = useState(null);
+    const [updateLatitude, setUpdateLatitude] = useState(null);
 
     console.log(dbId);
     console.log(dbZip);
@@ -43,6 +45,21 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
     }, [updateCity]);
 
     console.log(updateCity);
+
+
+
+
+    useEffect(() => {
+        const storedUpdateLatitude = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATE_LATITUDE))
+        if (storedUpdateLatitude) setUpdateLatitude(storedUpdateLatitude)
+      }, []);
+    
+    useEffect(() => {
+        localStorage.setItem(LOCAL_STORAGE_KEY_UPDATE_LATITUDE, 
+        JSON.stringify(updateLatitude))
+    }, [updateLatitude]);
+
+    console.log(updateLatitude);
 
     return (
         <List>
@@ -81,16 +98,34 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
                 </ListItem>
             </>
             )}
+            {updateLatitude ? (
+            <>
+                <ListItem disablePadding>
+                    <ListItemButton onClick={() => {deleteLat(latitude), setUpdateLatitude(false)}}>
+                        Delete Latitude
+                    </ListItemButton>
+                </ListItem>
+            </>
+            ):(
+            <>
+                <ListItem disablePadding>
+                    <ListItemButton onClick={() => {addLat(latitude), setUpdateLatitude(true)}}>
+                        Save Latitude
+                    </ListItemButton>
+                </ListItem>
+            </>
+            )}
             
 
 
 
 
-            <ListItem disablePadding>
-                <ListItemButton onClick={() => addLat(latitude)}>
-                    Save Latitude
-                </ListItemButton>
-            </ListItem>
+            
+
+
+
+
+
             <ListItem disablePadding>
                 <ListItemButton onClick={() => addLong(longitude)}>
                     Save Longitude
