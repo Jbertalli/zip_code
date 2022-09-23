@@ -1,8 +1,12 @@
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
+import React, { useState, useEffect } from 'react';
+
+const LOCAL_STORAGE_KEY_UPDATEZIP = 'UpdateZip';
 
 export default function Database({ latCoord, longCoord, zip, city, state, stateAbbreviation, addZip, addCity, addLat, latitude, addLong, longitude, addState, addStateAbbr, addDocument, deleteZip, addOppLat, OppLat, addOppLong, OppLong, dbId, dbZip, dbCity, dbLatitude, dbLongitude, dbOppositeLatitude, dbOppositeLongitude, dbState, dbStateAbbreviation }) {
+    const [updateZip, setUpdateZip] = useState(null);
 
     console.log(dbId);
     console.log(dbZip);
@@ -13,13 +17,36 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
     console.log(dbOppositeLongitude);
     console.log(dbState);
     console.log(dbStateAbbreviation);
+
+    useEffect(() => {
+        const storedUpdateZip = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATEZIP))
+        if (storedUpdateZip) setUpdateZip(storedUpdateZip)
+      }, [])
+    
+    useEffect(() => {
+        localStorage.setItem(LOCAL_STORAGE_KEY_UPDATEZIP, 
+        JSON.stringify(updateZip))
+    }, [updateZip]);
+
+    console.log(updateZip);
+
+    // useEffect(() => {
+    //     if (!!dbZip) {
+    //         setUpdateZip()
+    //     } else if (!dbZip) {
+    //         setUpdateZip()
+    //     } else {
+    //         return;
+    //     }
+    // }, [])
     
     return (
         <List>
-            {!!dbZip ? (
+            {/* {!!dbZip ? ( */}
+            {updateZip ? (
             <>
                 <ListItem disablePadding>
-                    <ListItemButton onClick={() => deleteZip(zip)}>
+                    <ListItemButton onClick={() => {deleteZip(zip), setUpdateZip(false)}}>
                         Delete Zip
                     </ListItemButton>
                 </ListItem>
@@ -27,7 +54,7 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
             ):(
             <>
                 <ListItem disablePadding>
-                    <ListItemButton onClick={() => addZip(zip)}>
+                    <ListItemButton onClick={() => {addZip(zip), setUpdateZip(true)}}>
                         DB Zip
                     </ListItemButton>
                 </ListItem>
