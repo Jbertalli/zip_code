@@ -7,8 +7,9 @@ const LOCAL_STORAGE_KEY_UPDATE_LONGITUDE = 'UpdateLongitude';
 const LOCAL_STORAGE_KEY_UPDATE_LATITUDE_ANTINODE = 'UpdateAntinodeLatitude';
 const LOCAL_STORAGE_KEY_UPDATE_LONGITUDE_ANTINODE = 'UpdateAntinodeLongitude';
 const LOCAL_STORAGE_KEY_UPDATE_STATE = 'UpdateState';
+const LOCAL_STORAGE_KEY_UPDATE_STATE_ABBREVIATION = 'UpdateStateAbbreviation';
 
-export default function LocalDB({ updateZip, setUpdateZip, updateCity, setUpdateCity, updateLatitude, setUpdateLatitude, updateLongitude, setUpdateLongitude, updateAntinodeLatitude, setUpdateAntinodeLatitude, updateAntinodeLongitude, setUpdateAntinodeLongitude, updateState, setUpdateState }) {
+export default function LocalDB({ updateZip, setUpdateZip, updateCity, setUpdateCity, updateLatitude, setUpdateLatitude, updateLongitude, setUpdateLongitude, updateAntinodeLatitude, setUpdateAntinodeLatitude, updateAntinodeLongitude, setUpdateAntinodeLongitude, updateState, setUpdateState, updateStateAbbreviation, setUpdateStateAbbreviation }) {
 
     useEffect(() => {
         const storedUpdateZip = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATE_ZIP))
@@ -79,6 +80,16 @@ export default function LocalDB({ updateZip, setUpdateZip, updateCity, setUpdate
         localStorage.setItem(LOCAL_STORAGE_KEY_UPDATE_STATE, 
         JSON.stringify(updateState))
     }, [updateState]);
+
+    useEffect(() => {
+        const storedUpdateStateAbbreviation = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATE_STATE_ABBREVIATION))
+        if (storedUpdateStateAbbreviation) setUpdateStateAbbreviation(storedUpdateStateAbbreviation)
+      }, []);
+    
+    useEffect(() => {
+        localStorage.setItem(LOCAL_STORAGE_KEY_UPDATE_STATE_ABBREVIATION, 
+        JSON.stringify(updateStateAbbreviation))
+    }, [updateStateAbbreviation]);
 
     return (
         <>
