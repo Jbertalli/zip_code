@@ -125,6 +125,7 @@ export default function Home() {
       setStateAbbreviation('');
       setOppLat('');
       setOppLong('');
+      setWeatherData('');
       console.log('%c cleared', 'color: red');
     }
 
