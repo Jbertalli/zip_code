@@ -142,8 +142,11 @@ export default function Home() {
     console.log(KelvinMinTemp);
     console.log(weather);
 
-    let temp = Math.ceil((1.8 * (KelvinTemp - 273) + 32));
+    let temp = Math.round(1.8 * (KelvinTemp - 273) + 32);
     console.log(temp);
+
+    let maxTemp = Math.round(1.8 * (KelvinMaxTemp - 273) + 32);
+    console.log(maxTemp);
 
     // console.log data
     let logged = async () => {
