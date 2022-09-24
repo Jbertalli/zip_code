@@ -8,13 +8,15 @@ const LOCAL_STORAGE_KEY_UPDATE_CITY = 'UpdateCity';
 const LOCAL_STORAGE_KEY_UPDATE_LATITUDE = 'UpdateLatitude';
 const LOCAL_STORAGE_KEY_UPDATE_LONGITUDE = 'UpdateLongitude';
 const LOCAL_STORAGE_KEY_UPDATE_LATITUDE_ANTINODE = 'UpdateAntinodeLatitude';
+const LOCAL_STORAGE_KEY_UPDATE_LONGITUDE_ANTINODE = 'UpdateAntinodeLongitude';
 
-export default function Database({ latCoord, longCoord, zip, city, state, stateAbbreviation, addZip, addCity, addLat, latitude, addLong, longitude, addState, addStateAbbr, addDocument, deleteZip, addOppLat, OppLat, addOppLong, OppLong, dbId, dbZip, dbCity, dbLatitude, dbLongitude, dbOppositeLatitude, dbOppositeLongitude, dbState, dbStateAbbreviation, deleteCity, deleteLat, deleteLong, deleteOppositeLat }) {
+export default function Database({ latCoord, longCoord, zip, city, state, stateAbbreviation, addZip, addCity, addLat, latitude, addLong, longitude, addState, addStateAbbr, addDocument, deleteZip, addOppLat, OppLat, addOppLong, OppLong, dbId, dbZip, dbCity, dbLatitude, dbLongitude, dbOppositeLatitude, dbOppositeLongitude, dbState, dbStateAbbreviation, deleteCity, deleteLat, deleteLong, deleteOppositeLat, deleteOppositeLong }) {
     const [updateZip, setUpdateZip] = useState(null);
     const [updateCity, setUpdateCity] = useState(null);
     const [updateLatitude, setUpdateLatitude] = useState(null);
     const [updateLongitude, setUpdateLongitude] = useState(null);
     const [updateAntinodeLatitude, setUpdateAntinodeLatitude] = useState(null);
+    const [updateAntinodeLongitude, setUpdateAntinodeLongitude] = useState(null);
 
     console.log(dbId);
     console.log(dbZip);
@@ -85,6 +87,18 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
     }, [updateAntinodeLatitude]);
 
     console.log(updateAntinodeLatitude);
+
+    useEffect(() => {
+        const storedUpdateAntinodeLongitude = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATE_LONGITUDE_ANTINODE))
+        if (storedUpdateAntinodeLongitude) setUpdateAntinodeLongitude(storedUpdateAntinodeLongitude)
+      }, []);
+    
+    useEffect(() => {
+        localStorage.setItem(LOCAL_STORAGE_KEY_UPDATE_LONGITUDE_ANTINODE, 
+        JSON.stringify(updateAntinodeLongitude))
+    }, [updateAntinodeLongitude]);
+
+    console.log(updateAntinodeLongitude);
 
     return (
         <List>
@@ -174,21 +188,36 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
                 </ListItem>
             </>
             )}
-
+            {updateAntinodeLongitude ? (
+            <>
+                <ListItem disablePadding>
+                    <ListItemButton onClick={() => {deleteOppositeLong(OppLong), setUpdateAntinodeLongitude(false)}}>
+                        Delete Antinode Longitude
+                    </ListItemButton>
+                </ListItem>
+            </>
+            ):(
+            <>
+                <ListItem disablePadding>
+                    <ListItemButton onClick={() => {addOppLong(OppLong), setUpdateAntinodeLongitude(true)}}>
+                        Save Antinode Longitude
+                    </ListItemButton>
+                </ListItem>
+            </>
+            )}
             
 
             
 
 
+            
 
 
 
 
-            <ListItem disablePadding>
-                <ListItemButton onClick={() => addOppLong(OppLong)}>
-                    Save Antinode Longitude
-                </ListItemButton>
-            </ListItem>
+
+
+
             <ListItem disablePadding>
                 <ListItemButton onClick={() => addState(state)}>
                     Save State
