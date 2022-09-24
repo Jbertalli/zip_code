@@ -203,6 +203,7 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
             <>
                 <ListItem disablePadding>
                     <ListItemButton onClick={() => {deleteLong(longitude), setUpdateLongitude(false)}}>
+                        <ClearIcon fontSize="small" />&nbsp;
                         Delete Longitude
                     </ListItemButton>
                 </ListItem>
@@ -211,6 +212,7 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
             <>
                 <ListItem disablePadding>
                     <ListItemButton onClick={() => {addLong(longitude), setUpdateLongitude(true)}}>
+                        <HeightIcon fontSize="small" />&nbsp;
                         Save Longitude
                     </ListItemButton>
                 </ListItem>
