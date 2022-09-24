@@ -131,10 +131,10 @@ export default function Home() {
       setOppLong(null);
     }
 
-    let KelvinTemp = responseData?.main?.temp;
-    let KelvinMaxTemp = responseData?.main?.temp_max;
-    let KelvinMinTemp = responseData?.main?.temp_min;
-    let weather = responseData?.weather?.[0]?.description;
+    const KelvinTemp = responseData?.main?.temp;
+    const KelvinMaxTemp = responseData?.main?.temp_max;
+    const KelvinMinTemp = responseData?.main?.temp_min;
+    const weather = responseData?.weather?.[0]?.description;
 
     // console.log(responseData);
     // console.log(KelvinTemp);
@@ -142,16 +142,16 @@ export default function Home() {
     // console.log(KelvinMinTemp);
     // console.log(weather);
 
-    let currentTemp = Math.round(1.8 * (KelvinTemp - 273) + 32);
-    console.log(`%cCurrent Temperature: ${currentTemp}°F`, 'color: blue');
+    const currentTemp = `${Math.round(1.8 * (KelvinTemp - 273) + 32)}°F`;
+    console.log(`%cCurrent Temperature: ${currentTemp}`, 'color: blue');
 
-    let maxTemp = Math.round(1.8 * (KelvinMaxTemp - 273) + 32);
-    // console.log(`Maximum Temperature: ${maxTemp}°F`);
+    const maxTemp = `${Math.round(1.8 * (KelvinMaxTemp - 273) + 32)}°F`;
+    // console.log(`Maximum Temperature: ${maxTemp}`);
 
-    let minTemp = Math.round(1.8 * (KelvinMinTemp - 273) + 32);
-    // console.log(`Minimum Temperature: ${minTemp}°F`);
+    const minTemp = `${Math.round(1.8 * (KelvinMinTemp - 273) + 32)}°F`;
+    // console.log(`Minimum Temperature: ${minTemp}`);
   
-    let tempRange = `${minTemp}°F - ${maxTemp}°F`;
+    const tempRange = `${minTemp} - ${maxTemp}`;
     console.log(`%cTemperature Range: ${tempRange}`, 'color: red');
 
     // console.log data
@@ -348,6 +348,17 @@ export default function Home() {
         <meta name="description" content="zip code" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <div style={{ position: 'absolute', zIndex: '100000000000000000', fontSize: '100px', color: 'blue' }}>
+        <div style={{ textTransform: 'capitalize' }}>
+          {weather}
+        </div>
+        <div>
+          {currentTemp}
+        </div>
+        <div>
+          {tempRange}
+        </div>
+      </div>
       <div style={{ position: 'relative', zIndex: '10' }}>
         <Auth />
       </div>
