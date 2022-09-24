@@ -6,8 +6,9 @@ const LOCAL_STORAGE_KEY_UPDATE_LATITUDE = 'UpdateLatitude';
 const LOCAL_STORAGE_KEY_UPDATE_LONGITUDE = 'UpdateLongitude';
 const LOCAL_STORAGE_KEY_UPDATE_LATITUDE_ANTINODE = 'UpdateAntinodeLatitude';
 const LOCAL_STORAGE_KEY_UPDATE_LONGITUDE_ANTINODE = 'UpdateAntinodeLongitude';
+const LOCAL_STORAGE_KEY_UPDATE_STATE = 'UpdateState';
 
-export default function LocalDB({ updateZip, setUpdateZip, updateCity, setUpdateCity, updateLatitude, setUpdateLatitude, updateLongitude, setUpdateLongitude, updateAntinodeLatitude, setUpdateAntinodeLatitude, updateAntinodeLongitude, setUpdateAntinodeLongitude }) {
+export default function LocalDB({ updateZip, setUpdateZip, updateCity, setUpdateCity, updateLatitude, setUpdateLatitude, updateLongitude, setUpdateLongitude, updateAntinodeLatitude, setUpdateAntinodeLatitude, updateAntinodeLongitude, setUpdateAntinodeLongitude, updateState, setUpdateState }) {
 
     useEffect(() => {
         const storedUpdateZip = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATE_ZIP))
@@ -68,6 +69,16 @@ export default function LocalDB({ updateZip, setUpdateZip, updateCity, setUpdate
         localStorage.setItem(LOCAL_STORAGE_KEY_UPDATE_LONGITUDE_ANTINODE, 
         JSON.stringify(updateAntinodeLongitude))
     }, [updateAntinodeLongitude]);
+
+    useEffect(() => {
+        const storedUpdateState = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATE_STATE))
+        if (storedUpdateState) setUpdateState(storedUpdateState)
+      }, []);
+    
+    useEffect(() => {
+        localStorage.setItem(LOCAL_STORAGE_KEY_UPDATE_STATE, 
+        JSON.stringify(updateState))
+    }, [updateState]);
 
     return (
         <>
