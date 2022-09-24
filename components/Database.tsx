@@ -7,6 +7,7 @@ import SaveAltIcon from '@mui/icons-material/SaveAlt';
 import TagIcon from '@mui/icons-material/Tag';
 import LocationCityIcon from '@mui/icons-material/LocationCity';
 import HeightIcon from '@mui/icons-material/Height';
+import SyncAltIcon from '@mui/icons-material/SyncAlt';
 
 const LOCAL_STORAGE_KEY_UPDATE_ZIP = 'UpdateZip';
 const LOCAL_STORAGE_KEY_UPDATE_CITY = 'UpdateCity';
@@ -222,6 +223,7 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
             <>
                 <ListItem disablePadding>
                     <ListItemButton onClick={() => {deleteOppositeLat(OppLat), setUpdateAntinodeLatitude(false)}}>
+                        <ClearIcon fontSize="small" />&nbsp;
                         Delete Antinode Latitude
                     </ListItemButton>
                 </ListItem>
@@ -230,6 +232,7 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
             <>
                 <ListItem disablePadding>
                     <ListItemButton onClick={() => {addOppLat(OppLat), setUpdateAntinodeLatitude(true)}}>
+                        <SyncAltIcon fontSize="small" />&nbsp;
                         Save Antinode Latitude
                     </ListItemButton>
                 </ListItem>
