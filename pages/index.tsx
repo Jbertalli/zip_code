@@ -131,6 +131,12 @@ export default function Home() {
       setOppLong(null);
     }
 
+    console.log(responseData);
+    console.log(responseData?.main?.temp);
+    console.log(responseData?.main?.temp_max);
+    console.log(responseData?.main?.temp_min);
+    console.log(responseData?.weather[0]?.description);
+
     // console.log data
     let logged = async () => {
       const colRef = collection(db, "location");

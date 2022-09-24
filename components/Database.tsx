@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -22,15 +22,15 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
     const [updateStateAbbreviation, setUpdateStateAbbreviation] = useState(null);
     const [updateAll, setUpdateAll] = useState(null);
 
-    console.log(dbId);
-    console.log(dbZip);
-    console.log(dbCity);
-    console.log(dbLatitude);
-    console.log(dbLongitude);
-    console.log(dbOppositeLatitude);
-    console.log(dbOppositeLongitude);
-    console.log(dbState);
-    console.log(dbStateAbbreviation);
+    // console.log(dbId);
+    // console.log(dbZip);
+    // console.log(dbCity);
+    // console.log(dbLatitude);
+    // console.log(dbLongitude);
+    // console.log(dbOppositeLatitude);
+    // console.log(dbOppositeLongitude);
+    // console.log(dbState);
+    // console.log(dbStateAbbreviation);
 
     return (
         <>
