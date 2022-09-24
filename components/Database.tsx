@@ -10,8 +10,9 @@ const LOCAL_STORAGE_KEY_UPDATE_LONGITUDE = 'UpdateLongitude';
 const LOCAL_STORAGE_KEY_UPDATE_LATITUDE_ANTINODE = 'UpdateAntinodeLatitude';
 const LOCAL_STORAGE_KEY_UPDATE_LONGITUDE_ANTINODE = 'UpdateAntinodeLongitude';
 const LOCAL_STORAGE_KEY_UPDATE_STATE = 'UpdateState';
+const LOCAL_STORAGE_KEY_UPDATE_STATE_ABBREVIATION = 'UpdateStateAbbreviation';
 
-export default function Database({ latCoord, longCoord, zip, city, state, stateAbbreviation, addZip, addCity, addLat, latitude, addLong, longitude, addState, addStateAbbr, addDocument, deleteZip, addOppLat, OppLat, addOppLong, OppLong, dbId, dbZip, dbCity, dbLatitude, dbLongitude, dbOppositeLatitude, dbOppositeLongitude, dbState, dbStateAbbreviation, deleteCity, deleteLat, deleteLong, deleteOppositeLat, deleteOppositeLong, deleteState }) {
+export default function Database({ latCoord, longCoord, zip, city, state, stateAbbreviation, addZip, addCity, addLat, latitude, addLong, longitude, addState, addStateAbbr, addDocument, deleteZip, addOppLat, OppLat, addOppLong, OppLong, dbId, dbZip, dbCity, dbLatitude, dbLongitude, dbOppositeLatitude, dbOppositeLongitude, dbState, dbStateAbbreviation, deleteCity, deleteLat, deleteLong, deleteOppositeLat, deleteOppositeLong, deleteState, deleteAbbr }) {
     const [updateZip, setUpdateZip] = useState(null);
     const [updateCity, setUpdateCity] = useState(null);
     const [updateLatitude, setUpdateLatitude] = useState(null);
@@ -19,6 +20,7 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
     const [updateAntinodeLatitude, setUpdateAntinodeLatitude] = useState(null);
     const [updateAntinodeLongitude, setUpdateAntinodeLongitude] = useState(null);
     const [updateState, setUpdateState] = useState(null);
+    const [updateStateAbbreviation, setUpdateStateAbbreviation] = useState(null);
 
     console.log(dbId);
     console.log(dbZip);
@@ -113,6 +115,18 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
     }, [updateState]);
 
     console.log(updateState);
+
+    useEffect(() => {
+        const storedUpdateStateAbbreviation = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATE_STATE_ABBREVIATION))
+        if (storedUpdateStateAbbreviation) setUpdateStateAbbreviation(storedUpdateStateAbbreviation)
+      }, []);
+    
+    useEffect(() => {
+        localStorage.setItem(LOCAL_STORAGE_KEY_UPDATE_STATE_ABBREVIATION, 
+        JSON.stringify(updateStateAbbreviation))
+    }, [updateStateAbbreviation]);
+
+    console.log(updateStateAbbreviation);
 
     return (
         <List>
@@ -236,22 +250,34 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
                 </ListItem>
             </>
             )}
+            {updateStateAbbreviation ? (
+            <>
+                <ListItem disablePadding>
+                    <ListItemButton onClick={() => {deleteAbbr(stateAbbreviation), setUpdateStateAbbreviation(false)}}>
+                        Delete State Abbreviation
+                    </ListItemButton>
+                </ListItem>
+            </>
+            ):(
+            <>
+                <ListItem disablePadding>
+                    <ListItemButton onClick={() => {addStateAbbr(stateAbbreviation), setUpdateStateAbbreviation(true)}}>
+                        Save State Abbreviation
+                    </ListItemButton>
+                </ListItem>
+            </>
+            )}
+
+
+            
 
             
 
 
+
+
+
             
-
-
-
-
-
-
-            <ListItem disablePadding>
-                <ListItemButton onClick={() => addStateAbbr(stateAbbreviation)}>
-                    Save State Abbreviation
-                </ListItemButton>
-            </ListItem>
             <ListItem disablePadding>
                 <ListItemButton onClick={() => addDocument(zip, city, latCoord, longCoord, OppLat, OppLong, state, stateAbbreviation)}>
                     Save All
