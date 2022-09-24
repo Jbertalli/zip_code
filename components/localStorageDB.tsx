@@ -102,6 +102,16 @@ export default function LocalDB({ updateZip, setUpdateZip, updateCity, setUpdate
         JSON.stringify(updateAll))
     }, [updateAll]);
 
+    // console.log(updateZip);
+    // console.log(updateCity);
+    // console.log(updateLatitude);
+    // console.log(updateLongitude);
+    // console.log(updateAntinodeLatitude);
+    // console.log(updateAntinodeLongitude);
+    // console.log(updateState);
+    // console.log(updateStateAbbreviation);
+    // console.log(updateAll);
+
     return (
         <>
             &nbsp;

@@ -132,16 +132,6 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
     //     JSON.stringify(updateAll))
     // }, [updateAll]);
 
-    // console.log(updateZip);
-    // console.log(updateCity);
-    // console.log(updateLatitude);
-    // console.log(updateLongitude);
-    // console.log(updateAntinodeLatitude);
-    // console.log(updateAntinodeLongitude);
-    // console.log(updateState);
-    // console.log(updateStateAbbreviation);
-    // console.log(updateAll);
-
     return (
         <>
             <LocalDB updateZip={updateZip} setUpdateZip={setUpdateZip} updateCity={updateCity} setUpdateCity={setUpdateCity} updateLatitude={updateLatitude} setUpdateLatitude={setUpdateLatitude} updateLongitude={updateLongitude} setUpdateLongitude={setUpdateLongitude} updateAntinodeLatitude={updateAntinodeLatitude} setUpdateAntinodeLatitude={setUpdateAntinodeLatitude} updateAntinodeLongitude={updateAntinodeLongitude} setUpdateAntinodeLongitude={setUpdateAntinodeLongitude} updateState={updateState} setUpdateState={setUpdateState} updateStateAbbreviation={updateStateAbbreviation} setUpdateStateAbbreviation={setUpdateStateAbbreviation} updateAll={updateAll} setUpdateAll={setUpdateAll} />
