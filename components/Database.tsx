@@ -8,6 +8,7 @@ import TagIcon from '@mui/icons-material/Tag';
 import LocationCityIcon from '@mui/icons-material/LocationCity';
 import HeightIcon from '@mui/icons-material/Height';
 import SyncAltIcon from '@mui/icons-material/SyncAlt';
+import PlaceIcon from '@mui/icons-material/Place';
 
 const LOCAL_STORAGE_KEY_UPDATE_ZIP = 'UpdateZip';
 const LOCAL_STORAGE_KEY_UPDATE_CITY = 'UpdateCity';
@@ -251,7 +252,7 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
             <>
                 <ListItem disablePadding>
                     <ListItemButton onClick={() => {addOppLong(OppLong), setUpdateAntinodeLongitude(true)}}>
-                    <SyncAltIcon fontSize="small" style={{ transform: 'rotate(90deg)' }} />&nbsp;
+                        <SyncAltIcon fontSize="small" style={{ transform: 'rotate(90deg)' }} />&nbsp;
                         Save Antinode Longitude
                     </ListItemButton>
                 </ListItem>
@@ -261,6 +262,7 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
             <>
                 <ListItem disablePadding>
                     <ListItemButton onClick={() => {deleteState(state), setUpdateState(false)}}>
+                        <ClearIcon fontSize="small" />&nbsp;
                         Delete State
                     </ListItemButton>
                 </ListItem>
@@ -269,6 +271,7 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
             <>
                 <ListItem disablePadding>
                     <ListItemButton onClick={() => {addState(state), setUpdateState(true)}}>
+                        <PlaceIcon fontSize="small" />&nbsp;
                         Save State
                     </ListItemButton>
                 </ListItem>
