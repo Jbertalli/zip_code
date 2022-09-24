@@ -131,16 +131,19 @@ export default function Home() {
       setOppLong(null);
     }
 
-    let temp = responseData?.main?.temp;
-    let maxTemp = responseData?.main?.temp_max;
-    let minTemp = responseData?.main?.temp_min;
+    let KelvinTemp = responseData?.main?.temp;
+    let KelvinMaxTemp = responseData?.main?.temp_max;
+    let KelvinMinTemp = responseData?.main?.temp_min;
     let weather = responseData?.weather?.[0]?.description;
 
     console.log(responseData);
-    console.log(temp);
-    console.log(maxTemp);
-    console.log(minTemp);
+    console.log(KelvinTemp);
+    console.log(KelvinMaxTemp);
+    console.log(KelvinMinTemp);
     console.log(weather);
+
+    let temp = Math.ceil((1.8 * (KelvinTemp - 273) + 32));
+    console.log(temp);
 
     // console.log data
     let logged = async () => {
