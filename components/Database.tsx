@@ -6,6 +6,7 @@ import ClearIcon from '@mui/icons-material/Clear';
 import SaveAltIcon from '@mui/icons-material/SaveAlt';
 import TagIcon from '@mui/icons-material/Tag';
 import LocationCityIcon from '@mui/icons-material/LocationCity';
+import HeightIcon from '@mui/icons-material/Height';
 
 const LOCAL_STORAGE_KEY_UPDATE_ZIP = 'UpdateZip';
 const LOCAL_STORAGE_KEY_UPDATE_CITY = 'UpdateCity';
@@ -183,6 +184,7 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
             <>
                 <ListItem disablePadding>
                     <ListItemButton onClick={() => {deleteLat(latitude), setUpdateLatitude(false)}}>
+                        <ClearIcon fontSize="small" />&nbsp;
                         Delete Latitude
                     </ListItemButton>
                 </ListItem>
@@ -191,6 +193,7 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
             <>
                 <ListItem disablePadding>
                     <ListItemButton onClick={() => {addLat(latitude), setUpdateLatitude(true)}}>
+                        <HeightIcon fontSize="small" style={{ transform: 'rotate(90deg)' }} />&nbsp;
                         Save Latitude
                     </ListItemButton>
                 </ListItem>
