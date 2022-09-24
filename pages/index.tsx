@@ -131,11 +131,16 @@ export default function Home() {
       setOppLong(null);
     }
 
+    let temp = responseData?.main?.temp;
+    let maxTemp = responseData?.main?.temp_max;
+    let minTemp = responseData?.main?.temp_min;
+    let weather = responseData?.weather?.[0]?.description;
+
     console.log(responseData);
-    console.log(responseData?.main?.temp);
-    console.log(responseData?.main?.temp_max);
-    console.log(responseData?.main?.temp_min);
-    console.log(responseData?.weather[0]?.description);
+    console.log(temp);
+    console.log(maxTemp);
+    console.log(minTemp);
+    console.log(weather);
 
     // console.log data
     let logged = async () => {
