@@ -12,7 +12,7 @@ import PlaceIcon from '@mui/icons-material/Place';
 import LocalDB from '../components/localStorageDB';
 
 // const LOCAL_STORAGE_KEY_UPDATE_ZIP = 'UpdateZip';
-const LOCAL_STORAGE_KEY_UPDATE_CITY = 'UpdateCity';
+// const LOCAL_STORAGE_KEY_UPDATE_CITY = 'UpdateCity';
 const LOCAL_STORAGE_KEY_UPDATE_LATITUDE = 'UpdateLatitude';
 const LOCAL_STORAGE_KEY_UPDATE_LONGITUDE = 'UpdateLongitude';
 const LOCAL_STORAGE_KEY_UPDATE_LATITUDE_ANTINODE = 'UpdateAntinodeLatitude';
@@ -52,15 +52,15 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
     //     JSON.stringify(updateZip))
     // }, [updateZip]);
 
-    useEffect(() => {
-        const storedUpdateCity = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATE_CITY))
-        if (storedUpdateCity) setUpdateCity(storedUpdateCity)
-      }, []);
+    // useEffect(() => {
+    //     const storedUpdateCity = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATE_CITY))
+    //     if (storedUpdateCity) setUpdateCity(storedUpdateCity)
+    //   }, []);
     
-    useEffect(() => {
-        localStorage.setItem(LOCAL_STORAGE_KEY_UPDATE_CITY, 
-        JSON.stringify(updateCity))
-    }, [updateCity]);
+    // useEffect(() => {
+    //     localStorage.setItem(LOCAL_STORAGE_KEY_UPDATE_CITY, 
+    //     JSON.stringify(updateCity))
+    // }, [updateCity]);
 
     useEffect(() => {
         const storedUpdateLatitude = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATE_LATITUDE))
@@ -144,7 +144,7 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
 
     return (
         <>
-            <LocalDB updateZip={updateZip} setUpdateZip={setUpdateZip} />
+            <LocalDB updateZip={updateZip} setUpdateZip={setUpdateZip} updateCity={updateCity} setUpdateCity={setUpdateCity} />
             <List>
                 {/* {!!dbZip ? ( */}
                 {updateZip ? (
