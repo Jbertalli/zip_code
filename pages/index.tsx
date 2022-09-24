@@ -136,20 +136,20 @@ export default function Home() {
     let KelvinMinTemp = responseData?.main?.temp_min;
     let weather = responseData?.weather?.[0]?.description;
 
-    console.log(responseData);
-    console.log(KelvinTemp);
-    console.log(KelvinMaxTemp);
-    console.log(KelvinMinTemp);
-    console.log(weather);
+    // console.log(responseData);
+    // console.log(KelvinTemp);
+    // console.log(KelvinMaxTemp);
+    // console.log(KelvinMinTemp);
+    // console.log(weather);
 
     let temp = Math.round(1.8 * (KelvinTemp - 273) + 32);
-    console.log(temp);
+    console.log(`${temp}°`);
 
     let maxTemp = Math.round(1.8 * (KelvinMaxTemp - 273) + 32);
-    console.log(maxTemp);
+    console.log(`${maxTemp}°`);
 
     let minTemp = Math.round(1.8 * (KelvinMinTemp - 273) + 32);
-    console.log(minTemp);
+    console.log(`${minTemp}°`);
 
     // console.log data
     let logged = async () => {
