@@ -45,11 +45,11 @@ export default function Delete({ latCoord, longCoord, zip, city, state, stateAbb
                     Delete State Abbreviation
                 </ListItemButton>
             </ListItem> */}
-            <ListItem disablePadding>
+            {/* <ListItem disablePadding>
                 <ListItemButton onClick={() => deleteAll(zip, city, latCoord, longCoord, state, stateAbbreviation)}>
                     Delete All
                 </ListItemButton>
-            </ListItem>
+            </ListItem> */}
         </List>
     );
 }
