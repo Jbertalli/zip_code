@@ -150,11 +150,7 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
                     <Database latCoord={latCoord} longCoord={longCoord} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} addZip={addZip} addCity={addCity} addLat={addLat} latitude={latitude} addLong={addLong} longitude={longitude} addState={addState} addStateAbbr={addStateAbbr} addDocument={addDocument} deleteZip={deleteZip} addOppLat={addOppLat} OppLat={OppLat} addOppLong={addOppLong} OppLong={OppLong} dbId={dbId} dbZip={dbZip} dbCity={dbCity} dbLatitude={dbLatitude} dbLongitude={dbLongitude} dbOppositeLatitude={dbOppositeLatitude} dbOppositeLongitude={dbOppositeLongitude} dbState={dbState} dbStateAbbreviation={dbStateAbbreviation} deleteCity={deleteCity} deleteLat={deleteLat} deleteLong={deleteLong} deleteOppositeLat={deleteOppositeLat} deleteOppositeLong={deleteOppositeLong} deleteState={deleteState} deleteAbbr={deleteAbbr} deleteAll={deleteAll} />
                     <Divider />
                 </>
-                ):(
-                <>
-                    &nbsp;
-                </>
-                )}
+                ): null}
                 <UI_Buttons zipCode={zipCode} setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} handleClear={handleClear} latCoord={latCoord} longCoord={longCoord} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} opposite={opposite} OppLat={OppLat} OppLong={OppLong} clearOpposite={clearOpposite} />
                 <Divider />
             </Drawer>

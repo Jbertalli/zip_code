@@ -40,7 +40,7 @@ export default function UI_Buttons({ zipCode, setZip, setCity, setLatCoord, setL
                 <ListItem disablePadding>
                     <ListItemButton onClick={opposite}>
                         <SyncAltIcon fontSize="small" />&nbsp;
-                        Opposite
+                        Antinode
                     </ListItemButton>
                 </ListItem>
                 {/* {(OppLat && OppLong) ? (

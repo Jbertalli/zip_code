@@ -1,7 +1,9 @@
+import React, { useState, useEffect } from 'react';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import React, { useState, useEffect } from 'react';
+import ClearIcon from '@mui/icons-material/Clear';
+import SaveAltIcon from '@mui/icons-material/SaveAlt';
 
 const LOCAL_STORAGE_KEY_UPDATE_ZIP = 'UpdateZip';
 const LOCAL_STORAGE_KEY_UPDATE_CITY = 'UpdateCity';
@@ -277,6 +279,7 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
             <>
                 <ListItem disablePadding>
                     <ListItemButton onClick={() => {deleteAll(zip, city, latCoord, longCoord, state, stateAbbreviation), setUpdateAll(false)}}>
+                        <ClearIcon fontSize="small" />&nbsp;
                         Delete All
                     </ListItemButton>
                 </ListItem>
@@ -285,6 +288,7 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
             <>
                 <ListItem disablePadding>
                     <ListItemButton onClick={() => {addDocument(zip, city, latCoord, longCoord, OppLat, OppLong, state, stateAbbreviation), setUpdateAll(true)}}>
+                        <SaveAltIcon fontSize="small" />&nbsp;
                         Save All
                     </ListItemButton>
                 </ListItem>
