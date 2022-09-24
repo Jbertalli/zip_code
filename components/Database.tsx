@@ -192,7 +192,7 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
                 {updateAll ? (
                 <>
                     <ListItem disablePadding>
-                        <ListItemButton onClick={() => {deleteAll(zip, city, latCoord, longCoord, state, stateAbbreviation), setUpdateAll(false), setUpdateZip(false), setUpdateCity(false)}}>
+                        <ListItemButton onClick={() => {deleteAll(zip, city, latCoord, longCoord, state, stateAbbreviation), setUpdateAll(false), setUpdateZip(false), setUpdateCity(false), setUpdateLatitude(false)}}>
                             <ClearIcon fontSize="small" />&nbsp;
                             Delete All
                         </ListItemButton>
@@ -201,7 +201,7 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
                 ):(
                 <>
                     <ListItem disablePadding>
-                        <ListItemButton onClick={() => {addDocument(zip, city, latCoord, longCoord, OppLat, OppLong, state, stateAbbreviation), setUpdateAll(true), setUpdateZip(true), setUpdateCity(true)}}>
+                        <ListItemButton onClick={() => {addDocument(zip, city, latCoord, longCoord, OppLat, OppLong, state, stateAbbreviation), setUpdateAll(true), setUpdateZip(true), setUpdateCity(true), setUpdateLatitude(true)}}>
                             <SaveAltIcon fontSize="small" />&nbsp;
                             Save All
                         </ListItemButton>
