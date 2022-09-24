@@ -8,8 +8,10 @@ import PlaceIcon from '@mui/icons-material/Place';
 import ClearIcon from '@mui/icons-material/Clear';
 import SyncAltIcon from '@mui/icons-material/SyncAlt';
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
+import ThermostatIcon from '@mui/icons-material/Thermostat';
+import StraightenIcon from '@mui/icons-material/Straighten';
 
-export default function UI_Buttons({ zipCode, setZip, setCity, setLatCoord, setLongCoord, setState, setStateAbbreviation, handleClear, latCoord, longCoord, zip, city, state, stateAbbreviation, opposite, OppLat, OppLong, clearOpposite, weather, setWeatherData, weatherData }) {
+export default function UI_Buttons({ zipCode, setZip, setCity, setLatCoord, setLongCoord, setState, setStateAbbreviation, handleClear, latCoord, longCoord, zip, city, state, stateAbbreviation, opposite, OppLat, OppLong, clearOpposite, weather, setWeatherData, weatherData, currentTemp, currentTempData, setCurrentTempData, tempRange, tempRangeData, setTempRangeData }) {
     return (
         <List>
             <ListItem disablePadding>
@@ -74,7 +76,19 @@ export default function UI_Buttons({ zipCode, setZip, setCity, setLatCoord, setL
                     Weather
                 </ListItemButton>
             </ListItem>
-            {(zip && city && latCoord && longCoord && state && stateAbbreviation && OppLat && OppLong && weatherData) ? (
+            <ListItem disablePadding>
+                <ListItemButton onClick={() => setCurrentTempData(currentTemp)}>
+                    <ThermostatIcon fontSize="small" style={{ transform: 'scale(0.7)'}} />&nbsp;
+                    Current Temperature
+                </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding>
+                <ListItemButton onClick={() => setTempRangeData(tempRange)}>
+                    <StraightenIcon fontSize="small" style={{ transform: 'scale(0.7)'}} />&nbsp;
+                    Temperature Range
+                </ListItemButton>
+            </ListItem>
+            {(zip && city && latCoord && longCoord && state && stateAbbreviation && OppLat && OppLong && weatherData && currentTempData && tempRangeData) ? (
                 <>
                     <ListItem disablePadding>
                         <ListItemButton onClick={() => handleClear()}>

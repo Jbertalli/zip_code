@@ -32,6 +32,10 @@ import StateText from '../components/textTernary/stateTextTernary';
 import StateAbbreviationText from '../components/textTernary/StateAbbrTextTernary';
 import WeatherText from '../components/textTernary/weatherTextTernary';
 import WeatherClose from '../components/close_buttons/weatherClose';
+import CurrentTempText from '../components/textTernary/currentTempTextTernary';
+import CurrentTempClose from '../components/close_buttons/currentTempClose';
+import TempRangeText from '../components/textTernary/tempRangeTextTernary';
+import TempRangeClose from '../components/close_buttons/tempRangeClose';
 
 const clientCredential = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -67,6 +71,8 @@ export default function Home() {
     const [OppLat, setOppLat] = useState<string>('');
     const [OppLong, setOppLong] = useState<string>('');
     const [weatherData, setWeatherData] = useState<string>('');
+    const [currentTempData, setCurrentTempData] = useState<string>('');
+    const [tempRangeData, setTempRangeData] = useState<string>('');
     const [userInfo, setUserInfo] = useState([]);
 
     const auth = getAuth();
@@ -419,10 +425,20 @@ export default function Home() {
               <div style={{ textTransform: 'capitalize' }}>{weatherData}</div>
               <WeatherClose weatherData={weatherData} setWeatherData={setWeatherData} />
             </div>
+            <div>
+              <CurrentTempText currentTempData={currentTempData} />
+              <div style={{ textTransform: 'capitalize' }}>{currentTempData}</div>
+              <CurrentTempClose currentTempData={currentTempData} setCurrentTempData={setCurrentTempData} />
+            </div>
+            <div>
+              <TempRangeText tempRangeData={tempRangeData} />
+              <div style={{ textTransform: 'capitalize' }}>{tempRangeData}</div>
+              <TempRangeClose tempRangeData={tempRangeData} setTempRangeData={setTempRangeData} />
+            </div>
           </div>
         </Draggable>
       </Container>
-      <SideMenu zipCode={zipCode} setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} handleClear={handleClear} latCoord={latCoord} longCoord={longCoord} opposite={opposite} clearOpposite={clearOpposite} OppLat={OppLat} OppLong={OppLong} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} addZip={addZip} deleteZip={deleteZip} addCity={addCity} deleteCity={deleteCity} addLat={addLat} latitude={latitude} deleteLat={deleteLat} addLong={addLong} longitude={longitude} deleteLong={deleteLong} addState={addState} deleteState={deleteState} addStateAbbr={addStateAbbr} deleteAbbr={deleteAbbr} addDocument={addDocument} deleteAll={deleteAll} addOppLat={addOppLat} addOppLong={addOppLong} deleteOppositeLat={deleteOppositeLat} deleteOppositeLong={deleteOppositeLong} dbId={dbId} dbZip={dbZip} dbCity={dbCity} dbLatitude={dbLatitude} dbLongitude={dbLongitude} dbOppositeLatitude={dbOppositeLatitude} dbOppositeLongitude={dbOppositeLongitude} dbState={dbState} dbStateAbbreviation={dbStateAbbreviation} weather={weather} setWeatherData={setWeatherData} weatherData={weatherData} />
+      <SideMenu zipCode={zipCode} setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} handleClear={handleClear} latCoord={latCoord} longCoord={longCoord} opposite={opposite} clearOpposite={clearOpposite} OppLat={OppLat} OppLong={OppLong} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} addZip={addZip} deleteZip={deleteZip} addCity={addCity} deleteCity={deleteCity} addLat={addLat} latitude={latitude} deleteLat={deleteLat} addLong={addLong} longitude={longitude} deleteLong={deleteLong} addState={addState} deleteState={deleteState} addStateAbbr={addStateAbbr} deleteAbbr={deleteAbbr} addDocument={addDocument} deleteAll={deleteAll} addOppLat={addOppLat} addOppLong={addOppLong} deleteOppositeLat={deleteOppositeLat} deleteOppositeLong={deleteOppositeLong} dbId={dbId} dbZip={dbZip} dbCity={dbCity} dbLatitude={dbLatitude} dbLongitude={dbLongitude} dbOppositeLatitude={dbOppositeLatitude} dbOppositeLongitude={dbOppositeLongitude} dbState={dbState} dbStateAbbreviation={dbStateAbbreviation} weather={weather} setWeatherData={setWeatherData} weatherData={weatherData} currentTemp={currentTemp} currentTempData={currentTempData} setCurrentTempData={setCurrentTempData} tempRange={tempRange} tempRangeData={tempRangeData} setTempRangeData={setTempRangeData} />
       <div style={{ transform: 'translateY(-530px)' }}>
         <Map latCoord={latCoord} longCoord={longCoord} />
       </div>
