@@ -7,8 +7,9 @@ import HeightIcon from '@mui/icons-material/Height';
 import PlaceIcon from '@mui/icons-material/Place';
 import ClearIcon from '@mui/icons-material/Clear';
 import SyncAltIcon from '@mui/icons-material/SyncAlt';
+import WbSunnyIcon from '@mui/icons-material/WbSunny';
 
-export default function UI_Buttons({ zipCode, setZip, setCity, setLatCoord, setLongCoord, setState, setStateAbbreviation, handleClear, latCoord, longCoord, zip, city, state, stateAbbreviation, opposite, OppLat, OppLong, clearOpposite }) {
+export default function UI_Buttons({ zipCode, setZip, setCity, setLatCoord, setLongCoord, setState, setStateAbbreviation, handleClear, latCoord, longCoord, zip, city, state, stateAbbreviation, opposite, OppLat, OppLong, clearOpposite, weather, setWeatherData, weatherData }) {
     return (
         <List>
             <ListItem disablePadding>
@@ -67,7 +68,13 @@ export default function UI_Buttons({ zipCode, setZip, setCity, setLatCoord, setL
                     State Abbreviation
                 </ListItemButton>
             </ListItem>
-            {(zip && city && latCoord && longCoord && state && stateAbbreviation && OppLat && OppLong) ? (
+            <ListItem disablePadding>
+                <ListItemButton onClick={() => setWeatherData(weather)}>
+                    <WbSunnyIcon fontSize="small" style={{ transform: 'scale(0.7)'}} />&nbsp;
+                    Weather
+                </ListItemButton>
+            </ListItem>
+            {(zip && city && latCoord && longCoord && state && stateAbbreviation && OppLat && OppLong && weatherData) ? (
                 <>
                     <ListItem disablePadding>
                         <ListItemButton onClick={() => handleClear()}>
