@@ -13,7 +13,7 @@ import LocalDB from '../components/localStorageDB';
 
 // const LOCAL_STORAGE_KEY_UPDATE_ZIP = 'UpdateZip';
 // const LOCAL_STORAGE_KEY_UPDATE_CITY = 'UpdateCity';
-const LOCAL_STORAGE_KEY_UPDATE_LATITUDE = 'UpdateLatitude';
+// const LOCAL_STORAGE_KEY_UPDATE_LATITUDE = 'UpdateLatitude';
 const LOCAL_STORAGE_KEY_UPDATE_LONGITUDE = 'UpdateLongitude';
 const LOCAL_STORAGE_KEY_UPDATE_LATITUDE_ANTINODE = 'UpdateAntinodeLatitude';
 const LOCAL_STORAGE_KEY_UPDATE_LONGITUDE_ANTINODE = 'UpdateAntinodeLongitude';
@@ -62,15 +62,15 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
     //     JSON.stringify(updateCity))
     // }, [updateCity]);
 
-    useEffect(() => {
-        const storedUpdateLatitude = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATE_LATITUDE))
-        if (storedUpdateLatitude) setUpdateLatitude(storedUpdateLatitude)
-      }, []);
+    // useEffect(() => {
+    //     const storedUpdateLatitude = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATE_LATITUDE))
+    //     if (storedUpdateLatitude) setUpdateLatitude(storedUpdateLatitude)
+    //   }, []);
     
-    useEffect(() => {
-        localStorage.setItem(LOCAL_STORAGE_KEY_UPDATE_LATITUDE, 
-        JSON.stringify(updateLatitude))
-    }, [updateLatitude]);
+    // useEffect(() => {
+    //     localStorage.setItem(LOCAL_STORAGE_KEY_UPDATE_LATITUDE, 
+    //     JSON.stringify(updateLatitude))
+    // }, [updateLatitude]);
 
     useEffect(() => {
         const storedUpdateLongitude = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATE_LONGITUDE))
@@ -144,7 +144,7 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
 
     return (
         <>
-            <LocalDB updateZip={updateZip} setUpdateZip={setUpdateZip} updateCity={updateCity} setUpdateCity={setUpdateCity} />
+            <LocalDB updateZip={updateZip} setUpdateZip={setUpdateZip} updateCity={updateCity} setUpdateCity={setUpdateCity} updateLatitude={updateLatitude} setUpdateLatitude={setUpdateLatitude} />
             <List>
                 {/* {!!dbZip ? ( */}
                 {updateZip ? (
