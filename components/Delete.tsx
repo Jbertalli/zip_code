@@ -35,11 +35,11 @@ export default function Delete({ latCoord, longCoord, zip, city, state, stateAbb
                     Delete Opposite Longitude
                 </ListItemButton>
             </ListItem> */}
-            <ListItem disablePadding>
+            {/* <ListItem disablePadding>
                 <ListItemButton onClick={() => deleteState(state)}>
                     Delete State
                 </ListItemButton>
-            </ListItem>
+            </ListItem> */}
             <ListItem disablePadding>
                 <ListItemButton onClick={() => deleteAbbr(stateAbbreviation)}>
                     Delete State Abbreviation
