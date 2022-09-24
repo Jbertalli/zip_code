@@ -148,6 +148,9 @@ export default function Home() {
     let maxTemp = Math.round(1.8 * (KelvinMaxTemp - 273) + 32);
     console.log(maxTemp);
 
+    let minTemp = Math.round(1.8 * (KelvinMinTemp - 273) + 32);
+    console.log(minTemp);
+
     // console.log data
     let logged = async () => {
       const colRef = collection(db, "location");
