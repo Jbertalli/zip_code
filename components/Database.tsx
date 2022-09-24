@@ -14,7 +14,7 @@ import LocalDB from '../components/localStorageDB';
 // const LOCAL_STORAGE_KEY_UPDATE_ZIP = 'UpdateZip';
 // const LOCAL_STORAGE_KEY_UPDATE_CITY = 'UpdateCity';
 // const LOCAL_STORAGE_KEY_UPDATE_LATITUDE = 'UpdateLatitude';
-const LOCAL_STORAGE_KEY_UPDATE_LONGITUDE = 'UpdateLongitude';
+// const LOCAL_STORAGE_KEY_UPDATE_LONGITUDE = 'UpdateLongitude';
 const LOCAL_STORAGE_KEY_UPDATE_LATITUDE_ANTINODE = 'UpdateAntinodeLatitude';
 const LOCAL_STORAGE_KEY_UPDATE_LONGITUDE_ANTINODE = 'UpdateAntinodeLongitude';
 const LOCAL_STORAGE_KEY_UPDATE_STATE = 'UpdateState';
@@ -72,15 +72,15 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
     //     JSON.stringify(updateLatitude))
     // }, [updateLatitude]);
 
-    useEffect(() => {
-        const storedUpdateLongitude = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATE_LONGITUDE))
-        if (storedUpdateLongitude) setUpdateLongitude(storedUpdateLongitude)
-      }, []);
+    // useEffect(() => {
+    //     const storedUpdateLongitude = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATE_LONGITUDE))
+    //     if (storedUpdateLongitude) setUpdateLongitude(storedUpdateLongitude)
+    //   }, []);
     
-    useEffect(() => {
-        localStorage.setItem(LOCAL_STORAGE_KEY_UPDATE_LONGITUDE, 
-        JSON.stringify(updateLongitude))
-    }, [updateLongitude]);
+    // useEffect(() => {
+    //     localStorage.setItem(LOCAL_STORAGE_KEY_UPDATE_LONGITUDE, 
+    //     JSON.stringify(updateLongitude))
+    // }, [updateLongitude]);
 
     useEffect(() => {
         const storedUpdateAntinodeLatitude = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATE_LATITUDE_ANTINODE))
@@ -144,7 +144,7 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
 
     return (
         <>
-            <LocalDB updateZip={updateZip} setUpdateZip={setUpdateZip} updateCity={updateCity} setUpdateCity={setUpdateCity} updateLatitude={updateLatitude} setUpdateLatitude={setUpdateLatitude} />
+            <LocalDB updateZip={updateZip} setUpdateZip={setUpdateZip} updateCity={updateCity} setUpdateCity={setUpdateCity} updateLatitude={updateLatitude} setUpdateLatitude={setUpdateLatitude} updateLongitude={updateLongitude} setUpdateLongitude={setUpdateLongitude} />
             <List>
                 {/* {!!dbZip ? ( */}
                 {updateZip ? (

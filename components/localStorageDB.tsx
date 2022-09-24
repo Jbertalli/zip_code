@@ -3,8 +3,9 @@ import React, { useEffect } from 'react';
 const LOCAL_STORAGE_KEY_UPDATE_ZIP = 'UpdateZip';
 const LOCAL_STORAGE_KEY_UPDATE_CITY = 'UpdateCity';
 const LOCAL_STORAGE_KEY_UPDATE_LATITUDE = 'UpdateLatitude';
+const LOCAL_STORAGE_KEY_UPDATE_LONGITUDE = 'UpdateLongitude';
 
-export default function LocalDB({ updateZip, setUpdateZip, updateCity, setUpdateCity, updateLatitude, setUpdateLatitude }) {
+export default function LocalDB({ updateZip, setUpdateZip, updateCity, setUpdateCity, updateLatitude, setUpdateLatitude, updateLongitude, setUpdateLongitude }) {
 
     useEffect(() => {
         const storedUpdateZip = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATE_ZIP))
@@ -35,6 +36,16 @@ export default function LocalDB({ updateZip, setUpdateZip, updateCity, setUpdate
         localStorage.setItem(LOCAL_STORAGE_KEY_UPDATE_LATITUDE, 
         JSON.stringify(updateLatitude))
     }, [updateLatitude]);
+
+    useEffect(() => {
+        const storedUpdateLongitude = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATE_LONGITUDE))
+        if (storedUpdateLongitude) setUpdateLongitude(storedUpdateLongitude)
+      }, []);
+    
+    useEffect(() => {
+        localStorage.setItem(LOCAL_STORAGE_KEY_UPDATE_LONGITUDE, 
+        JSON.stringify(updateLongitude))
+    }, [updateLongitude]);
 
     return (
         <>
