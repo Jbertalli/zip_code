@@ -19,7 +19,7 @@ import LocalDB from '../components/localStorageDB';
 // const LOCAL_STORAGE_KEY_UPDATE_LONGITUDE_ANTINODE = 'UpdateAntinodeLongitude';
 // const LOCAL_STORAGE_KEY_UPDATE_STATE = 'UpdateState';
 // const LOCAL_STORAGE_KEY_UPDATE_STATE_ABBREVIATION = 'UpdateStateAbbreviation';
-const LOCAL_STORAGE_KEY_UPDATE_ALL = 'UpdateAll';
+// const LOCAL_STORAGE_KEY_UPDATE_ALL = 'UpdateAll';
 
 export default function Database({ latCoord, longCoord, zip, city, state, stateAbbreviation, addZip, addCity, addLat, latitude, addLong, longitude, addState, addStateAbbr, addDocument, deleteZip, addOppLat, OppLat, addOppLong, OppLong, dbId, dbZip, dbCity, dbLatitude, dbLongitude, dbOppositeLatitude, dbOppositeLongitude, dbState, dbStateAbbreviation, deleteCity, deleteLat, deleteLong, deleteOppositeLat, deleteOppositeLong, deleteState, deleteAbbr, deleteAll }) {
     const [updateZip, setUpdateZip] = useState(null);
@@ -122,15 +122,15 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
     //     JSON.stringify(updateStateAbbreviation))
     // }, [updateStateAbbreviation]);
 
-    useEffect(() => {
-        const storedUpdateAll = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATE_ALL))
-        if (storedUpdateAll) setUpdateAll(storedUpdateAll)
-      }, []);
+    // useEffect(() => {
+    //     const storedUpdateAll = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATE_ALL))
+    //     if (storedUpdateAll) setUpdateAll(storedUpdateAll)
+    //   }, []);
     
-    useEffect(() => {
-        localStorage.setItem(LOCAL_STORAGE_KEY_UPDATE_ALL, 
-        JSON.stringify(updateAll))
-    }, [updateAll]);
+    // useEffect(() => {
+    //     localStorage.setItem(LOCAL_STORAGE_KEY_UPDATE_ALL, 
+    //     JSON.stringify(updateAll))
+    // }, [updateAll]);
 
     // console.log(updateZip);
     // console.log(updateCity);
@@ -144,7 +144,7 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
 
     return (
         <>
-            <LocalDB updateZip={updateZip} setUpdateZip={setUpdateZip} updateCity={updateCity} setUpdateCity={setUpdateCity} updateLatitude={updateLatitude} setUpdateLatitude={setUpdateLatitude} updateLongitude={updateLongitude} setUpdateLongitude={setUpdateLongitude} updateAntinodeLatitude={updateAntinodeLatitude} setUpdateAntinodeLatitude={setUpdateAntinodeLatitude} updateAntinodeLongitude={updateAntinodeLongitude} setUpdateAntinodeLongitude={setUpdateAntinodeLongitude} updateState={updateState} setUpdateState={setUpdateState} updateStateAbbreviation={updateStateAbbreviation} setUpdateStateAbbreviation={setUpdateStateAbbreviation} />
+            <LocalDB updateZip={updateZip} setUpdateZip={setUpdateZip} updateCity={updateCity} setUpdateCity={setUpdateCity} updateLatitude={updateLatitude} setUpdateLatitude={setUpdateLatitude} updateLongitude={updateLongitude} setUpdateLongitude={setUpdateLongitude} updateAntinodeLatitude={updateAntinodeLatitude} setUpdateAntinodeLatitude={setUpdateAntinodeLatitude} updateAntinodeLongitude={updateAntinodeLongitude} setUpdateAntinodeLongitude={setUpdateAntinodeLongitude} updateState={updateState} setUpdateState={setUpdateState} updateStateAbbreviation={updateStateAbbreviation} setUpdateStateAbbreviation={setUpdateStateAbbreviation} updateAll={updateAll} setUpdateAll={setUpdateAll} />
             <List>
                 {/* {!!dbZip ? ( */}
                 {updateZip ? (
