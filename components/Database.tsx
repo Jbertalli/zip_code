@@ -44,8 +44,6 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
         JSON.stringify(updateZip))
     }, [updateZip]);
 
-    console.log(updateZip);
-
     useEffect(() => {
         const storedUpdateCity = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATE_CITY))
         if (storedUpdateCity) setUpdateCity(storedUpdateCity)
@@ -55,8 +53,6 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
         localStorage.setItem(LOCAL_STORAGE_KEY_UPDATE_CITY, 
         JSON.stringify(updateCity))
     }, [updateCity]);
-
-    console.log(updateCity);
 
     useEffect(() => {
         const storedUpdateLatitude = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATE_LATITUDE))
@@ -68,8 +64,6 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
         JSON.stringify(updateLatitude))
     }, [updateLatitude]);
 
-    console.log(updateLatitude);
-
     useEffect(() => {
         const storedUpdateLongitude = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATE_LONGITUDE))
         if (storedUpdateLongitude) setUpdateLongitude(storedUpdateLongitude)
@@ -79,8 +73,6 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
         localStorage.setItem(LOCAL_STORAGE_KEY_UPDATE_LONGITUDE, 
         JSON.stringify(updateLongitude))
     }, [updateLongitude]);
-
-    console.log(updateLongitude);
 
     useEffect(() => {
         const storedUpdateAntinodeLatitude = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATE_LATITUDE_ANTINODE))
@@ -92,8 +84,6 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
         JSON.stringify(updateAntinodeLatitude))
     }, [updateAntinodeLatitude]);
 
-    console.log(updateAntinodeLatitude);
-
     useEffect(() => {
         const storedUpdateAntinodeLongitude = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATE_LONGITUDE_ANTINODE))
         if (storedUpdateAntinodeLongitude) setUpdateAntinodeLongitude(storedUpdateAntinodeLongitude)
@@ -103,8 +93,6 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
         localStorage.setItem(LOCAL_STORAGE_KEY_UPDATE_LONGITUDE_ANTINODE, 
         JSON.stringify(updateAntinodeLongitude))
     }, [updateAntinodeLongitude]);
-
-    console.log(updateAntinodeLongitude);
 
     useEffect(() => {
         const storedUpdateState = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATE_STATE))
@@ -116,8 +104,6 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
         JSON.stringify(updateState))
     }, [updateState]);
 
-    console.log(updateState);
-
     useEffect(() => {
         const storedUpdateStateAbbreviation = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATE_STATE_ABBREVIATION))
         if (storedUpdateStateAbbreviation) setUpdateStateAbbreviation(storedUpdateStateAbbreviation)
@@ -127,8 +113,6 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
         localStorage.setItem(LOCAL_STORAGE_KEY_UPDATE_STATE_ABBREVIATION, 
         JSON.stringify(updateStateAbbreviation))
     }, [updateStateAbbreviation]);
-
-    console.log(updateStateAbbreviation);
 
     useEffect(() => {
         const storedUpdateAll = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATE_ALL))
@@ -140,7 +124,15 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
         JSON.stringify(updateAll))
     }, [updateAll]);
 
-    console.log(updateAll);
+    // console.log(updateZip);
+    // console.log(updateCity);
+    // console.log(updateLatitude);
+    // console.log(updateLongitude);
+    // console.log(updateAntinodeLatitude);
+    // console.log(updateAntinodeLongitude);
+    // console.log(updateState);
+    // console.log(updateStateAbbreviation);
+    // console.log(updateAll);
 
     return (
         <List>
