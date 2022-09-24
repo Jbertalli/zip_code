@@ -4,6 +4,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ClearIcon from '@mui/icons-material/Clear';
 import SaveAltIcon from '@mui/icons-material/SaveAlt';
+import TagIcon from '@mui/icons-material/Tag';
 
 const LOCAL_STORAGE_KEY_UPDATE_ZIP = 'UpdateZip';
 const LOCAL_STORAGE_KEY_UPDATE_CITY = 'UpdateCity';
@@ -143,6 +144,7 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
             <>
                 <ListItem disablePadding>
                     <ListItemButton onClick={() => {deleteZip(zip), setUpdateZip(false)}}>
+                        <ClearIcon fontSize="small" />&nbsp;
                         Delete Zip
                     </ListItemButton>
                 </ListItem>
@@ -151,6 +153,7 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
             <>
                 <ListItem disablePadding>
                     <ListItemButton onClick={() => {addZip(zip), setUpdateZip(true)}}>
+                        <TagIcon fontSize="small" />&nbsp;
                         Save Zip
                     </ListItemButton>
                 </ListItem>
