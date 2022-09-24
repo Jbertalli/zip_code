@@ -281,6 +281,7 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
             <>
                 <ListItem disablePadding>
                     <ListItemButton onClick={() => {deleteAbbr(stateAbbreviation), setUpdateStateAbbreviation(false)}}>
+                        <ClearIcon fontSize="small" />&nbsp;
                         Delete State Abbreviation
                     </ListItemButton>
                 </ListItem>
@@ -289,6 +290,7 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
             <>
                 <ListItem disablePadding>
                     <ListItemButton onClick={() => {addStateAbbr(stateAbbreviation), setUpdateStateAbbreviation(true)}}>
+                        <PlaceIcon fontSize="small" style={{ transform: 'scale(0.7)'}} />&nbsp;
                         Save State Abbreviation
                     </ListItemButton>
                 </ListItem>
