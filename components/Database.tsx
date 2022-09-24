@@ -242,6 +242,7 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
             <>
                 <ListItem disablePadding>
                     <ListItemButton onClick={() => {deleteOppositeLong(OppLong), setUpdateAntinodeLongitude(false)}}>
+                        <ClearIcon fontSize="small" />&nbsp;
                         Delete Antinode Longitude
                     </ListItemButton>
                 </ListItem>
@@ -250,6 +251,7 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
             <>
                 <ListItem disablePadding>
                     <ListItemButton onClick={() => {addOppLong(OppLong), setUpdateAntinodeLongitude(true)}}>
+                    <SyncAltIcon fontSize="small" style={{ transform: 'rotate(90deg)' }} />&nbsp;
                         Save Antinode Longitude
                     </ListItemButton>
                 </ListItem>
