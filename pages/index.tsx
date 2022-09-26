@@ -378,6 +378,14 @@ export default function Home() {
       })
     }
 
+    const currentRef = doc(db, "location", "User Data2");
+
+    const deleteCurrentTemp = async(CurrentTemp: string) => {
+      await updateDoc(currentRef, {
+        CurrentTemp: deleteField()
+      })
+    }
+
   return (
     <>
       <Head>
