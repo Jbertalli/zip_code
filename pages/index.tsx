@@ -171,7 +171,7 @@ export default function Home() {
       const colRef = collection(db, "location");
       const docsSnap = await getDocs(colRef);
         docsSnap.forEach(doc => {
-          // console.log(doc.data());
+          console.log(doc.data());
           setUserInfo(docsSnap.docs.map(doc => ({
             id: doc.id,
             Zip: doc.data().Zip,
@@ -181,7 +181,8 @@ export default function Home() {
             Opposite_Latitude: doc.data().Opposite_Latitude,
             Opposite_Longitude: doc.data().Opposite_Longitude,
             State: doc.data().State,
-            State_Abbreviation: doc.data().State_Abbreviation
+            State_Abbreviation: doc.data().State_Abbreviation,
+            Weather: doc.data().Weather,
         })))
       })
     }
@@ -199,6 +200,7 @@ export default function Home() {
     let dbOppositeLongitude = userInfo?.[0]?.Opposite_Longitude;
     let dbState = userInfo?.[0]?.State;
     let dbStateAbbreviation = userInfo?.[0]?.State_Abbreviation;
+    let dbWeather = userInfo?.[0]?.Weather;
 
     // console.log(dbId);
     // console.log(dbZip);
@@ -209,11 +211,12 @@ export default function Home() {
     // console.log(dbOppositeLongitude);
     // console.log(dbState);
     // console.log(dbStateAbbreviation);
+    // console.log(dbWeather);
 
     // console.log(user.displayName);
 
     // Create new document from within code
-    const addDocument = async (Zip: number, City: string, Latitude: number, Longitude: number, Opposite_Latitude: string, Opposite_Longitude: string, State: string, State_Abbreviation: string) => {
+    const addDocument = async (Zip: number, City: string, Latitude: number, Longitude: number, Opposite_Latitude: string, Opposite_Longitude: string, State: string, State_Abbreviation: string, Weather: string) => {
       await setDoc(doc(db, "location", "User Data2"), {
         Zip,
         City,
@@ -223,6 +226,7 @@ export default function Home() {
         Opposite_Longitude,
         State,
         State_Abbreviation,
+        Weather,
         Created: Timestamp.now()
       });
     }
@@ -275,7 +279,13 @@ export default function Home() {
       })
     }
 
-    const deleteAll = async (Zip: number, City: string, Latitude: number, Longitude: number, State: string, State_Abbreviation: string, Opposite_Latitude: string, Opposite_Longitude: string) => {
+    const addWeather = async(Weather: string) => {
+      await setDoc(doc(db, "location", "User Data2"), {
+        Weather,
+      })
+    }
+
+    const deleteAll = async (Zip: number, City: string, Latitude: number, Longitude: number, State: string, State_Abbreviation: string, Opposite_Latitude: string, Opposite_Longitude: string, Weather: string) => {
       await updateDoc(doc(db, "location", "User Data2"), {
         Zip: deleteField(),
         City: deleteField(),
@@ -285,6 +295,7 @@ export default function Home() {
         Opposite_Longitude: deleteField(),
         State: deleteField(),
         State_Abbreviation: deleteField(),
+        Weather: deleteField(),
         Created: deleteField(),
       });
     }
@@ -353,6 +364,14 @@ export default function Home() {
       })
     }
 
+    const weatherRef = doc(db, "location", "User Data2");
+
+    const deleteWeather = async(Weather: string) => {
+      await updateDoc(weatherRef, {
+        Weather: deleteField()
+      })
+    }
+
   return (
     <>
       <Head>
@@ -363,7 +382,7 @@ export default function Home() {
       <div style={{ position: 'relative', zIndex: '10' }}>
         <Auth />
       </div>
-      <Local setZip={setZip} zip={zip} setCity={setCity} city={city} latCoord={latCoord} setLatCoord={setLatCoord} longCoord={longCoord} setLongCoord={setLongCoord} state={state} setState={setState} stateAbbreviation={stateAbbreviation} setStateAbbreviation={setStateAbbreviation} OppLat={OppLat} OppLong={OppLong} setOppLat={setOppLat} setOppLong={setOppLong} />
+      <Local setZip={setZip} zip={zip} setCity={setCity} city={city} latCoord={latCoord} setLatCoord={setLatCoord} longCoord={longCoord} setLongCoord={setLongCoord} state={state} setState={setState} stateAbbreviation={stateAbbreviation} setStateAbbreviation={setStateAbbreviation} OppLat={OppLat} OppLong={OppLong} setOppLat={setOppLat} setOppLong={setOppLong} weatherData={weatherData} setWeatherData={setWeatherData} />
       <Container maxWidth="lg" style={{ marginTop: '2%', position: 'relative', zIndex: '10', transform: 'translate(22px, -55px)' }}>
         <Draggable>
           <div style={{ 
@@ -441,7 +460,7 @@ export default function Home() {
           </div>
         </Draggable>
       </Container>
-      <SideMenu zipCode={zipCode} setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} handleClear={handleClear} latCoord={latCoord} longCoord={longCoord} opposite={opposite} clearOpposite={clearOpposite} OppLat={OppLat} OppLong={OppLong} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} addZip={addZip} deleteZip={deleteZip} addCity={addCity} deleteCity={deleteCity} addLat={addLat} latitude={latitude} deleteLat={deleteLat} addLong={addLong} longitude={longitude} deleteLong={deleteLong} addState={addState} deleteState={deleteState} addStateAbbr={addStateAbbr} deleteAbbr={deleteAbbr} addDocument={addDocument} deleteAll={deleteAll} addOppLat={addOppLat} addOppLong={addOppLong} deleteOppositeLat={deleteOppositeLat} deleteOppositeLong={deleteOppositeLong} dbId={dbId} dbZip={dbZip} dbCity={dbCity} dbLatitude={dbLatitude} dbLongitude={dbLongitude} dbOppositeLatitude={dbOppositeLatitude} dbOppositeLongitude={dbOppositeLongitude} dbState={dbState} dbStateAbbreviation={dbStateAbbreviation} weather={weather} setWeatherData={setWeatherData} weatherData={weatherData} currentTemp={currentTemp} currentTempData={currentTempData} setCurrentTempData={setCurrentTempData} tempRange={tempRange} tempRangeData={tempRangeData} setTempRangeData={setTempRangeData} />
+      <SideMenu zipCode={zipCode} setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} handleClear={handleClear} latCoord={latCoord} longCoord={longCoord} opposite={opposite} clearOpposite={clearOpposite} OppLat={OppLat} OppLong={OppLong} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} addZip={addZip} deleteZip={deleteZip} addCity={addCity} deleteCity={deleteCity} addLat={addLat} latitude={latitude} deleteLat={deleteLat} addLong={addLong} longitude={longitude} deleteLong={deleteLong} addState={addState} deleteState={deleteState} addStateAbbr={addStateAbbr} deleteAbbr={deleteAbbr} addDocument={addDocument} deleteAll={deleteAll} addOppLat={addOppLat} addOppLong={addOppLong} deleteOppositeLat={deleteOppositeLat} deleteOppositeLong={deleteOppositeLong} dbId={dbId} dbZip={dbZip} dbCity={dbCity} dbLatitude={dbLatitude} dbLongitude={dbLongitude} dbOppositeLatitude={dbOppositeLatitude} dbOppositeLongitude={dbOppositeLongitude} dbState={dbState} dbStateAbbreviation={dbStateAbbreviation} weather={weather} setWeatherData={setWeatherData} weatherData={weatherData} currentTemp={currentTemp} currentTempData={currentTempData} setCurrentTempData={setCurrentTempData} tempRange={tempRange} tempRangeData={tempRangeData} setTempRangeData={setTempRangeData} addWeather={addWeather} deleteWeather={deleteWeather} />
       <div style={{ transform: 'translateY(-530px)' }}>
         <Map latCoord={latCoord} longCoord={longCoord} />
       </div>

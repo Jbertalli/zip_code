@@ -8,8 +8,9 @@ const LOCAL_STORAGE_KEY_STATE = 'UserState';
 const LOCAL_STORAGE_KEY_STATE_ABBR = 'UserStateAbbr';
 const LOCAL_STORAGE_KEY_OPPOSITE = 'OppositeLat';
 const LOCAL_STORAGE_KEY_OPPOSITE1 = 'OppositeLong';
+const LOCAL_STORAGE_KEY_WEATHER = 'Weather';
 
-export default function Local({ setZip, zip, setCity, city, latCoord, setLatCoord, longCoord, setLongCoord, state, setState, stateAbbreviation, setStateAbbreviation, OppLat, OppLong, setOppLat, setOppLong }) {
+export default function Local({ setZip, zip, setCity, city, latCoord, setLatCoord, longCoord, setLongCoord, state, setState, stateAbbreviation, setStateAbbreviation, OppLat, OppLong, setOppLat, setOppLong, weatherData, setWeatherData }) {
 
   // zip
   useEffect(() => {
@@ -98,6 +99,17 @@ export default function Local({ setZip, zip, setCity, city, latCoord, setLatCoor
     localStorage.setItem(LOCAL_STORAGE_KEY_OPPOSITE1, 
     JSON.stringify(OppLong))
   }, [OppLong]);
+
+  // weather
+  useEffect(() => {
+    const storedWeather = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_WEATHER))
+    if (storedWeather) setWeatherData(storedWeather)
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY_WEATHER, 
+    JSON.stringify(weatherData))
+  }, [weatherData]);
 
   return (
     <>

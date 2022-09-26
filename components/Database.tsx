@@ -9,9 +9,10 @@ import LocationCityIcon from '@mui/icons-material/LocationCity';
 import HeightIcon from '@mui/icons-material/Height';
 import SyncAltIcon from '@mui/icons-material/SyncAlt';
 import PlaceIcon from '@mui/icons-material/Place';
+import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import LocalDB from '../components/localStorageDB';
 
-export default function Database({ latCoord, longCoord, zip, city, state, stateAbbreviation, addZip, addCity, addLat, latitude, addLong, longitude, addState, addStateAbbr, addDocument, deleteZip, addOppLat, OppLat, addOppLong, OppLong, dbId, dbZip, dbCity, dbLatitude, dbLongitude, dbOppositeLatitude, dbOppositeLongitude, dbState, dbStateAbbreviation, deleteCity, deleteLat, deleteLong, deleteOppositeLat, deleteOppositeLong, deleteState, deleteAbbr, deleteAll }) {
+export default function Database({ latCoord, longCoord, zip, city, state, stateAbbreviation, addZip, addCity, addLat, latitude, addLong, longitude, addState, addStateAbbr, addDocument, deleteZip, addOppLat, OppLat, addOppLong, OppLong, dbId, dbZip, dbCity, dbLatitude, dbLongitude, dbOppositeLatitude, dbOppositeLongitude, dbState, dbStateAbbreviation, deleteCity, deleteLat, deleteLong, deleteOppositeLat, deleteOppositeLong, deleteState, deleteAbbr, deleteAll, weatherData, addWeather, deleteWeather }) {
     const [updateZip, setUpdateZip] = useState(null);
     const [updateCity, setUpdateCity] = useState(null);
     const [updateLatitude, setUpdateLatitude] = useState(null);
@@ -20,7 +21,9 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
     const [updateAntinodeLongitude, setUpdateAntinodeLongitude] = useState(null);
     const [updateState, setUpdateState] = useState(null);
     const [updateStateAbbreviation, setUpdateStateAbbreviation] = useState(null);
+    const [updateWeather, setUpdateWeather] = useState(null);
     const [updateAll, setUpdateAll] = useState(null);
+    
 
     // console.log(dbId);
     // console.log(dbZip);
@@ -34,7 +37,7 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
 
     return (
         <>
-            <LocalDB updateZip={updateZip} setUpdateZip={setUpdateZip} updateCity={updateCity} setUpdateCity={setUpdateCity} updateLatitude={updateLatitude} setUpdateLatitude={setUpdateLatitude} updateLongitude={updateLongitude} setUpdateLongitude={setUpdateLongitude} updateAntinodeLatitude={updateAntinodeLatitude} setUpdateAntinodeLatitude={setUpdateAntinodeLatitude} updateAntinodeLongitude={updateAntinodeLongitude} setUpdateAntinodeLongitude={setUpdateAntinodeLongitude} updateState={updateState} setUpdateState={setUpdateState} updateStateAbbreviation={updateStateAbbreviation} setUpdateStateAbbreviation={setUpdateStateAbbreviation} updateAll={updateAll} setUpdateAll={setUpdateAll} />
+            <LocalDB updateZip={updateZip} setUpdateZip={setUpdateZip} updateCity={updateCity} setUpdateCity={setUpdateCity} updateLatitude={updateLatitude} setUpdateLatitude={setUpdateLatitude} updateLongitude={updateLongitude} setUpdateLongitude={setUpdateLongitude} updateAntinodeLatitude={updateAntinodeLatitude} setUpdateAntinodeLatitude={setUpdateAntinodeLatitude} updateAntinodeLongitude={updateAntinodeLongitude} setUpdateAntinodeLongitude={setUpdateAntinodeLongitude} updateState={updateState} setUpdateState={setUpdateState} updateStateAbbreviation={updateStateAbbreviation} setUpdateStateAbbreviation={setUpdateStateAbbreviation} updateAll={updateAll} setUpdateAll={setUpdateAll} updateWeather={updateWeather} setUpdateWeather={setUpdateWeather} />
             <List>
                 {/* {!!dbZip ? ( */}
                 {updateZip ? (
@@ -189,10 +192,29 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
                     </ListItem>
                 </>
                 )}
+                {updateWeather ? (
+                <>
+                    <ListItem disablePadding>
+                        <ListItemButton onClick={() => {deleteWeather(weatherData), setUpdateWeather(false)}}>
+                            <ClearIcon fontSize="small" />&nbsp;
+                            Delete Weather
+                        </ListItemButton>
+                    </ListItem>
+                </>
+                ):(
+                <>
+                    <ListItem disablePadding>
+                        <ListItemButton onClick={() => {addWeather(weatherData), setUpdateWeather(true)}}>
+                            <WbSunnyIcon fontSize="small" style={{ transform: 'scale(0.7)'}} />&nbsp;
+                            Save Weather
+                        </ListItemButton>
+                    </ListItem>
+                </> 
+                )}
                 {updateAll ? (
                 <>
                     <ListItem disablePadding>
-                        <ListItemButton onClick={() => {deleteAll(zip, city, latCoord, longCoord, state, stateAbbreviation), setUpdateAll(false), setUpdateZip(false), setUpdateCity(false), setUpdateLatitude(false), setUpdateLongitude(false), setUpdateAntinodeLatitude(false), setUpdateAntinodeLongitude(false), setUpdateState(false), setUpdateStateAbbreviation(false)}}>
+                        <ListItemButton onClick={() => {deleteAll(zip, city, latCoord, longCoord, state, stateAbbreviation, weatherData), setUpdateAll(false), setUpdateZip(false), setUpdateCity(false), setUpdateLatitude(false), setUpdateLongitude(false), setUpdateAntinodeLatitude(false), setUpdateAntinodeLongitude(false), setUpdateState(false), setUpdateStateAbbreviation(false), setUpdateWeather(false)}}>
                             <ClearIcon fontSize="small" />&nbsp;
                             Delete All
                         </ListItemButton>
@@ -201,7 +223,7 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
                 ):(
                 <>
                     <ListItem disablePadding>
-                        <ListItemButton onClick={() => {addDocument(zip, city, latCoord, longCoord, OppLat, OppLong, state, stateAbbreviation), setUpdateAll(true), setUpdateZip(true), setUpdateCity(true), setUpdateLatitude(true), setUpdateLongitude(true), setUpdateAntinodeLatitude(true), setUpdateAntinodeLongitude(true), setUpdateState(true), setUpdateStateAbbreviation(true)}}>
+                        <ListItemButton onClick={() => {addDocument(zip, city, latCoord, longCoord, OppLat, OppLong, state, stateAbbreviation, weatherData), setUpdateAll(true), setUpdateZip(true), setUpdateCity(true), setUpdateLatitude(true), setUpdateLongitude(true), setUpdateAntinodeLatitude(true), setUpdateAntinodeLongitude(true), setUpdateState(true), setUpdateStateAbbreviation(true), setUpdateWeather(true)}}>
                             <SaveAltIcon fontSize="small" />&nbsp;
                             Save All
                         </ListItemButton>

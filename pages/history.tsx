@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
-import Link from 'next/link';
 import { getFirestore, getDocs, collection } from 'firebase/firestore';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { getAuth } from '@firebase/auth';
 import { initializeApp } from 'firebase/app';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
 import Header from '../components/Header';
 
 const clientCredential = {
@@ -39,7 +36,8 @@ export default function History() {
               Opposite_Latitude: doc.data().Opposite_Latitude,
               Opposite_Longitude: doc.data().Opposite_Longitude,
               State: doc.data().State,
-              State_Abbreviation: doc.data().State_Abbreviation
+              State_Abbreviation: doc.data().State_Abbreviation,
+              Weather: doc.data().Weather
           })))
         })
       }
@@ -57,16 +55,18 @@ export default function History() {
       let dbOppositeLongitude = userInfo?.[0]?.Opposite_Longitude;
       let dbState = userInfo?.[0]?.State;
       let dbStateAbbreviation = userInfo?.[0]?.State_Abbreviation;
+      let dbWeather = userInfo?.[0]?.Weather;
       
-      console.log(dbId);
-      console.log(dbZip);
-      console.log(dbCity);
-      console.log(dbLatitude);
-      console.log(dbLongitude);
-      console.log(dbOppositeLatitude);
-      console.log(dbOppositeLongitude);
-      console.log(dbState);
-      console.log(dbStateAbbreviation);
+    //   console.log(dbId);
+    //   console.log(dbZip);
+    //   console.log(dbCity);
+    //   console.log(dbLatitude);
+    //   console.log(dbLongitude);
+    //   console.log(dbOppositeLatitude);
+    //   console.log(dbOppositeLongitude);
+    //   console.log(dbState);
+    //   console.log(dbStateAbbreviation);
+    //   console.log(dbWeather);
 
     return (
         <>
@@ -160,6 +160,14 @@ export default function History() {
                         </td>
                         <td>
                             {dbStateAbbreviation}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Weather
+                        </td>
+                        <td style={{ textTransform: 'capitalize' }}>
+                            {dbWeather}
                         </td>
                     </tr>
                 </table>

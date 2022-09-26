@@ -8,9 +8,10 @@ const LOCAL_STORAGE_KEY_UPDATE_LATITUDE_ANTINODE = 'UpdateAntinodeLatitude';
 const LOCAL_STORAGE_KEY_UPDATE_LONGITUDE_ANTINODE = 'UpdateAntinodeLongitude';
 const LOCAL_STORAGE_KEY_UPDATE_STATE = 'UpdateState';
 const LOCAL_STORAGE_KEY_UPDATE_STATE_ABBREVIATION = 'UpdateStateAbbreviation';
+const LOCAL_STORAGE_KEY_UPDATE_WEATHER = 'UpdateWeather';
 const LOCAL_STORAGE_KEY_UPDATE_ALL = 'UpdateAll';
 
-export default function LocalDB({ updateZip, setUpdateZip, updateCity, setUpdateCity, updateLatitude, setUpdateLatitude, updateLongitude, setUpdateLongitude, updateAntinodeLatitude, setUpdateAntinodeLatitude, updateAntinodeLongitude, setUpdateAntinodeLongitude, updateState, setUpdateState, updateStateAbbreviation, setUpdateStateAbbreviation, updateAll, setUpdateAll }) {
+export default function LocalDB({ updateZip, setUpdateZip, updateCity, setUpdateCity, updateLatitude, setUpdateLatitude, updateLongitude, setUpdateLongitude, updateAntinodeLatitude, setUpdateAntinodeLatitude, updateAntinodeLongitude, setUpdateAntinodeLongitude, updateState, setUpdateState, updateStateAbbreviation, setUpdateStateAbbreviation, updateAll, setUpdateAll, updateWeather, setUpdateWeather }) {
 
     useEffect(() => {
         const storedUpdateZip = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATE_ZIP))
@@ -102,6 +103,16 @@ export default function LocalDB({ updateZip, setUpdateZip, updateCity, setUpdate
         JSON.stringify(updateAll))
     }, [updateAll]);
 
+    useEffect(() => {
+        const storedUpdateWeather = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATE_WEATHER))
+        if (storedUpdateWeather) setUpdateWeather(storedUpdateWeather)
+      }, []);
+    
+    useEffect(() => {
+        localStorage.setItem(LOCAL_STORAGE_KEY_UPDATE_WEATHER, 
+        JSON.stringify(updateWeather))
+    }, [updateWeather]);
+
     // console.log(updateZip);
     // console.log(updateCity);
     // console.log(updateLatitude);
@@ -110,6 +121,7 @@ export default function LocalDB({ updateZip, setUpdateZip, updateCity, setUpdate
     // console.log(updateAntinodeLongitude);
     // console.log(updateState);
     // console.log(updateStateAbbreviation);
+    // console.log(updateWeather);
     // console.log(updateAll);
 
     return (
