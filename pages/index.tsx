@@ -291,7 +291,7 @@ export default function Home() {
       })
     }
 
-    const deleteAll = async (Zip: number, City: string, Latitude: number, Longitude: number, State: string, State_Abbreviation: string, Opposite_Latitude: string, Opposite_Longitude: string, Weather: string) => {
+    const deleteAll = async (Zip: number, City: string, Latitude: number, Longitude: number, State: string, State_Abbreviation: string, Opposite_Latitude: string, Opposite_Longitude: string, Weather: string, CurrentTemp: string) => {
       await updateDoc(doc(db, "location", "User Data2"), {
         Zip: deleteField(),
         City: deleteField(),
@@ -302,6 +302,7 @@ export default function Home() {
         State: deleteField(),
         State_Abbreviation: deleteField(),
         Weather: deleteField(),
+        CurrentTemp: deleteField(),
         Created: deleteField(),
       });
     }
