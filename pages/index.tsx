@@ -285,6 +285,12 @@ export default function Home() {
       })
     }
 
+    const addCurrentTemp = async(CurrentTemp: string) => {
+      await setDoc(doc(db, "location", "User Data2"), {
+        CurrentTemp,
+      })
+    }
+
     const deleteAll = async (Zip: number, City: string, Latitude: number, Longitude: number, State: string, State_Abbreviation: string, Opposite_Latitude: string, Opposite_Longitude: string, Weather: string) => {
       await updateDoc(doc(db, "location", "User Data2"), {
         Zip: deleteField(),
