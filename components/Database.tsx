@@ -10,9 +10,10 @@ import HeightIcon from '@mui/icons-material/Height';
 import SyncAltIcon from '@mui/icons-material/SyncAlt';
 import PlaceIcon from '@mui/icons-material/Place';
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
+import ThermostatIcon from '@mui/icons-material/Thermostat';
 import LocalDB from '../components/localStorageDB';
 
-export default function Database({ latCoord, longCoord, zip, city, state, stateAbbreviation, addZip, addCity, addLat, latitude, addLong, longitude, addState, addStateAbbr, addDocument, deleteZip, addOppLat, OppLat, addOppLong, OppLong, dbId, dbZip, dbCity, dbLatitude, dbLongitude, dbOppositeLatitude, dbOppositeLongitude, dbState, dbStateAbbreviation, deleteCity, deleteLat, deleteLong, deleteOppositeLat, deleteOppositeLong, deleteState, deleteAbbr, deleteAll, weatherData, addWeather, deleteWeather, addCurrentTemp }) {
+export default function Database({ latCoord, longCoord, zip, city, state, stateAbbreviation, addZip, addCity, addLat, latitude, addLong, longitude, addState, addStateAbbr, addDocument, deleteZip, addOppLat, OppLat, addOppLong, OppLong, dbId, dbZip, dbCity, dbLatitude, dbLongitude, dbOppositeLatitude, dbOppositeLongitude, dbState, dbStateAbbreviation, deleteCity, deleteLat, deleteLong, deleteOppositeLat, deleteOppositeLong, deleteState, deleteAbbr, deleteAll, weatherData, addWeather, deleteWeather, currentTempData, addCurrentTemp, deleteCurrentTemp }) {
     const [updateZip, setUpdateZip] = useState(null);
     const [updateCity, setUpdateCity] = useState(null);
     const [updateLatitude, setUpdateLatitude] = useState(null);
@@ -22,8 +23,8 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
     const [updateState, setUpdateState] = useState(null);
     const [updateStateAbbreviation, setUpdateStateAbbreviation] = useState(null);
     const [updateWeather, setUpdateWeather] = useState(null);
+    const [updateCurrentTemp, setUpdateCurrentTemp] = useState(null);
     const [updateAll, setUpdateAll] = useState(null);
-    
 
     // console.log(dbId);
     // console.log(dbZip);
@@ -37,7 +38,7 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
 
     return (
         <>
-            <LocalDB updateZip={updateZip} setUpdateZip={setUpdateZip} updateCity={updateCity} setUpdateCity={setUpdateCity} updateLatitude={updateLatitude} setUpdateLatitude={setUpdateLatitude} updateLongitude={updateLongitude} setUpdateLongitude={setUpdateLongitude} updateAntinodeLatitude={updateAntinodeLatitude} setUpdateAntinodeLatitude={setUpdateAntinodeLatitude} updateAntinodeLongitude={updateAntinodeLongitude} setUpdateAntinodeLongitude={setUpdateAntinodeLongitude} updateState={updateState} setUpdateState={setUpdateState} updateStateAbbreviation={updateStateAbbreviation} setUpdateStateAbbreviation={setUpdateStateAbbreviation} updateAll={updateAll} setUpdateAll={setUpdateAll} updateWeather={updateWeather} setUpdateWeather={setUpdateWeather} />
+            <LocalDB updateZip={updateZip} setUpdateZip={setUpdateZip} updateCity={updateCity} setUpdateCity={setUpdateCity} updateLatitude={updateLatitude} setUpdateLatitude={setUpdateLatitude} updateLongitude={updateLongitude} setUpdateLongitude={setUpdateLongitude} updateAntinodeLatitude={updateAntinodeLatitude} setUpdateAntinodeLatitude={setUpdateAntinodeLatitude} updateAntinodeLongitude={updateAntinodeLongitude} setUpdateAntinodeLongitude={setUpdateAntinodeLongitude} updateState={updateState} setUpdateState={setUpdateState} updateStateAbbreviation={updateStateAbbreviation} setUpdateStateAbbreviation={setUpdateStateAbbreviation} updateAll={updateAll} setUpdateAll={setUpdateAll} updateWeather={updateWeather} setUpdateWeather={setUpdateWeather} updateCurrentTemp={updateCurrentTemp} setUpdateCurrentTemp={setUpdateCurrentTemp} />
             <List>
                 {/* {!!dbZip ? ( */}
                 {updateZip ? (
@@ -206,6 +207,25 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
                     <ListItem disablePadding>
                         <ListItemButton onClick={() => {addWeather(weatherData), setUpdateWeather(true)}}>
                             <WbSunnyIcon fontSize="small" style={{ transform: 'scale(0.7)'}} />&nbsp;
+                            Save Weather
+                        </ListItemButton>
+                    </ListItem>
+                </> 
+                )}
+                {updateCurrentTemp ? (
+                <>
+                    <ListItem disablePadding>
+                        <ListItemButton onClick={() => {deleteCurrentTemp(currentTempData), setUpdateCurrentTemp(false)}}>
+                            <ClearIcon fontSize="small" />&nbsp;
+                            Delete Weather
+                        </ListItemButton>
+                    </ListItem>
+                </>
+                ):(
+                <>
+                    <ListItem disablePadding>
+                        <ListItemButton onClick={() => {addCurrentTemp(currentTempData), setUpdateCurrentTemp(true)}}>
+                            <ThermostatIcon fontSize="small" style={{ transform: 'scale(0.7)'}} />&nbsp;
                             Save Weather
                         </ListItemButton>
                     </ListItem>
