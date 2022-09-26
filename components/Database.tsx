@@ -12,7 +12,7 @@ import PlaceIcon from '@mui/icons-material/Place';
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import LocalDB from '../components/localStorageDB';
 
-export default function Database({ latCoord, longCoord, zip, city, state, stateAbbreviation, addZip, addCity, addLat, latitude, addLong, longitude, addState, addStateAbbr, addDocument, deleteZip, addOppLat, OppLat, addOppLong, OppLong, dbId, dbZip, dbCity, dbLatitude, dbLongitude, dbOppositeLatitude, dbOppositeLongitude, dbState, dbStateAbbreviation, deleteCity, deleteLat, deleteLong, deleteOppositeLat, deleteOppositeLong, deleteState, deleteAbbr, deleteAll, weatherData, addWeather, deleteWeather }) {
+export default function Database({ latCoord, longCoord, zip, city, state, stateAbbreviation, addZip, addCity, addLat, latitude, addLong, longitude, addState, addStateAbbr, addDocument, deleteZip, addOppLat, OppLat, addOppLong, OppLong, dbId, dbZip, dbCity, dbLatitude, dbLongitude, dbOppositeLatitude, dbOppositeLongitude, dbState, dbStateAbbreviation, deleteCity, deleteLat, deleteLong, deleteOppositeLat, deleteOppositeLong, deleteState, deleteAbbr, deleteAll, weatherData, addWeather, deleteWeather, addCurrentTemp }) {
     const [updateZip, setUpdateZip] = useState(null);
     const [updateCity, setUpdateCity] = useState(null);
     const [updateLatitude, setUpdateLatitude] = useState(null);
