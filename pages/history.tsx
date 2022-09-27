@@ -5,6 +5,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { getAuth } from '@firebase/auth';
 import { initializeApp } from 'firebase/app';
 import Header from '../components/Header';
+import { Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 
 const clientCredential = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -193,6 +194,62 @@ export default function History() {
                         </td>
                     </tr>
                 </table>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <Table style={{ width: '50%' }}>
+                    <TableRow>
+                        <TableCell>
+                            <b>
+                               1 
+                            </b>
+                        </TableCell>
+                        <TableCell>
+                            <b>
+                                2
+                            </b>
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell>
+                            3
+                        </TableCell>
+                        <TableCell>
+                            4
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell>
+                            5
+                        </TableCell>
+                        <TableCell>
+                            6
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell>
+                            7
+                        </TableCell>
+                        <TableCell>
+                            8
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell>
+                            9
+                        </TableCell>
+                        <TableCell>
+                            10
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell>
+                            11
+                        </TableCell>
+                        <TableCell>
+                            12
+                        </TableCell>
+                    </TableRow>
+                </Table>
             </div>
         </>
     );

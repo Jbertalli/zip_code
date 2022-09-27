@@ -138,11 +138,6 @@ export default function Home() {
         setOppLong(oppositeLong);
     }
 
-    function clearOpposite() {
-      setOppLat(null);
-      setOppLong(null);
-    }
-
     const KelvinTemp = responseData?.main?.temp;
     const KelvinMaxTemp = responseData?.main?.temp_max;
     const KelvinMinTemp = responseData?.main?.temp_min;
