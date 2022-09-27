@@ -39,6 +39,7 @@ export default function History() {
               State_Abbreviation: doc.data().State_Abbreviation,
               Weather: doc.data().Weather,
               CurrentTemp: doc.data().CurrentTemp,
+              TempRange: doc.data().TempRange,
           })))
         })
       }
@@ -58,6 +59,7 @@ export default function History() {
       let dbStateAbbreviation = userInfo?.[0]?.State_Abbreviation;
       let dbWeather = userInfo?.[0]?.Weather;
       let dbTemp = userInfo?.[0]?.CurrentTemp;
+      let dbRange = userInfo?.[0]?.TempRange;
       
     //   console.log(dbId);
     //   console.log(dbZip);
@@ -70,6 +72,7 @@ export default function History() {
     //   console.log(dbStateAbbreviation);
     //   console.log(dbWeather);
     //   console.log(dbTemp);
+    console.log(dbRange);
 
     return (
         <>
@@ -179,6 +182,14 @@ export default function History() {
                         </td>
                         <td>
                             {dbTemp}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Temperature Range
+                        </td>
+                        <td>
+                            {dbRange}
                         </td>
                     </tr>
                 </table>
