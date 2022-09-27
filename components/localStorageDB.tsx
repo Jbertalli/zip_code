@@ -12,7 +12,7 @@ const LOCAL_STORAGE_KEY_UPDATE_WEATHER = 'UpdateWeather';
 const LOCAL_STORAGE_KEY_UPDATE_TEMP = 'UpdateTemp';
 const LOCAL_STORAGE_KEY_UPDATE_ALL = 'UpdateAll';
 
-export default function LocalDB({ updateZip, setUpdateZip, updateCity, setUpdateCity, updateLatitude, setUpdateLatitude, updateLongitude, setUpdateLongitude, updateAntinodeLatitude, setUpdateAntinodeLatitude, updateAntinodeLongitude, setUpdateAntinodeLongitude, updateState, setUpdateState, updateStateAbbreviation, setUpdateStateAbbreviation, updateAll, setUpdateAll, updateWeather, setUpdateWeather, updateCurrentTemp, setUpdateCurrentTemp }) {
+export default function LocalDB({ updateZip, setUpdateZip, updateCity, setUpdateCity, updateLatitude, setUpdateLatitude, updateLongitude, setUpdateLongitude, updateAntinodeLatitude, setUpdateAntinodeLatitude, updateAntinodeLongitude, setUpdateAntinodeLongitude, updateState, setUpdateState, updateStateAbbreviation, setUpdateStateAbbreviation, updateAll, setUpdateAll, updateWeather, setUpdateWeather, updateCurrentTemp, setUpdateCurrentTemp, updateTempRange, setUpdateTempRange }) {
 
     useEffect(() => {
         const storedUpdateZip = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATE_ZIP))
