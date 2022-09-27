@@ -69,7 +69,7 @@ export default function History() {
     //   console.log(dbState);
     //   console.log(dbStateAbbreviation);
     //   console.log(dbWeather);
-      console.log(dbTemp);
+    //   console.log(dbTemp);
 
     return (
         <>
