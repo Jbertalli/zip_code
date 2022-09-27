@@ -10,8 +10,22 @@ import SyncAltIcon from '@mui/icons-material/SyncAlt';
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import ThermostatIcon from '@mui/icons-material/Thermostat';
 import StraightenIcon from '@mui/icons-material/Straighten';
+import AddIcon from '@mui/icons-material/Add';
 
-export default function UI_Buttons({ zipCode, setZip, setCity, setLatCoord, setLongCoord, setState, setStateAbbreviation, handleClear, latCoord, longCoord, zip, city, state, stateAbbreviation, opposite, OppLat, OppLong, clearOpposite, weather, setWeatherData, weatherData, currentTemp, currentTempData, setCurrentTempData, tempRange, tempRangeData, setTempRangeData }) {
+export default function UI_Buttons({ zipCode, setZip, setCity, setLatCoord, setLongCoord, setState, setStateAbbreviation, handleClear, latCoord, longCoord, zip, city, state, stateAbbreviation, opposite, OppLat, OppLong, weather, setWeatherData, weatherData, currentTemp, currentTempData, setCurrentTempData, tempRange, tempRangeData, setTempRangeData }) {
+
+    function handleAddAll(): void {
+        setZip(zipCode.zipcode);
+        setCity(zipCode.city);
+        setLatCoord(zipCode.latitude);
+        setLongCoord(zipCode.longitude);
+        setState(zipCode.state);
+        setStateAbbreviation(zipCode.state_abbr);
+        setWeatherData(weather);
+        setCurrentTempData(currentTemp);
+        setTempRangeData(tempRange);
+    }
+
     return (
         <List>
             <ListItem disablePadding>
@@ -46,16 +60,6 @@ export default function UI_Buttons({ zipCode, setZip, setCity, setLatCoord, setL
                         Antinode
                     </ListItemButton>
                 </ListItem>
-                {/* {(OppLat && OppLong) ? (
-                <>
-                    <ListItem disablePadding>
-                        <ListItemButton onClick={clearOpposite}>
-                            <ClearIcon fontSize="small" />&nbsp;
-                            Clear Opposite
-                        </ListItemButton>
-                    </ListItem>
-                </>
-                ): null} */}
             </>
             ): null}
             <ListItem disablePadding>
@@ -88,7 +92,7 @@ export default function UI_Buttons({ zipCode, setZip, setCity, setLatCoord, setL
                     Temperature Range
                 </ListItemButton>
             </ListItem>
-            {(zip && city && latCoord && longCoord && state && stateAbbreviation && OppLat && OppLong && weatherData && currentTempData && tempRangeData) ? (
+            {/* {(zip && city && latCoord && longCoord && state && stateAbbreviation && OppLat && OppLong && weatherData && currentTempData && tempRangeData) ? (
                 <>
                     <ListItem disablePadding>
                         <ListItemButton onClick={() => handleClear()}>
@@ -97,7 +101,26 @@ export default function UI_Buttons({ zipCode, setZip, setCity, setLatCoord, setL
                         </ListItemButton>
                     </ListItem>
                 </>
-            ): null}
+            ): null} */}
+            {(zip || city || latCoord || longCoord || state || stateAbbreviation || OppLat || OppLong || weatherData || currentTempData || tempRangeData) ? (
+                <>
+                    <ListItem disablePadding>
+                        <ListItemButton onClick={() => handleClear()}>
+                            <ClearIcon fontSize="small" />&nbsp;
+                            Clear All
+                        </ListItemButton>
+                    </ListItem>
+                </>
+            ):(
+                <>
+                    <ListItem disablePadding>
+                        <ListItemButton onClick={() => handleAddAll()}>
+                            <AddIcon fontSize="small" />&nbsp;
+                            Add All
+                        </ListItemButton>
+                    </ListItem>
+                </>
+            )}
         </List>
     );
 }
