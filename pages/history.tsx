@@ -74,7 +74,7 @@ export default function History() {
     //   console.log(dbStateAbbreviation);
     //   console.log(dbWeather);
     //   console.log(dbTemp);
-    console.log(dbRange);
+    //   console.log(dbRange);
 
     return (
         <>
@@ -87,8 +87,8 @@ export default function History() {
                     <Header />
                 </div>
             </div>
-            <div style={{ transform: 'translateY(25%)' }}>
-                <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(-30%)' }}>
+            <div style={{ transform: 'translateY(22%)' }}>
+                <div style={{ display: 'flex', justifyContent: 'center', transform: 'translate(25px, -30%)' }}>
                     <span style={{ fontSize: '40px', fontWeight: '300', width: '500px' }}>
                         {user ? (
                         <>
@@ -97,7 +97,6 @@ export default function History() {
                         ): null} Information
                     </span>
                 </div>
-                
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <Table style={{ width: '50%', maxWidth: '700px', minWidth: '300px', padding: '10px' }}>
                         <div style={{ width: '180%', background: 'white' }}>
@@ -171,7 +170,7 @@ export default function History() {
                             <TableCell style={{ transform: 'translate(3vw)', fontSize: '25px' }}>
                                 Weather
                             </TableCell>
-                            <TableCell style={{ transform: 'translate(2vw)', fontSize: '25px' }}>
+                            <TableCell style={{ transform: 'translate(2vw)', fontSize: '25px', textTransform: 'capitalize' }}>
                                 {dbWeather}
                             </TableCell>
                         </TableRow>

@@ -150,7 +150,7 @@ export default function Home() {
     // console.log(weather);
 
     const currentTemp = `${Math.round(1.8 * (KelvinTemp - 273) + 32)}°F`;
-    console.log(`%cCurrent Temperature: ${currentTemp}`, 'color: blue');
+    // console.log(`%cCurrent Temperature: ${currentTemp}`, 'color: blue');
 
     const maxTemp = `${Math.round(1.8 * (KelvinMaxTemp - 273) + 32)}°F`;
     // console.log(`Maximum Temperature: ${maxTemp}`);
@@ -159,7 +159,7 @@ export default function Home() {
     // console.log(`Minimum Temperature: ${minTemp}`);
   
     const tempRange = `${minTemp} - ${maxTemp}`;
-    console.log(`%cTemperature Range: ${tempRange}`, 'color: red');
+    // console.log(`%cTemperature Range: ${tempRange}`, 'color: red');
 
     // console.log data
     let logged = async () => {
