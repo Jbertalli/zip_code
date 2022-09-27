@@ -397,6 +397,14 @@ export default function Home() {
       })
     }
 
+    const tempRangeRef = doc(db, "location", "User Data2");
+
+    const deleteTempRange = async(TempRange: string) => {
+      await updateDoc(tempRangeRef, {
+        TempRange: deleteField()
+      })
+    }
+
   return (
     <>
       <Head>
