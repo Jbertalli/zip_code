@@ -255,7 +255,7 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
                 {updateAll ? (
                 <>
                     <ListItem disablePadding>
-                        <ListItemButton onClick={() => {deleteAll(zip, city, latCoord, longCoord, state, stateAbbreviation, weatherData, currentTempData), setUpdateAll(false), setUpdateZip(false), setUpdateCity(false), setUpdateLatitude(false), setUpdateLongitude(false), setUpdateAntinodeLatitude(false), setUpdateAntinodeLongitude(false), setUpdateState(false), setUpdateStateAbbreviation(false), setUpdateWeather(false), setUpdateCurrentTemp(false)}}>
+                        <ListItemButton onClick={() => {deleteAll(zip, city, latCoord, longCoord, state, stateAbbreviation, weatherData, currentTempData, tempRangeData), setUpdateAll(false), setUpdateZip(false), setUpdateCity(false), setUpdateLatitude(false), setUpdateLongitude(false), setUpdateAntinodeLatitude(false), setUpdateAntinodeLongitude(false), setUpdateState(false), setUpdateStateAbbreviation(false), setUpdateWeather(false), setUpdateCurrentTemp(false), setUpdateTempRange(false)}}>
                             <ClearIcon fontSize="small" />&nbsp;
                             Delete All
                         </ListItemButton>
@@ -264,7 +264,7 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
                 ):(
                 <>
                     <ListItem disablePadding>
-                        <ListItemButton onClick={() => {addDocument(zip, city, latCoord, longCoord, OppLat, OppLong, state, stateAbbreviation, weatherData, currentTempData), setUpdateAll(true), setUpdateZip(true), setUpdateCity(true), setUpdateLatitude(true), setUpdateLongitude(true), setUpdateAntinodeLatitude(true), setUpdateAntinodeLongitude(true), setUpdateState(true), setUpdateStateAbbreviation(true), setUpdateWeather(true), setUpdateCurrentTemp(true)}}>
+                        <ListItemButton onClick={() => {addDocument(zip, city, latCoord, longCoord, OppLat, OppLong, state, stateAbbreviation, weatherData, currentTempData, tempRangeData), setUpdateAll(true), setUpdateZip(true), setUpdateCity(true), setUpdateLatitude(true), setUpdateLongitude(true), setUpdateAntinodeLatitude(true), setUpdateAntinodeLongitude(true), setUpdateState(true), setUpdateStateAbbreviation(true), setUpdateWeather(true), setUpdateCurrentTemp(true), setUpdateTempRange(true)}}>
                             <SaveAltIcon fontSize="small" />&nbsp;
                             Save All
                         </ListItemButton>
