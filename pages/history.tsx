@@ -5,7 +5,6 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { getAuth } from '@firebase/auth';
 import { initializeApp } from 'firebase/app';
 import Header from '../components/Header';
-import Divider from '@mui/material/Divider';
 import { Table, TableCell, TableRow } from '@mui/material';
 
 const clientCredential = {
@@ -88,7 +87,7 @@ export default function History() {
                 </div>
             </div>
             <div style={{ transform: 'translateY(22%)' }}>
-                <div style={{ display: 'flex', justifyContent: 'center', transform: 'translate(25px, -30%)' }}>
+                <div style={{ display: 'flex', justifyContent: 'center', transform: 'translate(25px, 10%)' }}>
                     <span style={{ fontSize: '40px', fontWeight: '300', width: '500px' }}>
                         {user ? (
                         <>
@@ -99,9 +98,10 @@ export default function History() {
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <Table style={{ width: '50%', maxWidth: '700px', minWidth: '300px', padding: '10px' }}>
-                        <div style={{ width: '180%', background: 'white' }}>
-                            <Divider />
-                        </div>
+                        <TableRow>
+                            <TableCell />
+                            <TableCell />
+                        </TableRow>
                         <TableRow>
                             <TableCell style={{ transform: 'translate(3vw)', fontSize: '25px' }}>
                                 Zip Code
