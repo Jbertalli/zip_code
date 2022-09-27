@@ -184,6 +184,7 @@ export default function Home() {
             State_Abbreviation: doc.data().State_Abbreviation,
             Weather: doc.data().Weather,
             CurrentTemp: doc.data().CurrentTemp,
+            TempRange: doc.data().TempRange,
         })))
       })
     }
@@ -203,6 +204,7 @@ export default function Home() {
     let dbStateAbbreviation = userInfo?.[0]?.State_Abbreviation;
     let dbWeather = userInfo?.[0]?.Weather;
     let dbCurrentTemp = userInfo?.[0]?.CurrentTemp;
+    let dbTempRange = userInfo?.[0]?.TempRange;
 
     // console.log(dbId);
     // console.log(dbZip);
@@ -215,6 +217,7 @@ export default function Home() {
     // console.log(dbStateAbbreviation);
     // console.log(dbWeather);
     // console.log(dbCurrentTemp);
+    // console.log(dbTempRange);
 
     // console.log(user.displayName);
 
