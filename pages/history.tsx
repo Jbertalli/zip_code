@@ -37,7 +37,8 @@ export default function History() {
               Opposite_Longitude: doc.data().Opposite_Longitude,
               State: doc.data().State,
               State_Abbreviation: doc.data().State_Abbreviation,
-              Weather: doc.data().Weather
+              Weather: doc.data().Weather,
+              CurrentTemp: doc.data().CurrentTemp,
           })))
         })
       }
@@ -56,6 +57,7 @@ export default function History() {
       let dbState = userInfo?.[0]?.State;
       let dbStateAbbreviation = userInfo?.[0]?.State_Abbreviation;
       let dbWeather = userInfo?.[0]?.Weather;
+      let dbTemp = userInfo?.[0]?.Temp;
       
     //   console.log(dbId);
     //   console.log(dbZip);
@@ -67,6 +69,7 @@ export default function History() {
     //   console.log(dbState);
     //   console.log(dbStateAbbreviation);
     //   console.log(dbWeather);
+    //   console.log(dbTemp);
 
     return (
         <>
@@ -168,6 +171,14 @@ export default function History() {
                         </td>
                         <td style={{ textTransform: 'capitalize' }}>
                             {dbWeather}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Current Temperature
+                        </td>
+                        <td>
+                            {dbTemp}
                         </td>
                     </tr>
                 </table>
