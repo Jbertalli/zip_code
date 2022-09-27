@@ -88,16 +88,16 @@ export default function History() {
                 </div>
             </div>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <span style={{ fontSize: '40px', fontWeight: '300', width: '500px' }}>
+                    {user ? (
+                    <>
+                        {user.displayName}'s&nbsp;
+                    </>
+                    ): null} Information
+                </span>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <Table style={{ maxWidth: '700px', minWidth: '300px', width: '50%', padding: '10px' }}>
-                    <TableRow>
-                        <span style={{ fontSize: '40px', width: '500px' }}>
-                            {user ? (
-                            <>
-                                {user.displayName}'s&nbsp;
-                            </>
-                            ): null} Information
-                        </span>
-                    </TableRow>
                     <TableRow>
                         <TableCell style={{ transform: 'translate(2vw)', fontSize: '25px' }}>
                             Zip Code
