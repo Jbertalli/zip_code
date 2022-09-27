@@ -57,7 +57,7 @@ export default function History() {
       let dbState = userInfo?.[0]?.State;
       let dbStateAbbreviation = userInfo?.[0]?.State_Abbreviation;
       let dbWeather = userInfo?.[0]?.Weather;
-      let dbTemp = userInfo?.[0]?.Temp;
+      let dbTemp = userInfo?.[0]?.CurrentTemp;
       
     //   console.log(dbId);
     //   console.log(dbZip);
@@ -69,7 +69,7 @@ export default function History() {
     //   console.log(dbState);
     //   console.log(dbStateAbbreviation);
     //   console.log(dbWeather);
-    //   console.log(dbTemp);
+      console.log(dbTemp);
 
     return (
         <>

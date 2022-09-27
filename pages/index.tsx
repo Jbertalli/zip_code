@@ -171,7 +171,7 @@ export default function Home() {
       const colRef = collection(db, "location");
       const docsSnap = await getDocs(colRef);
         docsSnap.forEach(doc => {
-          console.log(doc.data());
+          // console.log(doc.data());
           setUserInfo(docsSnap.docs.map(doc => ({
             id: doc.id,
             Zip: doc.data().Zip,

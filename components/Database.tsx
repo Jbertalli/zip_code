@@ -217,7 +217,7 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
                     <ListItem disablePadding>
                         <ListItemButton onClick={() => {deleteCurrentTemp(currentTempData), setUpdateCurrentTemp(false)}}>
                             <ClearIcon fontSize="small" />&nbsp;
-                            Delete Weather
+                            Delete Current Temperature
                         </ListItemButton>
                     </ListItem>
                 </>
@@ -226,7 +226,7 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
                     <ListItem disablePadding>
                         <ListItemButton onClick={() => {addCurrentTemp(currentTempData), setUpdateCurrentTemp(true)}}>
                             <ThermostatIcon fontSize="small" style={{ transform: 'scale(0.7)'}} />&nbsp;
-                            Save Weather
+                            Save Current Temperature
                         </ListItemButton>
                     </ListItem>
                 </> 
