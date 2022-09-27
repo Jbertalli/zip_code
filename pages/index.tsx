@@ -219,7 +219,7 @@ export default function Home() {
     // console.log(user.displayName);
 
     // Create new document from within code
-    const addDocument = async (Zip: number, City: string, Latitude: number, Longitude: number, Opposite_Latitude: string, Opposite_Longitude: string, State: string, State_Abbreviation: string, Weather: string, CurrentTemp: string) => {
+    const addDocument = async (Zip: number, City: string, Latitude: number, Longitude: number, Opposite_Latitude: string, Opposite_Longitude: string, State: string, State_Abbreviation: string, Weather: string, CurrentTemp: string, TempRange: string) => {
       await setDoc(doc(db, "location", "User Data2"), {
         Zip,
         City,
@@ -231,6 +231,7 @@ export default function Home() {
         State_Abbreviation,
         Weather,
         CurrentTemp,
+        TempRange,
         Created: Timestamp.now()
       });
     }
