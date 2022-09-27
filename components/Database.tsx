@@ -246,7 +246,7 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
                 <>
                     <ListItem disablePadding>
                         <ListItemButton onClick={() => {addTempRange(tempRangeData), setUpdateTempRange(true)}}>
-                            <ThermostatIcon fontSize="small" style={{ transform: 'scale(0.7)'}} />&nbsp;
+                            <StraightenIcon fontSize="small" style={{ transform: 'scale(0.7)'}} />&nbsp;
                             Save Temperature Range
                         </ListItemButton>
                     </ListItem>
