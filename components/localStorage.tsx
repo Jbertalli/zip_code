@@ -10,8 +10,9 @@ const LOCAL_STORAGE_KEY_OPPOSITE = 'OppositeLat';
 const LOCAL_STORAGE_KEY_OPPOSITE1 = 'OppositeLong';
 const LOCAL_STORAGE_KEY_WEATHER = 'Weather';
 const LOCAL_STORAGE_KEY_TEMP = 'CurrentTemp';
+const LOCAL_STORAGE_KEY_RANGE = 'TempRange';
 
-export default function Local({ setZip, zip, setCity, city, latCoord, setLatCoord, longCoord, setLongCoord, state, setState, stateAbbreviation, setStateAbbreviation, OppLat, OppLong, setOppLat, setOppLong, weatherData, setWeatherData, currentTempData, setCurrentTempData }) {
+export default function Local({ setZip, zip, setCity, city, latCoord, setLatCoord, longCoord, setLongCoord, state, setState, stateAbbreviation, setStateAbbreviation, OppLat, OppLong, setOppLat, setOppLong, weatherData, setWeatherData, currentTempData, setCurrentTempData, tempRangeData, setTempRangeData }) {
 
   // zip
   useEffect(() => {
@@ -122,6 +123,17 @@ export default function Local({ setZip, zip, setCity, city, latCoord, setLatCoor
     localStorage.setItem(LOCAL_STORAGE_KEY_TEMP, 
     JSON.stringify(currentTempData))
   }, [currentTempData]);
+
+  // temp range
+  useEffect(() => {
+    const storedRange = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_RANGE))
+    if (storedRange) setTempRangeData(storedRange)
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY_RANGE, 
+    JSON.stringify(tempRangeData))
+  }, [tempRangeData]);
 
   return (
     <>
