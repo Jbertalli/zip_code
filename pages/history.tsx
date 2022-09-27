@@ -87,106 +87,112 @@ export default function History() {
                     <Header />
                 </div>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <span style={{ fontSize: '40px', fontWeight: '300', width: '500px' }}>
-                    {user ? (
-                    <>
-                        {user.displayName}'s&nbsp;
-                    </>
-                    ): null} Information
-                </span>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <Table style={{ maxWidth: '700px', minWidth: '300px', width: '50%', padding: '10px' }}>
-                    <TableRow>
-                        <TableCell style={{ transform: 'translate(2vw)', fontSize: '25px' }}>
-                            Zip Code
-                        </TableCell>
-                        <TableCell style={{ transform: 'translate(1vw)', fontSize: '25px' }}>
-                            {dbZip}
-                        </TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell style={{ transform: 'translate(2vw)', fontSize: '25px' }}>
-                            City
-                        </TableCell>
-                        <TableCell style={{ transform: 'translate(1vw)', fontSize: '25px' }}>
-                            {dbCity}
-                        </TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell style={{ transform: 'translate(2vw)', fontSize: '25px' }}>
-                            Latitude
-                        </TableCell>
-                        <TableCell style={{ transform: 'translate(1vw)', fontSize: '25px' }}>
-                            {dbLatitude}
-                        </TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell style={{ transform: 'translate(2vw)', fontSize: '25px' }}>
-                            Longitude
-                        </TableCell>
-                        <TableCell style={{ transform: 'translate(1vw)', fontSize: '25px' }}>
-                            {dbLongitude}
-                        </TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell style={{ transform: 'translate(2vw)', fontSize: '25px' }}>
-                            Antinode Latitude
-                        </TableCell>
-                        <TableCell style={{ transform: 'translate(1vw)', fontSize: '25px' }}>
-                            {dbOppositeLatitude}
-                        </TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell style={{ transform: 'translate(2vw)', fontSize: '25px' }}>
-                            Antinode Longitude
-                        </TableCell>
-                        <TableCell style={{ transform: 'translate(1vw)', fontSize: '25px' }}>
-                            {dbOppositeLongitude}
-                        </TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell style={{ transform: 'translate(2vw)', fontSize: '25px' }}>
-                            State
-                        </TableCell>
-                        <TableCell style={{ transform: 'translate(1vw)', fontSize: '25px' }}>
-                            {dbState}
-                        </TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell style={{ transform: 'translate(2vw)', fontSize: '25px' }}>
-                            State Abbreviation
-                        </TableCell>
-                        <TableCell style={{ transform: 'translate(1vw)', fontSize: '25px' }}>
-                            {dbStateAbbreviation}
-                        </TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell style={{ transform: 'translate(2vw)', fontSize: '25px' }}>
-                            Weather
-                        </TableCell>
-                        <TableCell style={{ transform: 'translate(1vw)', fontSize: '25px' }}>
-                            {dbWeather}
-                        </TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell style={{ transform: 'translate(2vw)', fontSize: '25px' }}>
-                            Current Temperature
-                        </TableCell>
-                        <TableCell style={{ transform: 'translate(1vw)', fontSize: '25px' }}>
-                            {dbTemp}
-                        </TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell style={{ transform: 'translate(2vw)', fontSize: '25px' }}>
-                            Temperature Range
-                        </TableCell>
-                        <TableCell style={{ transform: 'translate(1vw)', fontSize: '25px' }}>
-                            {dbRange}
-                        </TableCell>
-                    </TableRow>
-                </Table>
+            <div style={{ transform: 'translateY(25%)' }}>
+                <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(-30%)' }}>
+                    <span style={{ fontSize: '40px', fontWeight: '300', width: '500px' }}>
+                        {user ? (
+                        <>
+                            {user.displayName}'s&nbsp;
+                        </>
+                        ): null} Information
+                    </span>
+                </div>
+                
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <Table style={{ width: '50%', maxWidth: '700px', minWidth: '300px', padding: '10px' }}>
+                        <div style={{ width: '180%', background: 'white' }}>
+                            <Divider />
+                        </div>
+                        <TableRow>
+                            <TableCell style={{ transform: 'translate(3vw)', fontSize: '25px' }}>
+                                Zip Code
+                            </TableCell>
+                            <TableCell style={{ transform: 'translate(2vw)', fontSize: '25px' }}>
+                                {dbZip}
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell style={{ transform: 'translate(3vw)', fontSize: '25px' }}>
+                                City
+                            </TableCell>
+                            <TableCell style={{ transform: 'translate(2vw)', fontSize: '25px' }}>
+                                {dbCity}
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell style={{ transform: 'translate(3vw)', fontSize: '25px' }}>
+                                Latitude
+                            </TableCell>
+                            <TableCell style={{ transform: 'translate(2vw)', fontSize: '25px' }}>
+                                {dbLatitude}
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell style={{ transform: 'translate(3vw)', fontSize: '25px' }}>
+                                Longitude
+                            </TableCell>
+                            <TableCell style={{ transform: 'translate(2vw)', fontSize: '25px' }}>
+                                {dbLongitude}
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell style={{ transform: 'translate(3vw)', fontSize: '25px' }}>
+                                Antinode Latitude
+                            </TableCell>
+                            <TableCell style={{ transform: 'translate(2vw)', fontSize: '25px' }}>
+                                {dbOppositeLatitude}
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell style={{ transform: 'translate(3vw)', fontSize: '25px' }}>
+                                Antinode Longitude
+                            </TableCell>
+                            <TableCell style={{ transform: 'translate(2vw)', fontSize: '25px' }}>
+                                {dbOppositeLongitude}
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell style={{ transform: 'translate(3vw)', fontSize: '25px' }}>
+                                State
+                            </TableCell>
+                            <TableCell style={{ transform: 'translate(2vw)', fontSize: '25px' }}>
+                                {dbState}
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell style={{ transform: 'translate(3vw)', fontSize: '25px' }}>
+                                State Abbreviation
+                            </TableCell>
+                            <TableCell style={{ transform: 'translate(2vw)', fontSize: '25px' }}>
+                                {dbStateAbbreviation}
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell style={{ transform: 'translate(3vw)', fontSize: '25px' }}>
+                                Weather
+                            </TableCell>
+                            <TableCell style={{ transform: 'translate(2vw)', fontSize: '25px' }}>
+                                {dbWeather}
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell style={{ transform: 'translate(3vw)', fontSize: '25px' }}>
+                                Current Temperature
+                            </TableCell>
+                            <TableCell style={{ transform: 'translate(2vw)', fontSize: '25px' }}>
+                                {dbTemp}
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell style={{ transform: 'translate(3vw)', fontSize: '25px' }}>
+                                Temperature Range
+                            </TableCell>
+                            <TableCell style={{ transform: 'translate(2vw)', fontSize: '25px' }}>
+                                {dbRange}
+                            </TableCell>
+                        </TableRow>
+                    </Table>
+                </div>
             </div>
         </>
     );
