@@ -196,7 +196,19 @@ export default function History() {
                 </table>
             </div>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <Table style={{ width: '50%' }}>
+                <Table style={{ maxWidth: '20%' }}>
+                    <TableRow style={{ display: 'flex', justifyContent: 'center' }}>
+                        <span>
+                            {user ? (
+                            <>
+                                {user.displayName}'s&nbsp;
+                            </>
+                            ): null}
+                        </span>
+                        <span>
+                            Information
+                        </span>
+                    </TableRow>
                     <TableRow>
                         <TableCell>
                             <b>
