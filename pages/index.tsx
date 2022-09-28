@@ -258,15 +258,15 @@ export default function Home() {
       })
     }
 
-    const addOppLat = async(OppLat) => {
+    const addOppLat = async(Opposite_Latitude) => {
       await setDoc(doc(db, "location", "User Data2"), {
-        OppLat,
+        Opposite_Latitude,
       })
     }
 
-    const addOppLong = async(OppLong) => {
+    const addOppLong = async(Opposite_Longitude) => {
       await setDoc(doc(db, "location", "User Data2"), {
-        OppLong,
+        Opposite_Longitude,
       })
     }
 
@@ -351,17 +351,17 @@ export default function Home() {
 
     const oppLatRef = doc(db, "location", "User Data2");
 
-    const deleteOppositeLat = async(OppLat: number) => {
+    const deleteOppositeLat = async(Opposite_Latitude: number) => {
       await updateDoc(oppLatRef, {
-        OppLat: deleteField()
+        Opposite_Latitude: deleteField()
       })
     }
 
     const oppLongRef = doc(db, "location", "User Data2");
 
-    const deleteOppositeLong = async(OppLong: number) => {
+    const deleteOppositeLong = async(Opposite_Longitude: number) => {
       await updateDoc(oppLongRef, {
-        OppLong: deleteField()
+        Opposite_Longitude: deleteField()
       })
     }
 
