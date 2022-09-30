@@ -5,4 +5,5 @@
 * Firebase
 * Docker
 * Material-UI
+* Google Maps API
 * OpenWeather API
