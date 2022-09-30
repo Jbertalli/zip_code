@@ -46,6 +46,7 @@ function SignInScreen() {
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
         .then((re) => {
+            document.cookie = 'name=Google Signed In'
             console.log(re);
             // router.push('/');
         })
