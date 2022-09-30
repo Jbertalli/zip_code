@@ -21,8 +21,8 @@ function SignInScreen() {
 
     onAuthStateChanged(auth, (user) => {
       if (user) {
-       console.log("%c Current user:", "color: green", user);
-       document.cookie = 'name=Signed in with Github';
+        document.cookie = 'name=Signed In';
+        console.log("%c Current user:", "color: green", user);
         // const uid = user.uid;
       } else {
         console.log("%c No user signed in", "color: red");
@@ -32,6 +32,7 @@ function SignInScreen() {
     const SignOut = () => {
         signOut(auth).then(() => {
             // Sign-out successful.
+            document.cookie = 'name=; expires=Thu, 01 Jan 1970';
             console.log("%c signed out", "color: red");
         }).catch((error) => {
             // An error happened.
@@ -47,7 +48,6 @@ function SignInScreen() {
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
         .then((re) => {
-            document.cookie = 'name=Signed in with Google';
             console.log(re);
             // router.push('/');
         })
