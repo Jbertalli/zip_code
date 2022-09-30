@@ -22,6 +22,7 @@ function SignInScreen() {
     onAuthStateChanged(auth, (user) => {
       if (user) {
        console.log("%c Current user:", "color: green", user);
+       document.cookie = 'name=Signed in with Github';
         // const uid = user.uid;
       } else {
         console.log("%c No user signed in", "color: red");
@@ -46,7 +47,7 @@ function SignInScreen() {
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
         .then((re) => {
-            document.cookie = 'name=Google Signed In'
+            document.cookie = 'name=Signed in with Google';
             console.log(re);
             // router.push('/');
         })
