@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
+import React, { useState, useEffect } from 'react';
 import { getFirestore, getDocs, collection } from 'firebase/firestore';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { getAuth } from '@firebase/auth';
@@ -22,6 +23,7 @@ const db = getFirestore();
 export default function History() {
     const [userInfo, setUserInfo] = useState([]);
     const [user] = useAuthState(getAuth());
+    const router = useRouter();
 
     let logged = async () => {
         const colRef = collection(db, "location");
@@ -74,6 +76,17 @@ export default function History() {
     //   console.log(dbWeather);
     //   console.log(dbTemp);
     //   console.log(dbRange);
+
+    if (typeof window !== "undefined") {
+        useEffect(() => {
+            console.log(document.cookie.length);
+            if (document.cookie.length > 222) {
+            console.log('Authenticated!');
+            } else {
+            router.push('/');
+            }
+        }, [])
+    }
 
     return (
         <>
