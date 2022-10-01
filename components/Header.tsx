@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import { getAuth, signOut } from "firebase/auth";
 
 export default function Header() {
     const [homeColor, setHomeColor] = useState('');
@@ -17,6 +18,7 @@ export default function Header() {
     // textDecoration: `${historyUnderline}`
 
     const router = useRouter();
+    const auth = getAuth();
 
     useEffect(() => {
         if (router.pathname === '/') {
@@ -37,8 +39,15 @@ export default function Header() {
 
     let ternary = false;
 
-    let test = () => {
-        console.log('test');
+    const SignOut = () => {
+        signOut(auth).then(() => {
+            // Sign-out successful.
+            document.cookie = 'name=; expires=Thu, 01 Jan 1970';
+            console.log("%c signed out", "color: red");
+        }).catch((error) => {
+            // An error happened.
+            console.log("Error", error);
+        });
     }
       
     return (
@@ -61,7 +70,7 @@ export default function Header() {
                 </>
                 ):(
                 <>
-                    <Tab onClick={() => test()} style={{ fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="Log Out" />
+                    <Tab onClick={SignOut} style={{ fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="Log Out" />
                 </>
                 )}
             </Tabs>
