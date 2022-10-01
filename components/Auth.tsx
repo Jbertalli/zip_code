@@ -202,7 +202,68 @@ function SignInScreen() {
         <div>
             {account ? (
             <>
-
+<FocusLock>
+    <div style={{ position:'absolute', zIndex:'100000000000000'}}>
+        <div style={{ transform:'translate(-7px, 75px)', fontSize:'10px', color:'#808080', display:'flex', justifyContent:'center' }}>
+            <div style={{ background:'#808080', width:'18.5%', height:'0.5px', transform:'translate(-10px, 10px)' }}/>
+                or Sign in with Email
+            <div style={{ background:'#808080', width:'18.5%', height:'0.5px', transform:'translate(10px, 10px)' }}/>
+        </div>
+        <form onSubmit={handleLogin}>
+            <div style={{ display:'flex', justifyContent:'center' }}>
+                <input
+                    onChange={(e) =>setEmail(e.target.value)}
+                    value={email}
+                    type="email"
+                    placeholder="Email"
+                    style={{
+                        borderRight:'transparent',
+                        borderLeft:'transparent',
+                        borderTop:'transparent',
+                        borderBottom:'.5px solid gray',
+                        margin:'100px 0px 20px',
+                        padding:'4px',
+                        width:'80%',
+                        maxWidth:'300px',
+                        fontSize:'17px' ,
+                        fontWeight:'300'
+                    }}
+                />
+            </div>
+            <div style={{ display:'flex', justifyContent:'center' }}>
+                <input
+                    onChange={(e) =>setPassword(e.target.value)}
+                    value={password}
+                    type="password"
+                    placeholder="Password"
+                    style={{
+                        borderRight:'transparent',
+                        borderLeft:'transparent',
+                        borderTop:'transparent',
+                        borderBottom:'.5px solid gray',
+                        margin:'20px 0px 20px',
+                        padding:'4px',
+                        width:'80%',
+                        maxWidth:'300px',
+                        fontSize:'17px' ,
+                        fontWeight:'300'
+                    }}
+                />
+            </div>
+            <div style={{ color:'red', display:'flex', justifyContent:'center' }}>
+                {error && (
+                    <p>{error}</p>
+                )}
+            </div>
+            <div style={{ display:'flex', justifyContent:'center', color:'#808080' }}>
+                Don't have an account?&nbsp;<a onClick={() => {setAccount(false), setEmail(""), setPassword("")}} style={{ cursor: 'pointer', color: '#125CA1' }}>Signup</a>
+            </div>
+            <div style={{ display:'flex', justifyContent:'center', padding:'20px 0px 30px' }}>
+                <input type="submit"value="Login"className={styles.buttons}/>
+            </div>
+        </form>
+    </div>
+</FocusLock>
             </>
             ):(
             <>
