@@ -36,6 +36,10 @@ export default function Header() {
     }, []);
 
     let ternary = false;
+
+    let test = () => {
+        console.log('test');
+    }
       
     return (
         <>
@@ -57,7 +61,7 @@ export default function Header() {
                 </>
                 ):(
                 <>
-                    <Tab style={{ background: `${loginColor}`, fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="Log Out" />
+                    <Tab onClick={() => test()} style={{ fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="Log Out" />
                 </>
                 )}
             </Tabs>
