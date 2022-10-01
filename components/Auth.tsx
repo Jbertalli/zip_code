@@ -101,6 +101,12 @@ function SignInScreen() {
                                 placeholder="Password"
                             />
                         </div>
+                        <div>
+                            <input 
+                                type="submit"
+                                value="Login"
+                            />
+                        </div>
                     </form>
                 </div>
                 <div style={{ fontSize: '.4em', display: 'flex', justifyContent: 'center', padding: '2vh 0vw 0vh 0vw' }}>
