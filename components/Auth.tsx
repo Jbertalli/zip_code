@@ -70,6 +70,8 @@ function SignInScreen() {
         e.preventDefault();
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
+          document.cookie = 'name=Signed Up';
+          router.push('/');
           console.log('logged in');
         })
         .catch((error) => {
@@ -82,8 +84,8 @@ function SignInScreen() {
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             document.cookie = 'name=Signed Up';
-            console.log('You are registered');
             router.push('/');
+            console.log('You are registered');
         })
         .catch((error) => {
             console.log(error, "You are not registered");
