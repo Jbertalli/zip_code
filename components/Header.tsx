@@ -8,6 +8,7 @@ export default function Header() {
     const [homeColor, setHomeColor] = useState('');
     const [antinodeColor, setAntinodeColor] = useState('');
     const [historyColor, setHistoryColor] = useState('');
+    const [loginColor, setLoginColor] = useState('');
     // const [homeUnderline, setHomeUnderline] = useState('');
     // const [antinodeUnderline, setAntinodeUnderline] = useState('');
     // const [historyUnderline, setHistoryUnderline] = useState('');
@@ -27,6 +28,8 @@ export default function Header() {
         } else if (router.pathname === '/history') {
             setHistoryColor('#FFFFFF20');
             // setHistoryUnderline('underline');
+        } else if (router.pathname === '/login') {
+            setLoginColor('#FFFFFF20');
         } else {
             return;
         }
@@ -45,7 +48,7 @@ export default function Header() {
                     <Tab style={{ background: `${historyColor}`, fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="User Information" />
                 </Link>
                 <Link href='/login' passHref>
-                    <Tab style={{ fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="Login" />
+                    <Tab style={{ background: `${loginColor}`, fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="Login" />
                 </Link>
             </Tabs>
         </>
