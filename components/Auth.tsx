@@ -58,11 +58,11 @@ function SignInScreen() {
 
     return (
       <>
-        <div style={{ fontSize: '40px', fontWeight: '200', transform: 'translateY(10vh)' }}>
+        <div style={{ fontSize: '3em', fontWeight: '200', transform: 'translateY(10vh)', border: '1px solid red', padding: '100px' }}>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
                 Login Form
             </div>
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(2vh)' }}>
                 {/* {!user ? (
                 <> */}
                     <div
@@ -76,33 +76,33 @@ function SignInScreen() {
                     >
                         <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={getAuth()} />
                     </div>
-                    <div style={{ transform: 'translate(0px, 0px)' }}>
-                    <Button onClick={signInWithGoogle} 
-                        style={{ 
-                            background: '#FFFFFF', 
-                            position: 'absolute',
-                            zIndex: '100000',
-                            borderRadius: '2px', 
-                            paddingLeft: '46px',
-                            border: '.5px solid #80808099', 
-                            color: 'black',
-                            width: '191px',
-                            height: '40px',
-                            fontSize: '14px', 
-                            fontWeight: '500',
-                            textTransform: 'none',
-                        }}
-                    >
-                        <div 
-                            className={styles.google} 
+                    <div style={{ transform: 'translate(-208.8px, 85px)' }}>
+                        <Button onClick={signInWithGoogle} 
                             style={{ 
-                                transform: 'translate(-86px, -41px) scale(0.07)', 
-                                position: 'absolute', 
-                                marginTop: '82px' 
-                            }} 
-                        />
-                        Sign in with Google
-                    </Button>
+                                background: '#FFFFFF', 
+                                position: 'absolute',
+                                zIndex: '100000',
+                                borderRadius: '2px', 
+                                paddingLeft: '46px',
+                                border: '.5px solid #80808099', 
+                                color: 'black',
+                                width: '185px',
+                                height: '40px',
+                                fontSize: '14px', 
+                                fontWeight: '500',
+                                textTransform: 'none',
+                            }}
+                        >
+                            <div 
+                                className={styles.google} 
+                                style={{ 
+                                    transform: 'translate(-86px, -41px) scale(0.07)', 
+                                    position: 'absolute', 
+                                    marginTop: '82px' 
+                                }} 
+                            />
+                            Sign in with Google
+                        </Button>
                     </div>
                 {/* </>
                 ):(
