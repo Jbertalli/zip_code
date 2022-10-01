@@ -59,7 +59,7 @@ function SignInScreen() {
     return (
       <> 
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <div style={{ fontSize: '3em', fontWeight: '200', position: 'absolute', transform: 'translateY(5vh)', border: '1px solid white', height: '30vh' }}>
+            <div style={{ fontSize: '3em', fontWeight: '200', position: 'absolute', transform: 'translateY(5vh)', border: '1px solid white', height: '50vh', width: '20vw', maxWidth: '600px', minWidth: '236px' }}>
                 <div style={{ display: 'flex', justifyContent: 'center', minWidth: '100px' }}>
                     Login Form
                 </div>
