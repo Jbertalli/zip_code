@@ -42,6 +42,7 @@ export default function Header() {
     const SignOut = () => {
         signOut(auth).then(() => {
             // Sign-out successful.
+            router.push('/login');
             document.cookie = 'name=; expires=Thu, 01 Jan 1970';
             console.log("%c signed out", "color: red");
         }).catch((error) => {
