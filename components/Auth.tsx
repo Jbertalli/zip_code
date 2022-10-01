@@ -77,6 +77,20 @@ function SignInScreen() {
         });
     }
 
+    function handleSignup(e) {
+        e.preventDefault();
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            document.cookie = 'name=Signed Up';
+            console.log('You are registered');
+            router.push('/');
+        })
+        .catch((error) => {
+            console.log(error, "You are not registered");
+            setError("Invalid email or password");
+        });
+    }
+
     return (
       <> 
         <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(10vh)' }}>
