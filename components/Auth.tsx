@@ -58,7 +58,10 @@ function SignInScreen() {
 
     return (
       <>
-        <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(50%)' }}>
+        <div style={{ fontSize: '40px', fontWeight: '200' }}>
+            Login Form
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(50vh)' }}>
             {/* {!user ? (
             <> */}
                 <div
