@@ -90,6 +90,17 @@ function SignInScreen() {
                                 placeholder="Email"
                             />
                         </div>
+                        <div>
+                            <label>
+                                Password
+                            </label>
+                            <input
+                                onChange={(e) => setPassword(e.target.value)}
+                                value={password}
+                                type="password"
+                                placeholder="Password"
+                            />
+                        </div>
                     </form>
                 </div>
                 <div style={{ fontSize: '.4em', display: 'flex', justifyContent: 'center', padding: '2vh 0vw 0vh 0vw' }}>
