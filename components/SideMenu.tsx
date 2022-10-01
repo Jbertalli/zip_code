@@ -92,8 +92,10 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
                 </div>
             }
         </div>
-        <div style={{ position: 'absolute', zIndex: '10000', right: '33vw', top: '5px' }}>
-            <Header />
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <div style={{ position: 'absolute', zIndex: '10000', top: '5px' }}>
+              <Header />
+          </div>
         </div>
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
