@@ -77,6 +77,9 @@ function SignInScreen() {
                 <div style={{ display: 'flex', justifyContent: 'center', padding: '3vh 0vw 0vh 0vw' }}>
                     Login Form
                 </div>
+                <div style={{ fontSize: '.4em', display: 'flex', justifyContent: 'center', padding: '2vh 0vw 0vh 0vw' }}>
+                    Login with Email
+                </div>
                 <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(10vh)', minWidth: '100px' }}>
                     {/* {!user ? (
                     <> */}
