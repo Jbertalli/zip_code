@@ -3,9 +3,11 @@ import { useRouter } from 'next/router';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from '../firebase/clientApp';
 import { getAuth, onAuthStateChanged, signOut, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { setPersistence, browserSessionPersistence, signInWithEmailAndPassword } from '@firebase/auth';
+import { setPersistence, browserSessionPersistence, signInWithEmailAndPassword, createUserWithEmailAndPassword } from '@firebase/auth';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import Button from '@mui/material/Button';
 import styles from '../styles/zip.module.css';
+import FocusLock from 'react-focus-lock';
 // import LogoutIcon from '@mui/icons-material/Logout';
 
 //Configure FirebaseUI
@@ -17,10 +19,10 @@ const uiConfig = {
 };
 
 function SignInScreen() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
     const router = useRouter();
     const auth = getAuth();
+
+    const user = auth.currentUser;
 
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -42,9 +44,6 @@ function SignInScreen() {
     //         console.log("Error", error);
     //     });
     // }
-    
-    const user = auth.currentUser;
-    // console.log(user);
 
     const signInWithGoogle = () => {
         setPersistence(auth, browserSessionPersistence);
@@ -74,7 +73,7 @@ function SignInScreen() {
       <> 
         <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(10vh)' }}>
             <div style={{ fontSize: '3em', fontWeight: '200', position: 'absolute', border: '1px solid white', borderRadius: '8px', height: '50vh', width: '20vw', maxWidth: '600px', minWidth: '236px' }}>
-                <div>
+                {/* <div>
                     <div style={{ display: 'flex', justifyContent: 'center', padding: '3vh 0vw 0vh 0vw' }}>
                         Login Form
                     </div>
@@ -108,7 +107,7 @@ function SignInScreen() {
                             />
                         </div>
                     </form>
-                </div>
+                </div> */}
                 <div style={{ fontSize: '.4em', display: 'flex', justifyContent: 'center', padding: '2vh 0vw 0vh 0vw' }}>
                     Login with Email
                 </div>
