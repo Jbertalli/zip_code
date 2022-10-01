@@ -199,6 +199,17 @@ function SignInScreen() {
                 </div>
             </div>
         </div>
+        <div>
+            {account ? (
+            <>
+
+            </>
+            ):(
+            <>
+
+            </>
+            )}
+        </div>
       </>
     );
 }
