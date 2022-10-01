@@ -45,7 +45,7 @@ export default function Header() {
                     <Tab style={{ background: `${historyColor}`, fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="User Information" />
                 </Link>
                 <Link href='/login' passHref>
-                    <Tab label="Login" />
+                    <Tab style={{ fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="Login" />
                 </Link>
             </Tabs>
         </>
