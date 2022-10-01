@@ -59,6 +59,17 @@ function SignInScreen() {
         })
     }
 
+    function handleLogin(e) {
+        e.preventDefault();
+        signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          console.log('logged in');
+        })
+        .catch((error) => {
+          console.log(error, "User not found");
+        });
+    }
+
     return (
       <> 
         <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(10vh)' }}>
