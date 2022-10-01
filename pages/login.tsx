@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Header from '../components/Header';
+import Auth from '../components/Auth';
 
 export default function Login() {
 
@@ -14,7 +15,9 @@ export default function Login() {
                     <Header />
                 </div>
             </div>
-            Hello
+            <div>
+                <Auth />
+            </div>
         </>
     );
 }
