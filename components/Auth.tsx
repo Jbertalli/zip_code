@@ -19,6 +19,10 @@ const uiConfig = {
 };
 
 function SignInScreen() {
+    const [email, setEmail] = useState<string>("");
+    const [password, setPassword] = useState<string>("");
+    const [account, setAccount] = useState<boolean>(true);
+    const [error, setError] = useState<string>("");
     const router = useRouter();
     const auth = getAuth();
 
