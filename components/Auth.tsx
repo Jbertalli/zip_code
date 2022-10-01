@@ -1,4 +1,5 @@
 import React from "react";
+import { useRouter } from 'next/router';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from '../firebase/clientApp';
 import { getAuth, onAuthStateChanged, signOut, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
@@ -17,6 +18,7 @@ const uiConfig = {
 
 function SignInScreen() {
 
+    const router = useRouter();
     const auth = getAuth();
 
     onAuthStateChanged(auth, (user) => {
@@ -48,8 +50,8 @@ function SignInScreen() {
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
         .then((re) => {
+            router.push('/');
             console.log(re);
-            // router.push('/');
         })
         .catch((err) => {
             console.log(err);
