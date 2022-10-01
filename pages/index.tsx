@@ -13,7 +13,7 @@ import AbbrClose from '../components/close_buttons/abbrClose';
 import firebase from '../firebase/clientApp';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, doc, getDocs, setDoc, deleteField, updateDoc, collection, Timestamp } from 'firebase/firestore';
-import Auth from '../components/Auth';
+// import Auth from '../components/Auth';
 // import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Local from '../components/localStorage';
@@ -412,11 +412,11 @@ export default function Home() {
         <meta name="description" content="zip code" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div style={{ position: 'relative', zIndex: '10' }}>
+      {/* <div style={{ position: 'relative', zIndex: '10' }}>
         <Auth />
-      </div>
+      </div> */}
       <Local setZip={setZip} zip={zip} setCity={setCity} city={city} latCoord={latCoord} setLatCoord={setLatCoord} longCoord={longCoord} setLongCoord={setLongCoord} state={state} setState={setState} stateAbbreviation={stateAbbreviation} setStateAbbreviation={setStateAbbreviation} OppLat={OppLat} OppLong={OppLong} setOppLat={setOppLat} setOppLong={setOppLong} weatherData={weatherData} setWeatherData={setWeatherData} currentTempData={currentTempData} setCurrentTempData={setCurrentTempData} tempRangeData={tempRangeData} setTempRangeData={setTempRangeData} />
-      <Container maxWidth="lg" style={{ marginTop: '2%', position: 'relative', zIndex: '10', transform: 'translate(22px, -55px)' }}>
+      <Container maxWidth="lg" style={{ marginTop: '2%', position: 'relative', zIndex: '10', transform: 'translate(22px, 6px)' }}>
         <Draggable>
           <div style={{ 
             color: 'white', 
@@ -494,7 +494,7 @@ export default function Home() {
         </Draggable>
       </Container>
       <SideMenu zipCode={zipCode} setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} handleClear={handleClear} latCoord={latCoord} longCoord={longCoord} opposite={opposite} OppLat={OppLat} OppLong={OppLong} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} addZip={addZip} deleteZip={deleteZip} addCity={addCity} deleteCity={deleteCity} addLat={addLat} latitude={latitude} deleteLat={deleteLat} addLong={addLong} longitude={longitude} deleteLong={deleteLong} addState={addState} deleteState={deleteState} addStateAbbr={addStateAbbr} deleteAbbr={deleteAbbr} addDocument={addDocument} deleteAll={deleteAll} addOppLat={addOppLat} addOppLong={addOppLong} deleteOppositeLat={deleteOppositeLat} deleteOppositeLong={deleteOppositeLong} dbId={dbId} dbZip={dbZip} dbCity={dbCity} dbLatitude={dbLatitude} dbLongitude={dbLongitude} dbOppositeLatitude={dbOppositeLatitude} dbOppositeLongitude={dbOppositeLongitude} dbState={dbState} dbStateAbbreviation={dbStateAbbreviation} weather={weather} setWeatherData={setWeatherData} weatherData={weatherData} currentTemp={currentTemp} currentTempData={currentTempData} setCurrentTempData={setCurrentTempData} tempRange={tempRange} tempRangeData={tempRangeData} setTempRangeData={setTempRangeData} addWeather={addWeather} deleteWeather={deleteWeather} addCurrentTemp={addCurrentTemp} deleteCurrentTemp={deleteCurrentTemp} addTempRange={addTempRange} deleteTempRange={deleteTempRange} />
-      <div style={{ transform: 'translateY(-530px)' }}>
+      <div style={{ transform: 'translateY(-469.7px)' }}>
         <Map latCoord={latCoord} longCoord={longCoord} />
       </div>
     </>
