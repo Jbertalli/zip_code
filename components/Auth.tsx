@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from 'next/router';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from '../firebase/clientApp';
 import { getAuth, onAuthStateChanged, signOut, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { setPersistence, browserSessionPersistence } from '@firebase/auth';
+import { setPersistence, browserSessionPersistence, signInWithEmailAndPassword } from '@firebase/auth';
 // import LogoutIcon from '@mui/icons-material/Logout';
 import Button from '@mui/material/Button';
 import styles from '../styles/zip.module.css';
