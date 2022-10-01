@@ -81,9 +81,9 @@ export default function History() {
         useEffect(() => {
             console.log(document.cookie.length);
             if (document.cookie.length > 222) {
-            console.log('Authenticated!');
+                console.log('Authenticated!');
             } else {
-            router.push('/');
+                router.push('/login');
             }
         }, [])
     }
