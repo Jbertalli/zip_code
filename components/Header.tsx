@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { getAuth, signOut } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 export default function Header() {
     const [homeColor, setHomeColor] = useState('');
@@ -17,6 +18,7 @@ export default function Header() {
     // textDecoration: `${antinodeUnderline}`
     // textDecoration: `${historyUnderline}`
 
+    const [user] = useAuthState(getAuth());
     const router = useRouter();
     const auth = getAuth();
 
@@ -37,8 +39,6 @@ export default function Header() {
         }
     }, []);
 
-    let ternary = false;
-
     const SignOut = () => {
         signOut(auth).then(() => {
             // Sign-out successful.
@@ -50,6 +50,8 @@ export default function Header() {
         });
     }
       
+    let ternary = false;
+
     return (
         <>
             <Tabs>
@@ -62,7 +64,7 @@ export default function Header() {
                 <Link href='/history' passHref>
                     <Tab style={{ background: `${historyColor}`, fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="User Information" />
                 </Link>
-                {ternary ? (
+                {!ternary ? (
                 <>
                     <Link href='/login' passHref>
                         <Tab style={{ background: `${loginColor}`, fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="Login" />
