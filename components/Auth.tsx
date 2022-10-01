@@ -29,16 +29,16 @@ function SignInScreen() {
       }
     });
 
-    const SignOut = () => {
-        signOut(auth).then(() => {
-            // Sign-out successful.
-            document.cookie = 'name=; expires=Thu, 01 Jan 1970';
-            console.log("%c signed out", "color: red");
-        }).catch((error) => {
-            // An error happened.
-            console.log("Error", error);
-        });
-    }
+    // const SignOut = () => {
+    //     signOut(auth).then(() => {
+    //         // Sign-out successful.
+    //         document.cookie = 'name=; expires=Thu, 01 Jan 1970';
+    //         console.log("%c signed out", "color: red");
+    //     }).catch((error) => {
+    //         // An error happened.
+    //         console.log("Error", error);
+    //     });
+    // }
     
     const user = auth.currentUser;
     // console.log(user);
@@ -58,9 +58,9 @@ function SignInScreen() {
 
     return (
       <>
-        <div style={{ display: 'flex', justifyContent: 'flex-end', transform: 'translateY(80px)' }}>
-            {!user ? (
-            <>
+        <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(50%)' }}>
+            {/* {!user ? (
+            <> */}
                 <div
                     style={{
                         maxWidth: "320px",
@@ -72,7 +72,7 @@ function SignInScreen() {
                 >
                     <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={getAuth()} />
                 </div>
-                <div style={{ transform: 'translate(-209px, 116px)' }}>
+                <div style={{ transform: 'translate(0px, 0px)' }}>
                   <Button onClick={signInWithGoogle} 
                     style={{ 
                         background: '#FFFFFF', 
@@ -100,7 +100,7 @@ function SignInScreen() {
                     Sign in with Google
                   </Button>
                 </div>
-            </>
+            {/* </>
             ):(
             <>
                 <Button 
@@ -120,7 +120,7 @@ function SignInScreen() {
                     Log Out
                 </Button>
             </>
-            )}
+            )} */}
         </div>
       </>
     );
