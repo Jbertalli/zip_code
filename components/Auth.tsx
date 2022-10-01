@@ -74,8 +74,23 @@ function SignInScreen() {
       <> 
         <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(10vh)' }}>
             <div style={{ fontSize: '3em', fontWeight: '200', position: 'absolute', border: '1px solid white', borderRadius: '8px', height: '50vh', width: '20vw', maxWidth: '600px', minWidth: '236px' }}>
-                <div style={{ display: 'flex', justifyContent: 'center', padding: '3vh 0vw 0vh 0vw' }}>
-                    Login Form
+                <div>
+                    <div style={{ display: 'flex', justifyContent: 'center', padding: '3vh 0vw 0vh 0vw' }}>
+                        Login Form
+                    </div>
+                    <form onSubmit={handleLogin}>
+                        <div>
+                            <label>
+                                Email
+                            </label>
+                            <input 
+                                onChange={(e) => setEmail(e.target.value)}
+                                value={email}
+                                type="email"
+                                placeholder="Email"
+                            />
+                        </div>
+                    </form>
                 </div>
                 <div style={{ fontSize: '.4em', display: 'flex', justifyContent: 'center', padding: '2vh 0vw 0vh 0vw' }}>
                     Login with Email
