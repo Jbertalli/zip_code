@@ -26,7 +26,11 @@ function SignInScreen() {
     const router = useRouter();
     const auth = getAuth();
 
-    const user = auth.currentUser;
+    const [user, loading] = useAuthState(auth);
+    // const user = auth.currentUser;
+    // console.log(user);
+
+    // const user = auth.currentUser;
 
     onAuthStateChanged(auth, (user) => {
       if (user) {
