@@ -57,74 +57,76 @@ function SignInScreen() {
     }
 
     return (
-      <>
-        <div style={{ fontSize: '3em', fontWeight: '200', transform: 'translateY(10vh)', border: '1px solid red', padding: '100px' }}>
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-                Login Form
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(2vh)' }}>
-                {/* {!user ? (
-                <> */}
-                    <div
-                        style={{
-                            maxWidth: "320px",
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "center",
-                            justifyContent: "center",
-                        }}
-                    >
-                        <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={getAuth()} />
-                    </div>
-                    <div style={{ transform: 'translate(-208.8px, 85px)' }}>
-                        <Button onClick={signInWithGoogle} 
-                            style={{ 
-                                background: '#FFFFFF', 
-                                position: 'absolute',
-                                zIndex: '100000',
-                                borderRadius: '2px', 
-                                paddingLeft: '46px',
-                                border: '.5px solid #80808099', 
-                                color: 'black',
-                                width: '185px',
-                                height: '40px',
-                                fontSize: '14px', 
-                                fontWeight: '500',
-                                textTransform: 'none',
+      <> 
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <div style={{ fontSize: '3em', fontWeight: '200', position: 'absolute', transform: 'translateY(5vh)', border: '1px solid white', height: '30vh' }}>
+                <div style={{ display: 'flex', justifyContent: 'center', minWidth: '100px' }}>
+                    Login Form
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(2vh)', minWidth: '100px' }}>
+                    {/* {!user ? (
+                    <> */}
+                        <div
+                            style={{
+                                maxWidth: "320px",
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "center",
+                                justifyContent: "center",
                             }}
                         >
-                            <div 
-                                className={styles.google} 
+                            <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={getAuth()} />
+                        </div>
+                        <div style={{ transform: 'translate(-208.8px, 85px)' }}>
+                            <Button onClick={signInWithGoogle} 
                                 style={{ 
-                                    transform: 'translate(-86px, -41px) scale(0.07)', 
-                                    position: 'absolute', 
-                                    marginTop: '82px' 
-                                }} 
-                            />
-                            Sign in with Google
+                                    background: '#FFFFFF', 
+                                    position: 'absolute',
+                                    zIndex: '100000',
+                                    borderRadius: '2px', 
+                                    paddingLeft: '46px',
+                                    border: '.5px solid #80808099', 
+                                    color: 'black',
+                                    width: '185px',
+                                    height: '40px',
+                                    fontSize: '14px', 
+                                    fontWeight: '500',
+                                    textTransform: 'none',
+                                }}
+                            >
+                                <div 
+                                    className={styles.google} 
+                                    style={{ 
+                                        transform: 'translate(-86px, -41px) scale(0.07)', 
+                                        position: 'absolute', 
+                                        marginTop: '82px' 
+                                    }} 
+                                />
+                                Sign in with Google
+                            </Button>
+                        </div>
+                    {/* </>
+                    ):(
+                    <>
+                        <Button 
+                            onClick={SignOut} 
+                            style={{ 
+                                color: 'white', 
+                                fontSize: '14px', 
+                                fontWeight: '500', 
+                                background: 'red', 
+                                borderRadius: '2px', 
+                                width: '185px', 
+                                height: '40px', 
+                                margin: '10px',
+                                display: 'flex'
+                            }}>
+                            <LogoutIcon fontSize="small" />&nbsp;
+                            Log Out
                         </Button>
-                    </div>
-                {/* </>
-                ):(
-                <>
-                    <Button 
-                        onClick={SignOut} 
-                        style={{ 
-                            color: 'white', 
-                            fontSize: '14px', 
-                            fontWeight: '500', 
-                            background: 'red', 
-                            borderRadius: '2px', 
-                            width: '185px', 
-                            height: '40px', 
-                            margin: '10px',
-                            display: 'flex'
-                        }}>
-                        <LogoutIcon fontSize="small" />&nbsp;
-                        Log Out
-                    </Button>
-                </>
-                )} */}
+                    </>
+                    )} */}
+                </div>
             </div>
         </div>
       </>
