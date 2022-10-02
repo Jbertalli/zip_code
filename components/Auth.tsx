@@ -26,7 +26,7 @@ function SignInScreen() {
     const router = useRouter();
     const auth = getAuth();
 
-    const [user, loading] = useAuthState(auth);
+    const [user] = useAuthState(auth);
     // const user = auth.currentUser;
     // console.log(user);
 
@@ -96,7 +96,7 @@ function SignInScreen() {
     return (
       <> 
         <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(10vh)' }}>
-            <div style={{ fontWeight: '200', position: 'absolute', border: '1px solid white', borderRadius: '8px', height: '40vh', width: '20vw', maxWidth: '600px', minWidth: '236px' }}>
+            <div style={{ fontWeight: '200', position: 'absolute', border: '1px solid white', borderRadius: '8px', height: '43vh', minHeight: '530px', width: '20vw', maxWidth: '600px', minWidth: '236px' }}>
                 <div style={{ fontSize: '2.1em', display: 'flex', justifyContent: 'center', padding: '2vh 0vw 0vh 0vw' }}>
                     {account ? (
                     <>
@@ -109,80 +109,57 @@ function SignInScreen() {
                     )}
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(3vh)', minWidth: '100px' }}>
-                    {/* {!user ? (
-                    <> */}
-                        <div
-                            style={{
-                                maxWidth: "320px",
-                                display: "flex",
-                                flexDirection: "column",
-                                alignItems: "center",
-                                justifyContent: "center",
+                    <div
+                        style={{
+                            maxWidth: "320px",
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            justifyContent: "center",
+                        }}
+                    >
+                        <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={getAuth()} />
+                    </div>
+                    <div style={{ transform: 'translate(-208.8px, 85px)' }}>
+                        <Button onClick={signInWithGoogle} 
+                            style={{ 
+                                background: '#FFFFFF', 
+                                position: 'absolute',
+                                zIndex: '100',
+                                borderRadius: '2px', 
+                                paddingLeft: '46px',
+                                border: '.5px solid #80808099', 
+                                color: 'black',
+                                width: '185px',
+                                height: '40px',
+                                fontSize: '14px', 
+                                fontWeight: '500',
+                                textTransform: 'none',
                             }}
                         >
-                            <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={getAuth()} />
-                        </div>
-                        <div style={{ transform: 'translate(-208.8px, 85px)' }}>
-                            <Button onClick={signInWithGoogle} 
+                            <div 
+                                className={styles.google} 
                                 style={{ 
-                                    background: '#FFFFFF', 
-                                    position: 'absolute',
-                                    zIndex: '100000',
-                                    borderRadius: '2px', 
-                                    paddingLeft: '46px',
-                                    border: '.5px solid #80808099', 
-                                    color: 'black',
-                                    width: '185px',
-                                    height: '40px',
-                                    fontSize: '14px', 
-                                    fontWeight: '500',
-                                    textTransform: 'none',
-                                }}
-                            >
-                                <div 
-                                    className={styles.google} 
-                                    style={{ 
-                                        transform: 'translate(-86px, -41px) scale(0.07)', 
-                                        position: 'absolute', 
-                                        marginTop: '82px' 
-                                    }} 
-                                />
-                                Sign in with Google
-                            </Button>
-                        </div>
-                    {/* </>
-                    ):(
-                    <>
-                        <Button 
-                            onClick={SignOut} 
-                            style={{ 
-                                color: 'white', 
-                                fontSize: '14px', 
-                                fontWeight: '500', 
-                                background: 'red', 
-                                borderRadius: '2px', 
-                                width: '185px', 
-                                height: '40px', 
-                                margin: '10px',
-                                display: 'flex'
-                            }}>
-                            <LogoutIcon fontSize="small" />&nbsp;
-                            Log Out
+                                    transform: 'translate(-86px, -41px) scale(0.07)', 
+                                    position: 'absolute', 
+                                    marginTop: '82px' 
+                                }} 
+                            />
+                            Sign in with Google
                         </Button>
-                    </>
-                    )} */}
+                    </div>
                 </div>
-                <div style={{ transform: 'translateY(3.5vh)', display: 'flex', justifyContent: 'center' }}>
+                <div style={{ transform: 'translateY(9.1vh)', display: 'flex', justifyContent: 'center' }}>
                     {account ? (
                     <>
-                        <div style={{ position: 'absolute', zIndex: '100' }}>
-                            <div style={{ transform: 'translateY(100px)', fontSize: '10px', color: 'white', display: 'flex', justifyContent: 'center' }}>
+                        <div style={{ height: '0px' }}>
+                            <div style={{ transform: 'translateY(28px)', fontSize: '10px', color: 'white', display: 'flex', justifyContent: 'center' }}>
                                 <div style={{ background: 'white', width: '15%', height: '0.5px', transform: 'translate(-10px, 7px)' }} />
                                     or Sign in with Email
                                 <div style={{ background: 'white', width: '15%', height: '0.5px', transform: 'translate(10px, 7px)' }} />
                             </div>
                             <FocusLock>
-                                <form onSubmit={handleLogin}>
+                                <form onSubmit={handleLogin} style={{ transform: 'translateY(88px)', position: 'relative', zIndex: '-10' }}>
                                     <div style={{ display: 'flex', justifyContent: 'center' }}>
                                         <input
                                             onChange={(e) => setEmail(e.target.value)}
@@ -194,7 +171,7 @@ function SignInScreen() {
                                                 borderLeft: 'transparent',
                                                 borderTop: 'transparent',
                                                 borderBottom: '.5px solid gray',
-                                                margin: '156px 0px 20px',
+                                                margin: '0px 0px 20px',
                                                 padding: '4px',
                                                 width: '80%',
                                                 maxWidth: '300px',
