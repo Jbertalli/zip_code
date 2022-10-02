@@ -176,7 +176,7 @@ function SignInScreen() {
                     {account ? (
                     <>
                         <div style={{ position: 'absolute', zIndex: '100' }}>
-                            <div style={{ transform: 'translate(0px, 75px)', fontSize: '10px', color: 'white', display: 'flex', justifyContent: 'center' }}>
+                            <div style={{ transform: 'translateY(100px)', fontSize: '10px', color: 'white', display: 'flex', justifyContent: 'center' }}>
                                 <div style={{ background: 'white', width: '15%', height: '0.5px', transform: 'translate(-10px, 7px)' }} />
                                     or Sign in with Email
                                 <div style={{ background: 'white', width: '15%', height: '0.5px', transform: 'translate(10px, 7px)' }} />
@@ -194,7 +194,7 @@ function SignInScreen() {
                                                 borderLeft: 'transparent',
                                                 borderTop: 'transparent',
                                                 borderBottom: '.5px solid gray',
-                                                margin: '100px 0px 20px',
+                                                margin: '156px 0px 20px',
                                                 padding: '4px',
                                                 width: '80%',
                                                 maxWidth: '300px',
@@ -214,7 +214,7 @@ function SignInScreen() {
                                                 borderLeft: 'transparent',
                                                 borderTop: 'transparent',
                                                 borderBottom: '.5px solid gray',
-                                                margin: '20px 0px 20px',
+                                                margin: '7px 0px 20px',
                                                 padding: '4px',
                                                 width: '80%',
                                                 maxWidth: '300px',
@@ -241,10 +241,10 @@ function SignInScreen() {
                     ):(
                     <>
                         <div style={{ position: 'absolute', zIndex: '100' }}>
-                            <div style={{ transform: 'translate(-7px, 75px)', fontSize: '10px', color: '#808080', display: 'flex', justifyContent: 'center' }}>
-                                <div style={{ background: '#808080', width: '18.5%', height: '0.5px', transform: 'translate(-10px, 10px)' }} />
+                            <div style={{ transform: 'translateY(100px)', fontSize: '10px', color: 'white', display: 'flex', justifyContent: 'center' }}>
+                                <div style={{ background: 'white', width: '15%', height: '0.5px', transform: 'translate(-10px, 7px)' }} />
                                     or Sign up with Email
-                                <div style={{ background: '#808080', width: '18.5%', height: '0.5px', transform: 'translate(10px, 10px)' }} />
+                                <div style={{ background: 'white', width: '15%', height: '0.5px', transform: 'translate(10px, 7px)' }} />
                             </div>
                             <FocusLock>
                                 <form onSubmit={handleSignup}>
@@ -259,7 +259,7 @@ function SignInScreen() {
                                                 borderLeft: 'transparent',
                                                 borderTop: 'transparent',
                                                 borderBottom: '.5px solid gray',
-                                                margin: '100px 0px 20px',
+                                                margin: '156px 0px 20px',
                                                 padding: '4px',
                                                 width: '80%',
                                                 maxWidth: '300px',
@@ -279,7 +279,7 @@ function SignInScreen() {
                                                 borderLeft: 'transparent',
                                                 borderTop: 'transparent',
                                                 borderBottom: '.5px solid gray',
-                                                margin: '20px 0px 20px',
+                                                margin: '7px 0px 20px',
                                                 padding: '4px',
                                                 width: '80%',
                                                 maxWidth: '300px',
