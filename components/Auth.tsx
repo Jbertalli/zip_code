@@ -98,12 +98,17 @@ function SignInScreen() {
         <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(10vh)' }}>
             <div style={{ fontWeight: '200', position: 'absolute', border: '1px solid white', borderRadius: '8px', height: '50vh', width: '20vw', maxWidth: '600px', minWidth: '236px' }}>
                 <div style={{ fontSize: '2.1em', display: 'flex', justifyContent: 'center', padding: '2vh 0vw 0vh 0vw' }}>
-                    Login with Email
+                    {account ? (
+                    <>
+                        Login
+                    </>
+                    ):(
+                    <>
+                        Signup
+                    </>
+                    )}
                 </div>
-                <div>
-                    
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(10vh)', minWidth: '100px' }}>
+                <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(3vh)', minWidth: '100px' }}>
                     {/* {!user ? (
                     <> */}
                         <div
@@ -166,6 +171,9 @@ function SignInScreen() {
                         </Button>
                     </>
                     )} */}
+                </div>
+                <div>
+                    Hello
                 </div>
             </div>
         </div>
