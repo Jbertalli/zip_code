@@ -96,7 +96,7 @@ function SignInScreen() {
     return (
       <> 
         <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(10vh)' }}>
-            <div style={{ fontWeight: '200', position: 'absolute', border: '1px solid white', borderRadius: '8px', height: '50vh', width: '20vw', maxWidth: '600px', minWidth: '236px' }}>
+            <div style={{ fontWeight: '200', position: 'absolute', border: '1px solid white', borderRadius: '8px', height: '40vh', width: '20vw', maxWidth: '600px', minWidth: '236px' }}>
                 <div style={{ fontSize: '2.1em', display: 'flex', justifyContent: 'center', padding: '2vh 0vw 0vh 0vw' }}>
                     {account ? (
                     <>
@@ -172,16 +172,16 @@ function SignInScreen() {
                     </>
                     )} */}
                 </div>
-                <div style={{ transform: 'translateY(3.5vh)' }}>
+                <div style={{ transform: 'translateY(3.5vh)', display: 'flex', justifyContent: 'center' }}>
                     {account ? (
                     <>
-                        <FocusLock>
-                            <div style={{ position: 'absolute', zIndex: '100' }}>
-                                <div style={{ transform: 'translate(-7px, 75px)', fontSize: '10px', color: '#808080', display: 'flex', justifyContent: 'center' }}>
-                                    <div style={{ background: '#808080', width: '18.5%', height: '0.5px', transform: 'translate(-10px, 10px)' }}/>
-                                        or Sign in with Email
-                                    <div style={{ background: '#808080', width: '18.5%', height: '0.5px', transform: 'translate(10px, 10px)' }}/>
-                                </div>
+                        <div style={{ position: 'absolute', zIndex: '100' }}>
+                            <div style={{ transform: 'translate(-7px, 75px)', fontSize: '10px', color: '#808080', display: 'flex', justifyContent: 'center' }}>
+                                <div style={{ background: '#808080', width: '18.5%', height: '0.5px', transform: 'translate(-10px, 6.5px)' }} />
+                                    or Sign in with Email
+                                <div style={{ background: '#808080', width: '18.5%', height: '0.5px', transform: 'translate(10px, 6.5px)' }} />
+                            </div>
+                            <FocusLock>
                                 <form onSubmit={handleLogin}>
                                     <div style={{ display: 'flex', justifyContent: 'center' }}>
                                         <input
@@ -232,21 +232,21 @@ function SignInScreen() {
                                         Don't have an account?&nbsp;<a onClick={() => {setAccount(false), setEmail(""), setPassword("")}} style={{ cursor: 'pointer', color: '#125CA1' }}>Signup</a>
                                     </div>
                                     <div style={{ display: 'flex', justifyContent: 'center', padding: '20px 0px 30px' }}>
-                                        <input type="submit"value="Login"className={styles.buttons}/>
+                                        <input type="submit"value="Login"className={styles.buttons} />
                                     </div>
                                 </form>
-                            </div>
-                        </FocusLock>
+                            </FocusLock>
+                        </div>
                     </>
                     ):(
                     <>
-                        <FocusLock>
-                            <div style={{ position: 'absolute', zIndex: '100' }}>
-                                <div style={{ transform: 'translate(-7px, 75px)', fontSize: '10px', color: '#808080', display: 'flex', justifyContent: 'center' }}>
-                                    <div style={{ background: '#808080', width: '18.5%', height: '0.5px', transform: 'translate(-10px, 10px)' }}/>
-                                        or Sign up with Email
-                                    <div style={{ background: '#808080', width: '18.5%', height: '0.5px', transform: 'translate(10px, 10px)' }}/>
-                                </div>
+                        <div style={{ position: 'absolute', zIndex: '100' }}>
+                            <div style={{ transform: 'translate(-7px, 75px)', fontSize: '10px', color: '#808080', display: 'flex', justifyContent: 'center' }}>
+                                <div style={{ background: '#808080', width: '18.5%', height: '0.5px', transform: 'translate(-10px, 10px)' }} />
+                                    or Sign up with Email
+                                <div style={{ background: '#808080', width: '18.5%', height: '0.5px', transform: 'translate(10px, 10px)' }} />
+                            </div>
+                            <FocusLock>
                                 <form onSubmit={handleSignup}>
                                     <div style={{ display: 'flex', justifyContent: 'center' }}>
                                         <input
@@ -297,11 +297,11 @@ function SignInScreen() {
                                         Already have an account?&nbsp;<a onClick={() => {setAccount(true), setEmail(""), setPassword("")}} style={{ cursor: 'pointer', color: '#125CA1' }}>Login</a>
                                     </div>
                                     <div style={{ display: 'flex', justifyContent: 'center', padding: '20px 0px 30px' }}>
-                                        <input type="submit"value="Signup"className={styles.buttons}/>
+                                        <input type="submit" value="Signup" className={styles.buttons}/>
                                     </div>
                                 </form>
-                            </div>
-                        </FocusLock>
+                            </FocusLock>
+                        </div>
                     </>
                     )}
                 </div>
