@@ -152,14 +152,14 @@ function SignInScreen() {
                 <div style={{ transform: 'translateY(9.1vh)', display: 'flex', justifyContent: 'center' }}>
                     {account ? (
                     <>
-                        <div style={{ height: '0px' }}>
+                        <div>
                             <div style={{ transform: 'translateY(28px)', fontSize: '10px', color: 'white', display: 'flex', justifyContent: 'center' }}>
                                 <div style={{ background: 'white', width: '15%', height: '0.5px', transform: 'translate(-10px, 7px)' }} />
                                     or Sign in with Email
                                 <div style={{ background: 'white', width: '15%', height: '0.5px', transform: 'translate(10px, 7px)' }} />
                             </div>
                             <FocusLock>
-                                <form onSubmit={handleLogin} style={{ transform: 'translateY(88px)', position: 'relative', zIndex: '-10' }}>
+                                <form onSubmit={handleLogin} style={{ transform: 'translateY(88px)' }}>
                                     <div style={{ display: 'flex', justifyContent: 'center' }}>
                                         <input
                                             onChange={(e) => setEmail(e.target.value)}
@@ -217,14 +217,14 @@ function SignInScreen() {
                     </>
                     ):(
                     <>
-                        <div style={{ position: 'absolute', zIndex: '100' }}>
-                            <div style={{ transform: 'translateY(100px)', fontSize: '10px', color: 'white', display: 'flex', justifyContent: 'center' }}>
+                        <div>
+                            <div style={{ transform: 'translateY(28px)', fontSize: '10px', color: 'white', display: 'flex', justifyContent: 'center' }}>
                                 <div style={{ background: 'white', width: '15%', height: '0.5px', transform: 'translate(-10px, 7px)' }} />
                                     or Sign up with Email
                                 <div style={{ background: 'white', width: '15%', height: '0.5px', transform: 'translate(10px, 7px)' }} />
                             </div>
                             <FocusLock>
-                                <form onSubmit={handleSignup}>
+                                <form onSubmit={handleSignup} style={{ transform: 'translateY(88px)' }}>
                                     <div style={{ display: 'flex', justifyContent: 'center' }}>
                                         <input
                                             onChange={(e) => setEmail(e.target.value)}
@@ -236,7 +236,7 @@ function SignInScreen() {
                                                 borderLeft: 'transparent',
                                                 borderTop: 'transparent',
                                                 borderBottom: '.5px solid gray',
-                                                margin: '156px 0px 20px',
+                                                margin: '0px 0px 20px',
                                                 padding: '4px',
                                                 width: '80%',
                                                 maxWidth: '300px',
