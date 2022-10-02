@@ -96,44 +96,12 @@ function SignInScreen() {
     return (
       <> 
         <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(10vh)' }}>
-            <div style={{ fontSize: '3em', fontWeight: '200', position: 'absolute', border: '1px solid white', borderRadius: '8px', height: '50vh', width: '20vw', maxWidth: '600px', minWidth: '236px' }}>
-                {/* <div>
-                    <div style={{ display: 'flex', justifyContent: 'center', padding: '3vh 0vw 0vh 0vw' }}>
-                        Login Form
-                    </div>
-                    <form onSubmit={handleLogin}>
-                        <div>
-                            <label>
-                                Email
-                            </label>
-                            <input 
-                                onChange={(e) => setEmail(e.target.value)}
-                                value={email}
-                                type="email"
-                                placeholder="Email"
-                            />
-                        </div>
-                        <div>
-                            <label>
-                                Password
-                            </label>
-                            <input
-                                onChange={(e) => setPassword(e.target.value)}
-                                value={password}
-                                type="password"
-                                placeholder="Password"
-                            />
-                        </div>
-                        <div>
-                            <input 
-                                type="submit"
-                                value="Login"
-                            />
-                        </div>
-                    </form>
-                </div> */}
-                <div style={{ fontSize: '.4em', display: 'flex', justifyContent: 'center', padding: '2vh 0vw 0vh 0vw' }}>
+            <div style={{ fontWeight: '200', position: 'absolute', border: '1px solid white', borderRadius: '8px', height: '50vh', width: '20vw', maxWidth: '600px', minWidth: '236px' }}>
+                <div style={{ fontSize: '2.1em', display: 'flex', justifyContent: 'center', padding: '2vh 0vw 0vh 0vw' }}>
                     Login with Email
+                </div>
+                <div>
+                    
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(10vh)', minWidth: '100px' }}>
                     {/* {!user ? (
@@ -205,7 +173,10 @@ function SignInScreen() {
             {account ? (
             <>
                 <FocusLock>
-                    <div style={{ position:'absolute', zIndex:'100000000000000'}}>
+                    <div style={{ position:'absolute', zIndex:'100'}}>
+                        <h1 style={{ display:'flex', justifyContent:'center', fontWeight:'100' }}>
+                            Login
+                        </h1>
                         <div style={{ transform:'translate(-7px, 75px)', fontSize:'10px', color:'#808080', display:'flex', justifyContent:'center' }}>
                             <div style={{ background:'#808080', width:'18.5%', height:'0.5px', transform:'translate(-10px, 10px)' }}/>
                                 or Sign in with Email
@@ -214,7 +185,7 @@ function SignInScreen() {
                         <form onSubmit={handleLogin}>
                             <div style={{ display:'flex', justifyContent:'center' }}>
                                 <input
-                                    onChange={(e) =>setEmail(e.target.value)}
+                                    onChange={(e) => setEmail(e.target.value)}
                                     value={email}
                                     type="email"
                                     placeholder="Email"
@@ -234,7 +205,7 @@ function SignInScreen() {
                             </div>
                             <div style={{ display:'flex', justifyContent:'center' }}>
                                 <input
-                                    onChange={(e) =>setPassword(e.target.value)}
+                                    onChange={(e) => setPassword(e.target.value)}
                                     value={password}
                                     type="password"
                                     placeholder="Password"
@@ -270,7 +241,7 @@ function SignInScreen() {
             ):(
             <>
                 <FocusLock>
-                    <div style={{ position:'absolute', zIndex:'100000000000000'}}>
+                    <div style={{ position:'absolute', zIndex:'100'}}>
                         <h1 style={{ display:'flex', justifyContent:'center', fontWeight:'100' }}>
                             Signup
                         </h1>
@@ -282,7 +253,7 @@ function SignInScreen() {
                         <form onSubmit={handleSignup}>
                             <div style={{ display:'flex', justifyContent:'center' }}>
                                 <input
-                                    onChange={(e) =>setEmail(e.target.value)}
+                                    onChange={(e) => setEmail(e.target.value)}
                                     value={email}
                                     type="email"
                                     placeholder="Email"
@@ -302,7 +273,7 @@ function SignInScreen() {
                             </div>
                             <div style={{ display:'flex', justifyContent:'center' }}>
                                 <input
-                                    onChange={(e) =>setPassword(e.target.value)}
+                                    onChange={(e) => setPassword(e.target.value)}
                                     value={password}
                                     type="password"
                                     placeholder="Password"
