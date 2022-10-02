@@ -79,13 +79,24 @@ export default function History() {
 
     if (typeof window !== "undefined") {
         useEffect(() => {
-            console.log(document.cookie.length);
+            // console.log(document.cookie.length);
             if (document.cookie.length > 222) {
                 console.log('Authenticated!');
             } else {
                 router.push('/login');
             }
         }, [])
+    }
+    
+    // console.log(user?.email);
+    // console.log(user.displayName);
+
+    let nameHeader;
+
+    if (user?.displayName == null) {
+        nameHeader = `${user?.email}'s`
+    } else {
+        nameHeader = `${user.displayName}'s`
     }
 
     return (
@@ -104,7 +115,8 @@ export default function History() {
                     <span style={{ fontSize: '40px', fontWeight: '300', width: '500px' }}>
                         {user ? (
                         <>
-                            {user.displayName}'s&nbsp;
+                            {/* {user.displayName}'s&nbsp; */}
+                            {nameHeader}&nbsp;
                         </>
                         ): null} Information
                     </span>
