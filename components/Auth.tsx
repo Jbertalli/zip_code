@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from 'next/router';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from '../firebase/clientApp';
@@ -28,25 +28,25 @@ function SignInScreen() {
     const [user] = useAuthState(auth);
     // const user = auth.currentUser;
     // console.log(user);
-    const [headerSize, setHeaderSize] = useState('');
+    const [headerSize, setHeaderSize] = useState('2.1em');
 
-    // useEffect(() => {
-    //     if (window.innerWidth > 440) {
+    useEffect(() => {
+        if (window.innerWidth > 440) {
+            setHeaderSize('2.1em');
+        } else {
+            setHeaderSize('1.7em');
+        }
 
-    //     } else {
-            
-    //     }
-
-    //     const updateMedia = () => {
-    //         if (window.innerWidth > 440) {
-
-    //         } else {
-
-    //         }
-    //     };
-    //     window.addEventListener('resize', updateMedia);
-    //     return () => window.removeEventListener('resize', updateMedia);
-    // }, []);
+        const updateMedia = () => {
+            if (window.innerWidth > 440) {
+                setHeaderSize('2.1em');
+            } else {
+                setHeaderSize('1.7em');
+            }
+        };
+        window.addEventListener('resize', updateMedia);
+        return () => window.removeEventListener('resize', updateMedia);
+    }, []);
 
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -113,7 +113,7 @@ function SignInScreen() {
       <> 
         <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(10vh)' }}>
             <div style={{ fontWeight: '200', position: 'absolute', border: '1px solid white', borderRadius: '8px', height: '43vh', minHeight: '530px', width: '20vw', maxWidth: '600px', minWidth: '236px' }}>
-                <div style={{ fontSize: '2.1em', display: 'flex', justifyContent: 'center', padding: '2vh 0vw 0vh 0vw' }}>
+                <div style={{ fontSize: `${headerSize}`, display: 'flex', justifyContent: 'center', padding: '2vh 0vw 0vh 0vw' }}>
                     {account ? (
                     <>
                         Login to Account
