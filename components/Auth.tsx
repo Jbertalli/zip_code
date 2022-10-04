@@ -25,12 +25,28 @@ function SignInScreen() {
     const [error, setError] = useState<string>("");
     const router = useRouter();
     const auth = getAuth();
-
     const [user] = useAuthState(auth);
     // const user = auth.currentUser;
     // console.log(user);
+    const [headerSize, setHeaderSize] = useState('');
 
-    // const user = auth.currentUser;
+    // useEffect(() => {
+    //     if (window.innerWidth > 440) {
+
+    //     } else {
+            
+    //     }
+
+    //     const updateMedia = () => {
+    //         if (window.innerWidth > 440) {
+
+    //         } else {
+
+    //         }
+    //     };
+    //     window.addEventListener('resize', updateMedia);
+    //     return () => window.removeEventListener('resize', updateMedia);
+    // }, []);
 
     onAuthStateChanged(auth, (user) => {
       if (user) {

@@ -23,10 +23,10 @@ const db = getFirestore();
 export default function History() {
     const [userInfo, setUserInfo] = useState([]);
     const [user] = useAuthState(getAuth());
+    const [headerSize, setHeaderSize] = useState<string>('40px');
+    const [mobileAspect, setMobileAspect] = useState<string>('translateY(22%)');
+    const [mobileScale, setMobileScale] = useState<string>('translate(0px)');
     const router = useRouter();
-    const [headerSize, setHeaderSize] = useState('40px');
-    const [mobileAspect, setMobileAspect] = useState('translateY(22%)');
-    const [mobileScale, setMobileScale] = useState('translate(0px)');
 
     useEffect(() => {
         if (window.innerWidth > 440) {
