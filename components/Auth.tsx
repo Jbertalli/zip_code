@@ -29,19 +29,24 @@ function SignInScreen() {
     // const user = auth.currentUser;
     // console.log(user);
     const [headerSize, setHeaderSize] = useState('2.1em');
+    const [emailSign, setEmailSign] = useState('28px');
 
     useEffect(() => {
         if (window.innerWidth > 440) {
             setHeaderSize('2.1em');
+            setEmailSign('28px');
         } else {
             setHeaderSize('1.7em');
+            setEmailSign('48px');
         }
 
         const updateMedia = () => {
             if (window.innerWidth > 440) {
                 setHeaderSize('2.1em');
+                setEmailSign('28px');
             } else {
                 setHeaderSize('1.7em');
+                setEmailSign('48px');
             }
         };
         window.addEventListener('resize', updateMedia);
@@ -169,7 +174,7 @@ function SignInScreen() {
                     {account ? (
                     <>
                         <div>
-                            <div style={{ transform: 'translateY(28px)', fontSize: '10px', color: 'white', display: 'flex', justifyContent: 'center' }}>
+                            <div style={{ transform: `translateY(${emailSign})`, fontSize: '10px', color: 'white', display: 'flex', justifyContent: 'center' }}>
                                 <div style={{ background: 'white', width: '15%', height: '0.5px', transform: 'translate(-10px, 7px)' }} />
                                     or Sign in with Email
                                 <div style={{ background: 'white', width: '15%', height: '0.5px', transform: 'translate(10px, 7px)' }} />
