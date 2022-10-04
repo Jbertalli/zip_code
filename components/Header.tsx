@@ -60,9 +60,13 @@ export default function Header() {
                 <Link href='/antinode_map' passHref>
                     <Tab style={{ background: `${antinodeColor}`, fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="Antinode Map" />
                 </Link>
-                <Link href='/history' passHref>
-                    <Tab style={{ background: `${historyColor}`, fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="User Information" />
-                </Link>
+                {user ? (
+                <>
+                    <Link href='/history' passHref>
+                        <Tab style={{ background: `${historyColor}`, fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="User Information" />
+                    </Link>
+                </>
+                ): null}
                 {user ? (
                 <>
                     <Tab onClick={SignOut} style={{ fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="Log Out" />
