@@ -127,7 +127,7 @@ function SignInScreen() {
     return (
       <> 
         <div style={{ display: 'flex', justifyContent: 'center', transform: `translateY(${view})` }}>
-            <div style={{ fontWeight: '200', position: 'absolute', border: '1px solid white', borderRadius: '8px', height: '43vh', minHeight: '530px', width: '20vw', maxWidth: '600px', minWidth: `${width}` }}>
+            <div style={{ fontWeight: '200', position: 'absolute', border: '1px solid white', borderRadius: '8px', height: '45vh', minHeight: '530px', width: '20vw', maxWidth: '600px', minWidth: `${width}` }}>
                 <div style={{ fontSize: `${headerSize}`, display: 'flex', justifyContent: 'center', padding: '2vh 0vw 0vh 0vw' }}>
                     {account ? (
                     <>
@@ -222,7 +222,7 @@ function SignInScreen() {
                                                 borderLeft: 'transparent',
                                                 borderTop: 'transparent',
                                                 borderBottom: '.5px solid gray',
-                                                margin: '7px 0px 20px',
+                                                margin: '7px 0px 40px',
                                                 padding: '4px',
                                                 width: '80%',
                                                 maxWidth: '300px',
@@ -249,7 +249,7 @@ function SignInScreen() {
                     ):(
                     <>
                         <div>
-                            <div style={{ transform: 'translateY(28px)', fontSize: '10px', color: 'white', display: 'flex', justifyContent: 'center' }}>
+                            <div style={{ transform: `translateY(${emailSign})`, fontSize: '10px', color: 'white', display: 'flex', justifyContent: 'center' }}>
                                 <div style={{ background: 'white', width: '15%', height: '0.5px', transform: 'translate(-10px, 7px)' }} />
                                     or Sign up with Email
                                 <div style={{ background: 'white', width: '15%', height: '0.5px', transform: 'translate(10px, 7px)' }} />
@@ -287,7 +287,7 @@ function SignInScreen() {
                                                 borderLeft: 'transparent',
                                                 borderTop: 'transparent',
                                                 borderBottom: '.5px solid gray',
-                                                margin: '7px 0px 20px',
+                                                margin: '7px 0px 40px',
                                                 padding: '4px',
                                                 width: '80%',
                                                 maxWidth: '300px',
