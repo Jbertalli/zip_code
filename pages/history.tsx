@@ -24,6 +24,30 @@ export default function History() {
     const [userInfo, setUserInfo] = useState([]);
     const [user] = useAuthState(getAuth());
     const router = useRouter();
+    const [desktop, setDesktop] = useState(false);
+    const [headerSize, setHeaderSize] = useState('40px')
+
+    useEffect(() => {
+        if (window.innerWidth > 440) {
+            setDesktop(true);
+            setHeaderSize('40px');
+        } else {
+            setDesktop(false);
+            setHeaderSize('30px');
+        }
+
+        const updateMedia = () => {
+        if (window.innerWidth > 440) {
+            setDesktop(true);
+            setHeaderSize('40px');
+        } else {
+            setDesktop(false);
+            setHeaderSize('30px');
+        }
+        };
+        window.addEventListener('resize', updateMedia);
+        return () => window.removeEventListener('resize', updateMedia);
+    }, []);
 
     let logged = async () => {
         const colRef = collection(db, "location");
@@ -111,17 +135,18 @@ export default function History() {
                 </div>
             </div>
             <div style={{ transform: 'translateY(22%)' }}>
+            {/* <div style={{ transform: 'translate(6%, 8%)' }}> */}
                 <div style={{ display: 'flex', justifyContent: 'center', transform: 'translate(25px, 10%)' }}>
-                    <span style={{ fontSize: '40px', fontWeight: '300', width: '500px' }}>
+                    <span style={{ fontSize: `${headerSize}`, fontWeight: '300', width: '500px' }}>
                         {user ? (
                         <>
-                            {/* {user.displayName}'s&nbsp; */}
                             {nameHeader}&nbsp;
                         </>
                         ): null} Information
                     </span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
+                {/* <div style={{ display: 'flex', justifyContent: 'center', transform: 'scale(0.8) translateY(-100px)' }}> */}
                     <Table style={{ width: '50%', maxWidth: '700px', minWidth: '300px', padding: '10px' }}>
                         <TableRow>
                             <TableCell />
