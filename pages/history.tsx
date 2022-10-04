@@ -25,25 +25,30 @@ export default function History() {
     const [user] = useAuthState(getAuth());
     const router = useRouter();
     const [desktop, setDesktop] = useState(false);
-    const [headerSize, setHeaderSize] = useState('40px')
+    const [headerSize, setHeaderSize] = useState('40px');
+    const [mobileAspect, setMobileAspect] = useState('translateY(22%)');
 
     useEffect(() => {
         if (window.innerWidth > 440) {
             setDesktop(true);
             setHeaderSize('40px');
+            setMobileAspect('translateY(22%)');
         } else {
             setDesktop(false);
             setHeaderSize('30px');
+            setMobileAspect('translate(6%, 8%)');
         }
 
         const updateMedia = () => {
-        if (window.innerWidth > 440) {
-            setDesktop(true);
-            setHeaderSize('40px');
-        } else {
-            setDesktop(false);
-            setHeaderSize('30px');
-        }
+            if (window.innerWidth > 440) {
+                setDesktop(true);
+                setHeaderSize('40px');
+                setMobileAspect('translateY(22%)');
+            } else {
+                setDesktop(false);
+                setHeaderSize('30px');
+                setMobileAspect('translate(6%, 8%)');
+            }
         };
         window.addEventListener('resize', updateMedia);
         return () => window.removeEventListener('resize', updateMedia);
@@ -134,8 +139,7 @@ export default function History() {
                     <Header />
                 </div>
             </div>
-            <div style={{ transform: 'translateY(22%)' }}>
-            {/* <div style={{ transform: 'translate(6%, 8%)' }}> */}
+            <div style={{ transform: `${mobileAspect}` }}>
                 <div style={{ display: 'flex', justifyContent: 'center', transform: 'translate(25px, 10%)' }}>
                     <span style={{ fontSize: `${headerSize}`, fontWeight: '300', width: '500px' }}>
                         {user ? (
