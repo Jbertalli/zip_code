@@ -30,23 +30,28 @@ function SignInScreen() {
     // console.log(user);
     const [headerSize, setHeaderSize] = useState('2.1em');
     const [emailSign, setEmailSign] = useState('28px');
+    const [width, setWidth] = useState('236px');
 
     useEffect(() => {
         if (window.innerWidth > 440) {
             setHeaderSize('2.1em');
             setEmailSign('28px');
+            setWidth('236px');
         } else {
             setHeaderSize('1.7em');
             setEmailSign('48px');
+            setWidth('300px');
         }
 
         const updateMedia = () => {
             if (window.innerWidth > 440) {
                 setHeaderSize('2.1em');
                 setEmailSign('28px');
+                setWidth('236px');
             } else {
                 setHeaderSize('1.7em');
                 setEmailSign('48px');
+                setWidth('300px');
             }
         };
         window.addEventListener('resize', updateMedia);
@@ -117,7 +122,7 @@ function SignInScreen() {
     return (
       <> 
         <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(10vh)' }}>
-            <div style={{ fontWeight: '200', position: 'absolute', border: '1px solid white', borderRadius: '8px', height: '43vh', minHeight: '530px', width: '20vw', maxWidth: '600px', minWidth: '236px' }}>
+            <div style={{ fontWeight: '200', position: 'absolute', border: '1px solid white', borderRadius: '8px', height: '43vh', minHeight: '530px', width: '20vw', maxWidth: '600px', minWidth: `${width}` }}>
                 <div style={{ fontSize: `${headerSize}`, display: 'flex', justifyContent: 'center', padding: '2vh 0vw 0vh 0vw' }}>
                     {account ? (
                     <>
