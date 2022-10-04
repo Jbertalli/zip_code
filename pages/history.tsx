@@ -24,19 +24,16 @@ export default function History() {
     const [userInfo, setUserInfo] = useState([]);
     const [user] = useAuthState(getAuth());
     const router = useRouter();
-    const [desktop, setDesktop] = useState(false);
     const [headerSize, setHeaderSize] = useState('40px');
     const [mobileAspect, setMobileAspect] = useState('translateY(22%)');
     const [mobileScale, setMobileScale] = useState('translate(0px)');
 
     useEffect(() => {
         if (window.innerWidth > 440) {
-            setDesktop(true);
             setHeaderSize('40px');
             setMobileAspect('translateY(22%)');
             setMobileScale('translate(0px)');
         } else {
-            setDesktop(false);
             setHeaderSize('30px');
             setMobileAspect('translate(6%, 8%)');
             setMobileScale('scale(0.8) translateY(-100px)');
@@ -44,12 +41,10 @@ export default function History() {
 
         const updateMedia = () => {
             if (window.innerWidth > 440) {
-                setDesktop(true);
                 setHeaderSize('40px');
                 setMobileAspect('translateY(22%)');
                 setMobileScale('translate(0px)');
             } else {
-                setDesktop(false);
                 setHeaderSize('30px');
                 setMobileAspect('translate(6%, 8%)');
                 setMobileScale('scale(0.8) translateY(-100px)');
