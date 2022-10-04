@@ -27,16 +27,19 @@ export default function History() {
     const [desktop, setDesktop] = useState(false);
     const [headerSize, setHeaderSize] = useState('40px');
     const [mobileAspect, setMobileAspect] = useState('translateY(22%)');
+    const [mobileScale, setMobileScale] = useState('translate(0px)');
 
     useEffect(() => {
         if (window.innerWidth > 440) {
             setDesktop(true);
             setHeaderSize('40px');
             setMobileAspect('translateY(22%)');
+            setMobileScale('translate(0px)');
         } else {
             setDesktop(false);
             setHeaderSize('30px');
             setMobileAspect('translate(6%, 8%)');
+            setMobileScale('scale(0.8) translateY(-100px)');
         }
 
         const updateMedia = () => {
@@ -44,10 +47,12 @@ export default function History() {
                 setDesktop(true);
                 setHeaderSize('40px');
                 setMobileAspect('translateY(22%)');
+                setMobileScale('translate(0px)');
             } else {
                 setDesktop(false);
                 setHeaderSize('30px');
                 setMobileAspect('translate(6%, 8%)');
+                setMobileScale('scale(0.8) translateY(-100px)');
             }
         };
         window.addEventListener('resize', updateMedia);
@@ -149,8 +154,7 @@ export default function History() {
                         ): null} Information
                     </span>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                {/* <div style={{ display: 'flex', justifyContent: 'center', transform: 'scale(0.8) translateY(-100px)' }}> */}
+                <div style={{ display: 'flex', justifyContent: 'center', transform: `${mobileScale}` }}>
                     <Table style={{ width: '50%', maxWidth: '700px', minWidth: '300px', padding: '10px' }}>
                         <TableRow>
                             <TableCell />
