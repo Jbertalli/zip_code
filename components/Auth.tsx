@@ -28,10 +28,10 @@ function SignInScreen() {
     const [user] = useAuthState(auth);
     // const user = auth.currentUser;
     // console.log(user);
-    const [headerSize, setHeaderSize] = useState('2.1em');
-    const [emailSign, setEmailSign] = useState('28px');
-    const [width, setWidth] = useState('236px');
-    const [view, setView] = useState('10vh');
+    const [headerSize, setHeaderSize] = useState<string>('2.1em');
+    const [emailSign, setEmailSign] = useState<string>('28px');
+    const [width, setWidth] = useState<string>('236px');
+    const [view, setView] = useState<string>('10vh');
 
     useEffect(() => {
         if (window.innerWidth > 440) {

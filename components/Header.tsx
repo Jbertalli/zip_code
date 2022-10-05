@@ -7,11 +7,11 @@ import { getAuth, signOut } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 export default function Header() {
-    const [homeColor, setHomeColor] = useState('');
-    const [antinodeColor, setAntinodeColor] = useState('');
-    const [historyColor, setHistoryColor] = useState('');
-    const [loginColor, setLoginColor] = useState('');
-    const [mobileHeader, setMobileHeader] = useState('25px');
+    const [homeColor, setHomeColor] = useState<string>('');
+    const [antinodeColor, setAntinodeColor] = useState<string>('');
+    const [historyColor, setHistoryColor] = useState<string>('');
+    const [loginColor, setLoginColor] = useState<string>('');
+    const [mobileHeader, setMobileHeader] = useState<string>('25px');
     // const [homeUnderline, setHomeUnderline] = useState('');
     // const [antinodeUnderline, setAntinodeUnderline] = useState('');
     // const [historyUnderline, setHistoryUnderline] = useState('');
