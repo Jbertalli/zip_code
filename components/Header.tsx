@@ -11,6 +11,7 @@ export default function Header() {
     const [antinodeColor, setAntinodeColor] = useState('');
     const [historyColor, setHistoryColor] = useState('');
     const [loginColor, setLoginColor] = useState('');
+    const [mobileHeader, setMobileHeader] = useState('25px');
     // const [homeUnderline, setHomeUnderline] = useState('');
     // const [antinodeUnderline, setAntinodeUnderline] = useState('');
     // const [historyUnderline, setHistoryUnderline] = useState('');
@@ -21,23 +22,23 @@ export default function Header() {
     const router = useRouter();
     const auth = getAuth();
 
-    // useEffect(() => {
-    //     if (window.innerWidth > 440) {
-            
-    //     } else {
-            
-    //     }
+    useEffect(() => {
+        if (window.innerWidth > 440) {
+            setMobileHeader('25px');
+        } else {
+            setMobileHeader('10.8px');
+        }
 
-    //     const updateMedia = () => {
-    //         if (window.innerWidth > 440) {
-                
-    //         } else {
-                
-    //         }
-    //     };
-    //     window.addEventListener('resize', updateMedia);
-    //     return () => window.removeEventListener('resize', updateMedia);
-    // }, []);
+        const updateMedia = () => {
+            if (window.innerWidth > 440) {
+                setMobileHeader('25px');
+            } else {
+                setMobileHeader('10.8px');
+            }
+        };
+        window.addEventListener('resize', updateMedia);
+        return () => window.removeEventListener('resize', updateMedia);
+    }, []);
 
     useEffect(() => {
         if (router.pathname === '/') {
@@ -70,28 +71,30 @@ export default function Header() {
 
     return (
         <>
-            <Tabs>
-                <Link href='/' passHref>
-                    <Tab style={{ background: `${homeColor}`, fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="Home" />
-                </Link>
-                <Link href='/antinode_map' passHref>
-                    <Tab style={{ background: `${antinodeColor}`, fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="Antinode Map" />
-                </Link>
-                {user ? (
-                <>
-                    <Link href='/history' passHref>
-                        <Tab style={{ background: `${historyColor}`, fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="User Information" />
+            <div style={{ padding: '0px' }}>
+                <Tabs>
+                    <Link href='/' passHref>
+                        <Tab style={{ background: `${homeColor}`, fontSize: `${mobileHeader}`, fontWeight: '400', textTransform: 'none' }} label="Home" />
                     </Link>
-                    <Tab onClick={SignOut} style={{ fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="Log Out" />
-                </>
-                ):(
-                <>
-                    <Link href='/login' passHref>
-                        <Tab style={{ background: `${loginColor}`, fontSize: '25px', fontWeight: '400', textTransform: 'none' }} label="Login" />
+                    <Link href='/antinode_map' passHref>
+                        <Tab style={{ background: `${antinodeColor}`, fontSize: `${mobileHeader}`, fontWeight: '400', textTransform: 'none' }} label="Antinode Map" />
                     </Link>
-                </>
-                )}
-            </Tabs>
+                    {user ? (
+                    <>
+                        <Link href='/history' passHref>
+                            <Tab style={{ background: `${historyColor}`, fontSize: `${mobileHeader}`, fontWeight: '400', textTransform: 'none' }} label="User Information" />
+                        </Link>
+                        <Tab onClick={SignOut} style={{ fontSize: `${mobileHeader}`, fontWeight: '400', textTransform: 'none' }} label="Log Out" />
+                    </>
+                    ):(
+                    <>
+                        <Link href='/login' passHref>
+                            <Tab style={{ background: `${loginColor}`, fontSize: `${mobileHeader}`, fontWeight: '400', textTransform: 'none' }} label="Login" />
+                        </Link>
+                    </>
+                    )}
+                </Tabs>
+            </div>
         </>
     );
 }
