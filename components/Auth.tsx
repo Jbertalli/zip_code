@@ -128,7 +128,7 @@ function SignInScreen() {
       <> 
         <div style={{ display: 'flex', justifyContent: 'center', transform: `translateY(${view})` }}>
             <div style={{ fontWeight: '200', position: 'absolute', border: '1px solid white', borderRadius: '8px', height: '45vh', minHeight: '530px', width: '20vw', maxWidth: '600px', minWidth: `${width}` }}>
-                <div style={{ fontSize: `${headerSize}`, display: 'flex', justifyContent: 'center', padding: '2vh 0vw 0vh 0vw' }}>
+                <div style={{ fontSize: `${headerSize}`, display: 'flex', justifyContent: 'center', padding: '2.5vh 0vw 0vh 0vw' }}>
                     {account ? (
                     <>
                         Login to Account

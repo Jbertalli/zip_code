@@ -17,10 +17,27 @@ export default function Header() {
     // textDecoration: `${homeUnderline}`
     // textDecoration: `${antinodeUnderline}`
     // textDecoration: `${historyUnderline}`
-
     const [user] = useAuthState(getAuth());
     const router = useRouter();
     const auth = getAuth();
+
+    // useEffect(() => {
+    //     if (window.innerWidth > 440) {
+            
+    //     } else {
+            
+    //     }
+
+    //     const updateMedia = () => {
+    //         if (window.innerWidth > 440) {
+                
+    //         } else {
+                
+    //         }
+    //     };
+    //     window.addEventListener('resize', updateMedia);
+    //     return () => window.removeEventListener('resize', updateMedia);
+    // }, []);
 
     useEffect(() => {
         if (router.pathname === '/') {
