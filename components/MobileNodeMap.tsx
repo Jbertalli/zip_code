@@ -3,7 +3,7 @@ import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps
 
 const libraries: string[] = ["places"];
 const mapContainerStyle = {
-  height: "93.5vh",
+  height: "39vh",
   width: "100vw",
 };
 
@@ -17,7 +17,7 @@ const center = {
   lng: -73.93
 };
 
-export default function AntinodeMap() {
+export default function MobileNodeMap() {
 
     const { isLoaded, loadError } = useLoadScript({
         googleMapsApiKey: process.env.MAPS_API_KEY,
@@ -45,7 +45,7 @@ export default function AntinodeMap() {
     
       const panTo = useCallback(({ lat, lng }) => {
         mapRef.current.panTo({ lat, lng });
-        mapRef.current.setZoom(5);
+        mapRef.current.setZoom(14);
       }, []);
 
       if (loadError) return "Error";
@@ -53,11 +53,11 @@ export default function AntinodeMap() {
     
     return (
         <>
-            <AntinodeLocate panTo={panTo} />
-            <div style={{ transform: 'translateY(-279px)' }}>
-            {/* <div style={{ transform: 'translateY(-259px)', height: '30vh' }}> */}
-                <div style={{ position: 'absolute', zIndex: '1000000000', width: '50%', height: '100%', transform: 'translate(100%)' }}>
-                {/* <div style={{ position: 'absolute', zIndex: '1000000000', width: '100%' }}> */}
+            <Locate panTo={panTo} />
+            {/* <div style={{ transform: 'translateY(-279px)' }}> */}
+            <div style={{ transform: 'translateY(-289px)' }}>
+                {/* <div style={{ position: 'absolute', zIndex: '1000000000', width: '50%', height: '100%' }}> */}
+                <div style={{ position: 'absolute', zIndex: '1000000000' }}>
                     <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(364px)' }}>
                         <GoogleMap
                             id="map"
@@ -105,15 +105,15 @@ export default function AntinodeMap() {
     );
 }
 
-export function AntinodeLocate({ panTo }) {
+export function Locate({ panTo }) {
 
     navigator.geolocation.getCurrentPosition(
         (position) => {
-            panTo({
-                lat: (parseFloat(position.coords.latitude) - (parseFloat(position.coords.latitude) * 2)),
-                lng: (parseFloat(position.coords.longitude) + 180),
-            });
+          panTo({
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          });
         },
         () => null
-    );
-}
+      );
+  }

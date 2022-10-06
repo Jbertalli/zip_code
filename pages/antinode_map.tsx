@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import NodeMap from '../components/Nodemap';
 import AntinodeMap from '../components/Antinodemap';
 import Header from '../components/Header';
+import MobileNodeMap from '../components/MobileNodeMap';
 
 export default function Antinode() {
     const [isDesktop, setIsDesktop] = useState(false);
@@ -61,19 +62,20 @@ export default function Antinode() {
                         <Header />
                     </div>
                 </div>
-                <div style={{ background: '#313e4c', width: '100%', height: '20px', position: 'absolute', zIndex: '10', top: '65px', borderTop: '.5px solid #FFFFFF90', borderBottom: '.5px solid #FFFFFF90' }} />
-                <div style={{ fontSize: '15px', fontWeight: '300', position: 'absolute', zIndex: '10', transform: 'translate(50%, 65px)', width: '50%', display: 'flex', justifyContent: 'center' }}>
+                <div style={{ background: '#313e4c', width: '100%', height: '20px', position: 'absolute', zIndex: '10', top: '55px', borderTop: '.5px solid #FFFFFF90', borderBottom: '.5px solid #FFFFFF90' }} />
+                <div style={{ fontSize: '15px', fontWeight: '300', position: 'absolute', zIndex: '10', transform: 'translate(50%, 55px)', width: '50%', display: 'flex', justifyContent: 'center' }}>
                     Current Location
                 </div>
-                <div style={{ background: '#313e4c', width: '100%', height: '20px', position: 'absolute', zIndex: '10', top: '48vh', borderTop: '.5px solid #FFFFFF90', borderBottom: '.5px solid #FFFFFF90' }} />
-                <div style={{ fontSize: '15px', fontWeight: '300', position: 'absolute', zIndex: '10', transform: 'translate(50%, 48vh)', width: '50%', display: 'flex', justifyContent: 'center' }}>
+                <div style={{ background: '#313e4c', width: '100%', height: '20px', position: 'absolute', zIndex: '10', top: '50vh', borderTop: '.5px solid #FFFFFF90', borderBottom: '.5px solid #FFFFFF90' }} />
+                <div style={{ fontSize: '15px', fontWeight: '300', position: 'absolute', zIndex: '10', transform: 'translate(50%, 50vh)', width: '50%', display: 'flex', justifyContent: 'center' }}>
                     Antinode Location
                 </div>
                 <div>
-                    <NodeMap />
+                    {/* <NodeMap /> */}
+                    <MobileNodeMap />
                 </div>
                 <div>
-                    <AntinodeMap />
+                    {/* <AntinodeMap /> */}
                 </div>
             </>
             )}
