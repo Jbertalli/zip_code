@@ -4,6 +4,7 @@ import NodeMap from '../components/Nodemap';
 import AntinodeMap from '../components/Antinodemap';
 import Header from '../components/Header';
 import MobileNodeMap from '../components/MobileNodeMap';
+import MobileAntinodeMap from '../components/MobileAntinodeMap';
 
 export default function Antinode() {
     const [isDesktop, setIsDesktop] = useState(false);
@@ -76,6 +77,7 @@ export default function Antinode() {
                 </div>
                 <div>
                     {/* <AntinodeMap /> */}
+                    <MobileAntinodeMap />
                 </div>
             </>
             )}

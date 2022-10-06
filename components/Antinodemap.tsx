@@ -55,9 +55,7 @@ export default function AntinodeMap() {
         <>
             <AntinodeLocate panTo={panTo} />
             <div style={{ transform: 'translateY(-279px)' }}>
-            {/* <div style={{ transform: 'translateY(-259px)', height: '30vh' }}> */}
                 <div style={{ position: 'absolute', zIndex: '1000000000', width: '50%', height: '100%', transform: 'translate(100%)' }}>
-                {/* <div style={{ position: 'absolute', zIndex: '1000000000', width: '100%' }}> */}
                     <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(364px)' }}>
                         <GoogleMap
                             id="map"

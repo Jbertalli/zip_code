@@ -3,59 +3,59 @@ import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps
 
 const libraries: string[] = ["places"];
 const mapContainerStyle = {
-  height: "39vh",
-  width: "100vw",
+    height: "46.9vh",
+    width: "100vw",
 };
 
 const options = {
-  disableDefaultUI: true,
-  zoomControl: true,
+    disableDefaultUI: true,
+    zoomControl: true,
 };
 
 const center = {
-  lat: 40.73,
-  lng: -73.93
+    lat: 40.73,
+    lng: -73.93
 };
 
-export default function MobileNodeMap() {
+export default function MobileAntinodeMap() {
 
     const { isLoaded, loadError } = useLoadScript({
         googleMapsApiKey: process.env.MAPS_API_KEY,
         libraries,
-      });
+        });
     
-      const [markers, setMarkers] = useState([]);
-      const [selected, setSelected] = useState(null);
+        const [markers, setMarkers] = useState([]);
+        const [selected, setSelected] = useState(null);
     
-      const onMapClick = useCallback((e) => {
+        const onMapClick = useCallback((e) => {
         setMarkers((current) => [
-          ...current,
-          {
+            ...current,
+            {
             lat: e.latLng.lat(),
             lng: e.latLng.lng(),
             time: new Date(),
-          },
+            },
         ]);
-      }, []);
+        }, []);
     
-      const mapRef = useRef();
-      const onMapLoad = useCallback((map) => {
+        const mapRef = useRef();
+        const onMapLoad = useCallback((map) => {
         mapRef.current = map;
-      }, []);
+        }, []);
     
-      const panTo = useCallback(({ lat, lng }) => {
+        const panTo = useCallback(({ lat, lng }) => {
         mapRef.current.panTo({ lat, lng });
-        mapRef.current.setZoom(14);
-      }, []);
+        mapRef.current.setZoom(5);
+        }, []);
 
-      if (loadError) return "Error";
-      if (!isLoaded) return "Loading...";
+        if (loadError) return "Error";
+        if (!isLoaded) return "Loading...";
     
     return (
         <>
-            <Locate panTo={panTo} />
-            <div style={{ transform: 'translateY(-289px)' }}>
-                <div style={{ position: 'absolute', zIndex: '1000000000' }}>
+            <AntinodeLocate panTo={panTo} />
+            <div style={{ transform: 'translateY(-10px)' }}>
+                <div style={{ position: 'absolute', zIndex: '1000000000', width: '100%' }}>
                     <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(364px)' }}>
                         <GoogleMap
                             id="map"
@@ -103,15 +103,16 @@ export default function MobileNodeMap() {
     );
 }
 
-export function Locate({ panTo }) {
+export function AntinodeLocate({ panTo }) {
 
     navigator.geolocation.getCurrentPosition(
         (position) => {
-          panTo({
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
-          });
+            panTo({
+                lat: (parseFloat(position.coords.latitude) - (parseFloat(position.coords.latitude) * 2)),
+                lng: (parseFloat(position.coords.longitude) + 180),
+            });
         },
         () => null
-      );
-  }
+    );
+}
+        
