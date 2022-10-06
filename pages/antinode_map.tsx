@@ -31,6 +31,15 @@ export default function Antinode() {
                 <title>Antinode</title>
                 <meta name="description" content="antinode" />
             </Head>
+            {isDesktop ? (
+            <>
+
+            </>
+            ):(
+            <>
+
+            </>
+            )}
             <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <div style={{ position: 'absolute', zIndex: '10000', top: '5px' }}>
                     <Header />
