@@ -116,7 +116,6 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
       return () => window.removeEventListener('resize', updateMedia);
   }, []);
 
-
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -144,8 +143,10 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
         </div>
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
-            <AppBar position="fixed" open={open} style={{ top: `${top}`, width: `${width}`, left: `${left}`, background: '#313e4c', color: 'white' }}>
-                <Toolbar>
+            <AppBar position="fixed" open={open} style={{ top: `${top}`, width: `${width}`, left: `${left}`, background: '#313e4c', color: 'white' }}> 
+                {!open ? (
+                <>
+                  <Toolbar>
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
@@ -155,7 +156,9 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
                     >
                         <MenuIcon />
                     </IconButton>
-                </Toolbar>
+                  </Toolbar>
+                </>
+                ): null}
             </AppBar>
             <Drawer
                 sx={{
