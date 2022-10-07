@@ -40,7 +40,9 @@ export default function Database({ latCoord, longCoord, zip, city, state, stateA
 
     return (
         <>
-            <LocalDB updateZip={updateZip} setUpdateZip={setUpdateZip} updateCity={updateCity} setUpdateCity={setUpdateCity} updateLatitude={updateLatitude} setUpdateLatitude={setUpdateLatitude} updateLongitude={updateLongitude} setUpdateLongitude={setUpdateLongitude} updateAntinodeLatitude={updateAntinodeLatitude} setUpdateAntinodeLatitude={setUpdateAntinodeLatitude} updateAntinodeLongitude={updateAntinodeLongitude} setUpdateAntinodeLongitude={setUpdateAntinodeLongitude} updateState={updateState} setUpdateState={setUpdateState} updateStateAbbreviation={updateStateAbbreviation} setUpdateStateAbbreviation={setUpdateStateAbbreviation} updateAll={updateAll} setUpdateAll={setUpdateAll} updateWeather={updateWeather} setUpdateWeather={setUpdateWeather} updateCurrentTemp={updateCurrentTemp} setUpdateCurrentTemp={setUpdateCurrentTemp} updateTempRange={updateTempRange} setUpdateTempRange={setUpdateTempRange} />
+            <div style={{ position: 'absolute' }}>
+                <LocalDB updateZip={updateZip} setUpdateZip={setUpdateZip} updateCity={updateCity} setUpdateCity={setUpdateCity} updateLatitude={updateLatitude} setUpdateLatitude={setUpdateLatitude} updateLongitude={updateLongitude} setUpdateLongitude={setUpdateLongitude} updateAntinodeLatitude={updateAntinodeLatitude} setUpdateAntinodeLatitude={setUpdateAntinodeLatitude} updateAntinodeLongitude={updateAntinodeLongitude} setUpdateAntinodeLongitude={setUpdateAntinodeLongitude} updateState={updateState} setUpdateState={setUpdateState} updateStateAbbreviation={updateStateAbbreviation} setUpdateStateAbbreviation={setUpdateStateAbbreviation} updateAll={updateAll} setUpdateAll={setUpdateAll} updateWeather={updateWeather} setUpdateWeather={setUpdateWeather} updateCurrentTemp={updateCurrentTemp} setUpdateCurrentTemp={setUpdateCurrentTemp} updateTempRange={updateTempRange} setUpdateTempRange={setUpdateTempRange} /> 
+            </div>
             <List>
                 {/* {!!dbZip ? ( */}
                 {updateZip ? (

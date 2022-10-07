@@ -180,21 +180,23 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
                     </div>
                   </>
                   ): null}
-                    <IconButton onClick={handleDrawerClose} style={{ color: 'white', transform: 'translateY(30px)' }}>
+                    <IconButton onClick={handleDrawerClose} style={{ color: 'white', transform: 'translateY(52px)' }}>
                         {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
                     </IconButton>
                 </DrawerHeader>
                     <Divider />
-                <GetLocation />
+                <div style={{ transform: 'translateY(25px)' }}>
+                  <GetLocation />
                     <Divider />
-                {user ? (
-                <>
-                    <Database latCoord={latCoord} longCoord={longCoord} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} addZip={addZip} addCity={addCity} addLat={addLat} latitude={latitude} addLong={addLong} longitude={longitude} addState={addState} addStateAbbr={addStateAbbr} addDocument={addDocument} deleteZip={deleteZip} addOppLat={addOppLat} OppLat={OppLat} addOppLong={addOppLong} OppLong={OppLong} dbId={dbId} dbZip={dbZip} dbCity={dbCity} dbLatitude={dbLatitude} dbLongitude={dbLongitude} dbOppositeLatitude={dbOppositeLatitude} dbOppositeLongitude={dbOppositeLongitude} dbState={dbState} dbStateAbbreviation={dbStateAbbreviation} deleteCity={deleteCity} deleteLat={deleteLat} deleteLong={deleteLong} deleteOppositeLat={deleteOppositeLat} deleteOppositeLong={deleteOppositeLong} deleteState={deleteState} deleteAbbr={deleteAbbr} deleteAll={deleteAll} weatherData={weatherData} addWeather={addWeather} deleteWeather={deleteWeather} currentTempData={currentTempData} addCurrentTemp={addCurrentTemp} deleteCurrentTemp={deleteCurrentTemp} tempRangeData={tempRangeData} addTempRange={addTempRange} deleteTempRange={deleteTempRange} />
+                  {user ? (
+                  <>
+                      <Database latCoord={latCoord} longCoord={longCoord} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} addZip={addZip} addCity={addCity} addLat={addLat} latitude={latitude} addLong={addLong} longitude={longitude} addState={addState} addStateAbbr={addStateAbbr} addDocument={addDocument} deleteZip={deleteZip} addOppLat={addOppLat} OppLat={OppLat} addOppLong={addOppLong} OppLong={OppLong} dbId={dbId} dbZip={dbZip} dbCity={dbCity} dbLatitude={dbLatitude} dbLongitude={dbLongitude} dbOppositeLatitude={dbOppositeLatitude} dbOppositeLongitude={dbOppositeLongitude} dbState={dbState} dbStateAbbreviation={dbStateAbbreviation} deleteCity={deleteCity} deleteLat={deleteLat} deleteLong={deleteLong} deleteOppositeLat={deleteOppositeLat} deleteOppositeLong={deleteOppositeLong} deleteState={deleteState} deleteAbbr={deleteAbbr} deleteAll={deleteAll} weatherData={weatherData} addWeather={addWeather} deleteWeather={deleteWeather} currentTempData={currentTempData} addCurrentTemp={addCurrentTemp} deleteCurrentTemp={deleteCurrentTemp} tempRangeData={tempRangeData} addTempRange={addTempRange} deleteTempRange={deleteTempRange} />
+                      <Divider />
+                  </>
+                  ): null}
+                  <UI_Buttons zipCode={zipCode} setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} handleClear={handleClear} latCoord={latCoord} longCoord={longCoord} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} opposite={opposite} OppLat={OppLat} OppLong={OppLong} weather={weather} setWeatherData={setWeatherData} weatherData={weatherData} currentTemp={currentTemp} currentTempData={currentTempData} setCurrentTempData={setCurrentTempData} tempRange={tempRange} tempRangeData={tempRangeData} setTempRangeData={setTempRangeData} />
                     <Divider />
-                </>
-                ): null}
-                <UI_Buttons zipCode={zipCode} setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} handleClear={handleClear} latCoord={latCoord} longCoord={longCoord} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} opposite={opposite} OppLat={OppLat} OppLong={OppLong} weather={weather} setWeatherData={setWeatherData} weatherData={weatherData} currentTemp={currentTemp} currentTempData={currentTempData} setCurrentTempData={setCurrentTempData} tempRange={tempRange} tempRangeData={tempRangeData} setTempRangeData={setTempRangeData} />
-                <Divider />
+                </div>
             </Drawer>
         </Box>
     </>
