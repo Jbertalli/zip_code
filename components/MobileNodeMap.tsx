@@ -3,7 +3,7 @@ import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps
 
 const libraries: string[] = ["places"];
 const mapContainerStyle = {
-  height: "39vh",
+  height: "40.5vh",
   width: "100vw",
 };
 
@@ -54,7 +54,7 @@ export default function MobileNodeMap() {
     return (
         <>
             <Locate panTo={panTo} />
-            <div style={{ transform: 'translateY(-289px)' }}>
+            <div style={{ transform: 'translateY(-299px)' }}>
                 <div style={{ position: 'absolute', zIndex: '1000000000' }}>
                     <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(364px)' }}>
                         <GoogleMap

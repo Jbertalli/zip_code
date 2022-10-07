@@ -59,24 +59,18 @@ export default function Antinode() {
             ):(
             <>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <div style={{ position: 'absolute', zIndex: '10000', top: '5px' }}>
+                    <div style={{ position: 'absolute', zIndex: '10000', top: '5px', transform: 'translate(-21px, -5px) scale(0.88)' }}>
                         <Header />
                     </div>
                 </div>
-                <div style={{ background: '#313e4c', width: '100%', height: '20px', position: 'absolute', zIndex: '10', top: '55px', borderTop: '.5px solid #FFFFFF90', borderBottom: '.5px solid #FFFFFF90' }} />
-                <div style={{ fontSize: '15px', fontWeight: '300', position: 'absolute', zIndex: '10', transform: 'translate(50%, 55px)', width: '50%', display: 'flex', justifyContent: 'center' }}>
-                    Current Location
-                </div>
-                <div style={{ background: '#313e4c', width: '100%', height: '20px', position: 'absolute', zIndex: '10', top: '50vh', borderTop: '.5px solid #FFFFFF90', borderBottom: '.5px solid #FFFFFF90' }} />
-                <div style={{ fontSize: '15px', fontWeight: '300', position: 'absolute', zIndex: '10', transform: 'translate(50%, 50vh)', width: '50%', display: 'flex', justifyContent: 'center' }}>
-                    Antinode Location
-                </div>
                 <div>
-                    {/* <NodeMap /> */}
+                    <div style={{ background: '#313e4c', width: '100%', height: '20px', position: 'absolute', zIndex: '10', top: '45px', borderTop: '.5px solid #FFFFFF90', borderBottom: '.5px solid #FFFFFF90' }} />
+                    <div style={{ fontSize: '15px', fontWeight: '300', position: 'absolute', zIndex: '10', transform: 'translate(50%, 45px)', width: '50%', display: 'flex', justifyContent: 'center' }}>
+                        Current Location
+                    </div>
                     <MobileNodeMap />
                 </div>
                 <div>
-                    {/* <AntinodeMap /> */}
                     <MobileAntinodeMap />
                 </div>
             </>

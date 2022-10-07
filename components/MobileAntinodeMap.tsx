@@ -3,7 +3,7 @@ import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps
 
 const libraries: string[] = ["places"];
 const mapContainerStyle = {
-    height: "46.9vh",
+    height: "50vh",
     width: "100vw",
 };
 
@@ -54,9 +54,13 @@ export default function MobileAntinodeMap() {
     return (
         <>
             <AntinodeLocate panTo={panTo} />
-            <div style={{ transform: 'translateY(-10px)' }}>
+            <div style={{ transform: 'translateY(-29px)' }}>
                 <div style={{ position: 'absolute', zIndex: '1000000000', width: '100%' }}>
                     <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(364px)' }}>
+                        <div style={{ background: '#313e4c', width: '100%', height: '20px', position: 'absolute', zIndex: '10', borderTop: '.5px solid #FFFFFF90', borderBottom: '.5px solid #FFFFFF90' }} />
+                        <div style={{ fontSize: '15px', fontWeight: '300', position: 'absolute', zIndex: '10', width: '50%', display: 'flex', justifyContent: 'center' }}>
+                            Antinode Location
+                        </div>
                         <GoogleMap
                             id="map"
                             mapContainerStyle={mapContainerStyle}

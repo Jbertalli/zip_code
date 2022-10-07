@@ -71,7 +71,7 @@ export default function Header() {
 
     return (
         <>
-            <div style={{ padding: '0px' }}>
+            <div>
                 <Tabs>
                     <Link href='/' passHref>
                         <Tab style={{ background: `${homeColor}`, fontSize: `${mobileHeader}`, fontWeight: '400', textTransform: 'none' }} label="Home" />
