@@ -87,7 +87,7 @@ export default function Home() {
         setFlex('');
         setCenter('');
       } else {
-        setScale('translate(22px, 6px) scale(0.7)');
+        setScale('translate(15px, 22px) scale(0.7)');
         setFlex('flex');
         setCenter('center');
       }
@@ -98,7 +98,7 @@ export default function Home() {
             setFlex('');
             setCenter('');
           } else {
-            setScale('translate(22px, 6px) scale(0.7)');
+            setScale('translate(15px, 22px) scale(0.7)');
             setFlex('flex');
             setCenter('center');
           }

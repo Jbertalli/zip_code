@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -70,7 +70,31 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLongCoord, setState, setStateAbbreviation, handleClear, latCoord, longCoord, opposite, OppLat, setOppLat, OppLong, setOppLong, zip, city, state, stateAbbreviation, addZip, deleteZip, addCity, deleteCity, addLat, latitude, deleteLat, addLong, longitude, deleteLong, addState, deleteState, addStateAbbr, deleteAbbr, addDocument, deleteAll, addOppLat, addOppLong, deleteOppositeLat, deleteOppositeLong, dbId, dbZip, dbCity, dbLatitude, dbLongitude, dbOppositeLatitude, dbOppositeLongitude, dbState, dbStateAbbreviation, weather, setWeatherData, weatherData, currentTemp, currentTempData, setCurrentTempData, tempRange, tempRangeData, setTempRangeData, addWeather, deleteWeather, addCurrentTemp, deleteCurrentTemp, addTempRange, deleteTempRange }) {
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [] = useState();
+  const [] = useState();
+  const [] = useState();
+
+
+  useEffect(() => {
+    if (window.innerWidth > 440) {
+      setIsDesktop(true);
+    } else {
+      setIsDesktop(false);
+    }
+
+    const updateMedia = () => {
+        if (window.innerWidth > 440) {
+          setIsDesktop(true);
+        } else {
+          setIsDesktop(false);
+        }
+    };
+      window.addEventListener('resize', updateMedia);
+      return () => window.removeEventListener('resize', updateMedia);
+  }, []);
+
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -100,6 +124,7 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
             <AppBar position="fixed" open={open} style={{ background: '#313e4c', color: 'white' }}>
+            {/* <AppBar position="fixed" open={open} style={{ background: '#313e4c', color: 'white', top: '53px', width: '48px', left: '0px' }}> */}
                 <Toolbar>
                     <IconButton
                         color="inherit"
@@ -128,19 +153,23 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
                 open={open}
             >
                 <DrawerHeader>
+                  {isDesktop ? (
+                  <>
                     <div style={{ fontSize: '16px', fontWeight: '400', position: 'absolute', zIndex: '10000000', color: 'white', left: '16px', top: '21px' }}>
-                        <span>
-                            {user ? (
-                            <>
-                                {user.displayName}'s{' '}
-                            </>
-                            ): null}
-                        </span>
-                        <span>
-                            Dashboard
-                        </span>
+                      <span>
+                          {user ? (
+                          <>
+                              {user.displayName}'s{' '}
+                          </>
+                          ): null}
+                      </span>
+                      <span>
+                          Dashboard
+                      </span>
                     </div>
-                    <IconButton onClick={handleDrawerClose} style={{ color: 'white' }}>
+                  </>
+                  ): null}
+                    <IconButton onClick={handleDrawerClose} style={{ color: 'white', transform: 'translateY(30px)' }}>
                         {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
                     </IconButton>
                 </DrawerHeader>
