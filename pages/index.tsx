@@ -74,9 +74,28 @@ export default function Home() {
     const [currentTempData, setCurrentTempData] = useState<string>('');
     const [tempRangeData, setTempRangeData] = useState<string>('');
     const [userInfo, setUserInfo] = useState([]);
+    const [scale, setScale] = useState('translate(22px, 6px)');
 
     const auth = getAuth();
     const [user] = useAuthState(getAuth());
+
+    useEffect(() => {
+      if (window.innerWidth > 440) {
+        setScale('translate(22px, 6px)');
+      } else {
+        setScale('translate(22px, 6px) scale(0.7)');
+      }
+
+      const updateMedia = () => {
+          if (window.innerWidth > 440) {
+            setScale('translate(22px, 6px)');
+          } else {
+            setScale('translate(22px, 6px) scale(0.7)');
+          }
+      };
+        window.addEventListener('resize', updateMedia);
+        return () => window.removeEventListener('resize', updateMedia);
+    }, []);
 
     useEffect(() => {
       document.body.style.overflowX = "hidden";
@@ -416,7 +435,7 @@ export default function Home() {
         <Auth />
       </div> */}
       <Local setZip={setZip} zip={zip} setCity={setCity} city={city} latCoord={latCoord} setLatCoord={setLatCoord} longCoord={longCoord} setLongCoord={setLongCoord} state={state} setState={setState} stateAbbreviation={stateAbbreviation} setStateAbbreviation={setStateAbbreviation} OppLat={OppLat} OppLong={OppLong} setOppLat={setOppLat} setOppLong={setOppLong} weatherData={weatherData} setWeatherData={setWeatherData} currentTempData={currentTempData} setCurrentTempData={setCurrentTempData} tempRangeData={tempRangeData} setTempRangeData={setTempRangeData} />
-      <Container maxWidth="lg" style={{ marginTop: '2%', position: 'relative', zIndex: '10', transform: 'translate(22px, 6px)' }}>
+      <Container maxWidth="lg" style={{ marginTop: '2%', position: 'relative', zIndex: '10', transform: `${scale}` }}>
         <Draggable>
           <div style={{ 
             color: 'white', 
