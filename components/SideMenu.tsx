@@ -75,7 +75,8 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
   const [top, setTop] = useState('');
   const [width, setWidth] = useState('');
   const [left, setLeft] = useState('');
-
+  const [icon, setIcon] = useState('0px');
+  const [side, setSide] = useState('0px');
 
   useEffect(() => {
     if (window.innerWidth > 440) {
@@ -83,11 +84,15 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
       setTop('');
       setWidth('');
       setLeft('');
+      setIcon('0px');
+      setSide('0px');
     } else {
       setIsDesktop(false);
       setTop('53px');
       setWidth('48px');
       setLeft('0px');
+      setIcon('52px');
+      setSide('25px');
     }
 
     const updateMedia = () => {
@@ -96,11 +101,15 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
           setTop('');
           setWidth('');
           setLeft('');
+          setIcon('0px');
+          setSide('0px');
         } else {
           setIsDesktop(false);
           setTop('53px');
           setWidth('48px');
           setLeft('0px');
+          setIcon('52px');
+          setSide('25px');
         }
     };
       window.addEventListener('resize', updateMedia);
@@ -180,12 +189,12 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
                     </div>
                   </>
                   ): null}
-                    <IconButton onClick={handleDrawerClose} style={{ color: 'white', transform: 'translateY(52px)' }}>
+                    <IconButton onClick={handleDrawerClose} style={{ color: 'white', transform: `translateY(${icon})` }}> 
                         {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
                     </IconButton>
                 </DrawerHeader>
                     <Divider />
-                <div style={{ transform: 'translateY(25px)' }}>
+                <div style={{ transform: `translateY(${side})` }}> 
                   <GetLocation />
                     <Divider />
                   {user ? (
