@@ -44,8 +44,8 @@ export default function MobileAntinodeMap() {
         }, []);
     
         const panTo = useCallback(({ lat, lng }) => {
-        mapRef.current.panTo({ lat, lng });
-        mapRef.current.setZoom(5);
+          mapRef.current.panTo({ lat, lng });
+          mapRef.current.setZoom(5);
         }, []);
 
         if (loadError) return "Error";

@@ -60,10 +60,11 @@ export default function Map({ latCoord, longCoord }) {
 
   return (
     <>
-      <div style={{ transform: 'translate(500px, 800px)', position: 'relative', zIndex: '10' }}>
-      <Locate panTo={panTo} />
+      <div style={{ transform: 'translate(500px, 900px)', position: 'absolute', zIndex: '10' }}>
+        <Locate panTo={panTo} />
       </div>
       <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(364px)' }}>
+      {/* <div style={{ display: 'flex', justifyContent: 'center', transform: 'translate(10px, 502px) scale(1.07, 1.03)' }}> */}
         <GoogleMap
           id="map"
           mapContainerStyle={mapContainerStyle}
@@ -111,7 +112,7 @@ export default function Map({ latCoord, longCoord }) {
 function Locate({ panTo }) {
   return (
     <>
-      <div>
+      {/* <div>
         <Button
           className={styles.button}
           onClick={() => {
@@ -130,8 +131,6 @@ function Locate({ panTo }) {
           Current Location
         </Button>
       </div>
-      {/* (parseFloat(position.coords.latitude) - (parseFloat(position.coords.latitude) * 2))
-      (parseFloat(position.coords.longitude) + 180) */}
       <div>
         <Button
           className={styles.button}
@@ -150,7 +149,7 @@ function Locate({ panTo }) {
           <FlipCameraAndroidIcon fontSize="small" />&nbsp;
           Opposite Location
         </Button>
-      </div>
+      </div> */}
     </>
   );
 }
