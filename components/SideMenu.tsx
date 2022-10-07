@@ -72,23 +72,35 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
-  const [] = useState();
-  const [] = useState();
-  const [] = useState();
+  const [top, setTop] = useState('');
+  const [width, setWidth] = useState('');
+  const [left, setLeft] = useState('');
 
 
   useEffect(() => {
     if (window.innerWidth > 440) {
       setIsDesktop(true);
+      setTop('');
+      setWidth('');
+      setLeft('');
     } else {
       setIsDesktop(false);
+      setTop('53px');
+      setWidth('48px');
+      setLeft('0px');
     }
 
     const updateMedia = () => {
         if (window.innerWidth > 440) {
           setIsDesktop(true);
+          setTop('');
+          setWidth('');
+          setLeft('');
         } else {
           setIsDesktop(false);
+          setTop('53px');
+          setWidth('48px');
+          setLeft('0px');
         }
     };
       window.addEventListener('resize', updateMedia);
@@ -123,8 +135,7 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
         </div>
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
-            <AppBar position="fixed" open={open} style={{ background: '#313e4c', color: 'white' }}>
-            {/* <AppBar position="fixed" open={open} style={{ background: '#313e4c', color: 'white', top: '53px', width: '48px', left: '0px' }}> */}
+            <AppBar position="fixed" open={open} style={{ top: `${top}`, width: `${width}`, left: `${left}`, background: '#313e4c', color: 'white' }}>
                 <Toolbar>
                     <IconButton
                         color="inherit"
