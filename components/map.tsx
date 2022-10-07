@@ -22,9 +22,27 @@ const center = {
 };
 
 export default function Map({ latCoord, longCoord }) {
-
   // console.log(latCoord);
   // console.log(longCoord);
+  const [transform, setTransform] = useState('translateY(477px)');
+
+  useEffect(() => {
+    if (window.innerWidth > 440) {
+        setTransform('translateY(477px)');
+    } else {
+        setTransform('translate(10px, 502px) scale(1.07, 1.03)');
+    }
+
+    const updateMedia = () => {
+      if (window.innerWidth > 440) {
+          setTransform('translateY(477px)');
+      } else {
+          setTransform('translate(10px, 502px) scale(1.07, 1.03)');
+      }
+    };
+      window.addEventListener('resize', updateMedia);
+      return () => window.removeEventListener('resize', updateMedia);
+  }, []);
 
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.MAPS_API_KEY,
@@ -63,8 +81,7 @@ export default function Map({ latCoord, longCoord }) {
       <div style={{ transform: 'translate(500px, 900px)', position: 'absolute', zIndex: '10' }}>
         <Locate panTo={panTo} />
       </div>
-      <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(364px)' }}>
-      {/* <div style={{ display: 'flex', justifyContent: 'center', transform: 'translate(10px, 502px) scale(1.07, 1.03)' }}> */}
+      <div style={{ display: 'flex', justifyContent: 'center', transform: `${transform}` }}>
         <GoogleMap
           id="map"
           mapContainerStyle={mapContainerStyle}
