@@ -28,19 +28,24 @@ export default function Map({ latCoord, longCoord }) {
   // console.log(longCoord);
   const [transform, setTransform] = useState('translateY(477px)');
   const [top, setTop] = useState('500px');
+  const [right, setRight] = useState('120px');
 
   useEffect(() => {
     if (window.innerWidth > 440) {
       setTop('500px');
+      setRight('120px');
     } else {
       setTop('475px');
+      setRight('11%');
     }
 
     const updateMedia = () => {
         if (window.innerWidth > 440) {
           setTop('500px');
+          setRight('120px');
         } else {
           setTop('475px');
+          setRight('11%');
         }
     };
       window.addEventListener('resize', updateMedia);
@@ -99,7 +104,7 @@ export default function Map({ latCoord, longCoord }) {
 
   return (
     <>
-      <div style={{ top: `${top}`, right: '120px', position: 'absolute', zIndex: '10', transform: 'rotate(180deg) scale(1.2)' }}>
+      <div style={{ top: `${top}`, right: `${right}`, position: 'absolute', zIndex: '10', transform: 'rotate(180deg) scale(1.2)' }}>
       {/* <div style={{ top: '475px', right: '11%', position: 'absolute', zIndex: '10', transform: 'rotate(180deg) scale(0.8)' }}> */}
         <Locate panTo={panTo} />
       </div>
