@@ -27,19 +27,20 @@ export default function Map({ latCoord, longCoord }) {
   // console.log(latCoord);
   // console.log(longCoord);
   const [transform, setTransform] = useState('translateY(477px)');
+  const [top, setTop] = useState('500px');
 
   useEffect(() => {
     if (window.innerWidth > 440) {
-      
+      setTop('500px');
     } else {
-      
+      setTop('475px');
     }
 
     const updateMedia = () => {
         if (window.innerWidth > 440) {
-          
+          setTop('500px');
         } else {
-          
+          setTop('475px');
         }
     };
       window.addEventListener('resize', updateMedia);
@@ -98,8 +99,8 @@ export default function Map({ latCoord, longCoord }) {
 
   return (
     <>
+      <div style={{ top: `${top}`, right: '120px', position: 'absolute', zIndex: '10', transform: 'rotate(180deg) scale(1.2)' }}>
       {/* <div style={{ top: '475px', right: '11%', position: 'absolute', zIndex: '10', transform: 'rotate(180deg) scale(0.8)' }}> */}
-      <div style={{ top: '500px', right: '120px', position: 'absolute', zIndex: '10', transform: 'rotate(180deg) scale(1.2)' }}>
         <Locate panTo={panTo} />
       </div>
       <div style={{ display: 'flex', justifyContent: 'center', transform: `${transform}` }}>
