@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import Tabs from '@mui/material/Tabs';
+// import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { getAuth, signOut } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -72,28 +72,28 @@ export default function Header() {
     return (
         <>
             <div>
-                <Tabs>
-                    <Link href='/' passHref>
-                        <Tab style={{ background: `${homeColor}`, fontSize: `${mobileHeader}`, fontWeight: '400', textTransform: 'none' }} label="Home" />
+            {/* <Tabs> */}
+                <Link href='/' passHref>
+                    <Tab style={{ background: `${homeColor}`, fontSize: `${mobileHeader}`, fontWeight: '400', textTransform: 'none' }} label="Home" />
+                </Link>
+                <Link href='/antinode_map' passHref>
+                    <Tab style={{ background: `${antinodeColor}`, fontSize: `${mobileHeader}`, fontWeight: '400', textTransform: 'none' }} label="Antinode Map" />
+                </Link>
+                {user ? (
+                <>
+                    <Link href='/history' passHref>
+                        <Tab style={{ background: `${historyColor}`, fontSize: `${mobileHeader}`, fontWeight: '400', textTransform: 'none' }} label="User Information" />
                     </Link>
-                    <Link href='/antinode_map' passHref>
-                        <Tab style={{ background: `${antinodeColor}`, fontSize: `${mobileHeader}`, fontWeight: '400', textTransform: 'none' }} label="Antinode Map" />
+                    <Tab onClick={SignOut} style={{ fontSize: `${mobileHeader}`, fontWeight: '400', textTransform: 'none' }} label="Log Out" />
+                </>
+                ):(
+                <>
+                    <Link href='/login' passHref>
+                        <Tab style={{ background: `${loginColor}`, fontSize: `${mobileHeader}`, fontWeight: '400', textTransform: 'none' }} label="Login" />
                     </Link>
-                    {user ? (
-                    <>
-                        <Link href='/history' passHref>
-                            <Tab style={{ background: `${historyColor}`, fontSize: `${mobileHeader}`, fontWeight: '400', textTransform: 'none' }} label="User Information" />
-                        </Link>
-                        <Tab onClick={SignOut} style={{ fontSize: `${mobileHeader}`, fontWeight: '400', textTransform: 'none' }} label="Log Out" />
-                    </>
-                    ):(
-                    <>
-                        <Link href='/login' passHref>
-                            <Tab style={{ background: `${loginColor}`, fontSize: `${mobileHeader}`, fontWeight: '400', textTransform: 'none' }} label="Login" />
-                        </Link>
-                    </>
-                    )}
-                </Tabs>
+                </>
+                )}
+            {/* </Tabs> */}
             </div>
         </>
     );
