@@ -119,9 +119,7 @@ export function MobileAntinodeLocate({ panTo }) {
         () => null
     );
     return (
-        <>
-            &nbsp;
-        </>
+        <></>
     );
 }
         

@@ -105,7 +105,6 @@ export default function AntinodeMap() {
 }
 
 export function AntinodeLocate({ panTo }) {
-
     navigator.geolocation.getCurrentPosition(
         (position: any) => {
             panTo({
@@ -114,5 +113,8 @@ export function AntinodeLocate({ panTo }) {
             });
         },
         () => null
+    );
+    return (
+        <></>
     );
 }
