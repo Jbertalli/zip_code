@@ -12,6 +12,7 @@ export default function Header() {
     const [historyColor, setHistoryColor] = useState<string>('');
     const [loginColor, setLoginColor] = useState<string>('');
     const [mobileHeader, setMobileHeader] = useState<string>('25px');
+    const [transform, setTransform] = useState<string>('0%');
     // const [homeUnderline, setHomeUnderline] = useState('');
     // const [antinodeUnderline, setAntinodeUnderline] = useState('');
     // const [historyUnderline, setHistoryUnderline] = useState('');
@@ -25,15 +26,19 @@ export default function Header() {
     useEffect(() => {
         if (window.innerWidth > 440) {
             setMobileHeader('25px');
+            setTransform('0%');
         } else {
             setMobileHeader('10.8px');
+            setTransform('5%');
         }
 
         const updateMedia = () => {
             if (window.innerWidth > 440) {
                 setMobileHeader('25px');
+                setTransform('0%');
             } else {
                 setMobileHeader('10.8px');
+                setTransform('5%');
             }
         };
         window.addEventListener('resize', updateMedia);
@@ -71,7 +76,7 @@ export default function Header() {
 
     return (
         <>
-            <div>
+            <div style={{ transform: `translate(${transform}` }}>
             {/* <Tabs> */}
                 <Link href='/' passHref>
                     <Tab style={{ background: `${homeColor}`, fontSize: `${mobileHeader}`, fontWeight: '400', textTransform: 'none' }} label="Home" />
@@ -82,7 +87,7 @@ export default function Header() {
                 {user ? (
                 <>
                     <Link href='/history' passHref>
-                        <Tab style={{ background: `${historyColor}`, fontSize: `${mobileHeader}`, fontWeight: '400', textTransform: 'none' }} label="User Information" />
+                        <Tab style={{ background: `${historyColor}`, fontSize: `${mobileHeader}`, fontWeight: '400', textTransform: 'none' }} label="User Info" />
                     </Link>
                     <Tab onClick={SignOut} style={{ fontSize: `${mobileHeader}`, fontWeight: '400', textTransform: 'none' }} label="Log Out" />
                 </>
