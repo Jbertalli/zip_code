@@ -29,23 +29,28 @@ export default function Map({ latCoord, longCoord }) {
   const [transform, setTransform] = useState('translateY(477px)');
   const [top, setTop] = useState('500px');
   const [right, setRight] = useState('120px');
+  const [scale, setScale] = useState('scale(1.2) rotate(180deg)');
 
   useEffect(() => {
     if (window.innerWidth > 440) {
       setTop('500px');
       setRight('120px');
+      setScale('scale(1.2) rotate(180deg)');
     } else {
       setTop('475px');
       setRight('11%');
+      setScale('scale(0.8) rotate(180deg)');
     }
 
     const updateMedia = () => {
         if (window.innerWidth > 440) {
           setTop('500px');
           setRight('120px');
+          setScale('scale(1.2) rotate(180deg)');
         } else {
           setTop('475px');
           setRight('11%');
+          setScale('scale(0.8) rotate(180deg)');
         }
     };
       window.addEventListener('resize', updateMedia);
@@ -104,8 +109,7 @@ export default function Map({ latCoord, longCoord }) {
 
   return (
     <>
-      <div style={{ top: `${top}`, right: `${right}`, position: 'absolute', zIndex: '10', transform: 'rotate(180deg) scale(1.2)' }}>
-      {/* <div style={{ top: '475px', right: '11%', position: 'absolute', zIndex: '10', transform: 'rotate(180deg) scale(0.8)' }}> */}
+      <div style={{ top: `${top}`, right: `${right}`, position: 'absolute', zIndex: '10', transform: `${scale}` }}>
         <Locate panTo={panTo} />
       </div>
       <div style={{ display: 'flex', justifyContent: 'center', transform: `${transform}` }}>
