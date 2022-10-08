@@ -82,7 +82,8 @@ export default function Map({ latCoord, longCoord }) {
 
   return (
     <>
-      <div style={{ top: '475px', right: '11%', position: 'absolute', zIndex: '10', transform: 'rotate(180deg) scale(0.8)' }}>
+      {/* <div style={{ top: '475px', right: '11%', position: 'absolute', zIndex: '10', transform: 'rotate(180deg) scale(0.8)' }}> */}
+      <div style={{ top: '500px', right: '120px', position: 'absolute', zIndex: '10', transform: 'rotate(180deg) scale(1.2)' }}>
         <Locate panTo={panTo} />
       </div>
       <div style={{ display: 'flex', justifyContent: 'center', transform: `${transform}` }}>
