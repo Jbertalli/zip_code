@@ -1,9 +1,13 @@
 import React, { useState, useCallback, useRef, useEffect } from "react";
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api";
-import Button from '@mui/material/Button';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import FlipCameraAndroidIcon from '@mui/icons-material/FlipCameraAndroid';
-import styles from '../styles/zip.module.css';
+import Box from '@mui/material/Box';
+import SpeedDial from '@mui/material/SpeedDial';
+import SpeedDialIcon from '@mui/material/SpeedDialIcon';
+import SpeedDialAction from '@mui/material/SpeedDialAction';
+// import Button from '@mui/material/Button';
+// import styles from '../styles/zip.module.css';
 
 const libraries: string[] = ["places"];
 const mapContainerStyle = {
@@ -78,7 +82,7 @@ export default function Map({ latCoord, longCoord }) {
 
   return (
     <>
-      <div style={{ transform: 'translate(500px, 900px)', position: 'absolute', zIndex: '10' }}>
+      <div style={{ top: '500px', right: '16%', position: 'absolute', zIndex: '10' }}>
         <Locate panTo={panTo} />
       </div>
       <div style={{ display: 'flex', justifyContent: 'center', transform: `${transform}` }}>
@@ -164,9 +168,50 @@ function Locate({ panTo }) {
           }}
         >
           <FlipCameraAndroidIcon fontSize="small" />&nbsp;
-          Opposite Location
+          Antinode Location
         </Button>
       </div> */}
+
+      <Box sx={{ height: 120, transform: 'translateZ(0px)', flexGrow: 1 }}>
+        <SpeedDial
+          ariaLabel="SpeedDial basic example"
+          sx={{ position: 'absolute', bottom: 16, right: 16 }}
+          icon={<SpeedDialIcon />}
+        >
+          <SpeedDialAction 
+            key={'Current Location'}
+            icon={<LocationOnIcon />}
+            tooltipTitle={'Current Location'}
+            onClick={() => {
+              navigator.geolocation.getCurrentPosition(
+                (position) => {
+                  panTo({
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude,
+                  });
+                },
+                () => null
+              );
+            }}
+          />
+          <SpeedDialAction 
+            key={'Antinode Location'}
+            icon={<FlipCameraAndroidIcon />}
+            tooltipTitle={'Antinode Location'}
+            onClick={() => {
+              navigator.geolocation.getCurrentPosition(
+                (position) => {
+                  panTo({
+                    lat: (parseFloat(position.coords.latitude) - (parseFloat(position.coords.latitude) * 2)),
+                    lng: (parseFloat(position.coords.longitude) + 180),
+                  });
+                },
+                () => null
+              );
+            }}
+          />
+        </SpeedDial>
+      </Box>
     </>
   );
 }

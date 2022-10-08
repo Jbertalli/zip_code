@@ -12,11 +12,11 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import Database from '../components/Database';
 import UI_Buttons from '../components/UI_Buttons';
-import GetLocation from '../components/GetLocation';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { getAuth } from '@firebase/auth';
 import CircularProgress from '@mui/material/CircularProgress';
 import Header from '../components/Header';
+// import GetLocation from '../components/GetLocation';
 
 const drawerWidth = 300;
 
@@ -198,8 +198,8 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
                 </DrawerHeader>
                     <Divider />
                 <div style={{ transform: `translateY(${side})` }}> 
-                  <GetLocation />
-                    <Divider />
+                  {/* <GetLocation />
+                    <Divider /> */}
                   {user ? (
                   <>
                       <Database latCoord={latCoord} longCoord={longCoord} zip={zip} city={city} state={state} stateAbbreviation={stateAbbreviation} addZip={addZip} addCity={addCity} addLat={addLat} latitude={latitude} addLong={addLong} longitude={longitude} addState={addState} addStateAbbr={addStateAbbr} addDocument={addDocument} deleteZip={deleteZip} addOppLat={addOppLat} OppLat={OppLat} addOppLong={addOppLong} OppLong={OppLong} dbId={dbId} dbZip={dbZip} dbCity={dbCity} dbLatitude={dbLatitude} dbLongitude={dbLongitude} dbOppositeLatitude={dbOppositeLatitude} dbOppositeLongitude={dbOppositeLongitude} dbState={dbState} dbStateAbbreviation={dbStateAbbreviation} deleteCity={deleteCity} deleteLat={deleteLat} deleteLong={deleteLong} deleteOppositeLat={deleteOppositeLat} deleteOppositeLong={deleteOppositeLong} deleteState={deleteState} deleteAbbr={deleteAbbr} deleteAll={deleteAll} weatherData={weatherData} addWeather={addWeather} deleteWeather={deleteWeather} currentTempData={currentTempData} addCurrentTemp={addCurrentTemp} deleteCurrentTemp={deleteCurrentTemp} tempRangeData={tempRangeData} addTempRange={addTempRange} deleteTempRange={deleteTempRange} />
