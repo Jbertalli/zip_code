@@ -6,8 +6,6 @@ import Box from '@mui/material/Box';
 import SpeedDial from '@mui/material/SpeedDial';
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
-// import Button from '@mui/material/Button';
-// import styles from '../styles/zip.module.css';
 
 const libraries: string[] = ["places"];
 const mapContainerStyle = {
@@ -29,6 +27,24 @@ export default function Map({ latCoord, longCoord }) {
   // console.log(latCoord);
   // console.log(longCoord);
   const [transform, setTransform] = useState('translateY(477px)');
+
+  useEffect(() => {
+    if (window.innerWidth > 440) {
+      
+    } else {
+      
+    }
+
+    const updateMedia = () => {
+        if (window.innerWidth > 440) {
+          
+        } else {
+          
+        }
+    };
+      window.addEventListener('resize', updateMedia);
+      return () => window.removeEventListener('resize', updateMedia);
+  }, []);
 
   useEffect(() => {
     if (window.innerWidth > 440) {
