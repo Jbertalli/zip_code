@@ -115,4 +115,7 @@ export function Locate({ panTo }) {
         },
         () => null
       );
+      return (
+        <></>
+      );
   }

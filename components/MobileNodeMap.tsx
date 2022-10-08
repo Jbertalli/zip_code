@@ -105,7 +105,6 @@ export default function MobileNodeMap() {
 }
 
 export function Locate({ panTo }) {
-
     navigator.geolocation.getCurrentPosition(
         (position) => {
           panTo({
@@ -114,5 +113,8 @@ export function Locate({ panTo }) {
           });
         },
         () => null
+      );
+      return (
+        <></>
       );
   }
