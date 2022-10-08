@@ -107,7 +107,7 @@ export default function AntinodeMap() {
 export function AntinodeLocate({ panTo }) {
 
     navigator.geolocation.getCurrentPosition(
-        (position) => {
+        (position: any) => {
             panTo({
                 lat: (parseFloat(position.coords.latitude) - (parseFloat(position.coords.latitude) * 2)),
                 lng: (parseFloat(position.coords.longitude) + 180),
