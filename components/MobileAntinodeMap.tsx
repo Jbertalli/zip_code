@@ -54,7 +54,7 @@ export default function MobileAntinodeMap() {
     
     return (
         <>
-            <AntinodeLocate panTo={panTo} />
+            <MobileAntinodeLocate panTo={panTo} />
             <div style={{ transform: 'translateY(-29px)' }}>
                 <div style={{ position: 'absolute', zIndex: '1000000000', width: '100%' }}>
                     <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(364px)' }}>
@@ -108,16 +108,20 @@ export default function MobileAntinodeMap() {
     );
 }
 
-export function AntinodeLocate({ panTo }) {
-
+export function MobileAntinodeLocate({ panTo }) {
     navigator.geolocation.getCurrentPosition(
-        (position) => {
+        (position: any) => {
             panTo({
                 lat: (parseFloat(position.coords.latitude) - (parseFloat(position.coords.latitude) * 2)),
                 lng: (parseFloat(position.coords.longitude) + 180),
             });
         },
         () => null
+    );
+    return (
+        <>
+            &nbsp;
+        </>
     );
 }
         
