@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useRef, useEffect } from "react";
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api";
-import LocationOnIcon from '@mui/icons-material/LocationOn';
 import FlipCameraAndroidIcon from '@mui/icons-material/FlipCameraAndroid';
+import MyLocationIcon from '@mui/icons-material/MyLocation';
 import Box from '@mui/material/Box';
 import SpeedDial from '@mui/material/SpeedDial';
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';
@@ -180,7 +180,9 @@ function Locate({ panTo }) {
         >
           <SpeedDialAction 
             key={'Current Location'}
-            icon={<LocationOnIcon />}
+            icon={
+              <MyLocationIcon />
+            }
             tooltipTitle={'Current Location'}
             onClick={() => {
               navigator.geolocation.getCurrentPosition(
