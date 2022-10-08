@@ -1,7 +1,8 @@
 import React, { useState, useCallback, useRef } from "react";
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api";
 
-const libraries: string[] = ["places"];
+// const libraries: string[] = ["places"];
+const libraries = ["places"];
 const mapContainerStyle = {
     height: "50vh",
     width: "100vw",
@@ -38,7 +39,7 @@ export default function MobileAntinodeMap() {
         ]);
         }, []);
     
-        const mapRef = useRef();
+        const mapRef = useRef<any>(null);
         const onMapLoad = useCallback((map) => {
         mapRef.current = map;
         }, []);

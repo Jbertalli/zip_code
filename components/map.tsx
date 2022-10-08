@@ -7,7 +7,8 @@ import SpeedDial from '@mui/material/SpeedDial';
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
 
-const libraries: string[] = ["places"];
+// const libraries: string[] = ["places"];
+const libraries = ["places"];
 const mapContainerStyle = {
   height: "95vh",
   width: "100vw",
@@ -94,7 +95,7 @@ export default function Map({ latCoord, longCoord }) {
     ]);
   }, []);
 
-  const mapRef = useRef();
+  const mapRef = useRef<any>(null);
   const onMapLoad = useCallback((map) => {
     mapRef.current = map;
   }, []);
