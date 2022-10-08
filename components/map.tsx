@@ -82,7 +82,7 @@ export default function Map({ latCoord, longCoord }) {
 
   return (
     <>
-      <div style={{ top: '500px', right: '16%', position: 'absolute', zIndex: '10', transform: 'rotate(180deg)' }}>
+      <div style={{ top: '475px', right: '11%', position: 'absolute', zIndex: '10', transform: 'rotate(180deg) scale(0.8)' }}>
         <Locate panTo={panTo} />
       </div>
       <div style={{ display: 'flex', justifyContent: 'center', transform: `${transform}` }}>
@@ -133,45 +133,6 @@ export default function Map({ latCoord, longCoord }) {
 function Locate({ panTo }) {
   return (
     <>
-      {/* <div>
-        <Button
-          className={styles.button}
-          onClick={() => {
-            navigator.geolocation.getCurrentPosition(
-              (position) => {
-                panTo({
-                  lat: position.coords.latitude,
-                  lng: position.coords.longitude,
-                });
-              },
-              () => null
-            );
-          }}
-        > 
-          <LocationOnIcon fontSize="small" />&nbsp;
-          Current Location
-        </Button>
-      </div>
-      <div>
-        <Button
-          className={styles.button}
-          onClick={() => {
-            navigator.geolocation.getCurrentPosition(
-              (position) => {
-                panTo({
-                  lat: (parseFloat(position.coords.latitude) - (parseFloat(position.coords.latitude) * 2)),
-                  lng: (parseFloat(position.coords.longitude) + 180),
-                });
-              },
-              () => null
-            );
-          }}
-        >
-          <FlipCameraAndroidIcon fontSize="small" />&nbsp;
-          Antinode Location
-        </Button>
-      </div> */}
-
       <Box sx={{ height: 120, transform: 'translateZ(0px)', flexGrow: 1 }}>
         <SpeedDial
           ariaLabel="SpeedDial basic example"
