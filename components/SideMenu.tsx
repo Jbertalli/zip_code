@@ -126,6 +126,17 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
   const auth = getAuth();
   const [user, loading] = useAuthState(getAuth());
 
+    // console.log(user?.email);
+    // console.log(user.displayName);
+
+    let nameHeader;
+
+    if (user?.displayName == null) {
+        nameHeader = `${user?.email}'s`
+    } else {
+        nameHeader = `${user.displayName}'s`
+    }
+
   return (
     <>
         <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
@@ -178,15 +189,12 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
                   {isDesktop ? (
                   <>
                     <div style={{ fontSize: '16px', fontWeight: '400', position: 'absolute', zIndex: '10000000', color: 'white', left: '16px', top: '21px' }}>
-                      <span>
+                      <span style={{ width: '500px' }}>
                           {user ? (
                           <>
-                              {user.displayName}'s{' '}
+                              {nameHeader}&nbsp;
                           </>
-                          ): null}
-                      </span>
-                      <span>
-                          Dashboard
+                          ): null} Dashboard
                       </span>
                     </div>
                   </>
