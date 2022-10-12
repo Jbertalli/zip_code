@@ -7,7 +7,7 @@ import { getAuth } from '@firebase/auth';
 import { initializeApp } from 'firebase/app';
 import Header from '../components/Header';
 import { Table, TableCell, TableRow } from '@mui/material';
-import CircularProgress from '@mui/material/CircularProgress'
+import CircularProgress from '@mui/material/CircularProgress';
 
 const clientCredential = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -142,10 +142,12 @@ export default function History() {
                     <Header />
                 </div>
             </div>
-            {loading ? (
+            {!loading ? (
             <>
-                <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(50vh) scale(2.0)' }}>
-                    <CircularProgress />
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <div style={{ position: 'absolute', transform: 'translateY(45vh) scale(2.0)' }}>
+                        <CircularProgress />
+                    </div>
                 </div>
             </>
             ):(
