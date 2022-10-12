@@ -247,6 +247,9 @@ function SignInScreen() {
                                         onClick={() => {setShowPassword('password'), setToggle(false)}}
                                         inputProps={{ 'aria-label': 'controlled' }}
                                     />
+                                    <span>
+                                        Hide Password
+                                    </span>
                                 </>
                                 ):(
                                 <>
@@ -256,6 +259,9 @@ function SignInScreen() {
                                         onClick={() => {setShowPassword('text'), setToggle(true)}}
                                         inputProps={{ 'aria-label': 'controlled' }}
                                     />  
+                                    <span>
+                                        Show Password
+                                    </span>
                                 </>
                                 )}
                             </FocusLock>
