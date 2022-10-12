@@ -109,7 +109,7 @@ export default function History() {
 
     if (typeof window !== "undefined") {
         useEffect(() => {
-            //view cookie length for debugging
+            // view cookie length for debugging
             // console.log(document.cookie);
             // console.log(document.cookie.length);
             if (document.cookie.length > 46) {
@@ -142,7 +142,7 @@ export default function History() {
                     <Header />
                 </div>
             </div>
-            {!loading ? (
+            {loading ? (
             <>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <div style={{ position: 'absolute', transform: 'translateY(45vh) scale(2.0)' }}>
