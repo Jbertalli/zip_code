@@ -304,14 +304,14 @@ function SignInScreen() {
                                         <input
                                             onChange={(e) => setPassword(e.target.value)}
                                             value={password}
-                                            type="password"
+                                            type={`${showPassword}`}
                                             placeholder="Password"
                                             style={{
                                                 borderRight: 'transparent',
                                                 borderLeft: 'transparent',
                                                 borderTop: 'transparent',
                                                 borderBottom: '.5px solid gray',
-                                                margin: '7px 0px 40px',
+                                                margin: '7px 0px 60px',
                                                 padding: '4px',
                                                 width: '80%',
                                                 maxWidth: '300px',
@@ -323,6 +323,33 @@ function SignInScreen() {
                                     <div style={{ color: 'red', display: 'flex', justifyContent: 'center' }}>
                                         {error && (
                                             <p>{error}</p>
+                                        )}
+                                    </div>
+                                    <div style={{ position: 'absolute', transform: 'translate(10px, -50px)' }}>
+                                        {toggle ? (
+                                        <>
+                                            <Checkbox
+                                                checked={checked}
+                                                onChange={handleChange}
+                                                onClick={() => {setShowPassword('password'), setToggle(false)}}
+                                                inputProps={{ 'aria-label': 'controlled' }}
+                                            />
+                                            <span>
+                                                Hide Password
+                                            </span>
+                                        </>
+                                        ):(
+                                        <>
+                                            <Checkbox
+                                                checked={checked}
+                                                onChange={handleChange}
+                                                onClick={() => {setShowPassword('text'), setToggle(true)}}
+                                                inputProps={{ 'aria-label': 'controlled' }}
+                                            />  
+                                            <span>
+                                                Show Password
+                                            </span>
+                                        </>
                                         )}
                                     </div>
                                     <div style={{ display: 'flex', justifyContent: 'center', color: 'white' }}>
