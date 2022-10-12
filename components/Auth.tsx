@@ -31,7 +31,7 @@ function SignInScreen() {
     const [emailSign, setEmailSign] = useState<string>('28px');
     const [width, setWidth] = useState<string>('236px');
     const [view, setView] = useState<string>('10vh');
-    const [showPassword, setShowPassword] = useState(false);
+    const [showPassword, setShowPassword] = useState('password');
 
     useEffect(() => {
         if (window.innerWidth > 440) {
@@ -233,9 +233,16 @@ function SignInScreen() {
                                         <input type="submit" value="Login" className={styles.buttons} />
                                     </div>
                                 </form>
-                                <Button style={{ background: 'white' }}>
-                                    Hello
-                                </Button>
+                                <div>
+                                    <Button onClick={() => setShowPassword('text')} style={{ background: 'white' }}>
+                                        Show Password
+                                    </Button> 
+                                </div>
+                                <div>
+                                    <Button onClick={() => setShowPassword('password')} style={{ background: 'white' }}>
+                                        Hide Password
+                                    </Button>
+                                </div>
                             </FocusLock>
                         </div>
                     </>
