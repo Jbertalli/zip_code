@@ -31,7 +31,8 @@ function SignInScreen() {
     const [emailSign, setEmailSign] = useState<string>('28px');
     const [width, setWidth] = useState<string>('236px');
     const [view, setView] = useState<string>('10vh');
-    const [showPassword, setShowPassword] = useState('password');
+    const [toggle, setToggle] = useState<boolean>(false);
+    const [showPassword, setShowPassword] = useState<string>('password');
 
     useEffect(() => {
         if (window.innerWidth > 440) {
@@ -204,8 +205,7 @@ function SignInScreen() {
                                         <input
                                             onChange={(e) => setPassword(e.target.value)}
                                             value={password}
-                                            // type="password"
-                                            type="text"
+                                            type={`${showPassword}`}
                                             placeholder="Password"
                                             style={{
                                                 borderRight: 'transparent',
@@ -233,16 +233,23 @@ function SignInScreen() {
                                         <input type="submit" value="Login" className={styles.buttons} />
                                     </div>
                                 </form>
-                                <div>
-                                    <Button onClick={() => setShowPassword('text')} style={{ background: 'white' }}>
-                                        Show Password
-                                    </Button> 
-                                </div>
-                                <div>
-                                    <Button onClick={() => setShowPassword('password')} style={{ background: 'white' }}>
-                                        Hide Password
-                                    </Button>
-                                </div>
+                                {toggle ? (
+                                <>
+                                    <div>
+                                        <Button onClick={() => {setShowPassword('password'), setToggle(false)}} style={{ background: 'white' }}>
+                                            Hide Password
+                                        </Button>
+                                    </div>
+                                </>
+                                ):(
+                                <>
+                                    <div>
+                                        <Button onClick={() => {setShowPassword('text'), setToggle(true)}} style={{ background: 'white' }}>
+                                            Show Password
+                                        </Button> 
+                                    </div>
+                                </>
+                                )}
                             </FocusLock>
                         </div>
                     </>
