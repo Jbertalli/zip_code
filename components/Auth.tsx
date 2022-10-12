@@ -123,7 +123,7 @@ function SignInScreen() {
     return (
       <> 
         <div style={{ display: 'flex', justifyContent: 'center', transform: `translateY(${view})` }}>
-            <div style={{ fontWeight: '200', position: 'absolute', border: '1px solid white', borderRadius: '8px', height: '45vh', minHeight: '530px', width: '20vw', maxWidth: '600px', minWidth: `${width}` }}>
+            <div style={{ fontWeight: '200', position: 'absolute', border: '1px solid white', borderRadius: '8px', height: '47vh', minHeight: '530px', width: '20vw', maxWidth: '600px', minWidth: `${width}` }}>
                 <div style={{ fontSize: `${headerSize}`, display: 'flex', justifyContent: 'center', padding: '2.5vh 0vw 0vh 0vw' }}>
                     {account ? (
                     <>
@@ -218,7 +218,7 @@ function SignInScreen() {
                                                 borderLeft: 'transparent',
                                                 borderTop: 'transparent',
                                                 borderBottom: '.5px solid gray',
-                                                margin: '7px 0px 40px',
+                                                margin: '7px 0px 60px',
                                                 padding: '4px',
                                                 width: '80%',
                                                 maxWidth: '300px',
@@ -232,6 +232,33 @@ function SignInScreen() {
                                             <p>{error}</p>
                                         )}
                                     </div>
+                                    <div style={{ position: 'absolute', transform: 'translate(10px, -50px)' }}>
+                                        {toggle ? (
+                                        <>
+                                            <Checkbox
+                                                checked={checked}
+                                                onChange={handleChange}
+                                                onClick={() => {setShowPassword('password'), setToggle(false)}}
+                                                inputProps={{ 'aria-label': 'controlled' }}
+                                            />
+                                            <span>
+                                                Hide Password
+                                            </span>
+                                        </>
+                                        ):(
+                                        <>
+                                            <Checkbox
+                                                checked={checked}
+                                                onChange={handleChange}
+                                                onClick={() => {setShowPassword('text'), setToggle(true)}}
+                                                inputProps={{ 'aria-label': 'controlled' }}
+                                            />  
+                                            <span>
+                                                Show Password
+                                            </span>
+                                        </>
+                                        )}
+                                    </div>
                                     <div style={{ display: 'flex', justifyContent: 'center', color: 'white' }}>
                                         Don't have an account?&nbsp;<a onClick={() => {setAccount(false), setEmail(""), setPassword("")}} style={{ cursor: 'pointer', color: 'white', textDecoration: 'underline' }}>Signup</a>
                                     </div>
@@ -239,31 +266,7 @@ function SignInScreen() {
                                         <input type="submit" value="Login" className={styles.buttons} />
                                     </div>
                                 </form>
-                                {toggle ? (
-                                <>
-                                    <Checkbox
-                                        checked={checked}
-                                        onChange={handleChange}
-                                        onClick={() => {setShowPassword('password'), setToggle(false)}}
-                                        inputProps={{ 'aria-label': 'controlled' }}
-                                    />
-                                    <span>
-                                        Hide Password
-                                    </span>
-                                </>
-                                ):(
-                                <>
-                                    <Checkbox
-                                        checked={checked}
-                                        onChange={handleChange}
-                                        onClick={() => {setShowPassword('text'), setToggle(true)}}
-                                        inputProps={{ 'aria-label': 'controlled' }}
-                                    />  
-                                    <span>
-                                        Show Password
-                                    </span>
-                                </>
-                                )}
+                                
                             </FocusLock>
                         </div>
                     </>
