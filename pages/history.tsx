@@ -112,7 +112,7 @@ export default function History() {
             // view cookie length for debugging
             // console.log(document.cookie);
             // console.log(document.cookie.length);
-            if (document.cookie.length > 46) {
+            if (document.cookie.length > 230) {
                 console.log('Authenticated!');
             } else {
                 router.push('/login');

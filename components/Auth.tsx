@@ -8,7 +8,6 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import Button from '@mui/material/Button';
 import styles from '../styles/zip.module.css';
 import FocusLock from 'react-focus-lock';
-// import LogoutIcon from '@mui/icons-material/Logout';
 
 //Configure FirebaseUI
 const uiConfig = {
@@ -32,6 +31,7 @@ function SignInScreen() {
     const [emailSign, setEmailSign] = useState<string>('28px');
     const [width, setWidth] = useState<string>('236px');
     const [view, setView] = useState<string>('10vh');
+    const [showPassword, setShowPassword] = useState(false);
 
     useEffect(() => {
         if (window.innerWidth > 440) {
@@ -72,17 +72,6 @@ function SignInScreen() {
         console.log("%c No user signed in", "color: red");
       }
     });
-
-    // const SignOut = () => {
-    //     signOut(auth).then(() => {
-    //         // Sign-out successful.
-    //         document.cookie = 'name=; expires=Thu, 01 Jan 1970';
-    //         console.log("%c signed out", "color: red");
-    //     }).catch((error) => {
-    //         // An error happened.
-    //         console.log("Error", error);
-    //     });
-    // }
 
     const signInWithGoogle = () => {
         setPersistence(auth, browserSessionPersistence);
@@ -215,7 +204,8 @@ function SignInScreen() {
                                         <input
                                             onChange={(e) => setPassword(e.target.value)}
                                             value={password}
-                                            type="password"
+                                            // type="password"
+                                            type="text"
                                             placeholder="Password"
                                             style={{
                                                 borderRight: 'transparent',
@@ -243,6 +233,9 @@ function SignInScreen() {
                                         <input type="submit" value="Login" className={styles.buttons} />
                                     </div>
                                 </form>
+                                <Button style={{ background: 'white' }}>
+                                    Hello
+                                </Button>
                             </FocusLock>
                         </div>
                     </>
