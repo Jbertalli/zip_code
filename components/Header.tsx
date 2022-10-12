@@ -19,9 +19,9 @@ export default function Header() {
     // textDecoration: `${homeUnderline}`
     // textDecoration: `${antinodeUnderline}`
     // textDecoration: `${historyUnderline}`
-    const [user] = useAuthState(getAuth());
-    const router = useRouter();
     const auth = getAuth();
+    const [user] = useAuthState(auth);
+    const router = useRouter();
 
     useEffect(() => {
         if (window.innerWidth > 440) {

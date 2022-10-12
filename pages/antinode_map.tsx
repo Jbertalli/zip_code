@@ -1,10 +1,22 @@
 import Head from 'next/head';
 import React, { useState, useEffect } from "react";
+import { initializeApp } from 'firebase/app';
 import NodeMap from '../components/Nodemap';
 import AntinodeMap from '../components/Antinodemap';
 import Header from '../components/Header';
 import MobileNodeMap from '../components/MobileNodeMap';
 import MobileAntinodeMap from '../components/MobileAntinodeMap';
+
+const clientCredential = {
+    apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+    authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+};
+
+const app = initializeApp(clientCredential);
 
 export default function Antinode() {
     const [isDesktop, setIsDesktop] = useState(false);

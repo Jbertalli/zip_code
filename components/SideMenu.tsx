@@ -124,7 +124,7 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
   };
 
   const auth = getAuth();
-  const [user, loading] = useAuthState(getAuth());
+  const [user, loading] = useAuthState(auth);
 
     // console.log(user?.email);
     // console.log(user.displayName);

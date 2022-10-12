@@ -79,7 +79,7 @@ export default function Home() {
     const [center, setCenter] = useState<string>('');
 
     const auth = getAuth();
-    const [user] = useAuthState(getAuth());
+    const [user] = useAuthState(auth);
 
     useEffect(() => {
       if (window.innerWidth > 440) {
