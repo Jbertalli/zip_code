@@ -8,6 +8,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import Button from '@mui/material/Button';
 import styles from '../styles/zip.module.css';
 import FocusLock from 'react-focus-lock';
+import Checkbox from '@mui/material/Checkbox';
 
 //Configure FirebaseUI
 const uiConfig = {
@@ -33,6 +34,7 @@ function SignInScreen() {
     const [view, setView] = useState<string>('10vh');
     const [toggle, setToggle] = useState<boolean>(false);
     const [showPassword, setShowPassword] = useState<string>('password');
+    const [checked, setChecked] = useState<boolean>(false);
 
     useEffect(() => {
         if (window.innerWidth > 440) {
@@ -113,6 +115,10 @@ function SignInScreen() {
             setError("Invalid email or password");
         });
     }
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setChecked(event.target.checked);
+      };
 
     return (
       <> 
@@ -235,19 +241,21 @@ function SignInScreen() {
                                 </form>
                                 {toggle ? (
                                 <>
-                                    <div>
-                                        <Button onClick={() => {setShowPassword('password'), setToggle(false)}} style={{ background: 'white' }}>
-                                            Hide Password
-                                        </Button>
-                                    </div>
+                                    <Checkbox
+                                        checked={checked}
+                                        onChange={handleChange}
+                                        onClick={() => {setShowPassword('password'), setToggle(false)}}
+                                        inputProps={{ 'aria-label': 'controlled' }}
+                                    />
                                 </>
                                 ):(
                                 <>
-                                    <div>
-                                        <Button onClick={() => {setShowPassword('text'), setToggle(true)}} style={{ background: 'white' }}>
-                                            Show Password
-                                        </Button> 
-                                    </div>
+                                    <Checkbox
+                                        checked={checked}
+                                        onChange={handleChange}
+                                        onClick={() => {setShowPassword('text'), setToggle(true)}}
+                                        inputProps={{ 'aria-label': 'controlled' }}
+                                    />  
                                 </>
                                 )}
                             </FocusLock>
