@@ -2,7 +2,7 @@ import React, { useState, useCallback, useRef } from "react";
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api";
 
 // const libraries: string[] = ["places"];
-const libraries = ["places"];
+const libraries: any = ["places"];
 const mapContainerStyle = {
   height: "40.5vh",
   width: "100vw",

@@ -8,7 +8,7 @@ import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
 
 // const libraries: string[] = ["places"];
-const libraries = ["places"];
+const libraries: any = ["places"];
 const mapContainerStyle = {
   height: "95vh",
   width: "100vw",
