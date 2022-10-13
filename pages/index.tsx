@@ -214,7 +214,12 @@ export default function Home() {
     }
     
     useEffect(() => {
-      logged();
+      // console.log(user);
+      if (user) {
+        logged();
+      } else {
+        return;
+      }
     }, []);
 
     let dbId = userInfo?.[0]?.id;
