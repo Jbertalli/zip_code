@@ -49,8 +49,10 @@ export default function AntinodeMap() {
         mapRef.current.setZoom(5);
       }, []);
 
-      if (loadError) return "Error";
-      if (!isLoaded) return "Loading...";
+    //   if (loadError) return "Error";
+    //   if (!isLoaded) return "Loading...";
+    if (loadError) return;
+    if (!isLoaded) return;
     
     return (
         <>
