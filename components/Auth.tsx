@@ -31,10 +31,12 @@ function SignInScreen() {
     const [headerSize, setHeaderSize] = useState<string>('2.1em');
     const [emailSign, setEmailSign] = useState<string>('28px');
     const [width, setWidth] = useState<string>('236px');
-    const [view, setView] = useState<string>('10vh');
+    const [view, setView] = useState<string>('160px');
     const [toggle, setToggle] = useState<boolean>(false);
     const [showPassword, setShowPassword] = useState<string>('password');
     const [checked, setChecked] = useState<boolean>(false);
+    const [sign, setSign] = useState<string>('120px');
+    const [height, setHeight] = useState<string>('');
 
     useEffect(() => {
         if (window.innerWidth > 440) {
@@ -42,11 +44,15 @@ function SignInScreen() {
             setEmailSign('28px');
             setWidth('236px');
             setView('160px');
+            setSign('120px');
+            setHeight('620px');
         } else {
             setHeaderSize('1.7em');
             setEmailSign('48px');
             setWidth('300px');
             setView('12vh');
+            setSign('70px');
+            setHeight('560px');
         }
 
         const updateMedia = () => {
@@ -55,11 +61,15 @@ function SignInScreen() {
                 setEmailSign('28px');
                 setWidth('236px');
                 setView('160px');
+                setSign('120px');
+                setHeight('620px');
             } else {
                 setHeaderSize('1.7em');
                 setEmailSign('48px');
                 setWidth('300px');
                 setView('12vh');
+                setSign('70px');
+                setHeight('560px');
             }
         };
         window.addEventListener('resize', updateMedia);
@@ -123,8 +133,8 @@ function SignInScreen() {
     return (
       <> 
         <div style={{ display: 'flex', justifyContent: 'center', transform: `translateY(${view})` }}>
-            <div style={{ fontWeight: '200', position: 'absolute', border: '1px solid white', borderRadius: '8px', height: '47vh', minHeight: '530px', width: '20vw', maxWidth: '600px', minWidth: `${width}` }}>
-                <div style={{ fontSize: `${headerSize}`, display: 'flex', justifyContent: 'center', padding: '2.5vh 0vw 0vh 0vw' }}>
+            <div style={{ fontWeight: '200', position: 'absolute', border: '1px solid white', borderRadius: '8px', minHeight: `${height}`, width: '20vw', maxWidth: '600px', minWidth: `${width}` }}>
+                <div style={{ fontSize: `${headerSize}`, display: 'flex', justifyContent: 'center', padding: '30px 0px 0px 0px' }}>
                     {account ? (
                     <>
                         Login to Account
@@ -135,7 +145,7 @@ function SignInScreen() {
                     </>
                     )}
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(3vh)', minWidth: '100px' }}>
+                <div style={{ display: 'flex', justifyContent: 'center', transform: 'translateY(30px)', minWidth: '100px' }}>
                     <div
                         style={{
                             maxWidth: "320px",
@@ -176,7 +186,7 @@ function SignInScreen() {
                         </Button>
                     </div>
                 </div>
-                <div style={{ transform: 'translateY(9.1vh)', display: 'flex', justifyContent: 'center' }}>
+                <div style={{ transform: `translateY(${sign})`, display: 'flex', justifyContent: 'center' }}>
                     {account ? (
                     <>
                         <div>
@@ -266,7 +276,6 @@ function SignInScreen() {
                                         <input type="submit" value="Login" className={styles.buttons} />
                                     </div>
                                 </form>
-                                
                             </FocusLock>
                         </div>
                     </>
