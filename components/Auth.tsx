@@ -41,7 +41,7 @@ function SignInScreen() {
             setHeaderSize('2.1em');
             setEmailSign('28px');
             setWidth('236px');
-            setView('10vh');
+            setView('160px');
         } else {
             setHeaderSize('1.7em');
             setEmailSign('48px');
@@ -54,7 +54,7 @@ function SignInScreen() {
                 setHeaderSize('2.1em');
                 setEmailSign('28px');
                 setWidth('236px');
-                setView('10vh');
+                setView('160px');
             } else {
                 setHeaderSize('1.7em');
                 setEmailSign('48px');
