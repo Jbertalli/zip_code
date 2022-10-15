@@ -105,8 +105,10 @@ export default function Map({ latCoord, longCoord }) {
     mapRef.current.setZoom(14);
   }, []);
 
-  if (loadError) return "Error";
-  if (!isLoaded) return "Loading...";
+  // if (loadError) return "Error";
+  // if (!isLoaded) return "Loading...";
+  if (loadError) return;
+  if (!isLoaded) return;
 
   return (
     <>
