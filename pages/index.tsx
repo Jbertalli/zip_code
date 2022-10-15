@@ -61,7 +61,7 @@ const API_key: string = process.env.API_KEY;
 export default function Home() {
     const [latitude, setLatitude] = useState<number>();
     const [longitude, setLongitude] = useState<number>();
-    const [responseData, setResponseData] = useState({});
+    const [responseData, setResponseData] = useState<any>({});
     const [zip, setZip] = useState<string>('');
     const [city, setCity] = useState<string>('');
     const [latCoord, setLatCoord] = useState<string>('');
