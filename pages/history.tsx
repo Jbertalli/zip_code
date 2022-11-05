@@ -107,18 +107,21 @@ export default function History() {
     //   console.log(dbTemp);
     //   console.log(dbRange);
 
-    if (typeof window !== "undefined") {
-        useEffect(() => {
-            // view cookie length for debugging
-            // console.log(document.cookie);
-            // console.log(document.cookie.length);
+    // view cookie length for debugging
+    // console.log(document.cookie);
+    console.log(document.cookie.length);
+    
+    useEffect(() => {
+        if (typeof window !== "undefined") {
             if (document.cookie.length > 46) {
                 console.log('Authenticated!');
             } else {
                 router.push('/login');
             }
-        }, [])
-    }
+        } else {
+            console.log('window == undefined');
+        }
+    }, [])
     
     // console.log(user?.email);
     // console.log(user.displayName);

@@ -270,7 +270,7 @@ function SignInScreen() {
                                         )}
                                     </div>
                                     <div style={{ display: 'flex', justifyContent: 'center', color: 'white' }}>
-                                        Don't have an account?&nbsp;<a onClick={() => {setAccount(false), setEmail(""), setPassword("")}} style={{ cursor: 'pointer', color: 'white', textDecoration: 'underline' }}>Signup</a>
+                                        {`Don't have an account?`}&nbsp;<a onClick={() => {setAccount(false), setEmail(""), setPassword("")}} style={{ cursor: 'pointer', color: 'white', textDecoration: 'underline' }}>Signup</a>
                                     </div>
                                     <div style={{ display: 'flex', justifyContent: 'center', padding: '20px 0px 30px' }}>
                                         <input type="submit" value="Login" className={styles.buttons} />
@@ -362,7 +362,7 @@ function SignInScreen() {
                                         )}
                                     </div>
                                     <div style={{ display: 'flex', justifyContent: 'center', color: 'white' }}>
-                                        Already have an account?&nbsp;<a onClick={() => {setAccount(true), setEmail(""), setPassword("")}} style={{ cursor: 'pointer', color: 'white', textDecoration: 'underline' }}>Login</a>
+                                        {`Already have an account?`}&nbsp;<a onClick={() => {setAccount(true), setEmail(""), setPassword("")}} style={{ cursor: 'pointer', color: 'white', textDecoration: 'underline' }}>Login</a>
                                     </div>
                                     <div style={{ display: 'flex', justifyContent: 'center', padding: '20px 0px 30px' }}>
                                         <input type="submit" value="Signup" className={styles.buttons}/>
