@@ -11,7 +11,7 @@ import LongClose from '../components/close_buttons/longClose';
 import StateClose from '../components/close_buttons/stateClose';
 import AbbrClose from '../components/close_buttons/abbrClose';
 import firebase from '../firebase/clientApp';
-import { initializeApp } from 'firebase/app';
+// import { initializeApp } from 'firebase/app';
 import { getFirestore, doc, getDocs, setDoc, deleteField, updateDoc, collection, Timestamp } from 'firebase/firestore';
 // import Auth from '../components/Auth';
 // import { getAuth, onAuthStateChanged } from "firebase/auth";
@@ -36,19 +36,20 @@ import CurrentTempText from '../components/textTernary/currentTempTextTernary';
 import CurrentTempClose from '../components/close_buttons/currentTempClose';
 import TempRangeText from '../components/textTernary/tempRangeTextTernary';
 import TempRangeClose from '../components/close_buttons/tempRangeClose';
+import { auth } from '../firebase/clientApp';
 
-const clientCredential = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
-};
+// const clientCredential = {
+//   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+//   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+//   projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+//   storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+//   messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+//   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+// };
 
 // console.log(clientCredentials);
-
-const app = initializeApp(clientCredential);
+// const app = initializeApp(clientCredential);
+auth;
 const db = getFirestore();
 
 // const auth = getAuth();
@@ -78,8 +79,7 @@ export default function Home() {
     const [flex, setFlex] = useState<string>('');
     const [center, setCenter] = useState<string>('');
 
-    const auth = getAuth();
-    const [user] = useAuthState(auth);
+    const [user] = useAuthState(getAuth());
 
     useEffect(() => {
       if (window.innerWidth > 440) {

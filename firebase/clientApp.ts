@@ -2,6 +2,7 @@ import { initializeApp } from 'firebase/app';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
+import { getAuth } from 'firebase/auth';
 
 const clientCredentials = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -17,6 +18,7 @@ const clientCredentials = {
 // Version 9 Code
 const app = initializeApp(clientCredentials);
 const defaultProject = initializeApp(clientCredentials);
+export const auth = getAuth(app);
 
 // Version 8 Code
 // if (!firebase.apps.length) {
