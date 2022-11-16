@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useRef, useEffect } from "react";
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api";
+// import usePlacesAutocomplete, { getGeocode, getLatLng } from "use-places-autocomplete";
 import FlipCameraAndroidIcon from '@mui/icons-material/FlipCameraAndroid';
 import MyLocationIcon from '@mui/icons-material/MyLocation';
 import Box from '@mui/material/Box';
@@ -114,6 +115,9 @@ export default function Map({ latCoord, longCoord }) {
     <>
       <div style={{ top: `${top}`, right: `${right}`, position: 'absolute', zIndex: '10', transform: `${scale}` }}>
         <Locate panTo={panTo} />
+        {/* <div style={{ transform: 'rotate(180deg)' }}>
+          <Search panTo={panTo} />
+        </div> */}
       </div>
       <div style={{ display: 'flex', justifyContent: 'center', transform: `${transform}` }}>
         <GoogleMap
@@ -208,3 +212,56 @@ function Locate({ panTo }) {
     </>
   );
 }
+
+// function Search({ panTo }) {
+//   const {
+//     ready,
+//     value,
+//     suggestions: { status, data },
+//     setValue,
+//     clearSuggestions,
+//   } = usePlacesAutocomplete({
+//     requestOptions: {
+//       location: { lat: () => 40.73, lng: () => -73.93 },
+//       radius: 100 * 1000,
+//     },
+//   });
+
+//   const handleInput = (e) => {
+//     setValue(e.target.value);
+//   };
+
+//   const handleSelect = async (address) => {
+//     setValue(address, false);
+//     clearSuggestions();
+
+//     try {
+//       const results = await getGeocode({ address });
+//       const { lat, lng } = await getLatLng(results[0]);
+//       panTo({ lat, lng });
+//     } catch (error) {
+//       console.log("Error: ", error);
+//     }
+//   };
+
+//   return (
+//     <div>
+//       <div onSelect={handleSelect}>
+//         <input
+//           value={value}
+//           onChange={handleInput}
+//           disabled={!ready}
+//           placeholder="Search your location"
+//         />
+//         <div>
+//           <div>
+//             {status === "OK" &&
+//               data.map(({ id, description }) => (
+//                 <div key={id} value={description} />
+//               ))}
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
