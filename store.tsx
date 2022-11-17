@@ -3,6 +3,7 @@ import counterReducer from './slices/counterSlice';
 import zipReducer from './slices/zipSlice';
 import cityReducer from './slices/citySlice';
 import latCoordReducer from './slices/latCoordSlice';
+import longCoordReducer from './slices/longCoordSlice';
 
 export const store = configureStore({
     reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
         zip: zipReducer,
         city: cityReducer,
         latCoord: latCoordReducer,
+        longCoord: longCoordReducer,
     },
 })
 
