@@ -1,5 +1,5 @@
 ## Technologies
-* React
+* React/Redux
 * Next.js
 * TypeScript
 * Firebase
