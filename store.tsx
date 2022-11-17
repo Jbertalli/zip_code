@@ -12,6 +12,7 @@ import weatherDataReducer from './slices/weatherSlice';
 import currentTempDataReducer from './slices/currentTempDataSlice';
 import tempRangeDataReducer from './slices/tempRangeDataSlice';
 import latitudeReducer from './slices/latitudeSlice';
+import longitudeReducer from './slices/longitudeSlice';
 
 export const store = configureStore({
     reducer: {
@@ -28,6 +29,7 @@ export const store = configureStore({
         currentTempData: currentTempDataReducer,
         tempRangeData: tempRangeDataReducer,
         latitude: latitudeReducer,
+        longitude: longitudeReducer,
     },
 })
 

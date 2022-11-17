@@ -50,6 +50,7 @@ import { incrementWeatherData } from '../slices/weatherSlice';
 import { incrementCurrentTempData } from '../slices/currentTempDataSlice';
 import { incrementTempRangeData } from '../slices/tempRangeDataSlice';
 import { incrementLatitude } from '../slices/latitudeSlice';
+import { incrementLongitude } from '../slices/longitudeSlice';
 
 // const clientCredential = {
 //   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -105,7 +106,8 @@ export default function Home() {
     store.dispatch(incrementWeatherData(String(weatherData)));
     store.dispatch(incrementCurrentTempData(String(currentTempData)));
     store.dispatch(incrementTempRangeData(String(tempRangeData)));
-    store.dispatch(incrementLatitude(String(latitude)));
+    store.dispatch(incrementLatitude(Number(latitude)));
+    store.dispatch(incrementLongitude(Number(longitude)));
     console.log(store.getState());
 
     useEffect(() => {
@@ -477,7 +479,17 @@ export default function Home() {
         <Auth />
       </div> */}
       <Local setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} setOppLat={setOppLat} setOppLong={setOppLong} setWeatherData={setWeatherData} setCurrentTempData={setCurrentTempData} setTempRangeData={setTempRangeData} />
-      <Container maxWidth="lg" style={{ transform: `${scale}`, display: `${flex}`, justifyContent: `${center}`, marginTop: '2%', position: 'relative', zIndex: '10' }}>
+      <Container 
+        maxWidth="lg" 
+        style={{ 
+          transform: `${scale}`, 
+          display: `${flex}`, 
+          justifyContent: `${center}`, 
+          marginTop: '2%', 
+          position: 'relative', 
+          zIndex: '10' 
+        }}
+      >
         <Draggable>
           <div style={{ 
             color: 'white', 
@@ -554,7 +566,7 @@ export default function Home() {
           </div>
         </Draggable>
       </Container>
-      <SideMenu zipCode={zipCode} setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} handleClear={handleClear} opposite={opposite} addZip={addZip} deleteZip={deleteZip} addCity={addCity} deleteCity={deleteCity} addLat={addLat} deleteLat={deleteLat} addLong={addLong} longitude={longitude} deleteLong={deleteLong} addState={addState} deleteState={deleteState} addStateAbbr={addStateAbbr} deleteAbbr={deleteAbbr} addDocument={addDocument} deleteAll={deleteAll} addOppLat={addOppLat} addOppLong={addOppLong} deleteOppositeLat={deleteOppositeLat} deleteOppositeLong={deleteOppositeLong} dbId={dbId} dbZip={dbZip} dbCity={dbCity} dbLatitude={dbLatitude} dbLongitude={dbLongitude} dbOppositeLatitude={dbOppositeLatitude} dbOppositeLongitude={dbOppositeLongitude} dbState={dbState} dbStateAbbreviation={dbStateAbbreviation} weather={weather} setWeatherData={setWeatherData} currentTemp={currentTemp} setCurrentTempData={setCurrentTempData} tempRange={tempRange} setTempRangeData={setTempRangeData} addWeather={addWeather} deleteWeather={deleteWeather} addCurrentTemp={addCurrentTemp} deleteCurrentTemp={deleteCurrentTemp} addTempRange={addTempRange} deleteTempRange={deleteTempRange} />
+      <SideMenu zipCode={zipCode} setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} handleClear={handleClear} opposite={opposite} addZip={addZip} deleteZip={deleteZip} addCity={addCity} deleteCity={deleteCity} addLat={addLat} deleteLat={deleteLat} addLong={addLong} deleteLong={deleteLong} addState={addState} deleteState={deleteState} addStateAbbr={addStateAbbr} deleteAbbr={deleteAbbr} addDocument={addDocument} deleteAll={deleteAll} addOppLat={addOppLat} addOppLong={addOppLong} deleteOppositeLat={deleteOppositeLat} deleteOppositeLong={deleteOppositeLong} dbId={dbId} dbZip={dbZip} dbCity={dbCity} dbLatitude={dbLatitude} dbLongitude={dbLongitude} dbOppositeLatitude={dbOppositeLatitude} dbOppositeLongitude={dbOppositeLongitude} dbState={dbState} dbStateAbbreviation={dbStateAbbreviation} weather={weather} setWeatherData={setWeatherData} currentTemp={currentTemp} setCurrentTempData={setCurrentTempData} tempRange={tempRange} setTempRangeData={setTempRangeData} addWeather={addWeather} deleteWeather={deleteWeather} addCurrentTemp={addCurrentTemp} deleteCurrentTemp={deleteCurrentTemp} addTempRange={addTempRange} deleteTempRange={deleteTempRange} />
       <div style={{ transform: 'translateY(-469.7px)' }}>
         <Map latCoord={latCoord} longCoord={longCoord} />
       </div>
