@@ -11,8 +11,32 @@ import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import ThermostatIcon from '@mui/icons-material/Thermostat';
 import StraightenIcon from '@mui/icons-material/Straighten';
 import AddIcon from '@mui/icons-material/Add';
+import { useSelector } from 'react-redux';
+import { zipValue } from '../slices/zipSlice';
+import { cityValue } from '../slices/citySlice';
+import { latCoordValue } from '../slices/latCoordSlice';
+import { longCoordValue } from "../slices/longCoordSlice";
+import { stateValue } from '../slices/stateSlice';
+import { stateAbbreviationValue } from "../slices/stateAbbreviationSlice";
+import { OppLatValue } from '../slices/OppLatSlice';
+import { OppLongValue } from '../slices/OppLongSlice';
+import { weatherDataValue } from '../slices/weatherSlice';
+import { currentTempDataValue } from '../slices/currentTempDataSlice';
+import { tempRangeDataValue } from '../slices/tempRangeDataSlice';
 
-export default function UI_Buttons({ zipCode, setZip, setCity, setLatCoord, setLongCoord, setState, setStateAbbreviation, handleClear, latCoord, longCoord, zip, city, state, stateAbbreviation, opposite, OppLat, OppLong, weather, setWeatherData, weatherData, currentTemp, currentTempData, setCurrentTempData, tempRange, tempRangeData, setTempRangeData }) {
+export default function UI_Buttons({ zipCode, setZip, setCity, setLatCoord, setLongCoord, setState, setStateAbbreviation, handleClear, opposite, weather, setWeatherData, currentTemp, setCurrentTempData, tempRange, setTempRangeData }) {
+
+    const zipName = useSelector(zipValue);
+    const cityName = useSelector(cityValue);
+    const latCoordName = useSelector(latCoordValue);
+    const longCoordName = useSelector(longCoordValue);
+    const stateName  = useSelector(stateValue);
+    const stateAbbreviationName = useSelector(stateAbbreviationValue);
+    const OppLatValueName = useSelector(OppLatValue);
+    const OppLongValueName = useSelector(OppLongValue);
+    const weatherDataName = useSelector(weatherDataValue);
+    const currentTempDataName = useSelector(currentTempDataValue);
+    const tempRangeDataName = useSelector(tempRangeDataValue);
 
     function handleAddAll(): void {
         setZip(zipCode.zipcode);
@@ -52,7 +76,7 @@ export default function UI_Buttons({ zipCode, setZip, setCity, setLatCoord, setL
                     Longitude
                 </ListItemButton>
             </ListItem>
-            {(latCoord && longCoord) ? (
+            {(latCoordName && longCoordName) ? (
             <>
                 <ListItem disablePadding>
                     <ListItemButton onClick={opposite}>
@@ -102,7 +126,7 @@ export default function UI_Buttons({ zipCode, setZip, setCity, setLatCoord, setL
                     </ListItem>
                 </>
             ): null} */}
-            {(zip || city || latCoord || longCoord || state || stateAbbreviation || OppLat || OppLong || weatherData || currentTempData || tempRangeData) ? (
+            {(zipName || cityName || latCoordName || longCoordName || stateName || stateAbbreviationName || OppLatValueName || OppLongValueName || weatherDataName || currentTempDataName || tempRangeDataName) ? (
                 <>
                     <ListItem disablePadding>
                         <ListItemButton onClick={() => handleClear()}>
