@@ -6,6 +6,7 @@ import latCoordReducer from './slices/latCoordSlice';
 import longCoordReducer from './slices/longCoordSlice';
 import stateReducer from './slices/stateSlice';
 import stateAbbreviationReducer from './slices/stateAbbreviationSlice';
+import OppLatReducer from './slices/OppLatSlice';
 
 export const store = configureStore({
     reducer: {
@@ -16,6 +17,7 @@ export const store = configureStore({
         longCoord: longCoordReducer,
         state: stateReducer,
         stateAbbreviation: stateAbbreviationReducer,
+        OppLat: OppLatReducer,
     },
 })
 

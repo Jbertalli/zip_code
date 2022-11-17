@@ -6,6 +6,7 @@ import { latCoordValue } from '../slices/latCoordSlice';
 import { longCoordValue } from "../slices/longCoordSlice";
 import { stateValue } from '../slices/stateSlice';
 import { stateAbbreviationValue } from "../slices/stateAbbreviationSlice";
+import { OppLatValue } from '../slices/OppLatSlice';
 
 const LOCAL_STORAGE_KEY_ZIP = 'UserZip';
 const LOCAL_STORAGE_KEY_CITY = 'UserCity';
@@ -19,7 +20,7 @@ const LOCAL_STORAGE_KEY_WEATHER = 'Weather';
 const LOCAL_STORAGE_KEY_TEMP = 'CurrentTemp';
 const LOCAL_STORAGE_KEY_RANGE = 'TempRange';
 
-export default function Local({ setZip, setCity, setLatCoord, setLongCoord, setState, setStateAbbreviation, OppLat, OppLong, setOppLat, setOppLong, weatherData, setWeatherData, currentTempData, setCurrentTempData, tempRangeData, setTempRangeData }) {
+export default function Local({ setZip, setCity, setLatCoord, setLongCoord, setState, setStateAbbreviation, OppLong, setOppLat, setOppLong, weatherData, setWeatherData, currentTempData, setCurrentTempData, tempRangeData, setTempRangeData }) {
 
   const zipName = useSelector(zipValue);
   const cityName = useSelector(cityValue);
@@ -27,6 +28,7 @@ export default function Local({ setZip, setCity, setLatCoord, setLongCoord, setS
   const longCoordName = useSelector(longCoordValue);
   const stateName  = useSelector(stateValue);
   const stateAbbreviationName = useSelector(stateAbbreviationValue);
+  const OppLatValueName = useSelector(OppLatValue);
 
   // zip
   useEffect(() => {
@@ -102,8 +104,8 @@ export default function Local({ setZip, setCity, setLatCoord, setLongCoord, setS
 
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY_OPPOSITE, 
-    JSON.stringify(OppLat))
-  }, [OppLat]);
+    JSON.stringify(OppLatValueName))
+  }, [OppLatValueName]);
 
   // opposite longitude
   useEffect(() => {
