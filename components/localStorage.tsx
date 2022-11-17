@@ -4,6 +4,7 @@ import { zipValue } from '../slices/zipSlice';
 import { cityValue } from '../slices/citySlice';
 import { latCoordValue } from '../slices/latCoordSlice';
 import { longCoordValue } from "../slices/longCoordSlice";
+import { stateValue } from '../slices/stateSlice';
 
 const LOCAL_STORAGE_KEY_ZIP = 'UserZip';
 const LOCAL_STORAGE_KEY_CITY = 'UserCity';
@@ -23,6 +24,7 @@ export default function Local({ setZip, setCity, setLatCoord, setLongCoord, stat
   const cityName = useSelector(cityValue);
   const latCoordName = useSelector(latCoordValue);
   const longCoordName = useSelector(longCoordValue);
+  const stateName  = useSelector(stateValue);
 
   // zip
   useEffect(() => {
@@ -76,8 +78,8 @@ export default function Local({ setZip, setCity, setLatCoord, setLongCoord, stat
 
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY_STATE, 
-    JSON.stringify(state))
-  }, [state]);
+    JSON.stringify(stateName))
+  }, [stateName]);
 
   // state abbreviation
   useEffect(() => {
