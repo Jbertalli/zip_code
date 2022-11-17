@@ -5,6 +5,7 @@ import cityReducer from './slices/citySlice';
 import latCoordReducer from './slices/latCoordSlice';
 import longCoordReducer from './slices/longCoordSlice';
 import stateReducer from './slices/stateSlice';
+import stateAbbreviationReducer from './slices/stateAbbreviationSlice';
 
 export const store = configureStore({
     reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
         latCoord: latCoordReducer,
         longCoord: longCoordReducer,
         state: stateReducer,
+        stateAbbreviation: stateAbbreviationReducer,
     },
 })
 
