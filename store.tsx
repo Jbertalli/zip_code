@@ -9,6 +9,7 @@ import stateAbbreviationReducer from './slices/stateAbbreviationSlice';
 import OppLatReducer from './slices/OppLatSlice';
 import OppLongReducer from './slices/OppLongSlice';
 import weatherDataReducer from './slices/weatherSlice';
+import currentTempDataReducer from './slices/currentTempDataSlice';
 
 export const store = configureStore({
     reducer: {
@@ -22,6 +23,7 @@ export const store = configureStore({
         OppLat: OppLatReducer,
         OppLong: OppLongReducer,
         weatherData: weatherDataReducer,
+        currentTempData: currentTempDataReducer,
     },
 })
 
