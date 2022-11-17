@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector } from 'react-redux';
 import { zipValue } from '../slices/zipSlice';
 import { cityValue } from '../slices/citySlice';
+import { latCoordValue } from '../slices/latCoordSlice';
 
 const LOCAL_STORAGE_KEY_ZIP = 'UserZip';
 const LOCAL_STORAGE_KEY_CITY = 'UserCity';
@@ -15,10 +16,11 @@ const LOCAL_STORAGE_KEY_WEATHER = 'Weather';
 const LOCAL_STORAGE_KEY_TEMP = 'CurrentTemp';
 const LOCAL_STORAGE_KEY_RANGE = 'TempRange';
 
-export default function Local({ setZip, setCity, latCoord, setLatCoord, longCoord, setLongCoord, state, setState, stateAbbreviation, setStateAbbreviation, OppLat, OppLong, setOppLat, setOppLong, weatherData, setWeatherData, currentTempData, setCurrentTempData, tempRangeData, setTempRangeData }) {
+export default function Local({ setZip, setCity, setLatCoord, longCoord, setLongCoord, state, setState, stateAbbreviation, setStateAbbreviation, OppLat, OppLong, setOppLat, setOppLong, weatherData, setWeatherData, currentTempData, setCurrentTempData, tempRangeData, setTempRangeData }) {
 
   const zipName = useSelector(zipValue);
   const cityName = useSelector(cityValue);
+  const latCoordName = useSelector(latCoordValue);
 
   // zip
   useEffect(() => {
@@ -50,8 +52,8 @@ export default function Local({ setZip, setCity, latCoord, setLatCoord, longCoor
 
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY_LAT, 
-    JSON.stringify(latCoord))
-  }, [latCoord]);
+    JSON.stringify(latCoordName))
+  }, [latCoordName]);
 
   // longitude
   useEffect(() => {
