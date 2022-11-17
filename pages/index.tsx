@@ -39,6 +39,7 @@ import TempRangeClose from '../components/close_buttons/tempRangeClose';
 import { auth } from '../firebase/clientApp';
 import { store } from '../store';
 import { incrementZip } from '../slices/zipSlice';
+import { incrementCity } from '../slices/citySlice';
 
 // const clientCredential = {
 //   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -84,6 +85,7 @@ export default function Home() {
     const [user] = useAuthState(getAuth());
 
     store.dispatch(incrementZip(String(zip)));
+    store.dispatch(incrementCity(String(city)));
     console.log(store.getState());
 
     useEffect(() => {
@@ -454,7 +456,7 @@ export default function Home() {
       {/* <div style={{ position: 'relative', zIndex: '10' }}>
         <Auth />
       </div> */}
-      <Local setZip={setZip} setCity={setCity} city={city} latCoord={latCoord} setLatCoord={setLatCoord} longCoord={longCoord} setLongCoord={setLongCoord} state={state} setState={setState} stateAbbreviation={stateAbbreviation} setStateAbbreviation={setStateAbbreviation} OppLat={OppLat} OppLong={OppLong} setOppLat={setOppLat} setOppLong={setOppLong} weatherData={weatherData} setWeatherData={setWeatherData} currentTempData={currentTempData} setCurrentTempData={setCurrentTempData} tempRangeData={tempRangeData} setTempRangeData={setTempRangeData} />
+      <Local setZip={setZip} setCity={setCity} latCoord={latCoord} setLatCoord={setLatCoord} longCoord={longCoord} setLongCoord={setLongCoord} state={state} setState={setState} stateAbbreviation={stateAbbreviation} setStateAbbreviation={setStateAbbreviation} OppLat={OppLat} OppLong={OppLong} setOppLat={setOppLat} setOppLong={setOppLong} weatherData={weatherData} setWeatherData={setWeatherData} currentTempData={currentTempData} setCurrentTempData={setCurrentTempData} tempRangeData={tempRangeData} setTempRangeData={setTempRangeData} />
       <Container maxWidth="lg" style={{ transform: `${scale}`, display: `${flex}`, justifyContent: `${center}`, marginTop: '2%', position: 'relative', zIndex: '10' }}>
         <Draggable>
           <div style={{ 
