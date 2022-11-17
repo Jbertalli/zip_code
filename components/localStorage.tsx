@@ -10,6 +10,7 @@ import { OppLatValue } from '../slices/OppLatSlice';
 import { OppLongValue } from '../slices/OppLongSlice';
 import { weatherDataValue } from '../slices/weatherSlice';
 import { currentTempDataValue } from '../slices/currentTempDataSlice';
+import { tempRangeDataValue } from '../slices/tempRangeDataSlice';
 
 const LOCAL_STORAGE_KEY_ZIP = 'UserZip';
 const LOCAL_STORAGE_KEY_CITY = 'UserCity';
@@ -23,7 +24,7 @@ const LOCAL_STORAGE_KEY_WEATHER = 'Weather';
 const LOCAL_STORAGE_KEY_TEMP = 'CurrentTemp';
 const LOCAL_STORAGE_KEY_RANGE = 'TempRange';
 
-export default function Local({ setZip, setCity, setLatCoord, setLongCoord, setState, setStateAbbreviation, setOppLat, setOppLong, setWeatherData, setCurrentTempData, tempRangeData, setTempRangeData }) {
+export default function Local({ setZip, setCity, setLatCoord, setLongCoord, setState, setStateAbbreviation, setOppLat, setOppLong, setWeatherData, setCurrentTempData, setTempRangeData }) {
 
   const zipName = useSelector(zipValue);
   const cityName = useSelector(cityValue);
@@ -35,6 +36,7 @@ export default function Local({ setZip, setCity, setLatCoord, setLongCoord, setS
   const OppLongValueName = useSelector(OppLongValue);
   const weatherDataName = useSelector(weatherDataValue);
   const currentTempDataName = useSelector(currentTempDataValue);
+  const tempRangeDataName = useSelector(tempRangeDataValue);
 
   // zip
   useEffect(() => {
@@ -154,8 +156,8 @@ export default function Local({ setZip, setCity, setLatCoord, setLongCoord, setS
 
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY_RANGE, 
-    JSON.stringify(tempRangeData))
-  }, [tempRangeData]);
+    JSON.stringify(tempRangeDataName))
+  }, [tempRangeDataName]);
 
   return (
     <>

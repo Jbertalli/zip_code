@@ -10,6 +10,7 @@ import OppLatReducer from './slices/OppLatSlice';
 import OppLongReducer from './slices/OppLongSlice';
 import weatherDataReducer from './slices/weatherSlice';
 import currentTempDataReducer from './slices/currentTempDataSlice';
+import tempRangeDataReducer from './slices/tempRangeDataSlice';
 
 export const store = configureStore({
     reducer: {
@@ -24,6 +25,7 @@ export const store = configureStore({
         OppLong: OppLongReducer,
         weatherData: weatherDataReducer,
         currentTempData: currentTempDataReducer,
+        tempRangeData: tempRangeDataReducer,
     },
 })
 
