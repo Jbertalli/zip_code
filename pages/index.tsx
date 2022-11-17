@@ -49,6 +49,7 @@ import { incrementOppLong } from '../slices/OppLongSlice';
 import { incrementWeatherData } from '../slices/weatherSlice';
 import { incrementCurrentTempData } from '../slices/currentTempDataSlice';
 import { incrementTempRangeData } from '../slices/tempRangeDataSlice';
+import { incrementLatitude } from '../slices/latitudeSlice';
 
 // const clientCredential = {
 //   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -104,6 +105,7 @@ export default function Home() {
     store.dispatch(incrementWeatherData(String(weatherData)));
     store.dispatch(incrementCurrentTempData(String(currentTempData)));
     store.dispatch(incrementTempRangeData(String(tempRangeData)));
+    store.dispatch(incrementLatitude(String(latitude)));
     console.log(store.getState());
 
     useEffect(() => {
@@ -552,7 +554,7 @@ export default function Home() {
           </div>
         </Draggable>
       </Container>
-      <SideMenu zipCode={zipCode} setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} handleClear={handleClear} opposite={opposite} addZip={addZip} deleteZip={deleteZip} addCity={addCity} deleteCity={deleteCity} addLat={addLat} latitude={latitude} deleteLat={deleteLat} addLong={addLong} longitude={longitude} deleteLong={deleteLong} addState={addState} deleteState={deleteState} addStateAbbr={addStateAbbr} deleteAbbr={deleteAbbr} addDocument={addDocument} deleteAll={deleteAll} addOppLat={addOppLat} addOppLong={addOppLong} deleteOppositeLat={deleteOppositeLat} deleteOppositeLong={deleteOppositeLong} dbId={dbId} dbZip={dbZip} dbCity={dbCity} dbLatitude={dbLatitude} dbLongitude={dbLongitude} dbOppositeLatitude={dbOppositeLatitude} dbOppositeLongitude={dbOppositeLongitude} dbState={dbState} dbStateAbbreviation={dbStateAbbreviation} weather={weather} setWeatherData={setWeatherData} currentTemp={currentTemp} setCurrentTempData={setCurrentTempData} tempRange={tempRange} setTempRangeData={setTempRangeData} addWeather={addWeather} deleteWeather={deleteWeather} addCurrentTemp={addCurrentTemp} deleteCurrentTemp={deleteCurrentTemp} addTempRange={addTempRange} deleteTempRange={deleteTempRange} />
+      <SideMenu zipCode={zipCode} setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} handleClear={handleClear} opposite={opposite} addZip={addZip} deleteZip={deleteZip} addCity={addCity} deleteCity={deleteCity} addLat={addLat} deleteLat={deleteLat} addLong={addLong} longitude={longitude} deleteLong={deleteLong} addState={addState} deleteState={deleteState} addStateAbbr={addStateAbbr} deleteAbbr={deleteAbbr} addDocument={addDocument} deleteAll={deleteAll} addOppLat={addOppLat} addOppLong={addOppLong} deleteOppositeLat={deleteOppositeLat} deleteOppositeLong={deleteOppositeLong} dbId={dbId} dbZip={dbZip} dbCity={dbCity} dbLatitude={dbLatitude} dbLongitude={dbLongitude} dbOppositeLatitude={dbOppositeLatitude} dbOppositeLongitude={dbOppositeLongitude} dbState={dbState} dbStateAbbreviation={dbStateAbbreviation} weather={weather} setWeatherData={setWeatherData} currentTemp={currentTemp} setCurrentTempData={setCurrentTempData} tempRange={tempRange} setTempRangeData={setTempRangeData} addWeather={addWeather} deleteWeather={deleteWeather} addCurrentTemp={addCurrentTemp} deleteCurrentTemp={deleteCurrentTemp} addTempRange={addTempRange} deleteTempRange={deleteTempRange} />
       <div style={{ transform: 'translateY(-469.7px)' }}>
         <Map latCoord={latCoord} longCoord={longCoord} />
       </div>

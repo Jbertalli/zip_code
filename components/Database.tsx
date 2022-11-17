@@ -25,8 +25,9 @@ import { OppLongValue } from '../slices/OppLongSlice';
 import { weatherDataValue } from '../slices/weatherSlice';
 import { currentTempDataValue } from '../slices/currentTempDataSlice';
 import { tempRangeDataValue } from '../slices/tempRangeDataSlice';
+import { latitudeValue } from '../slices/latitudeSlice';
 
-export default function Database({ addZip, addCity, addLat, latitude, addLong, longitude, addState, addStateAbbr, addDocument, deleteZip, addOppLat, addOppLong, dbId, dbZip, dbCity, dbLatitude, dbLongitude, dbOppositeLatitude, dbOppositeLongitude, dbState, dbStateAbbreviation, deleteCity, deleteLat, deleteLong, deleteOppositeLat, deleteOppositeLong, deleteState, deleteAbbr, deleteAll, addWeather, deleteWeather, addCurrentTemp, deleteCurrentTemp, addTempRange, deleteTempRange }) {
+export default function Database({ addZip, addCity, addLat, addLong, longitude, addState, addStateAbbr, addDocument, deleteZip, addOppLat, addOppLong, dbId, dbZip, dbCity, dbLatitude, dbLongitude, dbOppositeLatitude, dbOppositeLongitude, dbState, dbStateAbbreviation, deleteCity, deleteLat, deleteLong, deleteOppositeLat, deleteOppositeLong, deleteState, deleteAbbr, deleteAll, addWeather, deleteWeather, addCurrentTemp, deleteCurrentTemp, addTempRange, deleteTempRange }) {
     const [updateZip, setUpdateZip] = useState<any>(null);
     const [updateCity, setUpdateCity] = useState<any>(null);
     const [updateLatitude, setUpdateLatitude] = useState<any>(null);
@@ -51,6 +52,7 @@ export default function Database({ addZip, addCity, addLat, latitude, addLong, l
     const weatherDataName = useSelector(weatherDataValue);
     const currentTempDataName = useSelector(currentTempDataValue);
     const tempRangeDataName = useSelector(tempRangeDataValue);
+    const latitudeName = useSelector(latitudeValue);
 
     // console.log(dbId);
     // console.log(dbZip);
@@ -110,7 +112,7 @@ export default function Database({ addZip, addCity, addLat, latitude, addLong, l
                 {updateLatitude ? (
                 <>
                     <ListItem disablePadding>
-                        <ListItemButton onClick={() => {deleteLat(latitude), setUpdateLatitude(false)}}>
+                        <ListItemButton onClick={() => {deleteLat(latitudeName), setUpdateLatitude(false)}}>
                             <ClearIcon fontSize="small" />&nbsp;
                             Delete Latitude
                         </ListItemButton>
@@ -119,7 +121,7 @@ export default function Database({ addZip, addCity, addLat, latitude, addLong, l
                 ):(
                 <>
                     <ListItem disablePadding>
-                        <ListItemButton onClick={() => {addLat(latitude), setUpdateLatitude(true)}}>
+                        <ListItemButton onClick={() => {addLat(latitudeName), setUpdateLatitude(true)}}>
                             <HeightIcon fontSize="small" style={{ transform: 'rotate(90deg)' }} />&nbsp;
                             Save Latitude
                         </ListItemButton>
