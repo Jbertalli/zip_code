@@ -45,6 +45,7 @@ import { incrementLongCoord } from '../slices/longCoordSlice';
 import { incrementState } from '../slices/stateSlice';
 import { incrementStateAbbreviation } from '../slices/stateAbbreviationSlice';
 import { incrementOppLat } from '../slices/OppLatSlice';
+import { incrementOppLong } from '../slices/OppLongSlice';
 
 // const clientCredential = {
 //   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -96,6 +97,7 @@ export default function Home() {
     store.dispatch(incrementState(String(state)));
     store.dispatch(incrementStateAbbreviation(String(stateAbbreviation)));
     store.dispatch(incrementOppLat(String(OppLat)));
+    store.dispatch(incrementOppLong(String(OppLong)));
     console.log(store.getState());
 
     useEffect(() => {
@@ -466,7 +468,7 @@ export default function Home() {
       {/* <div style={{ position: 'relative', zIndex: '10' }}>
         <Auth />
       </div> */}
-      <Local setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} OppLong={OppLong} setOppLat={setOppLat} setOppLong={setOppLong} weatherData={weatherData} setWeatherData={setWeatherData} currentTempData={currentTempData} setCurrentTempData={setCurrentTempData} tempRangeData={tempRangeData} setTempRangeData={setTempRangeData} />
+      <Local setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} setOppLat={setOppLat} setOppLong={setOppLong} weatherData={weatherData} setWeatherData={setWeatherData} currentTempData={currentTempData} setCurrentTempData={setCurrentTempData} tempRangeData={tempRangeData} setTempRangeData={setTempRangeData} />
       <Container maxWidth="lg" style={{ transform: `${scale}`, display: `${flex}`, justifyContent: `${center}`, marginTop: '2%', position: 'relative', zIndex: '10' }}>
         <Draggable>
           <div style={{ 
