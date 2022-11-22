@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { updateZipValue } from '../slices/updateZipSlice';
 
 const LOCAL_STORAGE_KEY_UPDATE_ZIP = 'UpdateZip';
 const LOCAL_STORAGE_KEY_UPDATE_CITY = 'UpdateCity';
@@ -13,7 +15,9 @@ const LOCAL_STORAGE_KEY_UPDATE_TEMP = 'UpdateTemp';
 const LOCAL_STORAGE_KEY_UPDATE_RANGE = 'UpdateRange';
 const LOCAL_STORAGE_KEY_UPDATE_ALL = 'UpdateAll';
 
-export default function LocalDB({ updateZip, setUpdateZip, updateCity, setUpdateCity, updateLatitude, setUpdateLatitude, updateLongitude, setUpdateLongitude, updateAntinodeLatitude, setUpdateAntinodeLatitude, updateAntinodeLongitude, setUpdateAntinodeLongitude, updateState, setUpdateState, updateStateAbbreviation, setUpdateStateAbbreviation, updateAll, setUpdateAll, updateWeather, setUpdateWeather, updateCurrentTemp, setUpdateCurrentTemp, updateTempRange, setUpdateTempRange }) {
+export default function LocalDB({ setUpdateZip, updateCity, setUpdateCity, updateLatitude, setUpdateLatitude, updateLongitude, setUpdateLongitude, updateAntinodeLatitude, setUpdateAntinodeLatitude, updateAntinodeLongitude, setUpdateAntinodeLongitude, updateState, setUpdateState, updateStateAbbreviation, setUpdateStateAbbreviation, updateAll, setUpdateAll, updateWeather, setUpdateWeather, updateCurrentTemp, setUpdateCurrentTemp, updateTempRange, setUpdateTempRange }) {
+
+    const updateZipName = useSelector(updateZipValue);
 
     useEffect(() => {
         const storedUpdateZip = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATE_ZIP))
@@ -22,8 +26,8 @@ export default function LocalDB({ updateZip, setUpdateZip, updateCity, setUpdate
     
     useEffect(() => {
         localStorage.setItem(LOCAL_STORAGE_KEY_UPDATE_ZIP, 
-        JSON.stringify(updateZip))
-    }, [updateZip]);
+        JSON.stringify(updateZipName))
+    }, [updateZipName]);
 
     useEffect(() => {
         const storedUpdateCity = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_UPDATE_CITY))

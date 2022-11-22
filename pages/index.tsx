@@ -95,20 +95,43 @@ export default function Home() {
 
     const [user] = useAuthState(getAuth());
 
-    store.dispatch(incrementZip(String(zip)));
-    store.dispatch(incrementCity(String(city)));
-    store.dispatch(incrementLatCoord(String(latCoord)));
-    store.dispatch(incrementLongCoord(String(longCoord)));
-    store.dispatch(incrementState(String(state)));
-    store.dispatch(incrementStateAbbreviation(String(stateAbbreviation)));
-    store.dispatch(incrementOppLat(String(OppLat)));
-    store.dispatch(incrementOppLong(String(OppLong)));
-    store.dispatch(incrementWeatherData(String(weatherData)));
-    store.dispatch(incrementCurrentTempData(String(currentTempData)));
-    store.dispatch(incrementTempRangeData(String(tempRangeData)));
-    store.dispatch(incrementLatitude(Number(latitude)));
-    store.dispatch(incrementLongitude(Number(longitude)));
+    useEffect(() => {
+      store.dispatch(incrementZip(String(zip)));
+      store.dispatch(incrementCity(String(city)));
+      store.dispatch(incrementLatCoord(String(latCoord)));
+      store.dispatch(incrementLongCoord(String(longCoord)));
+      store.dispatch(incrementState(String(state)));
+      store.dispatch(incrementStateAbbreviation(String(stateAbbreviation)));
+      store.dispatch(incrementOppLat(String(OppLat)));
+      store.dispatch(incrementOppLong(String(OppLong)));
+      store.dispatch(incrementWeatherData(String(weatherData)));
+      store.dispatch(incrementCurrentTempData(String(currentTempData)));
+      store.dispatch(incrementTempRangeData(String(tempRangeData)));
+      store.dispatch(incrementLatitude(Number(latitude)));
+      store.dispatch(incrementLongitude(Number(longitude)));
+      // console.log(store.getState());
+    }, [zip || city || latCoord || longCoord || state || stateAbbreviation || weatherData || currentTempData || tempRangeData || latitude || longitude]);
+
+    useEffect(() => {
+      store.dispatch(incrementOppLat(String(OppLat)));
+      store.dispatch(incrementOppLong(String(OppLong)));
+    }, [OppLat || OppLong]);
+    
     console.log(store.getState());
+
+    // store.dispatch(incrementZip(String(zip)));
+    // store.dispatch(incrementCity(String(city)));
+    // store.dispatch(incrementLatCoord(String(latCoord)));
+    // store.dispatch(incrementLongCoord(String(longCoord)));
+    // store.dispatch(incrementState(String(state)));
+    // store.dispatch(incrementStateAbbreviation(String(stateAbbreviation)));
+    // store.dispatch(incrementOppLat(String(OppLat)));
+    // store.dispatch(incrementOppLong(String(OppLong)));
+    // store.dispatch(incrementWeatherData(String(weatherData)));
+    // store.dispatch(incrementCurrentTempData(String(currentTempData)));
+    // store.dispatch(incrementTempRangeData(String(tempRangeData)));
+    // store.dispatch(incrementLatitude(Number(latitude)));
+    // store.dispatch(incrementLongitude(Number(longitude)));
 
     useEffect(() => {
       if (window.innerWidth > 440) {

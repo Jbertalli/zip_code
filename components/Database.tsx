@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -27,9 +27,11 @@ import { currentTempDataValue } from '../slices/currentTempDataSlice';
 import { tempRangeDataValue } from '../slices/tempRangeDataSlice';
 import { latitudeValue } from '../slices/latitudeSlice';
 import { longitudeValue } from '../slices/longitudeSlice';
+import { store } from '../store';
+import { incrementUpdateZip } from '../slices/updateZipSlice';
 
 export default function Database({ addZip, addCity, addLat, addLong, addState, addStateAbbr, addDocument, deleteZip, addOppLat, addOppLong, dbId, dbZip, dbCity, dbLatitude, dbLongitude, dbOppositeLatitude, dbOppositeLongitude, dbState, dbStateAbbreviation, deleteCity, deleteLat, deleteLong, deleteOppositeLat, deleteOppositeLong, deleteState, deleteAbbr, deleteAll, addWeather, deleteWeather, addCurrentTemp, deleteCurrentTemp, addTempRange, deleteTempRange }) {
-    const [updateZip, setUpdateZip] = useState<any>(null);
+    const [updateZip, setUpdateZip] = useState<boolean>(false);
     const [updateCity, setUpdateCity] = useState<any>(null);
     const [updateLatitude, setUpdateLatitude] = useState<any>(null);
     const [updateLongitude, setUpdateLongitude] = useState<any>(null);
@@ -66,10 +68,14 @@ export default function Database({ addZip, addCity, addLat, addLong, addState, a
     // console.log(dbState);
     // console.log(dbStateAbbreviation);
 
+    useEffect(() => {
+        store.dispatch(incrementUpdateZip(updateZip));
+    }, [updateZip]);
+
     return (
         <>
             <div style={{ position: 'absolute' }}>
-                <LocalDB updateZip={updateZip} setUpdateZip={setUpdateZip} updateCity={updateCity} setUpdateCity={setUpdateCity} updateLatitude={updateLatitude} setUpdateLatitude={setUpdateLatitude} updateLongitude={updateLongitude} setUpdateLongitude={setUpdateLongitude} updateAntinodeLatitude={updateAntinodeLatitude} setUpdateAntinodeLatitude={setUpdateAntinodeLatitude} updateAntinodeLongitude={updateAntinodeLongitude} setUpdateAntinodeLongitude={setUpdateAntinodeLongitude} updateState={updateState} setUpdateState={setUpdateState} updateStateAbbreviation={updateStateAbbreviation} setUpdateStateAbbreviation={setUpdateStateAbbreviation} updateAll={updateAll} setUpdateAll={setUpdateAll} updateWeather={updateWeather} setUpdateWeather={setUpdateWeather} updateCurrentTemp={updateCurrentTemp} setUpdateCurrentTemp={setUpdateCurrentTemp} updateTempRange={updateTempRange} setUpdateTempRange={setUpdateTempRange} /> 
+                <LocalDB setUpdateZip={setUpdateZip} updateCity={updateCity} setUpdateCity={setUpdateCity} updateLatitude={updateLatitude} setUpdateLatitude={setUpdateLatitude} updateLongitude={updateLongitude} setUpdateLongitude={setUpdateLongitude} updateAntinodeLatitude={updateAntinodeLatitude} setUpdateAntinodeLatitude={setUpdateAntinodeLatitude} updateAntinodeLongitude={updateAntinodeLongitude} setUpdateAntinodeLongitude={setUpdateAntinodeLongitude} updateState={updateState} setUpdateState={setUpdateState} updateStateAbbreviation={updateStateAbbreviation} setUpdateStateAbbreviation={setUpdateStateAbbreviation} updateAll={updateAll} setUpdateAll={setUpdateAll} updateWeather={updateWeather} setUpdateWeather={setUpdateWeather} updateCurrentTemp={updateCurrentTemp} setUpdateCurrentTemp={setUpdateCurrentTemp} updateTempRange={updateTempRange} setUpdateTempRange={setUpdateTempRange} /> 
             </div>
             <List>
                 {/* {!!dbZip ? ( */}
