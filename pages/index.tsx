@@ -109,7 +109,6 @@ export default function Home() {
       store.dispatch(incrementTempRangeData(String(tempRangeData)));
       store.dispatch(incrementLatitude(Number(latitude)));
       store.dispatch(incrementLongitude(Number(longitude)));
-      // console.log(store.getState());
     }, [zip || city || latCoord || longCoord || state || stateAbbreviation || weatherData || currentTempData || tempRangeData || latitude || longitude]);
 
     useEffect(() => {
@@ -496,7 +495,6 @@ export default function Home() {
       <Head>
         <title>Zip Code</title>
         <meta name="description" content="zip code" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* <div style={{ position: 'relative', zIndex: '10' }}>
         <Auth />

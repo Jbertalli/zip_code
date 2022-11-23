@@ -13,7 +13,6 @@ import currentTempDataReducer from './slices/currentTempDataSlice';
 import tempRangeDataReducer from './slices/tempRangeDataSlice';
 import latitudeReducer from './slices/latitudeSlice';
 import longitudeReducer from './slices/longitudeSlice';
-import updateZipReducer from './slices/updateZipSlice';
 
 export const store = configureStore({
     reducer: {
@@ -31,7 +30,6 @@ export const store = configureStore({
         tempRangeData: tempRangeDataReducer,
         latitude: latitudeReducer,
         longitude: longitudeReducer,
-        updateZip: updateZipReducer,
     },
 })
 
