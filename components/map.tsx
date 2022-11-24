@@ -25,7 +25,7 @@ const center = {
   lng: -73.93
 };
 
-export default function Map({ latCoord, longCoord }) {
+export default function Map({ latCoord, longCoord, latitude, longitude }) {
   // console.log(latCoord);
   // console.log(longCoord);
   const [transform, setTransform] = useState('translateY(477px)');
@@ -143,7 +143,27 @@ export default function Map({ latCoord, longCoord }) {
               // }}
             />
           ))}
-
+          {/* New York City Marker */}
+          <Marker
+            position={{ 
+              lat: 40.73,
+              lng: -73.99
+            }}
+          />
+          {/* Current Location Marker */}
+          <Marker
+            position={{ 
+              lat: latitude,
+              lng: longitude
+            }}
+          />
+          {/* Opposite Location Marker */}
+          <Marker
+            position={{ 
+              lat: (parseFloat(latCoord) - (parseFloat(latCoord) * 2)),
+              lng: (parseFloat(longCoord) + 180)
+            }}
+          />
           {selected ? (
             <InfoWindow
               position={{ lat: selected.lat, lng: selected.lng }}

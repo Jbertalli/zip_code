@@ -74,8 +74,8 @@ const API_endpoint: string = process.env.API_ENDPOINT;
 const API_key: string = process.env.API_KEY;
 
 export default function Home() {
-    const [latitude, setLatitude] = useState<number>();
-    const [longitude, setLongitude] = useState<number>();
+    const [latitude, setLatitude] = useState<number>(null);
+    const [longitude, setLongitude] = useState<number>(null);
     const [responseData, setResponseData] = useState<any>({});
     const [zip, setZip] = useState<string>('');
     const [city, setCity] = useState<string>('');
@@ -589,7 +589,7 @@ export default function Home() {
       </Container>
       <SideMenu zipCode={zipCode} setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} handleClear={handleClear} opposite={opposite} addZip={addZip} deleteZip={deleteZip} addCity={addCity} deleteCity={deleteCity} addLat={addLat} deleteLat={deleteLat} addLong={addLong} deleteLong={deleteLong} addState={addState} deleteState={deleteState} addStateAbbr={addStateAbbr} deleteAbbr={deleteAbbr} addDocument={addDocument} deleteAll={deleteAll} addOppLat={addOppLat} addOppLong={addOppLong} deleteOppositeLat={deleteOppositeLat} deleteOppositeLong={deleteOppositeLong} dbId={dbId} dbZip={dbZip} dbCity={dbCity} dbLatitude={dbLatitude} dbLongitude={dbLongitude} dbOppositeLatitude={dbOppositeLatitude} dbOppositeLongitude={dbOppositeLongitude} dbState={dbState} dbStateAbbreviation={dbStateAbbreviation} weather={weather} setWeatherData={setWeatherData} currentTemp={currentTemp} setCurrentTempData={setCurrentTempData} tempRange={tempRange} setTempRangeData={setTempRangeData} addWeather={addWeather} deleteWeather={deleteWeather} addCurrentTemp={addCurrentTemp} deleteCurrentTemp={deleteCurrentTemp} addTempRange={addTempRange} deleteTempRange={deleteTempRange} />
       <div style={{ transform: 'translateY(-469.7px)' }}>
-        <Map latCoord={latCoord} longCoord={longCoord} />
+        <Map latCoord={latCoord} longCoord={longCoord} latitude={latitude} longitude={longitude} />
       </div>
     </>
   );
