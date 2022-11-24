@@ -1,5 +1,7 @@
-import React, { useState, useCallback, useRef } from "react";
+import axios from 'axios';
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api";
+import reverse from 'reverse-geocode';
 
 // const libraries: string[] = ["places"];
 const libraries: any = ["places"];
@@ -18,7 +20,39 @@ const center = {
   lng: -73.93
 };
 
+const API_endpoint: string = process.env.API_ENDPOINT;
+const API_key: string = process.env.API_KEY;
+
 export default function AntinodeMap() {
+
+    const [latitude, setLatitude] = useState<number>(null);
+    const [longitude, setLongitude] = useState<number>(null);
+    const [responseData, setResponseData] = useState<any>({});
+
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition((position) => {
+          setLatitude(position.coords.latitude);
+          setLongitude(position.coords.longitude);
+        })
+
+        //fetch data with axios
+        let finalAPIEndPoint: string = `${API_endpoint}lat=${latitude}&lon=${longitude}&exclude=hourly,daily&appid=${API_key}`
+        axios.get(finalAPIEndPoint)
+          .then((response) => {
+            setResponseData(response.data);
+            // console.log(response.data);
+          })
+    }, [latitude, longitude])
+
+    let zipCode: any = reverse.lookup(latitude, longitude, 'us');
+    // console.log(zipCode.latitude);
+    // console.log(zipCode.longitude);
+    // console.log(zipCode);
+
+    const latitudeMarker = (parseFloat(zipCode.latitude) - (parseFloat(zipCode.latitude) * 2));
+    const longitudeMarker = (parseFloat(zipCode.longitude) + 180);
+    // console.log(latitudeMarker);
+    // console.log(longitudeMarker);
 
     const { isLoaded, loadError } = useLoadScript({
         googleMapsApiKey: process.env.MAPS_API_KEY,
@@ -83,7 +117,12 @@ export default function AntinodeMap() {
                                 // }}
                             />
                         ))}
-
+                        <Marker
+                            position={{ 
+                                lat: +latitudeMarker,
+                                lng: +longitudeMarker
+                            }}
+                        />
                         {selected ? (
                             <InfoWindow
                                 position={{ lat: selected.lat, lng: selected.lng }}
