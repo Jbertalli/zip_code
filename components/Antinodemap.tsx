@@ -24,7 +24,6 @@ const API_endpoint: string = process.env.API_ENDPOINT;
 const API_key: string = process.env.API_KEY;
 
 export default function AntinodeMap() {
-
     const [latitude, setLatitude] = useState<number>(null);
     const [longitude, setLongitude] = useState<number>(null);
     const [responseData, setResponseData] = useState<any>({});
