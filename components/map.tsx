@@ -213,7 +213,9 @@ function Locate({ panTo }) {
           />
           <SpeedDialAction 
             key={'Antinode Location'}
-            icon={<FlipCameraAndroidIcon />}
+            icon={
+              <FlipCameraAndroidIcon 
+            />}
             tooltipTitle={'Antinode Location'}
             onClick={() => {
               navigator.geolocation.getCurrentPosition(
