@@ -26,8 +26,8 @@ const center = {
 };
 
 export default function Map({ latCoord, longCoord, latitude, longitude }) {
-  console.log(latCoord);
-  console.log(longCoord);
+  // console.log(latCoord);
+  // console.log(longCoord);
   const [transform, setTransform] = useState('translateY(477px)');
   const [top, setTop] = useState('500px');
   const [right, setRight] = useState('120px');

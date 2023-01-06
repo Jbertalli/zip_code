@@ -92,6 +92,10 @@ export default function Home() {
     const [scale, setScale] = useState<string>('translate(22px, 6px)');
     const [flex, setFlex] = useState<string>('');
     const [center, setCenter] = useState<string>('');
+    const [apiData, setApiData] = useState({});
+    const [getState, setGetState] = useState('tamilnadu');
+    const [stated, setStated] = useState('tamilnadu');
+
 
     const [user] = useAuthState(getAuth());
 
@@ -193,7 +197,7 @@ export default function Home() {
     // syracuse coordinates for testing
     // let zipCode = reverse.lookup(43.0481, -76.1474, 'us');
     let zipCode: any = reverse.lookup(latitude, longitude, 'us');
-    // console.log(zipCode);
+    console.log(zipCode);
     // console.log(zipCode.zipcode);
 
     function handleClear(): void {
@@ -223,7 +227,7 @@ export default function Home() {
     const KelvinMinTemp = responseData?.main?.temp_min;
     const weather = responseData?.weather?.[0]?.description;
 
-    // console.log(responseData);
+    console.log(responseData);
     // console.log(KelvinTemp);
     // console.log(KelvinMaxTemp);
     // console.log(KelvinMinTemp);
