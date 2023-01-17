@@ -1,5 +1,5 @@
-import React, { useState, useCallback, useRef, useEffect } from "react";
-import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api";
+import React, { useState, useCallback, useRef, useEffect } from 'react';
+import { GoogleMap, useLoadScript, Marker, InfoWindow } from '@react-google-maps/api';
 // import usePlacesAutocomplete, { getGeocode, getLatLng } from "use-places-autocomplete";
 import FlipCameraAndroidIcon from '@mui/icons-material/FlipCameraAndroid';
 import MyLocationIcon from '@mui/icons-material/MyLocation';
@@ -9,10 +9,10 @@ import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
 
 // const libraries: string[] = ["places"];
-const libraries: any = ["places"];
+const libraries: any = ['places'];
 const mapContainerStyle = {
-  height: "95vh",
-  width: "100vw",
+  height: '95vh',
+  width: '100vw',
 };
 
 const options = {
@@ -22,10 +22,18 @@ const options = {
 
 const center = {
   lat: 40.73,
-  lng: -73.93
+  lng: -73.93,
 };
 
-export default function Map({ latCoord, longCoord, latitude, longitude }) {
+export default function Map(values) {
+
+  const { 
+    latCoord, 
+    longCoord, 
+    latitude, 
+    longitude 
+  } = values;
+  
   // console.log(latCoord);
   // console.log(longCoord);
   const [transform, setTransform] = useState('translateY(477px)');
@@ -45,36 +53,36 @@ export default function Map({ latCoord, longCoord, latitude, longitude }) {
     }
 
     const updateMedia = () => {
-        if (window.innerWidth > 440) {
-          setTop('500px');
-          setRight('120px');
-          setScale('scale(1.2) rotate(180deg)');
-        } else {
-          setTop('475px');
-          setRight('11%');
-          setScale('scale(0.8) rotate(180deg)');
-        }
+      if (window.innerWidth > 440) {
+        setTop('500px');
+        setRight('120px');
+        setScale('scale(1.2) rotate(180deg)');
+      } else {
+        setTop('475px');
+        setRight('11%');
+        setScale('scale(0.8) rotate(180deg)');
+      }
     };
-      window.addEventListener('resize', updateMedia);
-      return () => window.removeEventListener('resize', updateMedia);
+    window.addEventListener('resize', updateMedia);
+    return () => window.removeEventListener('resize', updateMedia);
   }, []);
 
   useEffect(() => {
     if (window.innerWidth > 440) {
-        setTransform('translateY(477px)');
+      setTransform('translateY(477px)');
     } else {
-        setTransform('translate(10px, 502px) scale(1.07, 1.03)');
+      setTransform('translate(10px, 502px) scale(1.07, 1.03)');
     }
 
     const updateMedia = () => {
       if (window.innerWidth > 440) {
-          setTransform('translateY(477px)');
+        setTransform('translateY(477px)');
       } else {
-          setTransform('translate(10px, 502px) scale(1.07, 1.03)');
+        setTransform('translate(10px, 502px) scale(1.07, 1.03)');
       }
     };
-      window.addEventListener('resize', updateMedia);
-      return () => window.removeEventListener('resize', updateMedia);
+    window.addEventListener('resize', updateMedia);
+    return () => window.removeEventListener('resize', updateMedia);
   }, []);
 
   const { isLoaded, loadError } = useLoadScript({
@@ -113,13 +121,27 @@ export default function Map({ latCoord, longCoord, latitude, longitude }) {
 
   return (
     <>
-      <div style={{ top: `${top}`, right: `${right}`, position: 'absolute', zIndex: '10', transform: `${scale}` }}>
+      <div
+        style={{
+          top: `${top}`,
+          right: `${right}`,
+          position: 'absolute',
+          zIndex: '10',
+          transform: `${scale}`,
+        }}
+      >
         <Locate panTo={panTo} />
         {/* <div style={{ transform: 'rotate(180deg)' }}>
           <Search panTo={panTo} />
         </div> */}
       </div>
-      <div style={{ display: 'flex', justifyContent: 'center', transform: `${transform}` }}>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          transform: `${transform}`,
+        }}
+      >
         <GoogleMap
           id="map"
           mapContainerStyle={mapContainerStyle}
@@ -145,23 +167,23 @@ export default function Map({ latCoord, longCoord, latitude, longitude }) {
           ))}
           {/* New York City Marker */}
           <Marker
-            position={{ 
+            position={{
               lat: 40.73,
-              lng: -73.99
+              lng: -73.99,
             }}
           />
           {/* Current Location Marker */}
           <Marker
-            position={{ 
+            position={{
               lat: latitude,
-              lng: longitude
+              lng: longitude,
             }}
           />
           {/* Opposite Location Marker */}
           <Marker
-            position={{ 
-              lat: (parseFloat(latCoord) - (parseFloat(latCoord) * 2)),
-              lng: (parseFloat(longCoord) + 180)
+            position={{
+              lat: parseFloat(latCoord) - parseFloat(latCoord) * 2,
+              lng: parseFloat(longCoord) + 180,
             }}
           />
           {selected ? (
@@ -172,9 +194,7 @@ export default function Map({ latCoord, longCoord, latitude, longitude }) {
               }}
             >
               <div>
-                <h2>
-                  Dropped Pin
-                </h2>
+                <h2>Dropped Pin</h2>
               </div>
             </InfoWindow>
           ) : null}
@@ -193,11 +213,9 @@ function Locate({ panTo }) {
           sx={{ position: 'absolute', bottom: 16, right: 16 }}
           icon={<SpeedDialIcon />}
         >
-          <SpeedDialAction 
+          <SpeedDialAction
             key={'Current Location'}
-            icon={
-              <MyLocationIcon />
-            }
+            icon={<MyLocationIcon />}
             tooltipTitle={'Current Location'}
             onClick={() => {
               navigator.geolocation.getCurrentPosition(
@@ -211,18 +229,18 @@ function Locate({ panTo }) {
               );
             }}
           />
-          <SpeedDialAction 
+          <SpeedDialAction
             key={'Antinode Location'}
-            icon={
-              <FlipCameraAndroidIcon 
-            />}
+            icon={<FlipCameraAndroidIcon />}
             tooltipTitle={'Antinode Location'}
             onClick={() => {
               navigator.geolocation.getCurrentPosition(
                 (position: any) => {
                   panTo({
-                    lat: (parseFloat(position.coords.latitude) - (parseFloat(position.coords.latitude) * 2)),
-                    lng: (parseFloat(position.coords.longitude) + 180),
+                    lat:
+                      parseFloat(position.coords.latitude) -
+                      parseFloat(position.coords.latitude) * 2,
+                    lng: parseFloat(position.coords.longitude) + 180,
                   });
                 },
                 () => null

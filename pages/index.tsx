@@ -15,7 +15,7 @@ import firebase from '../firebase/clientApp';
 import { getFirestore, doc, getDocs, setDoc, deleteField, updateDoc, collection, Timestamp } from 'firebase/firestore';
 // import Auth from '../components/Auth';
 // import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { useAuthState } from "react-firebase-hooks/auth";
+import { useAuthState } from 'react-firebase-hooks/auth';
 import Local from '../components/localStorage';
 import { getAuth } from '@firebase/auth';
 import SideMenu from '../components/SideMenu';
@@ -74,69 +74,91 @@ const API_endpoint: string = process.env.API_ENDPOINT;
 const API_key: string = process.env.API_KEY;
 
 export default function Home() {
-    const [latitude, setLatitude] = useState<number>(null);
-    const [longitude, setLongitude] = useState<number>(null);
-    const [responseData, setResponseData] = useState<any>({});
-    const [zip, setZip] = useState<string>('');
-    const [city, setCity] = useState<string>('');
-    const [latCoord, setLatCoord] = useState<string>('');
-    const [longCoord, setLongCoord] = useState<string>('');
-    const [state, setState] = useState<string>('');
-    const [stateAbbreviation, setStateAbbreviation] = useState<string>('');
-    const [OppLat, setOppLat] = useState<string>('');
-    const [OppLong, setOppLong] = useState<string>('');
-    const [weatherData, setWeatherData] = useState<string>('');
-    const [currentTempData, setCurrentTempData] = useState<string>('');
-    const [tempRangeData, setTempRangeData] = useState<string>('');
-    const [userInfo, setUserInfo] = useState([]);
-    const [scale, setScale] = useState<string>('translate(22px, 6px)');
-    const [flex, setFlex] = useState<string>('');
-    const [center, setCenter] = useState<string>('');
-    const [apiData, setApiData] = useState({});
-    const [getState, setGetState] = useState('tamilnadu');
-    const [stated, setStated] = useState('tamilnadu');
+  const [latitude, setLatitude] = useState<number>(null);
+  const [longitude, setLongitude] = useState<number>(null);
+  const [responseData, setResponseData] = useState<any>({});
+  const [zip, setZip] = useState<string>('');
+  const [city, setCity] = useState<string>('');
+  const [latCoord, setLatCoord] = useState<string>('');
+  const [longCoord, setLongCoord] = useState<string>('');
+  const [state, setState] = useState<string>('');
+  const [stateAbbreviation, setStateAbbreviation] = useState<string>('');
+  const [OppLat, setOppLat] = useState<string>('');
+  const [OppLong, setOppLong] = useState<string>('');
+  const [weatherData, setWeatherData] = useState<string>('');
+  const [currentTempData, setCurrentTempData] = useState<string>('');
+  const [tempRangeData, setTempRangeData] = useState<string>('');
+  const [userInfo, setUserInfo] = useState([]);
+  const [scale, setScale] = useState<string>('translate(22px, 6px)');
+  const [flex, setFlex] = useState<string>('');
+  const [center, setCenter] = useState<string>('');
+  const [apiData, setApiData] = useState({});
+  const [getState, setGetState] = useState('tamilnadu');
+  const [stated, setStated] = useState('tamilnadu');
 
+  const [user] = useAuthState(getAuth());
 
-    const [user] = useAuthState(getAuth());
+  useEffect(() => {
+    store.dispatch(incrementZip(String(zip)));
+    store.dispatch(incrementCity(String(city)));
+    store.dispatch(incrementLatCoord(String(latCoord)));
+    store.dispatch(incrementLongCoord(String(longCoord)));
+    store.dispatch(incrementState(String(state)));
+    store.dispatch(incrementStateAbbreviation(String(stateAbbreviation)));
+    store.dispatch(incrementOppLat(String(OppLat)));
+    store.dispatch(incrementOppLong(String(OppLong)));
+    store.dispatch(incrementWeatherData(String(weatherData)));
+    store.dispatch(incrementCurrentTempData(String(currentTempData)));
+    store.dispatch(incrementTempRangeData(String(tempRangeData)));
+    store.dispatch(incrementLatitude(Number(latitude)));
+    store.dispatch(incrementLongitude(Number(longitude)));
+  }, [
+    zip ||
+      city ||
+      latCoord ||
+      longCoord ||
+      state ||
+      stateAbbreviation ||
+      weatherData ||
+      currentTempData ||
+      tempRangeData ||
+      latitude ||
+      longitude,
+  ]);
 
-    useEffect(() => {
-      store.dispatch(incrementZip(String(zip)));
-      store.dispatch(incrementCity(String(city)));
-      store.dispatch(incrementLatCoord(String(latCoord)));
-      store.dispatch(incrementLongCoord(String(longCoord)));
-      store.dispatch(incrementState(String(state)));
-      store.dispatch(incrementStateAbbreviation(String(stateAbbreviation)));
-      store.dispatch(incrementOppLat(String(OppLat)));
-      store.dispatch(incrementOppLong(String(OppLong)));
-      store.dispatch(incrementWeatherData(String(weatherData)));
-      store.dispatch(incrementCurrentTempData(String(currentTempData)));
-      store.dispatch(incrementTempRangeData(String(tempRangeData)));
-      store.dispatch(incrementLatitude(Number(latitude)));
-      store.dispatch(incrementLongitude(Number(longitude)));
-    }, [zip || city || latCoord || longCoord || state || stateAbbreviation || weatherData || currentTempData || tempRangeData || latitude || longitude]);
+  useEffect(() => {
+    store.dispatch(incrementOppLat(String(OppLat)));
+    store.dispatch(incrementOppLong(String(OppLong)));
+  }, [OppLat || OppLong]);
 
-    useEffect(() => {
-      store.dispatch(incrementOppLat(String(OppLat)));
-      store.dispatch(incrementOppLong(String(OppLong)));
-    }, [OppLat || OppLong]);
-    
-    console.log(store.getState());
+  console.log(store.getState());
 
-    // store.dispatch(incrementZip(String(zip)));
-    // store.dispatch(incrementCity(String(city)));
-    // store.dispatch(incrementLatCoord(String(latCoord)));
-    // store.dispatch(incrementLongCoord(String(longCoord)));
-    // store.dispatch(incrementState(String(state)));
-    // store.dispatch(incrementStateAbbreviation(String(stateAbbreviation)));
-    // store.dispatch(incrementOppLat(String(OppLat)));
-    // store.dispatch(incrementOppLong(String(OppLong)));
-    // store.dispatch(incrementWeatherData(String(weatherData)));
-    // store.dispatch(incrementCurrentTempData(String(currentTempData)));
-    // store.dispatch(incrementTempRangeData(String(tempRangeData)));
-    // store.dispatch(incrementLatitude(Number(latitude)));
-    // store.dispatch(incrementLongitude(Number(longitude)));
+  // store.dispatch(incrementZip(String(zip)));
+  // store.dispatch(incrementCity(String(city)));
+  // store.dispatch(incrementLatCoord(String(latCoord)));
+  // store.dispatch(incrementLongCoord(String(longCoord)));
+  // store.dispatch(incrementState(String(state)));
+  // store.dispatch(incrementStateAbbreviation(String(stateAbbreviation)));
+  // store.dispatch(incrementOppLat(String(OppLat)));
+  // store.dispatch(incrementOppLong(String(OppLong)));
+  // store.dispatch(incrementWeatherData(String(weatherData)));
+  // store.dispatch(incrementCurrentTempData(String(currentTempData)));
+  // store.dispatch(incrementTempRangeData(String(tempRangeData)));
+  // store.dispatch(incrementLatitude(Number(latitude)));
+  // store.dispatch(incrementLongitude(Number(longitude)));
 
-    useEffect(() => {
+  useEffect(() => {
+    if (window.innerWidth > 440) {
+      setScale('translate(22px, 6px)');
+      setFlex('');
+      setCenter('');
+    } else {
+      setScale('translate(15px, 22px) scale(0.7)');
+      setFlex('flex');
+      setCenter('center');
+    }
+
+    const updateMedia = () => {
       if (window.innerWidth > 440) {
         setScale('translate(22px, 6px)');
         setFlex('');
@@ -146,353 +168,370 @@ export default function Home() {
         setFlex('flex');
         setCenter('center');
       }
+    };
+    window.addEventListener('resize', updateMedia);
+    return () => window.removeEventListener('resize', updateMedia);
+  }, []);
 
-      const updateMedia = () => {
-          if (window.innerWidth > 440) {
-            setScale('translate(22px, 6px)');
-            setFlex('');
-            setCenter('');
-          } else {
-            setScale('translate(15px, 22px) scale(0.7)');
-            setFlex('flex');
-            setCenter('center');
-          }
-      };
-        window.addEventListener('resize', updateMedia);
-        return () => window.removeEventListener('resize', updateMedia);
-    }, []);
+  useEffect(() => {
+    document.body.style.overflowX = 'hidden';
+    return () => {
+      document.body.style.overflowX = 'visible';
+    };
+  }, []);
 
-    useEffect(() => {
-      document.body.style.overflowX = "hidden";
-        return () => {
-          document.body.style.overflowX = "visible";
-        }
-    }, []);
+  // onAuthStateChanged(auth, (user) => {
+  //   if (user) {
+  //    console.log("Current user:", user);
+  //    console.log(user.displayName);
+  //     const uid = user.uid;
+  //   } else {
+  //     console.log("No user signed in");
+  //   }
+  // });
 
-    // onAuthStateChanged(auth, (user) => {
-    //   if (user) {
-    //    console.log("Current user:", user);
-    //    console.log(user.displayName);
-    //     const uid = user.uid;
-    //   } else {
-    //     console.log("No user signed in");
-    //   }
-    // });
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      setLatitude(position.coords.latitude);
+      setLongitude(position.coords.longitude);
+    });
 
-    useEffect(() => {
-        navigator.geolocation.getCurrentPosition((position) => {
-          setLatitude(position.coords.latitude);
-          setLongitude(position.coords.longitude);
-        })
+    //fetch data with axios
+    let finalAPIEndPoint: string = `${API_endpoint}lat=${latitude}&lon=${longitude}&exclude=hourly,daily&appid=${API_key}`;
+    axios.get(finalAPIEndPoint).then((response) => {
+      setResponseData(response.data);
+      // console.log(response.data);
+    });
+  }, [latitude, longitude]);
 
-        //fetch data with axios
-        let finalAPIEndPoint: string = `${API_endpoint}lat=${latitude}&lon=${longitude}&exclude=hourly,daily&appid=${API_key}`
-        axios.get(finalAPIEndPoint)
-          .then((response) => {
-            setResponseData(response.data);
-            // console.log(response.data);
-          })
-    }, [latitude, longitude])
+  // syracuse coordinates for testing
+  // let zipCode = reverse.lookup(43.0481, -76.1474, 'us');
+  let zipCode: any = reverse.lookup(latitude, longitude, 'us');
+  console.log(zipCode);
+  // console.log(zipCode.zipcode);
 
-    // syracuse coordinates for testing
-    // let zipCode = reverse.lookup(43.0481, -76.1474, 'us');
-    let zipCode: any = reverse.lookup(latitude, longitude, 'us');
-    console.log(zipCode);
-    // console.log(zipCode.zipcode);
+  function handleClear(): void {
+    setZip('');
+    setCity('');
+    setLatCoord('');
+    setLongCoord('');
+    setState('');
+    setStateAbbreviation('');
+    setOppLat('');
+    setOppLong('');
+    setWeatherData('');
+    setCurrentTempData('');
+    setTempRangeData('');
+    console.log('%c cleared', 'color: red');
+  }
 
-    function handleClear(): void {
-      setZip('');
-      setCity('');
-      setLatCoord('');
-      setLongCoord('');
-      setState('');
-      setStateAbbreviation('');
-      setOppLat('');
-      setOppLong('');
-      setWeatherData('');
-      setCurrentTempData('');
-      setTempRangeData('');
-      console.log('%c cleared', 'color: red');
+  function opposite(): void {
+    let oppositeLat: string = (
+      parseFloat(latCoord) -
+      parseFloat(latCoord) * 2
+    ).toFixed(6);
+    let oppositeLong: string = (parseFloat(longCoord) + 180).toFixed(6);
+    setOppLat(oppositeLat);
+    setOppLong(oppositeLong);
+  }
+
+  const KelvinTemp = responseData?.main?.temp;
+  const KelvinMaxTemp = responseData?.main?.temp_max;
+  const KelvinMinTemp = responseData?.main?.temp_min;
+  const weather = responseData?.weather?.[0]?.description;
+
+  console.log(responseData);
+  // console.log(KelvinTemp);
+  // console.log(KelvinMaxTemp);
+  // console.log(KelvinMinTemp);
+  // console.log(weather);
+
+  const currentTemp = `${Math.round(1.8 * (KelvinTemp - 273) + 32)}°F`;
+  // console.log(`%cCurrent Temperature: ${currentTemp}`, 'color: blue');
+
+  const maxTemp = `${Math.round(1.8 * (KelvinMaxTemp - 273) + 32)}°F`;
+  // console.log(`Maximum Temperature: ${maxTemp}`);
+
+  const minTemp = `${Math.round(1.8 * (KelvinMinTemp - 273) + 32)}°F`;
+  // console.log(`Minimum Temperature: ${minTemp}`);
+
+  const tempRange = `${minTemp} - ${maxTemp}`;
+  // console.log(`%cTemperature Range: ${tempRange}`, 'color: red');
+
+  // console.log data
+  let logged = async () => {
+    const colRef = collection(db, 'location');
+    const docsSnap = await getDocs(colRef);
+    docsSnap.forEach((doc) => {
+      // console.log(doc.data());
+      setUserInfo(
+        docsSnap.docs.map((doc) => ({
+          id: doc.id,
+          Zip: doc.data().Zip,
+          City: doc.data().City,
+          Latitude: doc.data().Latitude,
+          Longitude: doc.data().Longitude,
+          Opposite_Latitude: doc.data().Opposite_Latitude,
+          Opposite_Longitude: doc.data().Opposite_Longitude,
+          State: doc.data().State,
+          State_Abbreviation: doc.data().State_Abbreviation,
+          Weather: doc.data().Weather,
+          CurrentTemp: doc.data().CurrentTemp,
+          TempRange: doc.data().TempRange,
+        }))
+      );
+    });
+  };
+
+  useEffect(() => {
+    // console.log(user);
+    if (user) {
+      logged();
+    } else {
+      return;
     }
+  }, []);
 
-    function opposite(): void {
-        let oppositeLat: string = (parseFloat(latCoord) - (parseFloat(latCoord) * 2)).toFixed(6); 
-        let oppositeLong: string = (parseFloat(longCoord) + 180).toFixed(6);
-        setOppLat(oppositeLat);
-        setOppLong(oppositeLong);
-    }
+  let dbId = userInfo?.[0]?.id;
+  let dbZip = userInfo?.[0]?.Zip;
+  let dbCity = userInfo?.[0]?.City;
+  let dbLatitude = userInfo?.[0]?.Latitude;
+  let dbLongitude = userInfo?.[0]?.Longitude;
+  let dbOppositeLatitude = userInfo?.[0]?.Opposite_Latitude;
+  let dbOppositeLongitude = userInfo?.[0]?.Opposite_Longitude;
+  let dbState = userInfo?.[0]?.State;
+  let dbStateAbbreviation = userInfo?.[0]?.State_Abbreviation;
+  let dbWeather = userInfo?.[0]?.Weather;
+  let dbCurrentTemp = userInfo?.[0]?.CurrentTemp;
+  let dbTempRange = userInfo?.[0]?.TempRange;
 
-    const KelvinTemp = responseData?.main?.temp;
-    const KelvinMaxTemp = responseData?.main?.temp_max;
-    const KelvinMinTemp = responseData?.main?.temp_min;
-    const weather = responseData?.weather?.[0]?.description;
+  // console.log(dbId);
+  // console.log(dbZip);
+  // console.log(dbCity);
+  // console.log(dbLatitude);
+  // console.log(dbLongitude);
+  // console.log(dbOppositeLatitude);
+  // console.log(dbOppositeLongitude);
+  // console.log(dbState);
+  // console.log(dbStateAbbreviation);
+  // console.log(dbWeather);
+  // console.log(dbCurrentTemp);
+  // console.log(dbTempRange);
 
-    console.log(responseData);
-    // console.log(KelvinTemp);
-    // console.log(KelvinMaxTemp);
-    // console.log(KelvinMinTemp);
-    // console.log(weather);
+  // console.log(user.displayName);
 
-    const currentTemp = `${Math.round(1.8 * (KelvinTemp - 273) + 32)}°F`;
-    // console.log(`%cCurrent Temperature: ${currentTemp}`, 'color: blue');
+  // Create new document from within code
+  const addDocument = async (
+    Zip: number,
+    City: string,
+    Latitude: number,
+    Longitude: number,
+    Opposite_Latitude: string,
+    Opposite_Longitude: string,
+    State: string,
+    State_Abbreviation: string,
+    Weather: string,
+    CurrentTemp: string,
+    TempRange: string
+  ) => {
+    await setDoc(doc(db, 'location', 'User Data2'), {
+      Zip,
+      City,
+      Latitude,
+      Longitude,
+      Opposite_Latitude,
+      Opposite_Longitude,
+      State,
+      State_Abbreviation,
+      Weather,
+      CurrentTemp,
+      TempRange,
+      Created: Timestamp.now(),
+    });
+  };
 
-    const maxTemp = `${Math.round(1.8 * (KelvinMaxTemp - 273) + 32)}°F`;
-    // console.log(`Maximum Temperature: ${maxTemp}`);
+  const addZip = async (Zip: number) => {
+    await setDoc(doc(db, 'location', 'User Data2'), {
+      Zip,
+    });
+  };
 
-    const minTemp = `${Math.round(1.8 * (KelvinMinTemp - 273) + 32)}°F`;
-    // console.log(`Minimum Temperature: ${minTemp}`);
-  
-    const tempRange = `${minTemp} - ${maxTemp}`;
-    // console.log(`%cTemperature Range: ${tempRange}`, 'color: red');
+  const addCity = async (City: string) => {
+    await setDoc(doc(db, 'location', 'User Data2'), {
+      City,
+    });
+  };
 
-    // console.log data
-    let logged = async () => {
-      const colRef = collection(db, "location");
-      const docsSnap = await getDocs(colRef);
-        docsSnap.forEach(doc => {
-          // console.log(doc.data());
-          setUserInfo(docsSnap.docs.map(doc => ({
-            id: doc.id,
-            Zip: doc.data().Zip,
-            City: doc.data().City,
-            Latitude: doc.data().Latitude,
-            Longitude: doc.data().Longitude,
-            Opposite_Latitude: doc.data().Opposite_Latitude,
-            Opposite_Longitude: doc.data().Opposite_Longitude,
-            State: doc.data().State,
-            State_Abbreviation: doc.data().State_Abbreviation,
-            Weather: doc.data().Weather,
-            CurrentTemp: doc.data().CurrentTemp,
-            TempRange: doc.data().TempRange,
-        })))
-      })
-    }
-    
-    useEffect(() => {
-      // console.log(user);
-      if (user) {
-        logged();
-      } else {
-        return;
-      }
-    }, []);
+  const addLat = async (Latitude: number) => {
+    await setDoc(doc(db, 'location', 'User Data2'), {
+      Latitude,
+    });
+  };
 
-    let dbId = userInfo?.[0]?.id;
-    let dbZip = userInfo?.[0]?.Zip;
-    let dbCity = userInfo?.[0]?.City;
-    let dbLatitude = userInfo?.[0]?.Latitude;
-    let dbLongitude = userInfo?.[0]?.Longitude;
-    let dbOppositeLatitude = userInfo?.[0]?.Opposite_Latitude;
-    let dbOppositeLongitude = userInfo?.[0]?.Opposite_Longitude;
-    let dbState = userInfo?.[0]?.State;
-    let dbStateAbbreviation = userInfo?.[0]?.State_Abbreviation;
-    let dbWeather = userInfo?.[0]?.Weather;
-    let dbCurrentTemp = userInfo?.[0]?.CurrentTemp;
-    let dbTempRange = userInfo?.[0]?.TempRange;
+  const addLong = async (Longitude: number) => {
+    await setDoc(doc(db, 'location', 'User Data2'), {
+      Longitude,
+    });
+  };
 
-    // console.log(dbId);
-    // console.log(dbZip);
-    // console.log(dbCity);
-    // console.log(dbLatitude);
-    // console.log(dbLongitude);
-    // console.log(dbOppositeLatitude);
-    // console.log(dbOppositeLongitude);
-    // console.log(dbState);
-    // console.log(dbStateAbbreviation);
-    // console.log(dbWeather);
-    // console.log(dbCurrentTemp);
-    // console.log(dbTempRange);
+  const addOppLat = async (Opposite_Latitude) => {
+    await setDoc(doc(db, 'location', 'User Data2'), {
+      Opposite_Latitude,
+    });
+  };
 
-    // console.log(user.displayName);
+  const addOppLong = async (Opposite_Longitude) => {
+    await setDoc(doc(db, 'location', 'User Data2'), {
+      Opposite_Longitude,
+    });
+  };
 
-    // Create new document from within code
-    const addDocument = async (Zip: number, City: string, Latitude: number, Longitude: number, Opposite_Latitude: string, Opposite_Longitude: string, State: string, State_Abbreviation: string, Weather: string, CurrentTemp: string, TempRange: string) => {
-      await setDoc(doc(db, "location", "User Data2"), {
-        Zip,
-        City,
-        Latitude,
-        Longitude,
-        Opposite_Latitude,
-        Opposite_Longitude,
-        State,
-        State_Abbreviation,
-        Weather,
-        CurrentTemp,
-        TempRange,
-        Created: Timestamp.now()
-      });
-    }
+  const addState = async (State: string) => {
+    await setDoc(doc(db, 'location', 'User Data2'), {
+      State,
+    });
+  };
 
-    const addZip = async(Zip: number) => {
-      await setDoc(doc(db, "location", "User Data2"), {
-        Zip,
-      });
-    }
+  const addStateAbbr = async (State_Abbreviation: string) => {
+    await setDoc(doc(db, 'location', 'User Data2'), {
+      State_Abbreviation,
+    });
+  };
 
-    const addCity = async(City: string) => {
-      await setDoc(doc(db, "location", "User Data2"), {
-        City,
-      })
-    }
+  const addWeather = async (Weather: string) => {
+    await setDoc(doc(db, 'location', 'User Data2'), {
+      Weather,
+    });
+  };
 
-    const addLat = async(Latitude: number) => {
-      await setDoc(doc(db, "location", "User Data2"), {
-        Latitude,
-      })
-    }
+  const addCurrentTemp = async (CurrentTemp: string) => {
+    await setDoc(doc(db, 'location', 'User Data2'), {
+      CurrentTemp,
+    });
+  };
 
-    const addLong = async(Longitude: number) => {
-      await setDoc(doc(db, "location", "User Data2"), {
-        Longitude,
-      })
-    }
+  const addTempRange = async (TempRange: string) => {
+    await setDoc(doc(db, 'location', 'User Data2'), {
+      TempRange,
+    });
+  };
 
-    const addOppLat = async(Opposite_Latitude) => {
-      await setDoc(doc(db, "location", "User Data2"), {
-        Opposite_Latitude,
-      })
-    }
+  const deleteAll = async (
+    Zip: number,
+    City: string,
+    Latitude: number,
+    Longitude: number,
+    State: string,
+    State_Abbreviation: string,
+    Opposite_Latitude: string,
+    Opposite_Longitude: string,
+    Weather: string,
+    CurrentTemp: string,
+    TempRange: string
+  ) => {
+    await updateDoc(doc(db, 'location', 'User Data2'), {
+      Zip: deleteField(),
+      City: deleteField(),
+      Latitude: deleteField(),
+      Longitude: deleteField(),
+      Opposite_Latitude: deleteField(),
+      Opposite_Longitude: deleteField(),
+      State: deleteField(),
+      State_Abbreviation: deleteField(),
+      Weather: deleteField(),
+      CurrentTemp: deleteField(),
+      TempRange: deleteField(),
+      Created: deleteField(),
+    });
+  };
 
-    const addOppLong = async(Opposite_Longitude) => {
-      await setDoc(doc(db, "location", "User Data2"), {
-        Opposite_Longitude,
-      })
-    }
+  const zipRef = doc(db, 'location', 'User Data2');
 
-    const addState = async(State: string) => {
-      await setDoc(doc(db, "location", "User Data2"), {
-        State,
-      })
-    }
+  const deleteZip = async (Zip: number) => {
+    await updateDoc(zipRef, {
+      Zip: deleteField(),
+    });
+  };
 
-    const addStateAbbr = async(State_Abbreviation: string) => {
-      await setDoc(doc(db, "location", "User Data2"), {
-        State_Abbreviation,
-      })
-    }
+  const cityRef = doc(db, 'location', 'User Data2');
 
-    const addWeather = async(Weather: string) => {
-      await setDoc(doc(db, "location", "User Data2"), {
-        Weather,
-      })
-    }
+  const deleteCity = async (City: string) => {
+    await updateDoc(cityRef, {
+      City: deleteField(),
+    });
+  };
 
-    const addCurrentTemp = async(CurrentTemp: string) => {
-      await setDoc(doc(db, "location", "User Data2"), {
-        CurrentTemp,
-      })
-    }
+  const latRef = doc(db, 'location', 'User Data2');
 
-    const addTempRange = async(TempRange: string) => {
-      await setDoc(doc(db, "location", "User Data2"), {
-        TempRange,
-      })
-    }
+  const deleteLat = async (Latitude: number) => {
+    await updateDoc(latRef, {
+      Latitude: deleteField(),
+    });
+  };
 
-    const deleteAll = async (Zip: number, City: string, Latitude: number, Longitude: number, State: string, State_Abbreviation: string, Opposite_Latitude: string, Opposite_Longitude: string, Weather: string, CurrentTemp: string, TempRange: string) => {
-      await updateDoc(doc(db, "location", "User Data2"), {
-        Zip: deleteField(),
-        City: deleteField(),
-        Latitude: deleteField(),
-        Longitude: deleteField(),
-        Opposite_Latitude: deleteField(),
-        Opposite_Longitude: deleteField(),
-        State: deleteField(),
-        State_Abbreviation: deleteField(),
-        Weather: deleteField(),
-        CurrentTemp: deleteField(),
-        TempRange: deleteField(),
-        Created: deleteField(),
-      });
-    }
+  const longRef = doc(db, 'location', 'User Data2');
 
-    const zipRef = doc(db, "location", "User Data2");
+  const deleteLong = async (Longitude: number) => {
+    await updateDoc(longRef, {
+      Longitude: deleteField(),
+    });
+  };
 
-    const deleteZip = async(Zip: number) => {
-      await updateDoc(zipRef, {
-        Zip: deleteField()
-      })
-    }
+  const oppLatRef = doc(db, 'location', 'User Data2');
 
-    const cityRef = doc(db, "location", "User Data2");
+  const deleteOppositeLat = async (Opposite_Latitude: number) => {
+    await updateDoc(oppLatRef, {
+      Opposite_Latitude: deleteField(),
+    });
+  };
 
-    const deleteCity = async(City: string) => {
-      await updateDoc(cityRef, {
-        City: deleteField()
-      })
-    }
+  const oppLongRef = doc(db, 'location', 'User Data2');
 
-    const latRef = doc(db, "location", "User Data2");
+  const deleteOppositeLong = async (Opposite_Longitude: number) => {
+    await updateDoc(oppLongRef, {
+      Opposite_Longitude: deleteField(),
+    });
+  };
 
-    const deleteLat = async(Latitude: number) => {
-      await updateDoc(latRef, {
-        Latitude: deleteField()
-      })
-    }
+  const stateRef = doc(db, 'location', 'User Data2');
 
-    const longRef = doc(db, "location", "User Data2");
+  const deleteState = async (State: string) => {
+    await updateDoc(stateRef, {
+      State: deleteField(),
+    });
+  };
 
-    const deleteLong = async(Longitude: number) => {
-      await updateDoc(longRef, {
-        Longitude: deleteField()
-      })
-    }
+  const abbrRef = doc(db, 'location', 'User Data2');
 
-    const oppLatRef = doc(db, "location", "User Data2");
+  const deleteAbbr = async (State_Abbreviation: string) => {
+    await updateDoc(abbrRef, {
+      State_Abbreviation: deleteField(),
+    });
+  };
 
-    const deleteOppositeLat = async(Opposite_Latitude: number) => {
-      await updateDoc(oppLatRef, {
-        Opposite_Latitude: deleteField()
-      })
-    }
+  const weatherRef = doc(db, 'location', 'User Data2');
 
-    const oppLongRef = doc(db, "location", "User Data2");
+  const deleteWeather = async (Weather: string) => {
+    await updateDoc(weatherRef, {
+      Weather: deleteField(),
+    });
+  };
 
-    const deleteOppositeLong = async(Opposite_Longitude: number) => {
-      await updateDoc(oppLongRef, {
-        Opposite_Longitude: deleteField()
-      })
-    }
+  const currentRef = doc(db, 'location', 'User Data2');
 
-    const stateRef = doc(db, "location", "User Data2");
+  const deleteCurrentTemp = async (CurrentTemp: string) => {
+    await updateDoc(currentRef, {
+      CurrentTemp: deleteField(),
+    });
+  };
 
-    const deleteState = async(State: string) => {
-      await updateDoc(stateRef, {
-        State: deleteField()
-      })
-    }
+  const tempRangeRef = doc(db, 'location', 'User Data2');
 
-    const abbrRef = doc(db, "location", "User Data2");
-
-    const deleteAbbr = async(State_Abbreviation: string) => {
-      await updateDoc(abbrRef, {
-        State_Abbreviation: deleteField()
-      })
-    }
-
-    const weatherRef = doc(db, "location", "User Data2");
-
-    const deleteWeather = async(Weather: string) => {
-      await updateDoc(weatherRef, {
-        Weather: deleteField()
-      })
-    }
-
-    const currentRef = doc(db, "location", "User Data2");
-
-    const deleteCurrentTemp = async(CurrentTemp: string) => {
-      await updateDoc(currentRef, {
-        CurrentTemp: deleteField()
-      })
-    }
-
-    const tempRangeRef = doc(db, "location", "User Data2");
-
-    const deleteTempRange = async(TempRange: string) => {
-      await updateDoc(tempRangeRef, {
-        TempRange: deleteField()
-      })
-    }
+  const deleteTempRange = async (TempRange: string) => {
+    await updateDoc(tempRangeRef, {
+      TempRange: deleteField(),
+    });
+  };
 
   return (
     <>
@@ -503,36 +542,61 @@ export default function Home() {
       {/* <div style={{ position: 'relative', zIndex: '10' }}>
         <Auth />
       </div> */}
-      <Local setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} setOppLat={setOppLat} setOppLong={setOppLong} setWeatherData={setWeatherData} setCurrentTempData={setCurrentTempData} setTempRangeData={setTempRangeData} />
-      <Container 
-        maxWidth="lg" 
-        style={{ 
-          transform: `${scale}`, 
-          display: `${flex}`, 
-          justifyContent: `${center}`, 
-          marginTop: '2%', 
-          position: 'relative', 
-          zIndex: '10' 
+      <Local
+        setZip={setZip}
+        setCity={setCity}
+        setLatCoord={setLatCoord}
+        setLongCoord={setLongCoord}
+        setState={setState}
+        setStateAbbreviation={setStateAbbreviation}
+        setOppLat={setOppLat}
+        setOppLong={setOppLong}
+        setWeatherData={setWeatherData}
+        setCurrentTempData={setCurrentTempData}
+        setTempRangeData={setTempRangeData}
+      />
+      <Container
+        maxWidth="lg"
+        style={{
+          transform: `${scale}`,
+          display: `${flex}`,
+          justifyContent: `${center}`,
+          marginTop: '2%',
+          position: 'relative',
+          zIndex: '10',
         }}
       >
         <Draggable>
-          <div style={{ 
-            color: 'white', 
-            background: 'rgb(49, 62, 76, 0.8)', 
-            position: 'absolute', 
-            cursor: 'move', 
-            fontSize: '40px', 
-            fontWeight: '300', 
-            padding: '15px 35px 15px 35px',
-            minWidth: '345px'
-          }}>
-            {(zip || city || latCoord || longCoord || state || stateAbbreviation) ? (
-            <>
-              <div style={{ display: 'flex', justifyContent: 'flex-start', fontSize: '15px' }}>
-                *Drag into position
-              </div>
-            </>
-            ): null}
+          <div
+            style={{
+              color: 'white',
+              background: 'rgb(49, 62, 76, 0.8)',
+              position: 'absolute',
+              cursor: 'move',
+              fontSize: '40px',
+              fontWeight: '300',
+              padding: '15px 35px 15px 35px',
+              minWidth: '345px',
+            }}
+          >
+            {zip ||
+            city ||
+            latCoord ||
+            longCoord ||
+            state ||
+            stateAbbreviation ? (
+              <>
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'flex-start',
+                    fontSize: '15px',
+                  }}
+                >
+                  *Drag into position
+                </div>
+              </>
+            ) : null}
             <div>
               <ZipText zip={zip} />
               <div>{zip}</div>
@@ -571,29 +635,97 @@ export default function Home() {
             <div>
               <StateAbbreviationText stateAbbreviation={stateAbbreviation} />
               <div>{stateAbbreviation}</div>
-              <AbbrClose stateAbbreviation={stateAbbreviation} setStateAbbreviation={setStateAbbreviation} />
+              <AbbrClose
+                stateAbbreviation={stateAbbreviation}
+                setStateAbbreviation={setStateAbbreviation}
+              />
             </div>
             <div>
               <WeatherText weatherData={weatherData} />
               <div style={{ textTransform: 'capitalize' }}>{weatherData}</div>
-              <WeatherClose weatherData={weatherData} setWeatherData={setWeatherData} />
+              <WeatherClose
+                weatherData={weatherData}
+                setWeatherData={setWeatherData}
+              />
             </div>
             <div>
               <CurrentTempText currentTempData={currentTempData} />
-              <div style={{ textTransform: 'capitalize' }}>{currentTempData}</div>
-              <CurrentTempClose currentTempData={currentTempData} setCurrentTempData={setCurrentTempData} />
+              <div style={{ textTransform: 'capitalize' }}>
+                {currentTempData}
+              </div>
+              <CurrentTempClose
+                currentTempData={currentTempData}
+                setCurrentTempData={setCurrentTempData}
+              />
             </div>
             <div>
               <TempRangeText tempRangeData={tempRangeData} />
               <div style={{ textTransform: 'capitalize' }}>{tempRangeData}</div>
-              <TempRangeClose tempRangeData={tempRangeData} setTempRangeData={setTempRangeData} />
+              <TempRangeClose
+                tempRangeData={tempRangeData}
+                setTempRangeData={setTempRangeData}
+              />
             </div>
           </div>
         </Draggable>
       </Container>
-      <SideMenu zipCode={zipCode} setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} handleClear={handleClear} opposite={opposite} addZip={addZip} deleteZip={deleteZip} addCity={addCity} deleteCity={deleteCity} addLat={addLat} deleteLat={deleteLat} addLong={addLong} deleteLong={deleteLong} addState={addState} deleteState={deleteState} addStateAbbr={addStateAbbr} deleteAbbr={deleteAbbr} addDocument={addDocument} deleteAll={deleteAll} addOppLat={addOppLat} addOppLong={addOppLong} deleteOppositeLat={deleteOppositeLat} deleteOppositeLong={deleteOppositeLong} dbId={dbId} dbZip={dbZip} dbCity={dbCity} dbLatitude={dbLatitude} dbLongitude={dbLongitude} dbOppositeLatitude={dbOppositeLatitude} dbOppositeLongitude={dbOppositeLongitude} dbState={dbState} dbStateAbbreviation={dbStateAbbreviation} weather={weather} setWeatherData={setWeatherData} currentTemp={currentTemp} setCurrentTempData={setCurrentTempData} tempRange={tempRange} setTempRangeData={setTempRangeData} addWeather={addWeather} deleteWeather={deleteWeather} addCurrentTemp={addCurrentTemp} deleteCurrentTemp={deleteCurrentTemp} addTempRange={addTempRange} deleteTempRange={deleteTempRange} />
+      <SideMenu
+        zipCode={zipCode}
+        setZip={setZip}
+        setCity={setCity}
+        setLatCoord={setLatCoord}
+        setLongCoord={setLongCoord}
+        setState={setState}
+        setStateAbbreviation={setStateAbbreviation}
+        handleClear={handleClear}
+        opposite={opposite}
+        addZip={addZip}
+        deleteZip={deleteZip}
+        addCity={addCity}
+        deleteCity={deleteCity}
+        addLat={addLat}
+        deleteLat={deleteLat}
+        addLong={addLong}
+        deleteLong={deleteLong}
+        addState={addState}
+        deleteState={deleteState}
+        addStateAbbr={addStateAbbr}
+        deleteAbbr={deleteAbbr}
+        addDocument={addDocument}
+        deleteAll={deleteAll}
+        addOppLat={addOppLat}
+        addOppLong={addOppLong}
+        deleteOppositeLat={deleteOppositeLat}
+        deleteOppositeLong={deleteOppositeLong}
+        dbId={dbId}
+        dbZip={dbZip}
+        dbCity={dbCity}
+        dbLatitude={dbLatitude}
+        dbLongitude={dbLongitude}
+        dbOppositeLatitude={dbOppositeLatitude}
+        dbOppositeLongitude={dbOppositeLongitude}
+        dbState={dbState}
+        dbStateAbbreviation={dbStateAbbreviation}
+        weather={weather}
+        setWeatherData={setWeatherData}
+        currentTemp={currentTemp}
+        setCurrentTempData={setCurrentTempData}
+        tempRange={tempRange}
+        setTempRangeData={setTempRangeData}
+        addWeather={addWeather}
+        deleteWeather={deleteWeather}
+        addCurrentTemp={addCurrentTemp}
+        deleteCurrentTemp={deleteCurrentTemp}
+        addTempRange={addTempRange}
+        deleteTempRange={deleteTempRange}
+      />
       <div style={{ transform: 'translateY(-469.7px)' }}>
-        <Map latCoord={latCoord} longCoord={longCoord} latitude={latitude} longitude={longitude} />
+        <Map
+          latCoord={latCoord}
+          longCoord={longCoord}
+          latitude={latitude}
+          longitude={longitude}
+        />
       </div>
     </>
   );

@@ -3,23 +3,23 @@ import { PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
 
 export interface OppLatState {
-    value: string
+  value: string;
 }
 
 const initialState: OppLatState = {
-    value: '',
-}
+  value: '',
+};
 
 export const OppLatSlice = createSlice({
-    name: 'OppLat',
-    initialState,
-    reducers: {
-        incrementOppLat: (state, action: PayloadAction<any>) => {
-            state.value = action.payload
-        },
+  name: 'OppLat',
+  initialState,
+  reducers: {
+    incrementOppLat: (state, action: PayloadAction<any>) => {
+      state.value = action.payload;
     },
-})
+  },
+});
 
-export const { incrementOppLat } =  OppLatSlice.actions;
+export const { incrementOppLat } = OppLatSlice.actions;
 export const OppLatValue = (state: RootState) => state.OppLat.value;
 export default OppLatSlice.reducer;

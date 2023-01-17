@@ -12,7 +12,7 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import Database from '../components/Database';
 import UI_Buttons from '../components/UI_Buttons';
-import { useAuthState } from "react-firebase-hooks/auth";
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { getAuth } from '@firebase/auth';
 import CircularProgress from '@mui/material/CircularProgress';
 import Header from '../components/Header';
@@ -67,7 +67,59 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
-export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLongCoord, setState, setStateAbbreviation, handleClear, opposite, addZip, deleteZip, addCity, deleteCity, addLat, deleteLat, addLong, deleteLong, addState, deleteState, addStateAbbr, deleteAbbr, addDocument, deleteAll, addOppLat, addOppLong, deleteOppositeLat, deleteOppositeLong, dbId, dbZip, dbCity, dbLatitude, dbLongitude, dbOppositeLatitude, dbOppositeLongitude, dbState, dbStateAbbreviation, weather, setWeatherData, currentTemp, setCurrentTempData, tempRange, setTempRangeData, addWeather, deleteWeather, addCurrentTemp, deleteCurrentTemp, addTempRange, deleteTempRange }: any) {
+export default function SideMenu(values) {
+
+  const {
+    zipCode,
+    setZip,
+    setCity,
+    setLatCoord,
+    setLongCoord,
+    setState,
+    setStateAbbreviation,
+    handleClear,
+    opposite,
+    addZip,
+    deleteZip,
+    addCity,
+    deleteCity,
+    addLat,
+    deleteLat,
+    addLong,
+    deleteLong,
+    addState,
+    deleteState,
+    addStateAbbr,
+    deleteAbbr,
+    addDocument,
+    deleteAll,
+    addOppLat,
+    addOppLong,
+    deleteOppositeLat,
+    deleteOppositeLong,
+    dbId,
+    dbZip,
+    dbCity,
+    dbLatitude,
+    dbLongitude,
+    dbOppositeLatitude,
+    dbOppositeLongitude,
+    dbState,
+    dbStateAbbreviation,
+    weather,
+    setWeatherData,
+    currentTemp,
+    setCurrentTempData,
+    tempRange,
+    setTempRangeData,
+    addWeather,
+    deleteWeather,
+    addCurrentTemp,
+    deleteCurrentTemp,
+    addTempRange,
+    deleteTempRange,
+  } = values;
+
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
@@ -95,24 +147,24 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
     }
 
     const updateMedia = () => {
-        if (window.innerWidth > 440) {
-          setIsDesktop(true);
-          setTop('');
-          setWidth('');
-          setLeft('');
-          setIcon('0px');
-          setSide('0px');
-        } else {
-          setIsDesktop(false);
-          setTop('53px');
-          setWidth('48px');
-          setLeft('0px');
-          setIcon('52px');
-          setSide('25px');
-        }
+      if (window.innerWidth > 440) {
+        setIsDesktop(true);
+        setTop('');
+        setWidth('');
+        setLeft('');
+        setIcon('0px');
+        setSide('0px');
+      } else {
+        setIsDesktop(false);
+        setTop('53px');
+        setWidth('48px');
+        setLeft('0px');
+        setIcon('52px');
+        setSide('25px');
+      }
     };
-      window.addEventListener('resize', updateMedia);
-      return () => window.removeEventListener('resize', updateMedia);
+    window.addEventListener('resize', updateMedia);
+    return () => window.removeEventListener('resize', updateMedia);
   }, []);
 
   const handleDrawerOpen = () => {
@@ -126,96 +178,176 @@ export default function SideMenu({ zipCode, setZip, setCity, setLatCoord, setLon
   const auth = getAuth();
   const [user, loading] = useAuthState(auth);
 
-    // console.log(user?.email);
-    // console.log(user.displayName);
+  // console.log(user?.email);
+  // console.log(user.displayName);
 
-    let nameHeader;
+  let nameHeader;
 
-    if (user?.displayName == null) {
-        nameHeader = `${user?.email}'s`
-    } else {
-        nameHeader = `${user.displayName}'s`
-    }
+  if (user?.displayName == null) {
+    nameHeader = `${user?.email}'s`;
+  } else {
+    nameHeader = `${user.displayName}'s`;
+  }
 
   return (
     <>
-        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-            {loading &&
-                <div style={{ position: 'absolute', zIndex: '10000', transform: 'scale(0.8) translateY(10px)', top: '5px' }}>
-                    <CircularProgress />
-                </div>
-            }
-        </div>
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <div style={{ position: 'absolute', zIndex: '10000', top: '5px' }}>
-              <Header />
+      <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+        {loading && (
+          <div
+            style={{
+              position: 'absolute',
+              zIndex: '10000',
+              transform: 'scale(0.8) translateY(10px)',
+              top: '5px',
+            }}
+          >
+            <CircularProgress />
           </div>
+        )}
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <div style={{ position: 'absolute', zIndex: '10000', top: '5px' }}>
+          <Header />
         </div>
-        <Box sx={{ display: 'flex' }}>
-            <CssBaseline />
-            <AppBar position="fixed" open={open} style={{ top: `${top}`, width: `${width}`, left: `${left}`, background: '#313e4c', color: 'white' }}> 
-                {!open ? (
-                <>
-                  <Toolbar>
-                    <IconButton
-                        color="inherit"
-                        aria-label="open drawer"
-                        onClick={handleDrawerOpen}
-                        edge="start"
-                        sx={{ mr: 2, ...(open && { display: 'none' }) }}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                  </Toolbar>
-                </>
-                ): null}
-            </AppBar>
-            <Drawer
-                sx={{
-                width: drawerWidth,
-                flexShrink: 0,
-                '& .MuiDrawer-paper': {
-                    width: drawerWidth,
-                    boxSizing: 'border-box',
-                    background: '#313e4c',
-                    color: 'white'
-                },
-                }}
-                variant="persistent"
-                anchor="left"
-                open={open}
-            >
-                <DrawerHeader>
-                  {isDesktop ? (
-                  <>
-                    <div style={{ fontSize: '16px', fontWeight: '400', position: 'absolute', zIndex: '10000000', color: 'white', left: '16px', top: '21px' }}>
-                      <span style={{ width: '500px' }}>
-                          {user ? (
-                          <>
-                              {nameHeader}&nbsp;
-                          </>
-                          ): null} Dashboard
-                      </span>
-                    </div>
-                  </>
-                  ): null}
-                    <IconButton onClick={handleDrawerClose} style={{ color: 'white', transform: `translateY(${icon})` }}> 
-                        {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-                    </IconButton>
-                </DrawerHeader>
-                    <Divider />
-                <div style={{ transform: `translateY(${side})` }}> 
-                  {user ? (
-                  <>
-                      <Database addZip={addZip} addCity={addCity} addLat={addLat} addLong={addLong} addState={addState} addStateAbbr={addStateAbbr} addDocument={addDocument} deleteZip={deleteZip} addOppLat={addOppLat} addOppLong={addOppLong} dbId={dbId} dbZip={dbZip} dbCity={dbCity} dbLatitude={dbLatitude} dbLongitude={dbLongitude} dbOppositeLatitude={dbOppositeLatitude} dbOppositeLongitude={dbOppositeLongitude} dbState={dbState} dbStateAbbreviation={dbStateAbbreviation} deleteCity={deleteCity} deleteLat={deleteLat} deleteLong={deleteLong} deleteOppositeLat={deleteOppositeLat} deleteOppositeLong={deleteOppositeLong} deleteState={deleteState} deleteAbbr={deleteAbbr} deleteAll={deleteAll} addWeather={addWeather} deleteWeather={deleteWeather} addCurrentTemp={addCurrentTemp} deleteCurrentTemp={deleteCurrentTemp} addTempRange={addTempRange} deleteTempRange={deleteTempRange} />
-                      <Divider />
-                  </>
-                  ): null}
-                  <UI_Buttons zipCode={zipCode} setZip={setZip} setCity={setCity} setLatCoord={setLatCoord} setLongCoord={setLongCoord} setState={setState} setStateAbbreviation={setStateAbbreviation} handleClear={handleClear} opposite={opposite} weather={weather} setWeatherData={setWeatherData} currentTemp={currentTemp} setCurrentTempData={setCurrentTempData} tempRange={tempRange} setTempRangeData={setTempRangeData} />
-                    <Divider />
+      </div>
+      <Box sx={{ display: 'flex' }}>
+        <CssBaseline />
+        <AppBar
+          position="fixed"
+          open={open}
+          style={{
+            top: `${top}`,
+            width: `${width}`,
+            left: `${left}`,
+            background: '#313e4c',
+            color: 'white',
+          }}
+        >
+          {!open ? (
+            <>
+              <Toolbar>
+                <IconButton
+                  color="inherit"
+                  aria-label="open drawer"
+                  onClick={handleDrawerOpen}
+                  edge="start"
+                  sx={{ mr: 2, ...(open && { display: 'none' }) }}
+                >
+                  <MenuIcon />
+                </IconButton>
+              </Toolbar>
+            </>
+          ) : null}
+        </AppBar>
+        <Drawer
+          sx={{
+            width: drawerWidth,
+            flexShrink: 0,
+            '& .MuiDrawer-paper': {
+              width: drawerWidth,
+              boxSizing: 'border-box',
+              background: '#313e4c',
+              color: 'white',
+            },
+          }}
+          variant="persistent"
+          anchor="left"
+          open={open}
+        >
+          <DrawerHeader>
+            {isDesktop ? (
+              <>
+                <div
+                  style={{
+                    fontSize: '16px',
+                    fontWeight: '400',
+                    position: 'absolute',
+                    zIndex: '10000000',
+                    color: 'white',
+                    left: '16px',
+                    top: '21px',
+                  }}
+                >
+                  <span style={{ width: '500px' }}>
+                    {user ? <>{nameHeader}&nbsp;</> : null} Dashboard
+                  </span>
                 </div>
-            </Drawer>
-        </Box>
+              </>
+            ) : null}
+            <IconButton
+              onClick={handleDrawerClose}
+              style={{ color: 'white', transform: `translateY(${icon})` }}
+            >
+              {theme.direction === 'ltr' ? (
+                <ChevronLeftIcon />
+              ) : (
+                <ChevronRightIcon />
+              )}
+            </IconButton>
+          </DrawerHeader>
+          <Divider />
+          <div style={{ transform: `translateY(${side})` }}>
+            {user ? (
+              <>
+                <Database
+                  addZip={addZip}
+                  addCity={addCity}
+                  addLat={addLat}
+                  addLong={addLong}
+                  addState={addState}
+                  addStateAbbr={addStateAbbr}
+                  addDocument={addDocument}
+                  deleteZip={deleteZip}
+                  addOppLat={addOppLat}
+                  addOppLong={addOppLong}
+                  dbId={dbId}
+                  dbZip={dbZip}
+                  dbCity={dbCity}
+                  dbLatitude={dbLatitude}
+                  dbLongitude={dbLongitude}
+                  dbOppositeLatitude={dbOppositeLatitude}
+                  dbOppositeLongitude={dbOppositeLongitude}
+                  dbState={dbState}
+                  dbStateAbbreviation={dbStateAbbreviation}
+                  deleteCity={deleteCity}
+                  deleteLat={deleteLat}
+                  deleteLong={deleteLong}
+                  deleteOppositeLat={deleteOppositeLat}
+                  deleteOppositeLong={deleteOppositeLong}
+                  deleteState={deleteState}
+                  deleteAbbr={deleteAbbr}
+                  deleteAll={deleteAll}
+                  addWeather={addWeather}
+                  deleteWeather={deleteWeather}
+                  addCurrentTemp={addCurrentTemp}
+                  deleteCurrentTemp={deleteCurrentTemp}
+                  addTempRange={addTempRange}
+                  deleteTempRange={deleteTempRange}
+                />
+                <Divider />
+              </>
+            ) : null}
+            <UI_Buttons
+              zipCode={zipCode}
+              setZip={setZip}
+              setCity={setCity}
+              setLatCoord={setLatCoord}
+              setLongCoord={setLongCoord}
+              setState={setState}
+              setStateAbbreviation={setStateAbbreviation}
+              handleClear={handleClear}
+              opposite={opposite}
+              weather={weather}
+              setWeatherData={setWeatherData}
+              currentTemp={currentTemp}
+              setCurrentTempData={setCurrentTempData}
+              tempRange={tempRange}
+              setTempRangeData={setTempRangeData}
+            />
+            <Divider />
+          </div>
+        </Drawer>
+      </Box>
     </>
   );
 }

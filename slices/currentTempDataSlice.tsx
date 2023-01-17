@@ -3,23 +3,23 @@ import { PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
 
 export interface currentTempDataState {
-    value: string
+  value: string;
 }
 
 const initialState: currentTempDataState = {
-    value: '',
-}
+  value: '',
+};
 
 export const currentTempDataSlice = createSlice({
-    name: 'currentTempData',
-    initialState,
-    reducers: {
-        incrementCurrentTempData: (state, action: PayloadAction<any>) => {
-            state.value = action.payload
-        },
+  name: 'currentTempData',
+  initialState,
+  reducers: {
+    incrementCurrentTempData: (state, action: PayloadAction<any>) => {
+      state.value = action.payload;
     },
-})
+  },
+});
 
-export const { incrementCurrentTempData } =  currentTempDataSlice.actions;
+export const { incrementCurrentTempData } = currentTempDataSlice.actions;
 export const currentTempDataValue = (state: RootState) => state.currentTempData.value;
 export default currentTempDataSlice.reducer;
