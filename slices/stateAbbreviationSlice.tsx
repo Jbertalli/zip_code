@@ -21,6 +21,5 @@ export const stateAbbreviationSlice = createSlice({
 });
 
 export const { incrementStateAbbreviation } = stateAbbreviationSlice.actions;
-export const stateAbbreviationValue = (state: RootState) =>
-  state.stateAbbreviation.value;
+export const stateAbbreviationValue = (state: RootState) => state.stateAbbreviation.value;
 export default stateAbbreviationSlice.reducer;
