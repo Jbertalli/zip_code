@@ -122,45 +122,20 @@ export default function SideMenu(values) {
 
   const theme = useTheme();
   const [open, setOpen] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(false);
-  const [top, setTop] = useState('');
-  const [width, setWidth] = useState('');
-  const [left, setLeft] = useState('');
-  const [icon, setIcon] = useState('0px');
-  const [side, setSide] = useState('0px');
+  const [desktop, setDesktop] = useState<boolean>(true);
 
   useEffect(() => {
     if (window.innerWidth > 440) {
-      setIsDesktop(true);
-      setTop('');
-      setWidth('');
-      setLeft('');
-      setIcon('0px');
-      setSide('0px');
+      setDesktop(true);
     } else {
-      setIsDesktop(false);
-      setTop('53px');
-      setWidth('48px');
-      setLeft('0px');
-      setIcon('52px');
-      setSide('25px');
+      setDesktop(false);
     }
 
     const updateMedia = () => {
       if (window.innerWidth > 440) {
-        setIsDesktop(true);
-        setTop('');
-        setWidth('');
-        setLeft('');
-        setIcon('0px');
-        setSide('0px');
+        setDesktop(true);
       } else {
-        setIsDesktop(false);
-        setTop('53px');
-        setWidth('48px');
-        setLeft('0px');
-        setIcon('52px');
-        setSide('25px');
+        setDesktop(false);
       }
     };
     window.addEventListener('resize', updateMedia);
@@ -216,9 +191,9 @@ export default function SideMenu(values) {
           position="fixed"
           open={open}
           style={{
-            top: `${top}`,
-            width: `${width}`,
-            left: `${left}`,
+            top: desktop ? '' : '53px',
+            width: desktop ? '' : '48px',
+            left: desktop ? '' : '0px',
             background: '#313e4c',
             color: 'white',
           }}
@@ -255,7 +230,7 @@ export default function SideMenu(values) {
           open={open}
         >
           <DrawerHeader>
-            {isDesktop ? (
+            {desktop ? (
               <>
                 <div
                   style={{
@@ -276,7 +251,7 @@ export default function SideMenu(values) {
             ) : null}
             <IconButton
               onClick={handleDrawerClose}
-              style={{ color: 'white', transform: `translateY(${icon})` }}
+              style={{ color: 'white', transform: desktop ? 'translateY(0px)' : 'translateY(52px)' }}
             >
               {theme.direction === 'ltr' ? (
                 <ChevronLeftIcon />
@@ -286,7 +261,7 @@ export default function SideMenu(values) {
             </IconButton>
           </DrawerHeader>
           <Divider />
-          <div style={{ transform: `translateY(${side})` }}>
+          <div style={{ transform: desktop ? 'translateY(0px)' : 'translateY(25px)' }}>
             {user ? (
               <>
                 <Database

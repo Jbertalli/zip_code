@@ -11,34 +11,29 @@ export default function Header() {
   const [antinodeColor, setAntinodeColor] = useState<string>('');
   const [historyColor, setHistoryColor] = useState<string>('');
   const [loginColor, setLoginColor] = useState<string>('');
-  const [mobileHeader, setMobileHeader] = useState<string>('25px');
-  const [transform, setTransform] = useState<string>('0%');
   // const [homeUnderline, setHomeUnderline] = useState('');
   // const [antinodeUnderline, setAntinodeUnderline] = useState('');
   // const [historyUnderline, setHistoryUnderline] = useState('');
   // textDecoration: `${homeUnderline}`
   // textDecoration: `${antinodeUnderline}`
   // textDecoration: `${historyUnderline}`
+  const [desktop, setDesktop] = useState<boolean>(true);
   const auth = getAuth();
   const [user] = useAuthState(auth);
   const router = useRouter();
 
   useEffect(() => {
     if (window.innerWidth > 440) {
-      setMobileHeader('25px');
-      setTransform('0%');
+      setDesktop(true);
     } else {
-      setMobileHeader('10.8px');
-      setTransform('5%');
+      setDesktop(false);
     }
 
     const updateMedia = () => {
       if (window.innerWidth > 440) {
-        setMobileHeader('25px');
-        setTransform('0%');
+        setDesktop(true);
       } else {
-        setMobileHeader('10.8px');
-        setTransform('5%');
+        setDesktop(false);
       }
     };
     window.addEventListener('resize', updateMedia);
@@ -78,13 +73,13 @@ export default function Header() {
 
   return (
     <>
-      <div style={{ transform: `translate(${transform}` }}>
+      <div style={{ transform: desktop ? 'translate(0%)' : 'translate(5%)' }}>
         {/* <Tabs> */}
         <Link href="/" passHref>
           <Tab
             style={{
               background: `${homeColor}`,
-              fontSize: `${mobileHeader}`,
+              fontSize: desktop ? '25px' : '10.8px',
               fontWeight: '400',
               textTransform: 'none',
             }}
@@ -95,7 +90,7 @@ export default function Header() {
           <Tab
             style={{
               background: `${antinodeColor}`,
-              fontSize: `${mobileHeader}`,
+              fontSize: desktop ? '25px' : '10.8px',
               fontWeight: '400',
               textTransform: 'none',
             }}
@@ -108,7 +103,7 @@ export default function Header() {
               <Tab
                 style={{
                   background: `${historyColor}`,
-                  fontSize: `${mobileHeader}`,
+                  fontSize: desktop ? '25px' : '10.8px',
                   fontWeight: '400',
                   textTransform: 'none',
                 }}
@@ -118,7 +113,7 @@ export default function Header() {
             <Tab
               onClick={SignOut}
               style={{
-                fontSize: `${mobileHeader}`,
+                fontSize: desktop ? '25px' : '10.8px',
                 fontWeight: '400',
                 textTransform: 'none',
               }}
@@ -131,7 +126,7 @@ export default function Header() {
               <Tab
                 style={{
                   background: `${loginColor}`,
-                  fontSize: `${mobileHeader}`,
+                  fontSize: desktop ? '25px' : '10.8px',
                   fontWeight: '400',
                   textTransform: 'none',
                 }}

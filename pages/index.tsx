@@ -89,12 +89,10 @@ export default function Home() {
   const [currentTempData, setCurrentTempData] = useState<string>('');
   const [tempRangeData, setTempRangeData] = useState<string>('');
   const [userInfo, setUserInfo] = useState([]);
-  const [scale, setScale] = useState<string>('translate(22px, 6px)');
-  const [flex, setFlex] = useState<string>('');
-  const [center, setCenter] = useState<string>('');
   const [apiData, setApiData] = useState({});
   const [getState, setGetState] = useState('tamilnadu');
   const [stated, setStated] = useState('tamilnadu');
+  const [desktop, setDesktop] = useState(false);
 
   const [user] = useAuthState(getAuth());
 
@@ -149,24 +147,16 @@ export default function Home() {
 
   useEffect(() => {
     if (window.innerWidth > 440) {
-      setScale('translate(22px, 6px)');
-      setFlex('');
-      setCenter('');
+      setDesktop(true);
     } else {
-      setScale('translate(15px, 22px) scale(0.7)');
-      setFlex('flex');
-      setCenter('center');
+      setDesktop(false);
     }
 
     const updateMedia = () => {
       if (window.innerWidth > 440) {
-        setScale('translate(22px, 6px)');
-        setFlex('');
-        setCenter('');
+        setDesktop(true);
       } else {
-        setScale('translate(15px, 22px) scale(0.7)');
-        setFlex('flex');
-        setCenter('center');
+        setDesktop(false);
       }
     };
     window.addEventListener('resize', updateMedia);
@@ -558,9 +548,9 @@ export default function Home() {
       <Container
         maxWidth="lg"
         style={{
-          transform: `${scale}`,
-          display: `${flex}`,
-          justifyContent: `${center}`,
+          transform: desktop ? 'translate(22px, 6px)' : 'translate(15px, 22px) scale(0.7)',
+          display: desktop ? '' : 'flex',
+          justifyContent: desktop ? '' : 'center',
           marginTop: '2%',
           position: 'relative',
           zIndex: '10',

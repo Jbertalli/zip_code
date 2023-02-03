@@ -28,48 +28,23 @@ function SignInScreen() {
   const [user] = useAuthState(auth);
   // const user = auth.currentUser;
   // console.log(user);
-  const [headerSize, setHeaderSize] = useState<string>('2.1em');
-  const [emailSign, setEmailSign] = useState<string>('28px');
-  const [width, setWidth] = useState<string>('236px');
-  const [view, setView] = useState<string>('160px');
   const [toggle, setToggle] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState<string>('password');
   const [checked, setChecked] = useState<boolean>(false);
-  const [sign, setSign] = useState<string>('120px');
-  const [height, setHeight] = useState<string>('');
+  const [desktop, setDesktop] = useState<boolean>(true);
 
   useEffect(() => {
     if (window.innerWidth > 440) {
-      setHeaderSize('2.1em');
-      setEmailSign('28px');
-      setWidth('236px');
-      setView('160px');
-      setSign('120px');
-      setHeight('620px');
+      setDesktop(true);
     } else {
-      setHeaderSize('1.7em');
-      setEmailSign('48px');
-      setWidth('300px');
-      setView('12vh');
-      setSign('70px');
-      setHeight('560px');
+      setDesktop(false);
     }
 
     const updateMedia = () => {
       if (window.innerWidth > 440) {
-        setHeaderSize('2.1em');
-        setEmailSign('28px');
-        setWidth('236px');
-        setView('160px');
-        setSign('120px');
-        setHeight('620px');
+        setDesktop(true);
       } else {
-        setHeaderSize('1.7em');
-        setEmailSign('48px');
-        setWidth('300px');
-        setView('12vh');
-        setSign('70px');
-        setHeight('560px');
+        setDesktop(false);
       }
     };
     window.addEventListener('resize', updateMedia);
@@ -136,7 +111,7 @@ function SignInScreen() {
         style={{
           display: 'flex',
           justifyContent: 'center',
-          transform: `translateY(${view})`,
+          transform: desktop ? 'translateY(160px)' : 'translateY(12vh)'
         }}
       >
         <div
@@ -145,15 +120,15 @@ function SignInScreen() {
             position: 'absolute',
             border: '1px solid white',
             borderRadius: '8px',
-            minHeight: `${height}`,
+            minHeight: desktop ? '620px' : '560px',
             width: '20vw',
             maxWidth: '600px',
-            minWidth: `${width}`,
+            minWidth: desktop ? '236px' : '300px'
           }}
         >
           <div
             style={{
-              fontSize: `${headerSize}`,
+              fontSize: desktop ? '2.1em' : '1.7em',
               display: 'flex',
               justifyContent: 'center',
               padding: '30px 0px 0px 0px',
@@ -215,7 +190,7 @@ function SignInScreen() {
           </div>
           <div
             style={{
-              transform: `translateY(${sign})`,
+              transform: desktop ? 'translateY(120px)' : 'translateY(70px)',
               display: 'flex',
               justifyContent: 'center',
             }}
@@ -225,7 +200,7 @@ function SignInScreen() {
                 <div>
                   <div
                     style={{
-                      transform: `translateY(${emailSign})`,
+                      transform: desktop ? 'translateY(28px)' : 'translateY(48px)',
                       fontSize: '10px',
                       color: 'white',
                       display: 'flex',
@@ -383,7 +358,7 @@ function SignInScreen() {
                 <div>
                   <div
                     style={{
-                      transform: `translateY(${emailSign})`,
+                      transform: desktop ? 'translateY(28px)' : 'translateY(48px)',
                       fontSize: '10px',
                       color: 'white',
                       display: 'flex',

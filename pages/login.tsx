@@ -7,22 +7,22 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import CircularProgress from '@mui/material/CircularProgress';
 
 export default function Login() {
-  const [transform, setTransform] = useState<string>('0%');
+  const [desktop, setDesktop] = useState<boolean>(true);
   const auth = getAuth();
   const [loading] = useAuthState(auth);
 
   useEffect(() => {
     if (window.innerWidth > 440) {
-      setTransform('0%');
+      setDesktop(true);
     } else {
-      setTransform('-5%');
+      setDesktop(false);
     }
 
     const updateMedia = () => {
       if (window.innerWidth > 440) {
-        setTransform('0%');
+        setDesktop(true);
       } else {
-        setTransform('-5%');
+        setDesktop(false);
       }
     };
     window.addEventListener('resize', updateMedia);
@@ -39,7 +39,7 @@ export default function Login() {
         style={{
           display: 'flex',
           justifyContent: 'center',
-          transform: `translate(${transform})`,
+          transform: desktop ? 'translate(0%)' : 'translate(-5%)',
         }}
       >
         <div style={{ position: 'absolute', zIndex: '10000', top: '5px' }}>

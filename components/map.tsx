@@ -33,52 +33,23 @@ export default function Map(values) {
     latitude, 
     longitude 
   } = values;
-  
+
   // console.log(latCoord);
   // console.log(longCoord);
-  const [transform, setTransform] = useState('translateY(477px)');
-  const [top, setTop] = useState('500px');
-  const [right, setRight] = useState('120px');
-  const [scale, setScale] = useState('scale(1.2) rotate(180deg)');
+  const [desktop, setDesktop] = useState<boolean>(true);
 
   useEffect(() => {
     if (window.innerWidth > 440) {
-      setTop('500px');
-      setRight('120px');
-      setScale('scale(1.2) rotate(180deg)');
+      setDesktop(true);
     } else {
-      setTop('475px');
-      setRight('11%');
-      setScale('scale(0.8) rotate(180deg)');
+      setDesktop(false);
     }
 
     const updateMedia = () => {
       if (window.innerWidth > 440) {
-        setTop('500px');
-        setRight('120px');
-        setScale('scale(1.2) rotate(180deg)');
+        setDesktop(true);
       } else {
-        setTop('475px');
-        setRight('11%');
-        setScale('scale(0.8) rotate(180deg)');
-      }
-    };
-    window.addEventListener('resize', updateMedia);
-    return () => window.removeEventListener('resize', updateMedia);
-  }, []);
-
-  useEffect(() => {
-    if (window.innerWidth > 440) {
-      setTransform('translateY(477px)');
-    } else {
-      setTransform('translate(10px, 502px) scale(1.07, 1.03)');
-    }
-
-    const updateMedia = () => {
-      if (window.innerWidth > 440) {
-        setTransform('translateY(477px)');
-      } else {
-        setTransform('translate(10px, 502px) scale(1.07, 1.03)');
+        setDesktop(false);
       }
     };
     window.addEventListener('resize', updateMedia);
@@ -123,11 +94,11 @@ export default function Map(values) {
     <>
       <div
         style={{
-          top: `${top}`,
-          right: `${right}`,
           position: 'absolute',
           zIndex: '10',
-          transform: `${scale}`,
+          top: desktop ? '500px' : '475px',
+          right: desktop ? '120px' : '11%',
+          transform: desktop ? 'scale(1.2) rotate(180deg)' : 'scale(0.8) rotate(180deg)',
         }}
       >
         <Locate panTo={panTo} />
@@ -139,7 +110,7 @@ export default function Map(values) {
         style={{
           display: 'flex',
           justifyContent: 'center',
-          transform: `${transform}`,
+          transform: desktop ? 'translateY(477px)' : 'translate(10px, 502px) scale(1.07, 1.03)'
         }}
       >
         <GoogleMap

@@ -21,20 +21,20 @@ import { auth } from '../firebase/clientApp';
 auth;
 
 export default function Antinode() {
-  const [isDesktop, setIsDesktop] = useState(false);
+  const [desktop, setDesktop] = useState(false);
 
   useEffect(() => {
     if (window.innerWidth > 440) {
-      setIsDesktop(true);
+      setDesktop(true);
     } else {
-      setIsDesktop(false);
+      setDesktop(false);
     }
 
     const updateMedia = () => {
       if (window.innerWidth > 440) {
-        setIsDesktop(true);
+        setDesktop(true);
       } else {
-        setIsDesktop(false);
+        setDesktop(false);
       }
     };
     window.addEventListener('resize', updateMedia);
@@ -47,7 +47,7 @@ export default function Antinode() {
         <title>Antinode</title>
         <meta name="description" content="antinode" />
       </Head>
-      {isDesktop ? (
+      {desktop ? (
         <>
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             <div style={{ position: 'absolute', zIndex: '10000', top: '5px' }}>

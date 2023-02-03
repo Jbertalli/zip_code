@@ -26,31 +26,21 @@ const db = getFirestore();
 export default function History() {
   const [userInfo, setUserInfo] = useState([]);
   const [user, loading] = useAuthState(getAuth());
-  const [headerSize, setHeaderSize] = useState<string>('40px');
-  const [mobileAspect, setMobileAspect] = useState<string>('translateY(22%)');
-  const [mobileScale, setMobileScale] = useState<string>('translate(0px)');
+  const [desktop, setDesktop] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
     if (window.innerWidth > 440) {
-      setHeaderSize('40px');
-      setMobileAspect('translateY(22%)');
-      setMobileScale('translate(0px)');
+      setDesktop(true);
     } else {
-      setHeaderSize('30px');
-      setMobileAspect('translate(6%, 8%)');
-      setMobileScale('scale(0.8) translateY(-100px)');
+      setDesktop(false);
     }
 
     const updateMedia = () => {
       if (window.innerWidth > 440) {
-        setHeaderSize('40px');
-        setMobileAspect('translateY(22%)');
-        setMobileScale('translate(0px)');
+        setDesktop(true);
       } else {
-        setHeaderSize('30px');
-        setMobileAspect('translate(6%, 8%)');
-        setMobileScale('scale(0.8) translateY(-100px)');
+        setDesktop(false);
       }
     };
     window.addEventListener('resize', updateMedia);
@@ -163,7 +153,7 @@ export default function History() {
         </>
       ) : (
         <>
-          <div style={{ transform: `${mobileAspect}` }}>
+          <div style={{ transform: desktop ? 'translateY(18%)' : 'translate(6%, 8%)' }}>
             <div
               style={{
                 display: 'flex',
@@ -173,7 +163,7 @@ export default function History() {
             >
               <span
                 style={{
-                  fontSize: `${headerSize}`,
+                  fontSize: desktop ? '40px' : '30px',
                   fontWeight: '300',
                   width: '500px',
                 }}
@@ -185,7 +175,7 @@ export default function History() {
               style={{
                 display: 'flex',
                 justifyContent: 'center',
-                transform: `${mobileScale}`,
+                transform: desktop ? 'translate(0px)' : 'scale(0.8) translateY(-100px)',
               }}
             >
               <Table
