@@ -41,7 +41,7 @@ export default function UI_Buttons(values) {
     currentTemp,
     setCurrentTempData,
     tempRange,
-    setTempRangeData,
+    setTempRangeData
   } = values;
 
   const zipName = useSelector(zipValue);

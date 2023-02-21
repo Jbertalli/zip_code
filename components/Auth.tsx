@@ -279,6 +279,8 @@ function SignInScreen() {
                           color: 'red',
                           display: 'flex',
                           justifyContent: 'center',
+                          transform: 'translateY(-64px)',
+                          height: '20px'
                         }}
                       >
                         {error && <p>{error}</p>}
@@ -437,6 +439,8 @@ function SignInScreen() {
                           color: 'red',
                           display: 'flex',
                           justifyContent: 'center',
+                          transform: 'translateY(-64px)',
+                          height: '20px'
                         }}
                       >
                         {error && <p>{error}</p>}

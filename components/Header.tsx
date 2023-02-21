@@ -43,13 +43,10 @@ export default function Header() {
   useEffect(() => {
     if (router.pathname === '/') {
       setHomeColor('#FFFFFF20');
-      // setHomeUnderline('underline');
     } else if (router.pathname === '/antinode_map') {
       setAntinodeColor('#FFFFFF20');
-      // setAntinodeUnderline('underline');
     } else if (router.pathname === '/history') {
       setHistoryColor('#FFFFFF20');
-      // setHistoryUnderline('underline');
     } else if (router.pathname === '/login') {
       setLoginColor('#FFFFFF20');
     } else {
@@ -71,10 +68,15 @@ export default function Header() {
       });
   };
 
+  function deleteLocal() {
+    localStorage.clear();
+  }
+
   return (
     <>
-      <div style={{ transform: desktop ? 'translate(0%)' : 'translate(5%)' }}>
-        {/* <Tabs> */}
+      <div 
+        style={{ transform: desktop ? 'translate(0%)' : 'translate(5%)' }}
+      >
         <Link href="/" passHref>
           <Tab
             style={{
@@ -82,6 +84,7 @@ export default function Header() {
               fontSize: desktop ? '25px' : '10.8px',
               fontWeight: '400',
               textTransform: 'none',
+              color: 'white'
             }}
             label="Home"
           />
@@ -93,6 +96,7 @@ export default function Header() {
               fontSize: desktop ? '25px' : '10.8px',
               fontWeight: '400',
               textTransform: 'none',
+              color: 'white'
             }}
             label="Antinode Map"
           />
@@ -106,16 +110,18 @@ export default function Header() {
                   fontSize: desktop ? '25px' : '10.8px',
                   fontWeight: '400',
                   textTransform: 'none',
+                  color: 'white'
                 }}
                 label="User Info"
               />
             </Link>
             <Tab
-              onClick={SignOut}
+              onClick={() => {SignOut(), deleteLocal()}}
               style={{
                 fontSize: desktop ? '25px' : '10.8px',
                 fontWeight: '400',
                 textTransform: 'none',
+                color: 'white'
               }}
               label="Log Out"
             />
@@ -129,13 +135,13 @@ export default function Header() {
                   fontSize: desktop ? '25px' : '10.8px',
                   fontWeight: '400',
                   textTransform: 'none',
+                  color: 'white'
                 }}
                 label="Login"
               />
             </Link>
           </>
         )}
-        {/* </Tabs> */}
       </div>
     </>
   );

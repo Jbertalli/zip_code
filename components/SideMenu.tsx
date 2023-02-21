@@ -16,6 +16,11 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { getAuth } from '@firebase/auth';
 import CircularProgress from '@mui/material/CircularProgress';
 import Header from '../components/Header';
+import { getFirestore, doc, getDoc } from 'firebase/firestore';
+import { auth } from '../firebase/clientApp';
+
+auth;
+const db = getFirestore();
 
 const drawerWidth = 300;
 
@@ -97,15 +102,6 @@ export default function SideMenu(values) {
     addOppLong,
     deleteOppositeLat,
     deleteOppositeLong,
-    dbId,
-    dbZip,
-    dbCity,
-    dbLatitude,
-    dbLongitude,
-    dbOppositeLatitude,
-    dbOppositeLongitude,
-    dbState,
-    dbStateAbbreviation,
     weather,
     setWeatherData,
     currentTemp,
@@ -164,6 +160,32 @@ export default function SideMenu(values) {
     nameHeader = `${user.displayName}'s`;
   }
 
+  const [emptyDatabase, setEmptyDatabase] = useState<boolean>(false);
+
+  const currentUser = auth.currentUser?.uid;
+  // console.log(currentUser);
+
+  async function getData() {
+    const docRef = doc(db, '/users/' + currentUser + 'Data');
+    const docSnap = await getDoc(docRef);
+
+    if(docSnap.exists()) {
+        setEmptyDatabase(true);
+        console.log('Document exists');
+    } else {
+        setEmptyDatabase(false);
+        console.log('No document data');
+      }
+  }
+
+  useEffect(() => {
+    if(!!user) {
+      getData();
+    } else {
+      console.log('Cannot get data from user');
+    }
+  }, []);
+
   return (
     <>
       <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
@@ -194,8 +216,7 @@ export default function SideMenu(values) {
             top: desktop ? '' : '53px',
             width: desktop ? '' : '48px',
             left: desktop ? '' : '0px',
-            background: '#313e4c',
-            color: 'white',
+            background: '#313e4c'
           }}
         >
           {!open ? (
@@ -251,7 +272,7 @@ export default function SideMenu(values) {
             ) : null}
             <IconButton
               onClick={handleDrawerClose}
-              style={{ color: 'white', transform: desktop ? 'translateY(0px)' : 'translateY(52px)' }}
+              style={{ color: 'white', transform: desktop ? 'translateY(1px)' : 'translateY(52px)' }}
             >
               {theme.direction === 'ltr' ? (
                 <ChevronLeftIcon />
@@ -275,15 +296,6 @@ export default function SideMenu(values) {
                   deleteZip={deleteZip}
                   addOppLat={addOppLat}
                   addOppLong={addOppLong}
-                  dbId={dbId}
-                  dbZip={dbZip}
-                  dbCity={dbCity}
-                  dbLatitude={dbLatitude}
-                  dbLongitude={dbLongitude}
-                  dbOppositeLatitude={dbOppositeLatitude}
-                  dbOppositeLongitude={dbOppositeLongitude}
-                  dbState={dbState}
-                  dbStateAbbreviation={dbStateAbbreviation}
                   deleteCity={deleteCity}
                   deleteLat={deleteLat}
                   deleteLong={deleteLong}
@@ -298,6 +310,8 @@ export default function SideMenu(values) {
                   deleteCurrentTemp={deleteCurrentTemp}
                   addTempRange={addTempRange}
                   deleteTempRange={deleteTempRange}
+                  emptyDatabase={emptyDatabase}
+                  getData={getData}
                 />
                 <Divider />
               </>

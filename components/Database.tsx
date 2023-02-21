@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -13,6 +13,8 @@ import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import ThermostatIcon from '@mui/icons-material/Thermostat';
 import StraightenIcon from '@mui/icons-material/Straighten';
 import LocalDB from '../components/localStorageDB';
+// import { getFirestore, doc, getDoc } from 'firebase/firestore';
+// import { auth } from '../firebase/clientApp';
 import { useSelector } from 'react-redux';
 import { zipValue } from '../slices/zipSlice';
 import { cityValue } from '../slices/citySlice';
@@ -28,6 +30,9 @@ import { tempRangeDataValue } from '../slices/tempRangeDataSlice';
 import { latitudeValue } from '../slices/latitudeSlice';
 import { longitudeValue } from '../slices/longitudeSlice';
 
+// auth;
+// const db = getFirestore();
+
 export default function Database(values) {
 
   const {
@@ -41,15 +46,15 @@ export default function Database(values) {
     deleteZip,
     addOppLat,
     addOppLong,
-    dbId,
-    dbZip,
-    dbCity,
-    dbLatitude,
-    dbLongitude,
-    dbOppositeLatitude,
-    dbOppositeLongitude,
-    dbState,
-    dbStateAbbreviation,
+    // dbId,
+    // dbZip,
+    // dbCity,
+    // dbLatitude,
+    // dbLongitude,
+    // dbOppositeLatitude,
+    // dbOppositeLongitude,
+    // dbState,
+    // dbStateAbbreviation,
     deleteCity,
     deleteLat,
     deleteLong,
@@ -64,6 +69,8 @@ export default function Database(values) {
     deleteCurrentTemp,
     addTempRange,
     deleteTempRange,
+    emptyDatabase,
+    getData
   } = values;
 
   const [updateZip, setUpdateZip] = useState<boolean>(false);
@@ -78,6 +85,7 @@ export default function Database(values) {
   const [updateCurrentTemp, setUpdateCurrentTemp] = useState<any>(null);
   const [updateTempRange, setUpdateTempRange] = useState<any>(null);
   const [updateAll, setUpdateAll] = useState<any>(null);
+//   const [emptyDatabase, setEmptyDatabase] = useState<boolean>(false);
 
   const zipName = useSelector(zipValue);
   const cityName = useSelector(cityValue);
@@ -103,35 +111,59 @@ export default function Database(values) {
   // console.log(dbState);
   // console.log(dbStateAbbreviation);
 
+//   const currentUser = auth.currentUser?.uid;
+//   console.log(currentUser);
+
+//   async function getData() {
+//     const docRef = doc(db, '/users/' + currentUser + 'Data');
+//     const docSnap = await getDoc(docRef);
+
+//     if(docSnap.exists()) {
+//         setEmptyDatabase(true);
+//         console.log('Document exists');
+//     } else {
+//         setEmptyDatabase(false);
+//         console.log('No document data');
+//       }
+//   }
+
+  useEffect(() => {
+      getData();
+  }, []);
+
   return (
     <>
       <div style={{ position: 'absolute' }}>
-        <LocalDB
-          updateZip={updateZip}
-          setUpdateZip={setUpdateZip}
-          updateCity={updateCity}
-          setUpdateCity={setUpdateCity}
-          updateLatitude={updateLatitude}
-          setUpdateLatitude={setUpdateLatitude}
-          updateLongitude={updateLongitude}
-          setUpdateLongitude={setUpdateLongitude}
-          updateAntinodeLatitude={updateAntinodeLatitude}
-          setUpdateAntinodeLatitude={setUpdateAntinodeLatitude}
-          updateAntinodeLongitude={updateAntinodeLongitude}
-          setUpdateAntinodeLongitude={setUpdateAntinodeLongitude}
-          updateState={updateState}
-          setUpdateState={setUpdateState}
-          updateStateAbbreviation={updateStateAbbreviation}
-          setUpdateStateAbbreviation={setUpdateStateAbbreviation}
-          updateAll={updateAll}
-          setUpdateAll={setUpdateAll}
-          updateWeather={updateWeather}
-          setUpdateWeather={setUpdateWeather}
-          updateCurrentTemp={updateCurrentTemp}
-          setUpdateCurrentTemp={setUpdateCurrentTemp}
-          updateTempRange={updateTempRange}
-          setUpdateTempRange={setUpdateTempRange}
-        />
+        {emptyDatabase ? (
+        <>
+            <LocalDB
+                updateZip={updateZip}
+                setUpdateZip={setUpdateZip}
+                updateCity={updateCity}
+                setUpdateCity={setUpdateCity}
+                updateLatitude={updateLatitude}
+                setUpdateLatitude={setUpdateLatitude}
+                updateLongitude={updateLongitude}
+                setUpdateLongitude={setUpdateLongitude}
+                updateAntinodeLatitude={updateAntinodeLatitude}
+                setUpdateAntinodeLatitude={setUpdateAntinodeLatitude}
+                updateAntinodeLongitude={updateAntinodeLongitude}
+                setUpdateAntinodeLongitude={setUpdateAntinodeLongitude}
+                updateState={updateState}
+                setUpdateState={setUpdateState}
+                updateStateAbbreviation={updateStateAbbreviation}
+                setUpdateStateAbbreviation={setUpdateStateAbbreviation}
+                updateAll={updateAll}
+                setUpdateAll={setUpdateAll}
+                updateWeather={updateWeather}
+                setUpdateWeather={setUpdateWeather}
+                updateCurrentTemp={updateCurrentTemp}
+                setUpdateCurrentTemp={setUpdateCurrentTemp}
+                updateTempRange={updateTempRange}
+                setUpdateTempRange={setUpdateTempRange}
+            />
+        </>
+        ): null}
       </div>
       <List>
         {/* {!!dbZip ? ( */}

@@ -20,8 +20,8 @@ const center = {
   lng: -73.93,
 };
 
-const API_endpoint: string = process.env.API_ENDPOINT;
-const API_key: string = process.env.API_KEY;
+const API_endpoint = process.env.API_ENDPOINT;
+const API_key = process.env.API_KEY;
 
 export default function AntinodeMap() {
   const [latitude, setLatitude] = useState<number>(null);
@@ -35,7 +35,7 @@ export default function AntinodeMap() {
     });
 
     //fetch data with axios
-    let finalAPIEndPoint: string = `${API_endpoint}lat=${latitude}&lon=${longitude}&exclude=hourly,daily&appid=${API_key}`;
+    let finalAPIEndPoint = `${API_endpoint}lat=${latitude}&lon=${longitude}&exclude=hourly,daily&appid=${API_key}`;
     axios.get(finalAPIEndPoint).then((response) => {
       setResponseData(response.data);
       // console.log(response.data);
