@@ -37,6 +37,7 @@ export default function Map(values) {
   // console.log(latCoord);
   // console.log(longCoord);
   const [desktop, setDesktop] = useState<boolean>(true);
+  const [map, setMap] = useState<boolean>(false);
 
   useEffect(() => {
     if (window.innerWidth > 440) {
@@ -82,8 +83,8 @@ export default function Map(values) {
 
   const panTo = useCallback(({ lat, lng }) => {
     mapRef.current.panTo({ lat, lng });
-    mapRef.current.setZoom(14);
-  }, []);
+    mapRef.current.setZoom(map ? 5 : 14);
+  }, [map]);
 
   // if (loadError) return "Error";
   // if (!isLoaded) return "Loading...";
@@ -101,10 +102,7 @@ export default function Map(values) {
           transform: desktop ? 'scale(1.2) rotate(180deg)' : 'scale(0.8) rotate(180deg)',
         }}
       >
-        <Locate panTo={panTo} />
-        {/* <div style={{ transform: 'rotate(180deg)' }}>
-          <Search panTo={panTo} />
-        </div> */}
+        <Locate panTo={panTo} setMap={setMap} />
       </div>
       <div
         style={{
@@ -175,7 +173,7 @@ export default function Map(values) {
   );
 }
 
-function Locate({ panTo }) {
+function Locate({ panTo, setMap }) {
   return (
     <>
       <Box sx={{ height: 120, transform: 'translateZ(0px)', flexGrow: 1 }}>
@@ -197,7 +195,7 @@ function Locate({ panTo }) {
                   });
                 },
                 () => null
-              );
+              ), setMap(true);
             }}
           />
           <SpeedDialAction
@@ -215,7 +213,7 @@ function Locate({ panTo }) {
                   });
                 },
                 () => null
-              );
+              ), setMap(false);
             }}
           />
         </SpeedDial>
