@@ -1,3 +1,5 @@
+import React, { useEffect } from 'react';
+import { useRouter } from 'next/router';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -23,6 +25,9 @@ import { OppLongValue } from '../slices/OppLongSlice';
 import { weatherDataValue } from '../slices/weatherSlice';
 import { currentTempDataValue } from '../slices/currentTempDataSlice';
 import { tempRangeDataValue } from '../slices/tempRangeDataSlice';
+import { auth } from '../firebase/clientApp';
+
+auth;
 
 export default function UI_Buttons(values) {
 
@@ -37,6 +42,7 @@ export default function UI_Buttons(values) {
     handleClear,
     opposite,
     weather,
+    weatherData,
     setWeatherData,
     currentTemp,
     setCurrentTempData,
@@ -67,6 +73,44 @@ export default function UI_Buttons(values) {
     setCurrentTempData(currentTemp);
     setTempRangeData(tempRange);
   }
+
+  function handleAddLoad(): void {
+    setZip(zipCode.zipcode);
+    setCity(zipCode.city);
+    setLatCoord(zipCode.latitude);
+    setLongCoord(zipCode.longitude);
+    setState(zipCode.state);
+    setStateAbbreviation(zipCode.state_abbr);
+  }
+
+  const router = useRouter();
+
+  let reload = zipCode.zipcode !== undefined && zipCode.zipcode !== '00775';
+
+  // console.log(reload);
+  // console.log(typeof zipCode.zipcode);
+  const user = auth.currentUser;
+  console.log(user);
+
+  useEffect(() => {
+    setWeatherData(weather);
+    setCurrentTempData(currentTemp);
+    setTempRangeData(tempRange);
+  }, [reload])
+
+  useEffect(() => {
+    if (zipCode.zipcode == '00775') {
+      handleClear();
+    } else if (router.pathname === '/' && reload && weather === undefined) {
+        handleClear(),
+        handleAddLoad();
+    } else if (router.pathname === '/' && weather !== undefined) {
+        handleAddAll();
+    } else {
+      handleAddAll(),
+      console.log('not on home page');
+    }
+  }, [reload, weather]);
 
   return (
     <List>

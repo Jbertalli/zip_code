@@ -103,6 +103,7 @@ export default function SideMenu(values) {
     deleteOppositeLat,
     deleteOppositeLong,
     weather,
+    weatherData,
     setWeatherData,
     currentTemp,
     setCurrentTempData,
@@ -327,6 +328,7 @@ export default function SideMenu(values) {
               handleClear={handleClear}
               opposite={opposite}
               weather={weather}
+              weatherData={weatherData}
               setWeatherData={setWeatherData}
               currentTemp={currentTemp}
               setCurrentTempData={setCurrentTempData}

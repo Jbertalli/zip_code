@@ -22,6 +22,7 @@ const center = {
 
 const API_endpoint = process.env.API_ENDPOINT;
 const API_key = process.env.API_KEY;
+console.log(API_key)
 
 export default function AntinodeMap() {
   const [latitude, setLatitude] = useState<number>(null);

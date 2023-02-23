@@ -101,7 +101,7 @@ export default function Home() {
     store.dispatch(incrementLatitude(Number(latitude)));
     store.dispatch(incrementLongitude(Number(longitude)));
   }, [
-    zip ||
+      zip ||
       city ||
       latCoord ||
       longCoord ||
@@ -675,6 +675,7 @@ export default function Home() {
         deleteOppositeLat={deleteOppositeLat}
         deleteOppositeLong={deleteOppositeLong}
         weather={weather}
+        weatherData={weatherData}
         setWeatherData={setWeatherData}
         currentTemp={currentTemp}
         setCurrentTempData={setCurrentTempData}
