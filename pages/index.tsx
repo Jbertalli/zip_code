@@ -78,8 +78,6 @@ export default function Home() {
   const [tempRangeData, setTempRangeData] = useState<string>('');
   // const [userInfo, setUserInfo] = useState([]);
   // const [apiData, setApiData] = useState({});
-  // const [getState, setGetState] = useState('tamilnadu');
-  // const [stated, setStated] = useState('tamilnadu');
   const [desktop, setDesktop] = useState(false);
 
   // const [user] = useAuthState(getAuth());
