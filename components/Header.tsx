@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-// import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { getAuth, signOut } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -11,12 +10,6 @@ export default function Header() {
   const [antinodeColor, setAntinodeColor] = useState<string>('');
   const [historyColor, setHistoryColor] = useState<string>('');
   const [loginColor, setLoginColor] = useState<string>('');
-  // const [homeUnderline, setHomeUnderline] = useState('');
-  // const [antinodeUnderline, setAntinodeUnderline] = useState('');
-  // const [historyUnderline, setHistoryUnderline] = useState('');
-  // textDecoration: `${homeUnderline}`
-  // textDecoration: `${antinodeUnderline}`
-  // textDecoration: `${historyUnderline}`
   const [desktop, setDesktop] = useState<boolean>(true);
   const auth = getAuth();
   const [user] = useAuthState(auth);
@@ -63,7 +56,6 @@ export default function Header() {
         console.log('%c signed out', 'color: red');
       })
       .catch((error) => {
-        // An error happened.
         console.log('Error', error);
       });
   };

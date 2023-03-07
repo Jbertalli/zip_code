@@ -87,8 +87,6 @@ export default function UI_Buttons(values) {
 
   let reload = zipCode.zipcode !== undefined && zipCode.zipcode !== '00775';
 
-  // console.log(reload);
-  // console.log(typeof zipCode.zipcode);
   const user = auth.currentUser;
   console.log(user);
 
@@ -186,16 +184,6 @@ export default function UI_Buttons(values) {
           &nbsp; Temperature Range
         </ListItemButton>
       </ListItem>
-      {/* {(zip && city && latCoord && longCoord && state && stateAbbreviation && OppLat && OppLong && weatherData && currentTempData && tempRangeData) ? (
-            <>
-                <ListItem disablePadding>
-                    <ListItemButton onClick={() => handleClear()}>
-                        <ClearIcon fontSize="small" />&nbsp;
-                        Clear All
-                    </ListItemButton>
-                </ListItem>
-            </>
-        ): null} */}
       {zipName ||
       cityName ||
       latCoordName ||

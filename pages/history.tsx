@@ -48,42 +48,12 @@ export default function History() {
     window.addEventListener('resize', updateMedia);
     return () => window.removeEventListener('resize', updateMedia);
   }, []);
-
-//   let logged = async () => {
-//     const colRef = collection(db, 'location');
-//     const docsSnap = await getDocs(colRef);
-//     docsSnap.forEach((doc) => {
-//       // console.log(doc.data());
-//       setUserInfo(
-//         docsSnap.docs.map((doc) => ({
-//           id: doc.id,
-//           Zip: doc.data().Zip,
-//           City: doc.data().City,
-//           Latitude: doc.data().Latitude,
-//           Longitude: doc.data().Longitude,
-//           Opposite_Latitude: doc.data().Opposite_Latitude,
-//           Opposite_Longitude: doc.data().Opposite_Longitude,
-//           State: doc.data().State,
-//           State_Abbreviation: doc.data().State_Abbreviation,
-//           Weather: doc.data().Weather,
-//           CurrentTemp: doc.data().CurrentTemp,
-//           TempRange: doc.data().TempRange,
-//         }))
-//       );
-//     });
-//   };
-
-//   useEffect(() => {
-//     logged();
-//   }, []);
   
   async function getData() {
-    // const docRef = doc(db, 'users', currentUser);
     const docRef = doc(db, '/users/' + currentUser + 'Data');
     const docSnap = await getDoc(docRef);
 
     if(docSnap.exists()) {
-      // console.log('User:', docSnap.data().user);
       console.log('Document zip:', docSnap.data().Zip);
       console.log('Document city:', docSnap.data().City);
       console.log('Document latitude:', docSnap.data().Latitude);
@@ -111,32 +81,6 @@ export default function History() {
     }
   }
 
-//   let dbId = userInfo?.[0]?.id;
-//   let dbZip = userInfo?.[0]?.Zip;
-//   let dbCity = userInfo?.[0]?.City;
-//   let dbLatitude = userInfo?.[0]?.Latitude;
-//   let dbLongitude = userInfo?.[0]?.Longitude;
-//   let dbOppositeLatitude = userInfo?.[0]?.Opposite_Latitude;
-//   let dbOppositeLongitude = userInfo?.[0]?.Opposite_Longitude;
-//   let dbState = userInfo?.[0]?.State;
-//   let dbStateAbbreviation = userInfo?.[0]?.State_Abbreviation;
-//   let dbWeather = userInfo?.[0]?.Weather;
-//   let dbTemp = userInfo?.[0]?.CurrentTemp;
-//   let dbRange = userInfo?.[0]?.TempRange;
-
-  //   console.log(dbId);
-  //   console.log(dbZip);
-  //   console.log(dbCity);
-  //   console.log(dbLatitude);
-  //   console.log(dbLongitude);
-  //   console.log(dbOppositeLatitude);
-  //   console.log(dbOppositeLongitude);
-  //   console.log(dbState);
-  //   console.log(dbStateAbbreviation);
-  //   console.log(dbWeather);
-  //   console.log(dbTemp);
-  //   console.log(dbRange);
-
   useEffect(() => {
     // view cookie length for debugging
     // console.log(document.cookie);
@@ -152,9 +96,6 @@ export default function History() {
     }
   }, []);
 
-  // console.log(user?.email);
-  // console.log(user.displayName);
-
   let nameHeader;
 
   if (user?.displayName == null) {
@@ -166,19 +107,6 @@ export default function History() {
   useEffect(() => {
     getData();
   }, []);
-
-//   const handleSelect = async (address) => {
-//     setValue(address, false);
-//     clearSuggestions();
-
-//     try {
-//       const results = await getGeocode({ address });
-//       const { lat, lng } = await getLatLng(results[0]);
-//       panTo({ lat, lng });
-//     } catch (error) {
-//       console.log("Error: ", error);
-//     }
-//   };
 
   return (
     <>
@@ -260,7 +188,6 @@ export default function History() {
                     <TableCell
                         style={{ transform: 'translate(2vw)', fontSize: '25px' }}
                     >
-                        {/* {dbZip} */}
                         {showZip}
                     </TableCell>
                     </TableRow>
@@ -273,7 +200,6 @@ export default function History() {
                     <TableCell
                         style={{ transform: 'translate(2vw)', fontSize: '25px' }}
                     >
-                        {/* {dbCity} */}
                         {showCity}
                     </TableCell>
                     </TableRow>
@@ -286,7 +212,6 @@ export default function History() {
                     <TableCell
                         style={{ transform: 'translate(2vw)', fontSize: '25px' }}
                     >
-                        {/* {dbLatitude} */}
                         {showLatitude}
                     </TableCell>
                     </TableRow>
@@ -299,7 +224,6 @@ export default function History() {
                     <TableCell
                         style={{ transform: 'translate(2vw)', fontSize: '25px' }}
                     >
-                        {/* {dbLongitude} */}
                         {showLongitude}
                     </TableCell>
                     </TableRow>
@@ -312,7 +236,6 @@ export default function History() {
                     <TableCell
                         style={{ transform: 'translate(2vw)', fontSize: '25px' }}
                     >
-                        {/* {dbOppositeLatitude} */}
                         {showOpposite_Latitude}
                     </TableCell>
                     </TableRow>
@@ -325,7 +248,6 @@ export default function History() {
                     <TableCell
                         style={{ transform: 'translate(2vw)', fontSize: '25px' }}
                     >
-                        {/* {dbOppositeLongitude} */}
                         {showOpposite_Longitude}
                     </TableCell>
                     </TableRow>
@@ -338,7 +260,6 @@ export default function History() {
                     <TableCell
                         style={{ transform: 'translate(2vw)', fontSize: '25px' }}
                     >
-                        {/* {dbState} */}
                         {showState}
                     </TableCell>
                     </TableRow>
@@ -351,7 +272,6 @@ export default function History() {
                     <TableCell
                         style={{ transform: 'translate(2vw)', fontSize: '25px' }}
                     >
-                        {/* {dbStateAbbreviation} */}
                         {showState_Abbreviation}
                     </TableCell>
                     </TableRow>
@@ -368,7 +288,6 @@ export default function History() {
                         textTransform: 'capitalize',
                         }}
                     >
-                        {/* {dbWeather} */}
                         {showWeather}
                     </TableCell>
                     </TableRow>
@@ -381,7 +300,6 @@ export default function History() {
                     <TableCell
                         style={{ transform: 'translate(2vw)', fontSize: '25px' }}
                     >
-                        {/* {dbTemp} */}
                         {showCurrentTemp}
                     </TableCell>
                     </TableRow>
@@ -394,7 +312,6 @@ export default function History() {
                     <TableCell
                         style={{ transform: 'translate(2vw)', fontSize: '25px' }}
                     >
-                        {/* {dbRange} */}
                         {showTempRange}
                     </TableCell>
                     </TableRow>

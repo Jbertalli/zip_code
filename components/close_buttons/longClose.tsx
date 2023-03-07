@@ -1,7 +1,6 @@
 import Button from '@mui/material/Button';
 
 export default function LongClose({ longCoord, setLongCoord }): any {
-  // console.log(longCoord);
   return (
     <>
       <div

@@ -12,9 +12,7 @@ import Checkbox from '@mui/material/Checkbox';
 
 //Configure FirebaseUI
 const uiConfig = {
-  // Redirect / after successful signin
   signInSuccessUrl: '/',
-  // Display GitHub auth providers
   signInOptions: [firebase.auth.GithubAuthProvider.PROVIDER_ID],
 };
 
@@ -26,8 +24,6 @@ function SignInScreen() {
   const router = useRouter();
   const auth = getAuth();
   const [user] = useAuthState(auth);
-  // const user = auth.currentUser;
-  // console.log(user);
   const [toggle, setToggle] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState<string>('password');
   const [checked, setChecked] = useState<boolean>(false);
@@ -55,7 +51,6 @@ function SignInScreen() {
     if (user) {
       document.cookie = 'name=Signed In';
       console.log('%c Current user:', 'color: green', user);
-      // const uid = user.uid;
     } else {
       console.log('%c No user signed in', 'color: red');
     }

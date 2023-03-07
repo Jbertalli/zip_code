@@ -4,7 +4,6 @@ export default function AbbrClose({
   stateAbbreviation,
   setStateAbbreviation,
 }): any {
-  // console.log(stateAbbreviation);
   return (
     <>
       <div

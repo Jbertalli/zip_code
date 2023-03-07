@@ -213,18 +213,5 @@ export default function LocalDB(values) {
     );
   }, [updateTempRange]);
 
-  // console.log(updateZip);
-  // console.log(updateCity);
-  // console.log(updateLatitude);
-  // console.log(updateLongitude);
-  // console.log(updateAntinodeLatitude);
-  // console.log(updateAntinodeLongitude);
-  // console.log(updateState);
-  // console.log(updateStateAbbreviation);
-  // console.log(updateWeather);
-  // console.log(updateCurrentTemp);
-  // console.log(updateAll);
-  // console.log(updateTempRange);
-
   return <>&nbsp;</>;
 }

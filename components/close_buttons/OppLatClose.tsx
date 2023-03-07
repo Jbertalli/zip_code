@@ -1,7 +1,6 @@
 import Button from '@mui/material/Button';
 
 export default function OppLatClose({ OppLat, setOppLat }): any {
-  // console.log(OppLat);
   return (
     <>
       <div

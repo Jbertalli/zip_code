@@ -1,7 +1,6 @@
 import Button from '@mui/material/Button';
 
 export default function OppLongClose({ OppLong, setOppLong }): any {
-  // console.log(OppLong);
   return (
     <>
       <div

@@ -150,9 +150,6 @@ export default function SideMenu(values) {
   const auth = getAuth();
   const [user, loading] = useAuthState(auth);
 
-  // console.log(user?.email);
-  // console.log(user.displayName);
-
   let nameHeader;
 
   if (user?.displayName == null) {
@@ -164,7 +161,6 @@ export default function SideMenu(values) {
   const [emptyDatabase, setEmptyDatabase] = useState<boolean>(false);
 
   const currentUser = auth.currentUser?.uid;
-  // console.log(currentUser);
 
   async function getData() {
     const docRef = doc(db, '/users/' + currentUser + 'Data');

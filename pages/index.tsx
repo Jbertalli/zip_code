@@ -10,13 +10,8 @@ import LatClose from '../components/close_buttons/latClose';
 import LongClose from '../components/close_buttons/longClose';
 import StateClose from '../components/close_buttons/stateClose';
 import AbbrClose from '../components/close_buttons/abbrClose';
-// import firebase from '../firebase/clientApp';
 import { getFirestore, doc, getDocs, setDoc, deleteField, updateDoc, collection, Timestamp } from 'firebase/firestore';
-// import Auth from '../components/Auth';
-// import { getAuth, onAuthStateChanged } from "firebase/auth";
-// import { useAuthState } from 'react-firebase-hooks/auth';
 import Local from '../components/localStorage';
-// import { getAuth } from '@firebase/auth';
 import SideMenu from '../components/SideMenu';
 import Draggable from 'react-draggable';
 import OppLatClose from '../components/close_buttons/OppLatClose';
@@ -54,10 +49,6 @@ import { incrementLongitude } from '../slices/longitudeSlice';
 auth;
 const db = getFirestore();
 
-// const auth = getAuth();
-// const CurrentUser = auth.currentUser;
-// console.log(CurrentUser.displayName);
-
 const API_endpoint: string = process.env.NEXT_PUBLIC_API_ENDPOINT;
 const API_key: string = process.env.NEXT_PUBLIC_API_KEY;
 
@@ -76,8 +67,6 @@ export default function Home() {
   const [weatherData, setWeatherData] = useState<string>('');
   const [currentTempData, setCurrentTempData] = useState<string>('');
   const [tempRangeData, setTempRangeData] = useState<string>('');
-  // const [userInfo, setUserInfo] = useState([]);
-  // const [apiData, setApiData] = useState({});
   const [desktop, setDesktop] = useState(false);
 
   const currentUser = auth.currentUser?.uid;
@@ -118,20 +107,6 @@ export default function Home() {
 
   console.log(store.getState());
 
-  // store.dispatch(incrementZip(String(zip)));
-  // store.dispatch(incrementCity(String(city)));
-  // store.dispatch(incrementLatCoord(String(latCoord)));
-  // store.dispatch(incrementLongCoord(String(longCoord)));
-  // store.dispatch(incrementState(String(state)));
-  // store.dispatch(incrementStateAbbreviation(String(stateAbbreviation)));
-  // store.dispatch(incrementOppLat(String(OppLat)));
-  // store.dispatch(incrementOppLong(String(OppLong)));
-  // store.dispatch(incrementWeatherData(String(weatherData)));
-  // store.dispatch(incrementCurrentTempData(String(currentTempData)));
-  // store.dispatch(incrementTempRangeData(String(tempRangeData)));
-  // store.dispatch(incrementLatitude(Number(latitude)));
-  // store.dispatch(incrementLongitude(Number(longitude)));
-
   useEffect(() => {
     if (window.innerWidth > 440) {
       setDesktop(true);
@@ -157,16 +132,6 @@ export default function Home() {
     };
   }, []);
 
-  // onAuthStateChanged(auth, (user) => {
-  //   if (user) {
-  //    console.log("Current user:", user);
-  //    console.log(user.displayName);
-  //     const uid = user.uid;
-  //   } else {
-  //     console.log("No user signed in");
-  //   }
-  // });
-
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
       setLatitude(position.coords.latitude);
@@ -177,7 +142,6 @@ export default function Home() {
     let finalAPIEndPoint: string = `${API_endpoint}lat=${latitude}&lon=${longitude}&exclude=hourly,daily&appid=${API_key}`;
     axios.get(finalAPIEndPoint).then((response) => {
       setResponseData(response.data);
-      // console.log(response.data);
     });
   }, [latitude, longitude]);
 
@@ -185,7 +149,6 @@ export default function Home() {
   // let zipCode = reverse.lookup(43.0481, -76.1474, 'us');
   let zipCode: any = reverse.lookup(latitude, longitude, 'us');
   console.log(zipCode);
-  // console.log(zipCode.zipcode);
 
   function handleClear(): void {
     setZip('');
@@ -217,85 +180,10 @@ export default function Home() {
   const KelvinMinTemp = responseData?.main?.temp_min;
   const weather = responseData?.weather?.[0]?.description;
 
-  console.log(responseData);
-  // console.log(KelvinTemp);
-  // console.log(KelvinMaxTemp);
-  // console.log(KelvinMinTemp);
-  // console.log(weather);
-
   const currentTemp = `${Math.round(1.8 * (KelvinTemp - 273) + 32)}°F`;
-  // console.log(`%cCurrent Temperature: ${currentTemp}`, 'color: blue');
-
   const maxTemp = `${Math.round(1.8 * (KelvinMaxTemp - 273) + 32)}°F`;
-  // console.log(`Maximum Temperature: ${maxTemp}`);
-
   const minTemp = `${Math.round(1.8 * (KelvinMinTemp - 273) + 32)}°F`;
-  // console.log(`Minimum Temperature: ${minTemp}`);
-
   const tempRange = `${minTemp} - ${maxTemp}`;
-  // console.log(`%cTemperature Range: ${tempRange}`, 'color: red');
-
-  // // console.log data
-  // let logged = async () => {
-  //   const colRef = collection(db, 'location');
-  //   const docsSnap = await getDocs(colRef);
-  //   docsSnap.forEach((doc) => {
-  //     // console.log(doc.data());
-  //     setUserInfo(
-  //       docsSnap.docs.map((doc) => ({
-  //         id: doc.id,
-  //         Zip: doc.data().Zip,
-  //         City: doc.data().City,
-  //         Latitude: doc.data().Latitude,
-  //         Longitude: doc.data().Longitude,
-  //         Opposite_Latitude: doc.data().Opposite_Latitude,
-  //         Opposite_Longitude: doc.data().Opposite_Longitude,
-  //         State: doc.data().State,
-  //         State_Abbreviation: doc.data().State_Abbreviation,
-  //         Weather: doc.data().Weather,
-  //         CurrentTemp: doc.data().CurrentTemp,
-  //         TempRange: doc.data().TempRange,
-  //       }))
-  //     );
-  //   });
-  // };
-
-  // useEffect(() => {
-  //   // console.log(user);
-  //   if (user) {
-  //     logged();
-  //   } else {
-  //     return;
-  //   }
-  // }, []);
-
-  // let dbId = userInfo?.[0]?.id;
-  // let dbZip = userInfo?.[0]?.Zip;
-  // let dbCity = userInfo?.[0]?.City;
-  // let dbLatitude = userInfo?.[0]?.Latitude;
-  // let dbLongitude = userInfo?.[0]?.Longitude;
-  // let dbOppositeLatitude = userInfo?.[0]?.Opposite_Latitude;
-  // let dbOppositeLongitude = userInfo?.[0]?.Opposite_Longitude;
-  // let dbState = userInfo?.[0]?.State;
-  // let dbStateAbbreviation = userInfo?.[0]?.State_Abbreviation;
-  // let dbWeather = userInfo?.[0]?.Weather;
-  // let dbCurrentTemp = userInfo?.[0]?.CurrentTemp;
-  // let dbTempRange = userInfo?.[0]?.TempRange;
-
-  // console.log(dbId);
-  // console.log(dbZip);
-  // console.log(dbCity);
-  // console.log(dbLatitude);
-  // console.log(dbLongitude);
-  // console.log(dbOppositeLatitude);
-  // console.log(dbOppositeLongitude);
-  // console.log(dbState);
-  // console.log(dbStateAbbreviation);
-  // console.log(dbWeather);
-  // console.log(dbCurrentTemp);
-  // console.log(dbTempRange);
-
-  // console.log(user.displayName);
 
   // Create new document from within code
   const addDocument = async (

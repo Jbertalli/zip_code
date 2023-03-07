@@ -13,8 +13,6 @@ import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import ThermostatIcon from '@mui/icons-material/Thermostat';
 import StraightenIcon from '@mui/icons-material/Straighten';
 import LocalDB from '../components/localStorageDB';
-// import { getFirestore, doc, getDoc } from 'firebase/firestore';
-// import { auth } from '../firebase/clientApp';
 import { useSelector } from 'react-redux';
 import { zipValue } from '../slices/zipSlice';
 import { cityValue } from '../slices/citySlice';
@@ -30,9 +28,6 @@ import { tempRangeDataValue } from '../slices/tempRangeDataSlice';
 import { latitudeValue } from '../slices/latitudeSlice';
 import { longitudeValue } from '../slices/longitudeSlice';
 
-// auth;
-// const db = getFirestore();
-
 export default function Database(values) {
 
   const {
@@ -46,15 +41,6 @@ export default function Database(values) {
     deleteZip,
     addOppLat,
     addOppLong,
-    // dbId,
-    // dbZip,
-    // dbCity,
-    // dbLatitude,
-    // dbLongitude,
-    // dbOppositeLatitude,
-    // dbOppositeLongitude,
-    // dbState,
-    // dbStateAbbreviation,
     deleteCity,
     deleteLat,
     deleteLong,
@@ -85,7 +71,6 @@ export default function Database(values) {
   const [updateCurrentTemp, setUpdateCurrentTemp] = useState<any>(null);
   const [updateTempRange, setUpdateTempRange] = useState<any>(null);
   const [updateAll, setUpdateAll] = useState<any>(null);
-//   const [emptyDatabase, setEmptyDatabase] = useState<boolean>(false);
 
   const zipName = useSelector(zipValue);
   const cityName = useSelector(cityValue);
@@ -101,34 +86,8 @@ export default function Database(values) {
   const latitudeName = useSelector(latitudeValue);
   const longitudeName = useSelector(longitudeValue);
 
-  // console.log(dbId);
-  // console.log(dbZip);
-  // console.log(dbCity);
-  // console.log(dbLatitude);
-  // console.log(dbLongitude);
-  // console.log(dbOppositeLatitude);
-  // console.log(dbOppositeLongitude);
-  // console.log(dbState);
-  // console.log(dbStateAbbreviation);
-
-//   const currentUser = auth.currentUser?.uid;
-//   console.log(currentUser);
-
-//   async function getData() {
-//     const docRef = doc(db, '/users/' + currentUser + 'Data');
-//     const docSnap = await getDoc(docRef);
-
-//     if(docSnap.exists()) {
-//         setEmptyDatabase(true);
-//         console.log('Document exists');
-//     } else {
-//         setEmptyDatabase(false);
-//         console.log('No document data');
-//       }
-//   }
-
   useEffect(() => {
-      getData();
+    getData();
   }, []);
 
   return (
@@ -166,7 +125,6 @@ export default function Database(values) {
         ): null}
       </div>
       <List>
-        {/* {!!dbZip ? ( */}
         {updateZip ? (
           <>
             <ListItem disablePadding>

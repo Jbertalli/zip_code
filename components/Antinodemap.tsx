@@ -3,7 +3,6 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from '@react-google-maps/api';
 import reverse from 'reverse-geocode';
 
-// const libraries: string[] = ["places"];
 const libraries: any = ['places'];
 const mapContainerStyle = {
   height: '93.5vh',
@@ -22,7 +21,6 @@ const center = {
 
 const API_endpoint = process.env.NEXT_PUBLIC_API_ENDPOINT;
 const API_key = process.env.NEXT_PUBLIC_API_KEY;
-console.log(API_key)
 
 export default function AntinodeMap() {
   const [latitude, setLatitude] = useState<number>(null);
@@ -39,20 +37,14 @@ export default function AntinodeMap() {
     let finalAPIEndPoint = `${API_endpoint}lat=${latitude}&lon=${longitude}&exclude=hourly,daily&appid=${API_key}`;
     axios.get(finalAPIEndPoint).then((response) => {
       setResponseData(response.data);
-      // console.log(response.data);
     });
   }, [latitude, longitude]);
 
   let zipCode: any = reverse.lookup(latitude, longitude, 'us');
-  // console.log(zipCode.latitude);
-  // console.log(zipCode.longitude);
-  // console.log(zipCode);
 
   const latitudeMarker =
     parseFloat(zipCode.latitude) - parseFloat(zipCode.latitude) * 2;
   const longitudeMarker = parseFloat(zipCode.longitude) + 180;
-  // console.log(latitudeMarker);
-  // console.log(longitudeMarker);
 
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY,
@@ -83,8 +75,6 @@ export default function AntinodeMap() {
     mapRef.current.setZoom(5);
   }, []);
 
-  //   if (loadError) return "Error";
-  //   if (!isLoaded) return "Loading...";
   if (loadError) return;
   if (!isLoaded) return;
 
@@ -124,11 +114,6 @@ export default function AntinodeMap() {
                   onClick={() => {
                     setSelected(marker);
                   }}
-                  // icon={{
-                  //     origin: new window.google.maps.Point(0, 0),
-                  //     anchor: new window.google.maps.Point(15, 15),
-                  //     scaledSize: new window.google.maps.Size(30, 30),
-                  // }}
                 />
               ))}
               <Marker

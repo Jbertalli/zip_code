@@ -1,6 +1,5 @@
 import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from '@react-google-maps/api';
-// import usePlacesAutocomplete, { getGeocode, getLatLng } from "use-places-autocomplete";
 import FlipCameraAndroidIcon from '@mui/icons-material/FlipCameraAndroid';
 import MyLocationIcon from '@mui/icons-material/MyLocation';
 import Box from '@mui/material/Box';
@@ -8,7 +7,6 @@ import SpeedDial from '@mui/material/SpeedDial';
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
 
-// const libraries: string[] = ["places"];
 const libraries: any = ['places'];
 const mapContainerStyle = {
   height: '95vh',
@@ -34,8 +32,6 @@ export default function Map(values) {
     longitude 
   } = values;
 
-  // console.log(latCoord);
-  // console.log(longCoord);
   const [desktop, setDesktop] = useState<boolean>(true);
   const [map, setMap] = useState<boolean>(false);
 
@@ -88,8 +84,6 @@ export default function Map(values) {
     mapRef.current.setZoom(map ? 5 : 14);
   }, [map]);
 
-  // if (loadError) return "Error";
-  // if (!isLoaded) return "Loading...";
   if (loadError) return;
   if (!isLoaded) return;
 
@@ -129,28 +123,20 @@ export default function Map(values) {
               onClick={() => {
                 setSelected(marker);
               }}
-              // icon={{
-              //   origin: new window.google.maps.Point(0, 0),
-              //   anchor: new window.google.maps.Point(15, 15),
-              //   scaledSize: new window.google.maps.Size(30, 30),
-              // }}
             />
           ))}
-          {/* New York City Marker */}
           <Marker
             position={{
               lat: 40.73,
               lng: -73.99,
             }}
           />
-          {/* Current Location Marker */}
           <Marker
             position={{
               lat: latitude,
               lng: longitude,
             }}
           />
-          {/* Opposite Location Marker */}
           <Marker
             position={{
               lat: parseFloat(latCoord) - parseFloat(latCoord) * 2,
@@ -223,56 +209,3 @@ function Locate({ panTo, setMap }) {
     </>
   );
 }
-
-// function Search({ panTo }) {
-//   const {
-//     ready,
-//     value,
-//     suggestions: { status, data },
-//     setValue,
-//     clearSuggestions,
-//   } = usePlacesAutocomplete({
-//     requestOptions: {
-//       location: { lat: () => 40.73, lng: () => -73.93 },
-//       radius: 100 * 1000,
-//     },
-//   });
-
-//   const handleInput = (e) => {
-//     setValue(e.target.value);
-//   };
-
-//   const handleSelect = async (address) => {
-//     setValue(address, false);
-//     clearSuggestions();
-
-//     try {
-//       const results = await getGeocode({ address });
-//       const { lat, lng } = await getLatLng(results[0]);
-//       panTo({ lat, lng });
-//     } catch (error) {
-//       console.log("Error: ", error);
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <div onSelect={handleSelect}>
-//         <input
-//           value={value}
-//           onChange={handleInput}
-//           disabled={!ready}
-//           placeholder="Search your location"
-//         />
-//         <div>
-//           <div>
-//             {status === "OK" &&
-//               data.map(({ id, description }) => (
-//                 <div key={id} value={description} />
-//               ))}
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }

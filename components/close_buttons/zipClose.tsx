@@ -1,7 +1,6 @@
 import Button from '@mui/material/Button';
 
 export default function ZipClose({ zip, setZip }): any {
-  // console.log(zip);
   return (
     <>
       <div
