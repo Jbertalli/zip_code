@@ -58,8 +58,8 @@ const db = getFirestore();
 // const CurrentUser = auth.currentUser;
 // console.log(CurrentUser.displayName);
 
-const API_endpoint: string = process.env.API_ENDPOINT;
-const API_key: string = process.env.API_KEY;
+const API_endpoint: string = process.env.NEXT_PUBLIC_API_ENDPOINT;
+const API_key: string = process.env.NEXT_PUBLIC_API_KEY;
 
 export default function Home() {
   const [latitude, setLatitude] = useState<number>(null);

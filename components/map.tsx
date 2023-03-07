@@ -58,9 +58,11 @@ export default function Map(values) {
   }, []);
 
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: process.env.MAPS_API_KEY,
+    googleMapsApiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY,
     libraries,
   });
+
+  console.log(process.env.NEXT_PUBLIC_MAPS_API_KEY);
 
   const [markers, setMarkers] = useState([]);
   const [selected, setSelected] = useState(null);

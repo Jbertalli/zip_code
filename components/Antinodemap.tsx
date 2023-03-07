@@ -20,8 +20,8 @@ const center = {
   lng: -73.93,
 };
 
-const API_endpoint = process.env.API_ENDPOINT;
-const API_key = process.env.API_KEY;
+const API_endpoint = process.env.NEXT_PUBLIC_API_ENDPOINT;
+const API_key = process.env.NEXT_PUBLIC_API_KEY;
 console.log(API_key)
 
 export default function AntinodeMap() {
@@ -55,7 +55,7 @@ export default function AntinodeMap() {
   // console.log(longitudeMarker);
 
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: process.env.MAPS_API_KEY,
+    googleMapsApiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY,
     libraries,
   });
 

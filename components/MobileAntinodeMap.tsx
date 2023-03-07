@@ -20,8 +20,8 @@ const center = {
   lng: -73.93,
 };
 
-const API_endpoint: string = process.env.API_ENDPOINT;
-const API_key: string = process.env.API_KEY;
+const API_endpoint: string = process.env.NEXT_PUBLIC_API_ENDPOINT;
+const API_key: string = process.env.NEXT_PUBLIC_API_KEY;
 
 export default function MobileAntinodeMap() {
   const [latitude, setLatitude] = useState<number>(null);
@@ -54,7 +54,7 @@ export default function MobileAntinodeMap() {
   // console.log(longitudeMarker);
 
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: process.env.MAPS_API_KEY,
+    googleMapsApiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY,
     libraries,
   });
 
