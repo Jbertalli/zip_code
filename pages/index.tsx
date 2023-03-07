@@ -80,7 +80,6 @@ export default function Home() {
   // const [apiData, setApiData] = useState({});
   const [desktop, setDesktop] = useState(false);
 
-  // const [user] = useAuthState(getAuth());
   const currentUser = auth.currentUser?.uid;
   console.log(currentUser);
 
