@@ -76,7 +76,7 @@ export default function Header() {
               fontSize: desktop ? '25px' : '10.8px',
               fontWeight: '400',
               textTransform: 'none',
-              color: 'white'
+              color: 'black'
             }}
             label="Home"
           />
