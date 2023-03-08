@@ -67,7 +67,7 @@ export default function Header() {
   return (
     <>
       <div 
-        style={{ transform: desktop ? 'translate(0%)' : 'translate(5%)' }}
+        style={{ transform: desktop ? 'translate(0%)' : 'translate(5%)', background: 'red' }}
       >
         <Link href="/" passHref>
           <Tab
@@ -76,7 +76,7 @@ export default function Header() {
               fontSize: desktop ? '25px' : '10.8px',
               fontWeight: '400',
               textTransform: 'none',
-              color: 'black'
+              color: 'white'
             }}
             label="Home"
           />
