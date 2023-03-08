@@ -199,8 +199,22 @@ export default function SideMenu(values) {
           </div>
         )}
       </div>
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <div style={{ position: 'absolute', zIndex: '1000000', top: '5px', background: '#313e4c' }}>
+      <div 
+        style={{ 
+          display: 'flex', 
+          justifyContent: 'center' 
+        }}
+      >
+        <div 
+          style={{ 
+            position: 'absolute', 
+            zIndex: '100000', 
+            top: '5px', 
+            background: '#313e4c', 
+            border: '2px solid red',
+            width: '100vw'
+          }}
+        >
           <Header />
         </div>
       </div>

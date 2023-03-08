@@ -67,7 +67,11 @@ export default function Header() {
   return (
     <>
       <div 
-        style={{ transform: desktop ? 'translate(0%)' : 'translate(5%)' }}
+        style={{ 
+          transform: desktop ? 'translate(0%)' : 'translate(5%)' ,
+          display: 'flex',
+          justifyContent: 'center'
+        }}
       >
         <Link href="/" passHref>
           <Tab
