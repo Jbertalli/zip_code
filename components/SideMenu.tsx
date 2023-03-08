@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { styled, useTheme } from '@mui/material/styles';
-import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
@@ -206,34 +205,25 @@ export default function SideMenu(values) {
           </div>
         )}
       </div>
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <div style={{ position: 'absolute', zIndex: '10000', top: '5px' }}>
+      <div 
+        style={{ 
+          display: 'flex', 
+          justifyContent: 'center' 
+        }}
+      >
+        <div 
+          style={{ 
+            position: 'absolute', 
+            top: '0px', 
+            background: '#313e4c',
+            width: open ? '100%' : '200px',
+            zIndex: open ? '1000' : '10000',
+            height: desktop ? '64px' : '50px'
+          }}
+        >
           <Header />
         </div>
       </div>
-      {/* {!isPhone ? (
-      <>
-        <div 
-          style={{ 
-            display: 'flex', 
-            justifyContent: 'center' 
-          }}
-        >
-          <div 
-            style={{ 
-              position: 'absolute', 
-              top: '0px', 
-              background: '#313e4c',
-              width: open? '100%' : '560px',
-              zIndex: open? '1000' : '10000',
-              height: '64px'
-            }}
-          >
-            <Header />
-          </div>
-        </div>
-      </>
-      ): null} */}
       <div style={{ display: 'flex' }}>
         <CssBaseline />
         <AppBar
