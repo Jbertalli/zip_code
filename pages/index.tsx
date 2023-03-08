@@ -424,7 +424,7 @@ export default function Home() {
           display: desktop ? '' : 'flex',
           justifyContent: desktop ? '' : 'center',
           marginTop: '2%',
-          // position: 'relative',
+          position: 'fixed',
           zIndex: '10',
         }}
       >
