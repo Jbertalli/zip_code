@@ -67,7 +67,7 @@ export default function Header() {
   return (
     <>
       <div 
-        style={{ transform: desktop ? 'translate(0%)' : 'translate(5%)', background: 'red' }}
+        style={{ transform: desktop ? 'translate(0%)' : 'translate(5%)' }}
       >
         <Link href="/" passHref>
           <Tab

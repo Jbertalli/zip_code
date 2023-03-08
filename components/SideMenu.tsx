@@ -199,12 +199,12 @@ export default function SideMenu(values) {
           </div>
         )}
       </div>
-      <div style={{ display: 'flex', justifyContent: 'center', zIndex: '10000000' }}>
-        <div style={{ position: 'absolute', zIndex: '10000', top: '5px' }}>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <div style={{ position: 'absolute', zIndex: '1000000', top: '5px', background: '#313e4c' }}>
           <Header />
         </div>
       </div>
-      <Box sx={{ display: 'flex' }}>
+      <div style={{ display: 'flex' }}>
         <CssBaseline />
         <AppBar
           position="fixed"
@@ -334,7 +334,7 @@ export default function SideMenu(values) {
             <Divider />
           </div>
         </Drawer>
-      </Box>
+      </div>
     </>
   );
 }
