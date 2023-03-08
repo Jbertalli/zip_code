@@ -68,7 +68,7 @@ export default function Header() {
     <>
       <div 
         style={{ 
-          transform: desktop ? 'translate(0%)' : 'translate(5%)' ,
+          transform: desktop ? 'translateY(5px)' : 'translate(5%)' ,
           display: 'flex',
           justifyContent: 'center'
         }}
