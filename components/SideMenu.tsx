@@ -208,11 +208,10 @@ export default function SideMenu(values) {
         <div 
           style={{ 
             position: 'absolute', 
-            zIndex: '100000', 
+            zIndex: '1000000', 
             top: '5px', 
-            background: '#313e4c', 
-            border: '2px solid red',
-            width: '100vw'
+            background: '#313e4c' ,
+            border: '1px solid red'
           }}
         >
           <Header />
