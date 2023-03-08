@@ -183,6 +183,8 @@ export default function SideMenu(values) {
     }
   }, []);
 
+  console.log(open);
+
   return (
     <>
       <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
@@ -210,7 +212,8 @@ export default function SideMenu(values) {
             position: 'absolute', 
             zIndex: '1000000', 
             top: '5px', 
-            background: '#313e4c' ,
+            background: '#313e4c',
+            width: open? '1000px' : '560px',
             border: '1px solid red'
           }}
         >
