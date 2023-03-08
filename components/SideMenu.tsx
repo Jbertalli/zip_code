@@ -207,12 +207,12 @@ export default function SideMenu(values) {
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
         <AppBar
-          // position="fixed"
+          position="fixed"
           open={open}
           style={{
-            top: desktop ? '' : '53px',
-            width: desktop ? '' : '48px',
-            left: desktop ? '' : '0px',
+            top: desktop ? null : '53px',
+            width: desktop ? null : '48px',
+            left: desktop ? null : '0px',
             background: '#313e4c'
           }}
         >
