@@ -18,6 +18,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Header from '../components/Header';
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
 import { auth } from '../firebase/clientApp';
+import { useMediaQuery } from 'react-responsive';
 
 auth;
 const db = getFirestore();
@@ -183,7 +184,11 @@ export default function SideMenu(values) {
     }
   }, []);
 
-  console.log(open);
+  const isPhone = useMediaQuery(
+    { minWidth: 0, maxWidth: 450 }
+  );
+
+  console.log(isPhone);
 
   return (
     <>
@@ -201,25 +206,29 @@ export default function SideMenu(values) {
           </div>
         )}
       </div>
-      <div 
-        style={{ 
-          display: 'flex', 
-          justifyContent: 'center' 
-        }}
-      >
+      {!isPhone ? (
+      <>
         <div 
           style={{ 
-            position: 'absolute', 
-            top: '0px', 
-            background: '#313e4c',
-            width: open? '100%' : '560px',
-            zIndex: open? '1000' : '10000',
-            height: '64px'
+            display: 'flex', 
+            justifyContent: 'center' 
           }}
         >
-          <Header />
+          <div 
+            style={{ 
+              position: 'absolute', 
+              top: '0px', 
+              background: '#313e4c',
+              width: open? '100%' : '560px',
+              zIndex: open? '1000' : '10000',
+              height: '64px'
+            }}
+          >
+            <Header />
+          </div>
         </div>
-      </div>
+      </>
+      ): null}
       <div style={{ display: 'flex' }}>
         <CssBaseline />
         <AppBar
