@@ -220,11 +220,14 @@ export default function SideMenu(values) {
             <>
               <Toolbar>
                 <IconButton
-                  color="inherit"
+                  // color="inherit"
                   aria-label="open drawer"
                   onClick={handleDrawerOpen}
                   edge="start"
                   sx={{ mr: 2, ...(open && { display: 'none' }) }}
+                  style={{
+                    color: 'white'
+                  }}
                 >
                   <MenuIcon />
                 </IconButton>
