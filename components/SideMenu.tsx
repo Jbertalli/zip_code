@@ -206,7 +206,12 @@ export default function SideMenu(values) {
           </div>
         )}
       </div>
-      {!isPhone ? (
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <div style={{ position: 'absolute', zIndex: '10000', top: '5px' }}>
+          <Header />
+        </div>
+      </div>
+      {/* {!isPhone ? (
       <>
         <div 
           style={{ 
@@ -228,7 +233,7 @@ export default function SideMenu(values) {
           </div>
         </div>
       </>
-      ): null}
+      ): null} */}
       <div style={{ display: 'flex' }}>
         <CssBaseline />
         <AppBar
