@@ -119,7 +119,7 @@ function SignInScreen() {
         >
             <div
                 style={{
-                    transform: isTablet ? 'translateY(-40px) scale(0.8)' : null,
+                    transform: isTablet ? 'translateY(0px) scale(0.8)' : null,
                     position: isTablet ? 'absolute' : null
                 }}
             >
