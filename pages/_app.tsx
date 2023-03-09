@@ -15,21 +15,21 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
   console.log(user);
 
-  useEffect(() => {
-    console.log(window.document.cookie.length);
-    if (user || window.document.cookie.length > 222 || router.pathname === '/' || router.pathname === '/antinode_map') {
-      console.log('Signed In or Public Page');
-    } else if (user === null && window.document.cookie.length === 222 && router.pathname === '/history') {
-      router.push('/login');
-      console.log('Cannot access this page without logging in');
-    } else {
-      console.log('done');
-    }
-  }, [user]);
+  // useEffect(() => {
+  //   console.log(window.document.cookie.length);
+  //   if (user || window.document.cookie.length > 222 || router.pathname === '/' || router.pathname === '/antinode_map') {
+  //     console.log('Signed In or Public Page');
+  //   } else if (user === null && window.document.cookie.length === 222 && router.pathname === '/history') {
+  //     router.push('/login');
+  //     console.log('Cannot access this page without logging in');
+  //   } else {
+  //     console.log('done');
+  //   }
+  // }, [user]);
 
-  if (user === null && router.pathname === '/history') {
-    return null;
-  }
+  // if (user === null && router.pathname === '/history') {
+  //   return null;
+  // }
 
   return (
     <>
