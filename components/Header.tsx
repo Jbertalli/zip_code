@@ -47,7 +47,7 @@ export default function Header() {
 
   return (
     <>
-      {/* <div 
+      <div 
         style={{ 
           display: 'flex', 
           justifyContent: 'center'
@@ -63,8 +63,7 @@ export default function Header() {
             style={{ 
               transform: 'translateY(5px)',
               display: 'flex',
-              justifyContent: 'center', 
-              minWidth: '500px'
+              justifyContent: 'center'
             }}
           >
             <Link href="/" passHref>
@@ -134,7 +133,7 @@ export default function Header() {
             )}
           </div>
         </div>
-      </div> */}
+      </div>
     </>
   );
 }

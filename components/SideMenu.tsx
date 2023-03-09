@@ -183,13 +183,34 @@ export default function SideMenu(values) {
     }
   }, []);
 
-  const isPortrait = useMediaQuery({ query: '(orientation: portrait)' });
+  const isPortrait = useMediaQuery(
+    { minWidth: 100, maxWidth: 500 }
+  );
 
   console.log(isPortrait);
 
   return (
     <>
-      {!isPortrait ? (
+      {isPortrait ? (
+      <>
+        {/* <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center'
+          }}
+        >
+          <div
+            style={{
+              transform: 'translate(20px, -35px)',
+              position: 'absolute',
+              zIndex: '100000'
+            }}
+          >
+            <MobileHeader />
+          </div>
+        </div> */}
+      </>
+      ):(
       <>
         <div 
           style={{ 
@@ -208,25 +229,6 @@ export default function SideMenu(values) {
             }}
           >
             <Header />
-          </div>
-        </div>
-      </>
-      ):(
-      <>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center'
-          }}
-        >
-          <div
-            style={{
-              transform: 'translate(20px, -35px)',
-              position: 'absolute',
-              zIndex: '100000'
-            }}
-          >
-            <MobileHeader />
           </div>
         </div>
       </>
