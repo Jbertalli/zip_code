@@ -138,7 +138,7 @@ export default function History() {
         </div>
       </>
       )}
-      {user ? (
+      {/* {user ? (
       <>
         {loading ? (
             <>
@@ -340,7 +340,189 @@ export default function History() {
             </>
         )}
       </>
-      ): null}
+      ): null} */}
+                <div 
+                    style={{ 
+                        transform: desktop ? 'translateY(18%)' : 'translate(6%, 8%)'
+                    }}
+                    onMouseEnter={getData}
+                    onMouseLeave={getData}
+                >
+                    <div
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        transform: 'translate(25px, 10%)',
+                    }}
+                    >
+                    <span
+                        style={{
+                        fontSize: desktop ? '40px' : '30px',
+                        fontWeight: '300',
+                        width: desktop ? '550px' : '500px',
+                        }}
+                    >
+                        {user ? <>{nameHeader}&nbsp;</> : null} Information
+                    </span>
+                    </div>
+                    <div
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        transform: desktop ? 'translate(0px)' : 'scale(0.8) translateY(-100px)',
+                    }}
+                    >
+                    <Table
+                        style={{
+                            width: '50%',
+                            maxWidth: '700px',
+                            minWidth: '300px',
+                            padding: '10px'
+                        }}
+                    >
+                        <TableRow>
+                        <TableCell />
+                        <TableCell />
+                        </TableRow>
+                        <TableRow>
+                        <TableCell
+                            style={{ transform: 'translate(3vw)', fontSize: '25px' }}
+                        >
+                            Zip Code
+                        </TableCell>
+                        <TableCell
+                            style={{ transform: 'translate(2vw)', fontSize: '25px' }}
+                        >
+                            {showZip}
+                        </TableCell>
+                        </TableRow>
+                        <TableRow>
+                        <TableCell
+                            style={{ transform: 'translate(3vw)', fontSize: '25px' }}
+                        >
+                            City
+                        </TableCell>
+                        <TableCell
+                            style={{ transform: 'translate(2vw)', fontSize: '25px' }}
+                        >
+                            {showCity}
+                        </TableCell>
+                        </TableRow>
+                        <TableRow>
+                        <TableCell
+                            style={{ transform: 'translate(3vw)', fontSize: '25px' }}
+                        >
+                            Latitude
+                        </TableCell>
+                        <TableCell
+                            style={{ transform: 'translate(2vw)', fontSize: '25px' }}
+                        >
+                            {showLatitude}
+                        </TableCell>
+                        </TableRow>
+                        <TableRow>
+                        <TableCell
+                            style={{ transform: 'translate(3vw)', fontSize: '25px' }}
+                        >
+                            Longitude
+                        </TableCell>
+                        <TableCell
+                            style={{ transform: 'translate(2vw)', fontSize: '25px' }}
+                        >
+                            {showLongitude}
+                        </TableCell>
+                        </TableRow>
+                        <TableRow>
+                        <TableCell
+                            style={{ transform: 'translate(3vw)', fontSize: '25px' }}
+                        >
+                            Antinode Latitude
+                        </TableCell>
+                        <TableCell
+                            style={{ transform: 'translate(2vw)', fontSize: '25px' }}
+                        >
+                            {showOpposite_Latitude}
+                        </TableCell>
+                        </TableRow>
+                        <TableRow>
+                        <TableCell
+                            style={{ transform: 'translate(3vw)', fontSize: '25px' }}
+                        >
+                            Antinode Longitude
+                        </TableCell>
+                        <TableCell
+                            style={{ transform: 'translate(2vw)', fontSize: '25px' }}
+                        >
+                            {showOpposite_Longitude}
+                        </TableCell>
+                        </TableRow>
+                        <TableRow>
+                        <TableCell
+                            style={{ transform: 'translate(3vw)', fontSize: '25px' }}
+                        >
+                            State
+                        </TableCell>
+                        <TableCell
+                            style={{ transform: 'translate(2vw)', fontSize: '25px' }}
+                        >
+                            {showState}
+                        </TableCell>
+                        </TableRow>
+                        <TableRow>
+                        <TableCell
+                            style={{ transform: 'translate(3vw)', fontSize: '25px' }}
+                        >
+                            State Abbreviation
+                        </TableCell>
+                        <TableCell
+                            style={{ transform: 'translate(2vw)', fontSize: '25px' }}
+                        >
+                            {showState_Abbreviation}
+                        </TableCell>
+                        </TableRow>
+                        <TableRow>
+                        <TableCell
+                            style={{ transform: 'translate(3vw)', fontSize: '25px' }}
+                        >
+                            Weather
+                        </TableCell>
+                        <TableCell
+                            style={{
+                            transform: 'translate(2vw)',
+                            fontSize: '25px',
+                            textTransform: 'capitalize',
+                            }}
+                        >
+                            {showWeather}
+                        </TableCell>
+                        </TableRow>
+                        <TableRow>
+                        <TableCell
+                            style={{ transform: 'translate(3vw)', fontSize: '25px' }}
+                        >
+                            Current Temperature
+                        </TableCell>
+                        <TableCell
+                            style={{ transform: 'translate(2vw)', fontSize: '25px' }}
+                        >
+                            {showCurrentTemp}
+                        </TableCell>
+                        </TableRow>
+                        <TableRow>
+                        <TableCell
+                            style={{ transform: 'translate(3vw)', fontSize: '25px' }}
+                        >
+                            Temperature Range
+                        </TableCell>
+                        <TableCell
+                            style={{ transform: 'translate(2vw)', fontSize: '25px' }}
+                        >
+                            {showTempRange}
+                        </TableCell>
+                        </TableRow>
+                    </Table>
+                    </div>
+                </div>
     </>
   );
 }
