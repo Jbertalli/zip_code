@@ -32,6 +32,10 @@ export default function Antinode() {
     return () => window.removeEventListener('resize', updateMedia);
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   disableScroll.on();
 
   return (
