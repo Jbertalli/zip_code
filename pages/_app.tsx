@@ -67,7 +67,7 @@ function MyApp({ Component, pageProps }) {
       {(isPortrait && router.pathname === '/') ? (
       <>
         <div>
-          <MobileHeader />
+          <MobileHeader /> 
         </div>
       </>
       ): null}
