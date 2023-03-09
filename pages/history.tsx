@@ -140,7 +140,7 @@ export default function History() {
       )}
       {user ? (
       <>
-        {loading ? (
+        {/* {loading ? (
             <>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <div
@@ -154,7 +154,7 @@ export default function History() {
             </div>
             </>
         ) : (
-            <>
+            <> */}
             <div 
                 style={{ 
                     transform: desktop ? 'translateY(18%)' : 'translate(6%, 8%)'
@@ -338,8 +338,8 @@ export default function History() {
                 </Table>
                 </div>
             </div>
-            </>
-        )}
+            {/* </>
+        )} */}
       </>
       ): null}
     </>
