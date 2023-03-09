@@ -55,7 +55,7 @@ export default function Header() {
       >
         <div
           style={{
-            position: 'absolute',
+            position: 'fixed',
             zIndex: '10000'
           }}
         >
