@@ -64,10 +64,10 @@ export default function MobileHeader() {
               display: 'flex',
               justifyContent: 'center',
               background: '#313e4c',
-              border: '1px solid red',
-              height: router.pathname === '/' ? '51px' : '55px',
+            //   border: '1px solid red',
+              height: '55px',
               transform: router.pathname === '/' ? 'translate(15px)' : null,
-              width: '100vw'
+              width: '104vw'
             }}
           >
             <Link href="/" passHref>
