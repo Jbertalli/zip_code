@@ -6,6 +6,7 @@ import Header from '../components/Header';
 import MobileNodeMap from '../components/MobileNodeMap';
 import MobileAntinodeMap from '../components/MobileAntinodeMap';
 import { auth } from '../firebase/clientApp';
+import MobileHeader from '../components/MobileHeader';
 
 auth;
 
@@ -38,11 +39,7 @@ export default function Antinode() {
       </Head>
       {desktop ? (
         <>
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <div style={{ position: 'absolute', zIndex: '10000', top: '5px' }}>
-              <Header />
-            </div>
-          </div>
+          <Header />
           <div
             style={{
               background: '#313e4c',
@@ -92,18 +89,7 @@ export default function Antinode() {
         </>
       ) : (
         <>
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <div
-              style={{
-                position: 'absolute',
-                zIndex: '10000',
-                top: '5px',
-                transform: 'translate(-21px, -5px) scale(0.88)',
-              }}
-            >
-              <Header />
-            </div>
-          </div>
+          <MobileHeader />
           <div>
             <div
               style={{
@@ -112,9 +98,9 @@ export default function Antinode() {
                 height: '20px',
                 position: 'absolute',
                 zIndex: '10',
-                top: '45px',
+                top: '62px',
                 borderTop: '.5px solid #FFFFFF90',
-                borderBottom: '.5px solid #FFFFFF90',
+                borderBottom: '.5px solid #FFFFFF90'
               }}
             />
             <div
@@ -123,10 +109,10 @@ export default function Antinode() {
                 fontWeight: '300',
                 position: 'absolute',
                 zIndex: '10',
-                transform: 'translate(50%, 45px)',
+                transform: 'translate(50%, 62px)',
                 width: '50%',
                 display: 'flex',
-                justifyContent: 'center',
+                justifyContent: 'center'
               }}
             >
               Current Location

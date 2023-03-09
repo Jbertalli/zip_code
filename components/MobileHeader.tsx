@@ -5,14 +5,14 @@ import Tab from '@mui/material/Tab';
 import { getAuth, signOut } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
-export default function Header() {
+export default function MobileHeader() {
   const [homeColor, setHomeColor] = useState<string>('');
   const [antinodeColor, setAntinodeColor] = useState<string>('');
   const [historyColor, setHistoryColor] = useState<string>('');
   const [loginColor, setLoginColor] = useState<string>('');
+  const router = useRouter();
   const auth = getAuth();
   const [user] = useAuthState(auth);
-  const router = useRouter();
 
   useEffect(() => {
     if (router.pathname === '/') {
@@ -56,21 +56,22 @@ export default function Header() {
         <div
           style={{
             position: 'absolute',
-            zIndex: '10000'
+            zIndex: '1000'
           }}
         >
           <div 
             style={{ 
-              transform: 'translateY(5px)',
               display: 'flex',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              height: '55px',
+              background: '#313e4c'
             }}
           >
             <Link href="/" passHref>
               <Tab
                 style={{
                   background: `${homeColor}`,
-                  fontSize: '25px',
+                  fontSize: '10.8px',
                   fontWeight: '400',
                   textTransform: 'none',
                   color: 'white'
@@ -82,7 +83,7 @@ export default function Header() {
               <Tab
                 style={{
                   background: `${antinodeColor}`,
-                  fontSize: '25px',
+                  fontSize: '10.8px',
                   fontWeight: '400',
                   textTransform: 'none',
                   color: 'white'
@@ -96,7 +97,7 @@ export default function Header() {
                   <Tab
                     style={{
                       background: `${historyColor}`,
-                      fontSize: '25px',
+                      fontSize: '10.8px',
                       fontWeight: '400',
                       textTransform: 'none',
                       color: 'white'
@@ -107,7 +108,7 @@ export default function Header() {
                 <Tab
                   onClick={() => {SignOut(), deleteLocal()}}
                   style={{
-                    fontSize: '25px',
+                    fontSize: '10.8px',
                     fontWeight: '400',
                     textTransform: 'none',
                     color: 'white'
@@ -121,7 +122,7 @@ export default function Header() {
                   <Tab
                     style={{
                       background: `${loginColor}`,
-                      fontSize: '25px',
+                      fontSize: '10.8px',
                       fontWeight: '400',
                       textTransform: 'none',
                       color: 'white'

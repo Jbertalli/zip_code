@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { getAuth } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import CircularProgress from '@mui/material/CircularProgress';
+import MobileHeader from '../components/MobileHeader';
 
 export default function Login() {
   const [desktop, setDesktop] = useState<boolean>(true);
@@ -35,17 +36,15 @@ export default function Login() {
         <title>Login</title>
         <meta name="description" content="login" />
       </Head>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          transform: desktop ? 'translate(0%)' : 'translate(-5%)',
-        }}
-      >
-        <div style={{ position: 'absolute', zIndex: '10000', top: '5px' }}>
-          <Header />
-        </div>
-      </div>
+      {desktop ? (
+      <>
+        <Header />
+      </>
+      ):(
+      <>
+        <MobileHeader />
+      </>
+      )}
       {loading ? (
         <>
           <div style={{ display: 'flex', justifyContent: 'center' }}>

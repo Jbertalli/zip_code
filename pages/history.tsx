@@ -8,6 +8,7 @@ import Header from '../components/Header';
 import { Table, TableCell, TableRow } from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress';
 import { auth } from '../firebase/clientApp';
+import MobileHeader from '../components/MobileHeader';
 
 auth;
 const db = getFirestore();
@@ -114,13 +115,31 @@ export default function History() {
         <title>User Information</title>
         <meta name="description" content="history" />
       </Head>
-      {user ? (
+      {desktop ? (
       <>
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <div style={{ position: 'absolute', zIndex: '10000', top: '5px' }}>
-            <Header />
+        <Header />
+      </>
+      ):(
+      <>
+        <div
+            style={{
+                display: 'flex',
+                justifyContent: 'center'
+            }}
+        >
+            <div
+                style={{
+                    transform: 'translate(20px) scale(1.1)',
+                    position: 'absolute'
+                }}
+            >
+                <MobileHeader />
             </div>
         </div>
+      </>
+      )}
+      {user ? (
+      <>
         {loading ? (
             <>
             <div style={{ display: 'flex', justifyContent: 'center' }}>

@@ -15,6 +15,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { getAuth } from '@firebase/auth';
 import CircularProgress from '@mui/material/CircularProgress';
 import Header from '../components/Header';
+import MobileHeader from './MobileHeader';
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
 import { auth } from '../firebase/clientApp';
 import { useMediaQuery } from 'react-responsive';
@@ -120,6 +121,7 @@ export default function SideMenu(values) {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const [desktop, setDesktop] = useState<boolean>(true);
+  const [emptyDatabase, setEmptyDatabase] = useState<boolean>(false);
 
   useEffect(() => {
     if (window.innerWidth > 440) {
@@ -158,8 +160,6 @@ export default function SideMenu(values) {
     nameHeader = `${user.displayName}'s`;
   }
 
-  const [emptyDatabase, setEmptyDatabase] = useState<boolean>(false);
-
   const currentUser = auth.currentUser?.uid;
 
   async function getData() {
@@ -183,14 +183,54 @@ export default function SideMenu(values) {
     }
   }, []);
 
-  const isPhone = useMediaQuery(
-    { minWidth: 0, maxWidth: 450 }
-  );
+  const isPortrait = useMediaQuery({ query: '(orientation: portrait)' });
 
-  console.log(isPhone);
+  console.log(isPortrait);
 
   return (
     <>
+      {!isPortrait ? (
+      <>
+        <div 
+          style={{ 
+            display: 'flex', 
+            justifyContent: 'center'
+          }}
+        >
+          <div 
+            style={{ 
+              position: 'absolute', 
+              top: '0px', 
+              background: '#313e4c',
+              width: open ? '100%' : '200px',
+              zIndex: open ? '1000' : '10000',
+              height: '64px'
+            }}
+          >
+            <Header />
+          </div>
+        </div>
+      </>
+      ):(
+      <>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center'
+          }}
+        >
+          <div
+            style={{
+              transform: 'translate(20px, -35px)',
+              position: 'absolute',
+              zIndex: '100000'
+            }}
+          >
+            <MobileHeader />
+          </div>
+        </div>
+      </>
+      )}
       <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
         {loading && (
           <div
@@ -204,25 +244,6 @@ export default function SideMenu(values) {
             <CircularProgress />
           </div>
         )}
-      </div>
-      <div 
-        style={{ 
-          display: 'flex', 
-          justifyContent: 'center' 
-        }}
-      >
-        <div 
-          style={{ 
-            position: 'absolute', 
-            top: '0px', 
-            background: '#313e4c',
-            width: open ? '100%' : '200px',
-            zIndex: open ? '1000' : '10000',
-            height: desktop ? '64px' : '50px'
-          }}
-        >
-          <Header />
-        </div>
       </div>
       <div style={{ display: 'flex' }}>
         <CssBaseline />
