@@ -64,10 +64,10 @@ export default function MobileHeader() {
               display: 'flex',
               justifyContent: 'center',
               background: '#313e4c',
-            //   border: '1px solid red',
               height: '55px',
-              transform: router.pathname === '/' ? 'translate(12px)' : null,
-              width: '105vw'
+              width: '100vw',
+              transform: router.pathname === '/' ? 'translate(23px)' : null,
+              //   border: '1px solid red',
             }}
           >
             <Link href="/" passHref>
@@ -138,6 +138,18 @@ export default function MobileHeader() {
           </div>
         </div>
       </div>
+      {router.pathname === '/' ? (
+      <>
+        <div
+            style={{
+                position: 'absolute',
+                width: '50vw',
+                height: '100px',
+                background: '#313e4c'
+            }}
+        />
+      </>
+      ): null}
     </>
   );
 }
