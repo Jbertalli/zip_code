@@ -119,15 +119,15 @@ function SignInScreen() {
         >
             <div
                 style={{
-                    transform: isTablet ? 'translateY(0px) scale(0.8)' : null,
+                    transform: isTablet ? 'translateY(50px) scale(0.8)' : null,
                     position: isTablet ? 'absolute' : null
                 }}
             >
                 <div
                     style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    transform: isLarge ? 'translateY(180px)' : 'translateY(12vh) scale(0.88)'
+                        display: 'flex',
+                        justifyContent: 'center',
+                        transform: isLarge ? 'translateY(180px)' : 'translateY(12vh) scale(0.88)'
                     }}
                 >
                     <div
