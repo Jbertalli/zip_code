@@ -42,7 +42,14 @@ export default function Antinode() {
       </Head>
       {desktop ? (
         <>
-          <Header />
+          <div
+            style={{
+                top: '0px',
+                height: '100%'
+            }}
+          >
+            <Header />
+          </div>
           <div
             style={{
               background: '#313e4c',
