@@ -55,7 +55,7 @@ export default function MobileHeader() {
       >
         <div
           style={{
-            position: 'fixed',
+            position: 'absolute',
             zIndex: '1000'
           }}
         >
