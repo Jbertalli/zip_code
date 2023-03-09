@@ -32,23 +32,23 @@ function MyApp({ Component, pageProps }) {
     return null;
   }
 
-  useEffect(() => {
-    if (window.innerWidth > 440) {
-      setDesktop(true);
-    } else {
-      setDesktop(false);
-    }
+  // useEffect(() => {
+  //   if (window.innerWidth > 440) {
+  //     setDesktop(true);
+  //   } else {
+  //     setDesktop(false);
+  //   }
 
-    const updateMedia = () => {
-      if (window.innerWidth > 440) {
-        setDesktop(true);
-      } else {
-        setDesktop(false);
-      }
-    };
-    window.addEventListener('resize', updateMedia);
-    return () => window.removeEventListener('resize', updateMedia);
-  }, []);
+  //   const updateMedia = () => {
+  //     if (window.innerWidth > 440) {
+  //       setDesktop(true);
+  //     } else {
+  //       setDesktop(false);
+  //     }
+  //   };
+  //   window.addEventListener('resize', updateMedia);
+  //   return () => window.removeEventListener('resize', updateMedia);
+  // }, []);
 
   return (
     <>
