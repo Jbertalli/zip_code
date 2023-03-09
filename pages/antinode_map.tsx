@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import NodeMap from '../components/Nodemap';
 import AntinodeMap from '../components/Antinodemap';
 import Header from '../components/Header';
@@ -7,6 +7,7 @@ import MobileNodeMap from '../components/MobileNodeMap';
 import MobileAntinodeMap from '../components/MobileAntinodeMap';
 import { auth } from '../firebase/clientApp';
 import MobileHeader from '../components/MobileHeader';
+import disableScroll from 'disable-scroll';
 
 auth;
 
@@ -30,6 +31,8 @@ export default function Antinode() {
     window.addEventListener('resize', updateMedia);
     return () => window.removeEventListener('resize', updateMedia);
   }, []);
+
+  disableScroll.on();
 
   return (
     <>
