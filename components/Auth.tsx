@@ -127,7 +127,7 @@ function SignInScreen() {
                     style={{
                         display: 'flex',
                         justifyContent: 'center',
-                        transform: isLarge ? 'translateY(180px)' : 'translateY(12vh) scale(0.88)'
+                        transform: isLarge ? 'translateY(130px)' : 'translateY(12vh) scale(0.88)'
                     }}
                 >
                     <div
