@@ -66,7 +66,7 @@ export default function MobileHeader() {
               background: '#313e4c',
               height: '55px',
               width: '100vw',
-              transform: router.pathname === '/' ? 'translate(23px)' : null,
+              transform: router.pathname === '/' ? 'translate(10px)' : null,
               //   border: '1px solid red',
             }}
           >
