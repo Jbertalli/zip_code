@@ -5,13 +5,13 @@ import { Provider } from 'react-redux';
 import { useRouter } from 'next/router';
 import { auth } from '../firebase/clientApp';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useMediaQuery } from 'react-responsive';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import MobileHeader from '../components/MobileHeader';
 
 auth;
 
 function MyApp({ Component, pageProps }) {
+  const [desktop, setDesktop] = useState<boolean>(true);
   const [user] = useAuthState(auth);
   const router = useRouter();
   console.log(user);
@@ -32,9 +32,23 @@ function MyApp({ Component, pageProps }) {
     return null;
   }
 
-  const isPortrait = useMediaQuery(
-    { minWidth: 100, maxWidth: 500 }
-  );
+  useEffect(() => {
+    if (window.innerWidth > 440) {
+      setDesktop(true);
+    } else {
+      setDesktop(false);
+    }
+
+    const updateMedia = () => {
+      if (window.innerWidth > 440) {
+        setDesktop(true);
+      } else {
+        setDesktop(false);
+      }
+    };
+    window.addEventListener('resize', updateMedia);
+    return () => window.removeEventListener('resize', updateMedia);
+  }, []);
 
   return (
     <>
