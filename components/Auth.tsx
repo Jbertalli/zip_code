@@ -9,6 +9,7 @@ import Button from '@mui/material/Button';
 import styles from '../styles/zip.module.css';
 import FocusLock from 'react-focus-lock';
 import Checkbox from '@mui/material/Checkbox';
+import { useMediaQuery } from 'react-responsive';
 
 //Configure FirebaseUI
 const uiConfig = {
@@ -100,13 +101,19 @@ function SignInScreen() {
     setChecked(event.target.checked);
   };
 
+  const isTablet = useMediaQuery(
+    { minWidth: 100, maxWidth: 1290 }
+  );
+
+  const isPortrait = useMediaQuery({ query: '(orientation: portrait)' });
+
   return (
     <>
       <div
         style={{
           display: 'flex',
           justifyContent: 'center',
-          transform: desktop ? 'translateY(160px)' : 'translateY(12vh)'
+          transform: isPortrait ? 'translateY(200px)' : (isTablet ? 'translateY(120px)' : (desktop ? 'translateY(160px)' : 'translateY(12vh)'))
         }}
       >
         <div
@@ -116,7 +123,7 @@ function SignInScreen() {
             border: '1px solid white',
             borderRadius: '8px',
             minHeight: desktop ? '620px' : '560px',
-            width: '20vw',
+            width: isPortrait ? '40vw' : (isTablet ? '30vw' : '20vw'),
             maxWidth: '600px',
             minWidth: desktop ? '236px' : '300px'
           }}
