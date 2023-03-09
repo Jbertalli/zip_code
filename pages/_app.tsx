@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }) {
     console.log(window.document.cookie.length);
     if (user || window.document.cookie.length > 222 || router.pathname === '/' || router.pathname === '/antinode_map') {
       console.log('Signed In or Public Page');
-    } else if (user === null && window.document.cookie.length === 222 && router.pathname === '/history') {
+    } else if (user === null && window.document.cookie.length === 222) {
       router.push('/login');
       console.log('Cannot access this page without logging in');
     } else {
