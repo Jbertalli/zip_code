@@ -5,9 +5,9 @@ import { Provider } from 'react-redux';
 import { useRouter } from 'next/router';
 import { auth } from '../firebase/clientApp';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useMediaQuery } from 'react-responsive';
+// import { useMediaQuery } from 'react-responsive';
 import React, { useEffect } from 'react';
-import MobileHeader from '../components/MobileHeader';
+// import MobileHeader from '../components/MobileHeader';
 
 auth;
 
@@ -32,11 +32,9 @@ function MyApp({ Component, pageProps }) {
     return null;
   }
 
-  const isPortrait = useMediaQuery(
-    { minWidth: 100, maxWidth: 500 }
-  );
-
-  console.log(isPortrait);
+  // const isPortrait = useMediaQuery(
+  //   { minWidth: 100, maxWidth: 500 }
+  // );
 
   return (
     <>
@@ -64,13 +62,13 @@ function MyApp({ Component, pageProps }) {
           href="/images/antinode_logo.png"
         />
       </Head>
-      {(isPortrait && router.pathname === '/') ? (
+      {/* {(isPortrait && router.pathname === '/') ? (
       <>
         <div>
           <MobileHeader /> 
         </div>
       </>
-      ): null}
+      ): null} */}
       <Provider store={store}>
         <Component {...pageProps} />
       </Provider>
