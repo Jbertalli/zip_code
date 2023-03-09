@@ -38,7 +38,7 @@ export default function NodeMap() {
     axios.get(finalAPIEndPoint).then((response) => {
       setResponseData(response.data);
     });
-  }, []);
+  }, [latitude, longitude]);
 
   let zipCode: any = reverse.lookup(latitude, longitude, 'us');
 

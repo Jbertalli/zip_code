@@ -89,7 +89,7 @@ export default function MobileAntinodeMap() {
             style={{
               display: 'flex',
               justifyContent: 'center',
-              transform: 'translateY(364px)',
+              transform: 'translateY(364px)'
             }}
           >
             <div
@@ -100,7 +100,7 @@ export default function MobileAntinodeMap() {
                 position: 'absolute',
                 zIndex: '10',
                 borderTop: '.5px solid #FFFFFF90',
-                borderBottom: '.5px solid #FFFFFF90',
+                borderBottom: '.5px solid #FFFFFF90'
               }}
             />
             <div
@@ -111,7 +111,7 @@ export default function MobileAntinodeMap() {
                 zIndex: '10',
                 width: '50%',
                 display: 'flex',
-                justifyContent: 'center',
+                justifyContent: 'center'
               }}
             >
               Antinode Location
