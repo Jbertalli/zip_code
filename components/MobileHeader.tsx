@@ -66,8 +66,8 @@ export default function MobileHeader() {
               background: '#313e4c',
             //   border: '1px solid red',
               height: '55px',
-              transform: router.pathname === '/' ? 'translate(15px)' : null,
-              width: '104vw'
+              transform: router.pathname === '/' ? 'translate(12px)' : null,
+              width: '105vw'
             }}
           >
             <Link href="/" passHref>
