@@ -5,9 +5,9 @@ import { Provider } from 'react-redux';
 import { useRouter } from 'next/router';
 import { auth } from '../firebase/clientApp';
 import { useAuthState } from 'react-firebase-hooks/auth';
-// import { useMediaQuery } from 'react-responsive';
+import { useMediaQuery } from 'react-responsive';
 import React, { useEffect } from 'react';
-// import MobileHeader from '../components/MobileHeader';
+import MobileHeader from '../components/MobileHeader';
 
 auth;
 
@@ -32,9 +32,9 @@ function MyApp({ Component, pageProps }) {
     return null;
   }
 
-  // const isPortrait = useMediaQuery(
-  //   { minWidth: 100, maxWidth: 500 }
-  // );
+  const isPortrait = useMediaQuery(
+    { minWidth: 100, maxWidth: 500 }
+  );
 
   return (
     <>

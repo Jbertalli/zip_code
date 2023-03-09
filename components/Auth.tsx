@@ -113,7 +113,7 @@ function SignInScreen() {
         style={{
           display: 'flex',
           justifyContent: 'center',
-          transform: isPortrait ? 'translateY(200px)' : (isTablet ? 'translateY(120px)' : (desktop ? 'translateY(160px)' : 'translateY(12vh)'))
+          transform: desktop ? 'translateY(130px)' : 'translateY(12vh)'
         }}
       >
         <div
