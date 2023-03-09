@@ -15,7 +15,6 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { getAuth } from '@firebase/auth';
 import CircularProgress from '@mui/material/CircularProgress';
 import Header from '../components/Header';
-import MobileHeader from './MobileHeader';
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
 import { auth } from '../firebase/clientApp';
 import { useMediaQuery } from 'react-responsive';
@@ -187,30 +186,9 @@ export default function SideMenu(values) {
     { minWidth: 100, maxWidth: 500 }
   );
 
-  console.log(isPortrait);
-
   return (
     <>
-      {isPortrait ? (
-      <>
-        {/* <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center'
-          }}
-        >
-          <div
-            style={{
-              transform: 'translate(20px, -35px)',
-              position: 'absolute',
-              zIndex: '100000'
-            }}
-          >
-            <MobileHeader />
-          </div>
-        </div> */}
-      </>
-      ):(
+      {isPortrait ? null :(
       <>
         <div 
           style={{ 

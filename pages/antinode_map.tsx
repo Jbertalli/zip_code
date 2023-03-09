@@ -32,10 +32,6 @@ export default function Antinode() {
     return () => window.removeEventListener('resize', updateMedia);
   }, []);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   disableScroll.on();
 
   return (
@@ -49,7 +45,8 @@ export default function Antinode() {
           <div
             style={{
                 top: '0px',
-                height: '100%'
+                height: '100%',
+                marginTop: '0px'
             }}
           >
             <Header />
