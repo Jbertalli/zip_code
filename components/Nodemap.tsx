@@ -81,7 +81,7 @@ export default function NodeMap() {
         <div
           style={{
             position: 'absolute',
-            zIndex: '1000000000',
+            zIndex: '10000',
             width: '50%',
             height: '100%',
           }}

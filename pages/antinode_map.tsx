@@ -37,9 +37,9 @@ export default function Antinode() {
         <title>Antinode</title>
         <meta name="description" content="antinode" />
       </Head>
+      <Header />
       {desktop ? (
         <>
-          <Header />
           <div
             style={{
               background: '#313e4c',
