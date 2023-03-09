@@ -50,8 +50,7 @@ export default function MobileHeader() {
       <div 
         style={{ 
           display: 'flex', 
-          justifyContent: 'center',
-          width: '100vw'
+          justifyContent: 'center'
         }}
       >
         <div
@@ -67,7 +66,8 @@ export default function MobileHeader() {
               background: '#313e4c',
               border: '1px solid red',
               height: router.pathname === '/' ? '51px' : '55px',
-              transform: router.pathname === '/' ? 'translate(15px)' : null
+              transform: router.pathname === '/' ? 'translate(15px)' : null,
+              width: '100vw'
             }}
           >
             <Link href="/" passHref>

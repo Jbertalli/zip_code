@@ -425,8 +425,7 @@ export default function Home() {
           justifyContent: desktop ? '' : 'center',
           marginTop: '2%',
           position: 'relative',
-          zIndex: '10',
-          background: '#313e4c'
+          zIndex: '10'
         }}
       >
         <Draggable>
