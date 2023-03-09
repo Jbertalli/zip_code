@@ -47,7 +47,7 @@ export default function Header() {
 
   return (
     <>
-      <div 
+      {/* <div 
         style={{ 
           display: 'flex', 
           justifyContent: 'center'
@@ -134,7 +134,7 @@ export default function Header() {
             )}
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }

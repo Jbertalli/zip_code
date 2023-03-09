@@ -207,9 +207,7 @@ export default function SideMenu(values) {
               height: '64px'
             }}
           >
-            {!isPortrait ? (
-              <Header />
-            ): null}
+            <Header />
           </div>
         </div>
       </>
