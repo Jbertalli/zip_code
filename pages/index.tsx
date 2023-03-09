@@ -426,6 +426,7 @@ export default function Home() {
           marginTop: '2%',
           position: 'relative',
           zIndex: '10',
+          background: '#313e4c'
         }}
       >
         <Draggable>
