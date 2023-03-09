@@ -5,13 +5,12 @@ import { Provider } from 'react-redux';
 import { useRouter } from 'next/router';
 import { auth } from '../firebase/clientApp';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import MobileHeader from '../components/MobileHeader';
 
 auth;
 
 function MyApp({ Component, pageProps }) {
-  const [desktop, setDesktop] = useState<boolean>(true);
   const [user] = useAuthState(auth);
   const router = useRouter();
   console.log(user);
@@ -31,24 +30,6 @@ function MyApp({ Component, pageProps }) {
   if (user === null && router.pathname === '/history') {
     return null;
   }
-
-  // useEffect(() => {
-  //   if (window.innerWidth > 440) {
-  //     setDesktop(true);
-  //   } else {
-  //     setDesktop(false);
-  //   }
-
-  //   const updateMedia = () => {
-  //     if (window.innerWidth > 440) {
-  //       setDesktop(true);
-  //     } else {
-  //       setDesktop(false);
-  //     }
-  //   };
-  //   window.addEventListener('resize', updateMedia);
-  //   return () => window.removeEventListener('resize', updateMedia);
-  // }, []);
 
   return (
     <>
@@ -76,13 +57,13 @@ function MyApp({ Component, pageProps }) {
           href="/images/antinode_logo.png"
         />
       </Head>
-      {/* {(isPortrait && router.pathname === '/') ? (
+      {router.pathname === '/' ? (
       <>
         <div>
           <MobileHeader /> 
         </div>
       </>
-      ): null} */}
+      ): null}
       <Provider store={store}>
         <Component {...pageProps} />
       </Provider>
