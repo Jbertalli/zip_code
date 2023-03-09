@@ -106,7 +106,7 @@ function SignInScreen() {
   );
 
   const isLarge = useMediaQuery(
-    { minWidth: 1400, maxWidth: 10000 }
+    { minWidth: 1300, maxWidth: 10000 }
   );
 
   return (
@@ -127,7 +127,7 @@ function SignInScreen() {
                     style={{
                     display: 'flex',
                     justifyContent: 'center',
-                    transform: isLarge ? 'translateY(120px) scale(1.2)' : (desktop ? 'translateY(140px)' : 'translateY(12vh) scale(0.88)')
+                    transform: isLarge ? 'translateY(120px) scale(1.2)' : 'translateY(12vh) scale(0.88)'
                     }}
                 >
                     <div
