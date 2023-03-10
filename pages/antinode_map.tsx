@@ -32,7 +32,7 @@ export default function Antinode() {
     return () => window.removeEventListener('resize', updateMedia);
   }, []);
 
-  disableScroll.on();
+  disableScroll.off();
 
   return (
     <>
