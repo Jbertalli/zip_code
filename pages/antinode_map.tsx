@@ -37,7 +37,7 @@ export default function Antinode() {
   return (
     <>
       <Head>
-        <title>Antinode</title>
+        <title>Antinode Map</title>
         <meta name="description" content="antinode" />
       </Head>
       {desktop ? (

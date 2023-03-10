@@ -401,7 +401,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Zip Code</title>
+        <title>Antinode Home</title>
         <meta name="description" content="zip code" />
       </Head>
       <Local
