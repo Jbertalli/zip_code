@@ -399,10 +399,6 @@ export default function Home() {
     });
   };
 
-  const isLaptop = useMediaQuery(
-    { minWidth: 1290, maxWidth: 1450 }
-  );
-
   const isTablet = useMediaQuery(
     { minWidth: 100, maxWidth: 1290 }
   );
@@ -439,7 +435,7 @@ export default function Home() {
       >
         <div
           style={{
-            transform: isLaptop || isTablet ? 'translate(105px) scale(0.75)' : null
+            transform: isTablet ? 'translate(105px) scale(0.75)' : null
           }}
         >
           <Draggable>
