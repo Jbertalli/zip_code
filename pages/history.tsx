@@ -82,20 +82,20 @@ export default function History() {
     }
   }
 
-  useEffect(() => {
-    // view cookie length for debugging
-    // console.log(document.cookie);
-    // console.log(document.cookie.length);
-    if (typeof window !== 'undefined') {
-      if (document.cookie.length > 46) {
-        console.log('Authenticated!');
-      } else {
-        router.push('/login');
-      }
-    } else {
-      console.log('window == undefined');
-    }
-  }, []);
+//   useEffect(() => {
+//     // view cookie length for debugging
+//     // console.log(document.cookie);
+//     // console.log(document.cookie.length);
+//     if (typeof window !== 'undefined') {
+//       if (document.cookie.length > 46) {
+//         console.log('Authenticated!');
+//       } else {
+//         router.push('/login');
+//       }
+//     } else {
+//       console.log('window == undefined');
+//     }
+//   }, []);
 
   let nameHeader;
 
@@ -138,7 +138,7 @@ export default function History() {
         </div>
       </>
       )}
-      {/* {user ? (
+      {user ? (
       <>
         {loading ? (
             <>
@@ -154,7 +154,7 @@ export default function History() {
             </div>
             </>
         ) : (
-            <> */}
+            <>
                 <div 
                     style={{ 
                         transform: desktop ? 'translateY(18%)' : 'translate(6%, 8%)'
@@ -337,10 +337,10 @@ export default function History() {
                         </Table>
                     </div>
                 </div>
-            {/* </>
+            </>
         )}
       </>
-      ): null} */}
+      ): null}
     </>
   );
 }
