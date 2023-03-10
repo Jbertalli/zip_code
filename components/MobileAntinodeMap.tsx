@@ -81,15 +81,23 @@ export default function MobileAntinodeMap() {
   return (
     <>
       <MobileAntinodeLocate panTo={panTo} />
-      <div style={{ transform: 'translateY(-29px)' }}>
+      <div 
+        style={{ 
+          transform: 'translateY(-0px)' 
+        }}
+      >
         <div
-          style={{ position: 'absolute', zIndex: '1000000000', width: '100%' }}
+          style={{ 
+            position: 'absolute', 
+            zIndex: '1000000000', 
+            width: '100%' 
+          }}
         >
           <div
             style={{
               display: 'flex',
               justifyContent: 'center',
-              transform: 'translateY(364px)'
+              transform: 'translateY(100%)'
             }}
           >
             <div

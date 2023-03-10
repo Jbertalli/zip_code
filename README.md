@@ -9,4 +9,4 @@
 * Google Maps API
 * OpenWeather API
 
-* Must turn on location services for Chrome or Safari
+* Must turn on location services for Chrome or Safari (Settings > Location > Chrome/Safari > ALLOW LOCATION ACCESS While Using the App)

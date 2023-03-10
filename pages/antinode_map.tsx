@@ -109,7 +109,7 @@ export default function Antinode() {
                 height: '20px',
                 position: 'absolute',
                 zIndex: '10',
-                top: '58px',
+                top: '54px',
                 borderTop: '.5px solid #FFFFFF90',
                 borderBottom: '.5px solid #FFFFFF90'
               }}
@@ -120,7 +120,7 @@ export default function Antinode() {
                 fontWeight: '300',
                 position: 'absolute',
                 zIndex: '10',
-                transform: 'translate(50%, 58px)',
+                transform: 'translate(50%, 55px)',
                 width: '50%',
                 display: 'flex',
                 justifyContent: 'center'

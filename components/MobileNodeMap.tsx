@@ -5,7 +5,7 @@ import reverse from 'reverse-geocode';
 
 const libraries: any = ['places'];
 const mapContainerStyle = {
-  height: '40.5vh',
+  height: '55vh',
   width: '100vw',
 };
 
@@ -77,13 +77,22 @@ export default function MobileNodeMap() {
   return (
     <>
       <Locate panTo={panTo} />
-      <div style={{ transform: 'translateY(-299px)' }}>
-        <div style={{ position: 'absolute', zIndex: '1000000000' }}>
+      <div 
+        style={{ 
+          transform: 'translateY(-390px)' 
+        }}
+      >
+        <div 
+          style={{ 
+            position: 'absolute', 
+            zIndex: '100000' 
+          }}
+        >
           <div
             style={{
               display: 'flex',
               justifyContent: 'center',
-              transform: 'translateY(364px)',
+              transform: 'translateY(100%)'
             }}
           >
             <GoogleMap
