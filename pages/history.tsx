@@ -82,21 +82,6 @@ export default function History() {
     }
   }
 
-//   useEffect(() => {
-//     // view cookie length for debugging
-//     // console.log(document.cookie);
-//     // console.log(document.cookie.length);
-//     if (typeof window !== 'undefined') {
-//       if (document.cookie.length > 46) {
-//         console.log('Authenticated!');
-//       } else {
-//         router.push('/login');
-//       }
-//     } else {
-//       console.log('window == undefined');
-//     }
-//   }, []);
-
   let nameHeader;
 
   if (user?.displayName == null) {
