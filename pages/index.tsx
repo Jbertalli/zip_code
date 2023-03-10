@@ -402,7 +402,7 @@ export default function Home() {
   const isTablet = useMediaQuery(
     { minWidth: 100, maxWidth: 1290 }
   );
-
+  
   return (
     <>
       <Head>
@@ -425,7 +425,7 @@ export default function Home() {
       <Container
         maxWidth="lg"
         style={{
-          transform: desktop ? 'translate(22px, 6px)' : 'translate(15px, 22px) scale(0.7)',
+          transform: isTablet ? 'translate(105px) scale(0.75)' : (desktop ? 'translate(22px, 6px)' : 'translate(15px, 22px) scale(0.7)'),
           display: desktop ? '' : 'flex',
           justifyContent: desktop ? '' : 'center',
           marginTop: '2%',
@@ -433,114 +433,108 @@ export default function Home() {
           zIndex: '10'
         }}
       >
-        <div
-          style={{
-            transform: isTablet ? 'translate(105px) scale(0.75)' : null
-          }}
-        >
-          <Draggable>
-            <div
-              style={{
-                color: 'white',
-                background: 'rgb(49, 62, 76, 0.8)',
-                position: 'absolute',
-                cursor: 'move',
-                fontSize: '40px',
-                fontWeight: '300',
-                padding: '15px 35px 15px 35px',
-                minWidth: '345px'
-              }}
-            >
-              {zip ||
-              city ||
-              latCoord ||
-              longCoord ||
-              state ||
-              stateAbbreviation ? (
-                <>
-                  <div
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'flex-start',
-                      fontSize: '15px',
-                    }}
-                  >
-                    *Drag into position
-                  </div>
-                </>
-              ) : null}
-              <div>
-                <ZipText zip={zip} />
-                <div>{zip}</div>
-                <ZipClose zip={zip} setZip={setZip} />
-              </div>
-              <div>
-                <CityText city={city} />
-                <div>{city}</div>
-                <CityClose city={city} setCity={setCity} />
-              </div>
-              <div>
-                <LatitudeText latCoord={latCoord} />
-                <div>{latCoord}</div>
-                <LatClose latCoord={latCoord} setLatCoord={setLatCoord} />
-              </div>
-              <div>
-                <LongitudeText longCoord={longCoord} />
-                <div>{longCoord}</div>
-                <LongClose longCoord={longCoord} setLongCoord={setLongCoord} />
-              </div>
-              <div>
-                <OppositeLatitudeText OppLat={OppLat} />
-                <div>{OppLat}</div>
-                <OppLatClose OppLat={OppLat} setOppLat={setOppLat} />
-              </div>
-              <div>
-                <OppositeLongitudeText OppLong={OppLong} />
-                <div>{OppLong}</div>
-                <OppLongClose OppLong={OppLong} setOppLong={setOppLong} />
-              </div>
-              <div>
-                <StateText state={state} />
-                <div>{state}</div>
-                <StateClose state={state} setState={setState} />
-              </div>
-              <div>
-                <StateAbbreviationText stateAbbreviation={stateAbbreviation} />
-                <div>{stateAbbreviation}</div>
-                <AbbrClose
-                  stateAbbreviation={stateAbbreviation}
-                  setStateAbbreviation={setStateAbbreviation}
-                />
-              </div>
-              <div>
-                <WeatherText weatherData={weatherData} />
-                <div style={{ textTransform: 'capitalize' }}>{weatherData}</div>
-                <WeatherClose
-                  weatherData={weatherData}
-                  setWeatherData={setWeatherData}
-                />
-              </div>
-              <div>
-                <CurrentTempText currentTempData={currentTempData} />
-                <div style={{ textTransform: 'capitalize' }}>
-                  {currentTempData}
+        <Draggable>
+          <div
+            style={{
+              color: 'white',
+              background: 'rgb(49, 62, 76, 0.8)',
+              position: 'absolute',
+              cursor: 'move',
+              fontSize: '40px',
+              fontWeight: '300',
+              padding: '15px 35px 15px 35px',
+              minWidth: '345px'
+            }}
+          >
+            {zip ||
+            city ||
+            latCoord ||
+            longCoord ||
+            state ||
+            stateAbbreviation ? (
+              <>
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'flex-start',
+                    fontSize: '15px',
+                  }}
+                >
+                  *Drag into position
                 </div>
-                <CurrentTempClose
-                  currentTempData={currentTempData}
-                  setCurrentTempData={setCurrentTempData}
-                />
-              </div>
-              <div>
-                <TempRangeText tempRangeData={tempRangeData} />
-                <div style={{ textTransform: 'capitalize' }}>{tempRangeData}</div>
-                <TempRangeClose
-                  tempRangeData={tempRangeData}
-                  setTempRangeData={setTempRangeData}
-                />
-              </div>
+              </>
+            ) : null}
+            <div>
+              <ZipText zip={zip} />
+              <div>{zip}</div>
+              <ZipClose zip={zip} setZip={setZip} />
             </div>
-          </Draggable>
-        </div>
+            <div>
+              <CityText city={city} />
+              <div>{city}</div>
+              <CityClose city={city} setCity={setCity} />
+            </div>
+            <div>
+              <LatitudeText latCoord={latCoord} />
+              <div>{latCoord}</div>
+              <LatClose latCoord={latCoord} setLatCoord={setLatCoord} />
+            </div>
+            <div>
+              <LongitudeText longCoord={longCoord} />
+              <div>{longCoord}</div>
+              <LongClose longCoord={longCoord} setLongCoord={setLongCoord} />
+            </div>
+            <div>
+              <OppositeLatitudeText OppLat={OppLat} />
+              <div>{OppLat}</div>
+              <OppLatClose OppLat={OppLat} setOppLat={setOppLat} />
+            </div>
+            <div>
+              <OppositeLongitudeText OppLong={OppLong} />
+              <div>{OppLong}</div>
+              <OppLongClose OppLong={OppLong} setOppLong={setOppLong} />
+            </div>
+            <div>
+              <StateText state={state} />
+              <div>{state}</div>
+              <StateClose state={state} setState={setState} />
+            </div>
+            <div>
+              <StateAbbreviationText stateAbbreviation={stateAbbreviation} />
+              <div>{stateAbbreviation}</div>
+              <AbbrClose
+                stateAbbreviation={stateAbbreviation}
+                setStateAbbreviation={setStateAbbreviation}
+              />
+            </div>
+            <div>
+              <WeatherText weatherData={weatherData} />
+              <div style={{ textTransform: 'capitalize' }}>{weatherData}</div>
+              <WeatherClose
+                weatherData={weatherData}
+                setWeatherData={setWeatherData}
+              />
+            </div>
+            <div>
+              <CurrentTempText currentTempData={currentTempData} />
+              <div style={{ textTransform: 'capitalize' }}>
+                {currentTempData}
+              </div>
+              <CurrentTempClose
+                currentTempData={currentTempData}
+                setCurrentTempData={setCurrentTempData}
+              />
+            </div>
+            <div>
+              <TempRangeText tempRangeData={tempRangeData} />
+              <div style={{ textTransform: 'capitalize' }}>{tempRangeData}</div>
+              <TempRangeClose
+                tempRangeData={tempRangeData}
+                setTempRangeData={setTempRangeData}
+              />
+            </div>
+          </div>
+        </Draggable>
       </Container>
       <SideMenu
         zipCode={zipCode}
