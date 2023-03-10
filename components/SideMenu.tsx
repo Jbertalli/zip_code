@@ -283,7 +283,7 @@ export default function SideMenu(values) {
                   }}
                 >
                   <span style={{ width: '500px' }}>
-                    {user ? <>{nameHeader}&nbsp;</> : null} Dashboard
+                    {user ? <>{nameHeader}&nbsp;</> : null}Dashboard
                   </span>
                 </div>
               </>
