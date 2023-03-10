@@ -64,7 +64,7 @@ export default function MobileHeader() {
               display: 'flex',
               justifyContent: 'center',
               background: '#313e4c',
-              height: '52px',
+              height: '53px',
               width: '100vw',
               transform: router.pathname === '/' ? 'translate(10px)' : null
             }}
