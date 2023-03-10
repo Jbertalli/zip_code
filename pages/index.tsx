@@ -425,7 +425,7 @@ export default function Home() {
       <Container
         maxWidth="lg"
         style={{
-          transform: isTablet ? 'translate(105px, -5px) scale(0.75)' : (desktop ? 'translate(22px, 6px)' : 'translate(15px, 22px) scale(0.7)'),
+          transform: isTablet ? 'translate(105px, 15px) scale(0.75)' : (desktop ? 'translate(22px, 6px)' : 'translate(15px, 22px) scale(0.7)'),
           display: desktop ? '' : 'flex',
           justifyContent: desktop ? '' : 'center',
           marginTop: '2%',
