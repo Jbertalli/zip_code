@@ -403,6 +403,10 @@ export default function Home() {
     { minWidth: 1290, maxWidth: 1450 }
   );
 
+  const isTablet = useMediaQuery(
+    { minWidth: 100, maxWidth: 1290 }
+  );
+
   return (
     <>
       <Head>
@@ -435,7 +439,7 @@ export default function Home() {
       >
         <div
           style={{
-            transform: isLaptop ? 'translate(-145px) scale(0.75)' : null
+            transform: isLaptop || isTablet ? 'translate(105px) scale(0.75)' : null
           }}
         >
           <Draggable>
