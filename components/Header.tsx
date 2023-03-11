@@ -135,6 +135,19 @@ export default function Header() {
           </div>
         </div>
       </div>
+      {router.pathname === '/antinode_map' ? (
+      <>
+        <div
+            style={{
+                position: 'fixed',
+                zIndex: '1000',
+                width: '106vw',
+                height: '62px',
+                background: '#313e4c'
+            }}
+        />
+      </>
+      ): null}
     </>
   );
 }

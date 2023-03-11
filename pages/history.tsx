@@ -102,15 +102,7 @@ export default function History() {
       </Head>
       {desktop ? (
       <>
-        <div
-            style={{
-                top: '0px',
-                height: '100%',
-                marginTop: '0px'
-            }}
-        >
-            <Header />
-        </div>
+        <Header />
       </>
       ):(
       <>
@@ -123,7 +115,7 @@ export default function History() {
             <div
                 style={{
                     transform: 'translate(20px) scale(1.1)',
-                    position: 'absolute'
+                    position: 'fixed'
                 }}
             >
                 <MobileHeader />
@@ -139,7 +131,7 @@ export default function History() {
                 <div
                 style={{
                     position: 'absolute',
-                    transform: 'translateY(45vh) scale(2.0)',
+                    transform: 'translateY(45vh) scale(2.0)'
                 }}
                 >
                     <CircularProgress />
@@ -159,14 +151,14 @@ export default function History() {
                     style={{
                         display: 'flex',
                         justifyContent: 'center',
-                        transform: 'translate(25px, 10%)',
+                        transform: 'translate(25px, 10%)'
                     }}
                     >
                         <span
                             style={{
-                            fontSize: desktop ? '40px' : '30px',
-                            fontWeight: '300',
-                            width: desktop ? '550px' : '500px',
+                                fontSize: desktop ? '40px' : '30px',
+                                fontWeight: '300',
+                                width: desktop ? '550px' : '500px'
                             }}
                         >
                             {user ? <>{nameHeader}&nbsp;</> : null} Information
@@ -176,7 +168,7 @@ export default function History() {
                         style={{
                             display: 'flex',
                             justifyContent: 'center',
-                            transform: desktop ? 'translate(0px)' : 'scale(0.8) translateY(-100px)',
+                            transform: desktop ? 'translate(0px)' : 'scale(0.8) translateY(-100px)'
                         }}
                     >
                         <Table
