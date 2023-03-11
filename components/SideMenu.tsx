@@ -269,28 +269,24 @@ export default function SideMenu(values) {
           open={open}
         >
           <DrawerHeader>
-            {desktop ? (
-              <>
-                <div
-                  style={{
-                    fontSize: '16px',
-                    fontWeight: '400',
-                    position: 'absolute',
-                    zIndex: '10000000',
-                    color: 'white',
-                    left: '16px',
-                    top: '21px'
-                  }}
-                >
-                  <span style={{ width: '500px' }}>
-                    {user ? <>{nameHeader}&nbsp;</> : null}Dashboard
-                  </span>
-                </div>
-              </>
-            ) : null}
+            <div
+              style={{
+                fontSize: '16px',
+                fontWeight: '400',
+                position: 'absolute',
+                zIndex: '10000000',
+                color: 'white',
+                left: '16px',
+                top: '21px'
+              }}
+            >
+              <span style={{ width: '500px' }}>
+                {user ? <>{nameHeader}&nbsp;</> : null}Dashboard
+              </span>
+            </div>
             <IconButton
               onClick={handleDrawerClose}
-              style={{ color: 'white', transform: desktop ? 'translateY(1px)' : 'translateY(52px)' }}
+              style={{ color: 'white', transform: desktop ? 'translateY(1px)' : 'translateY(4.5px)' }}
             >
               {theme.direction === 'ltr' ? (
                 <ChevronLeftIcon />
@@ -300,7 +296,7 @@ export default function SideMenu(values) {
             </IconButton>
           </DrawerHeader>
           <Divider />
-          <div style={{ transform: desktop ? 'translateY(0px)' : 'translateY(25px)' }}>
+          <div>
             {user ? (
               <>
                 <Database

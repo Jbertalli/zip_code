@@ -143,7 +143,8 @@ export default function History() {
             <>
                 <div 
                     style={{ 
-                        transform: desktop ? 'translateY(18%)' : 'translate(6%, 8%)'
+                        transform: desktop ? 'translateY(12%)' : 'translate(6%, 8%)',
+                        paddingBottom: desktop ? '100px': null
                     }}
                     onMouseEnter={getData}
                     onMouseLeave={getData}
