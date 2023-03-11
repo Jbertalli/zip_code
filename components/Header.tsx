@@ -63,7 +63,8 @@ export default function Header() {
             style={{ 
               transform: 'translateY(5px)',
               display: 'flex',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              background: '#313e4c'
             }}
           >
             <Link href="/" passHref>

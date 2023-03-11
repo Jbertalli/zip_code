@@ -218,7 +218,7 @@ export default function SideMenu(values) {
               position: 'absolute',
               zIndex: '10000',
               transform: 'scale(0.8) translateY(10px)',
-              top: '5px',
+              top: '5px'
             }}
           >
             <CircularProgress />
@@ -261,7 +261,7 @@ export default function SideMenu(values) {
               width: drawerWidth,
               boxSizing: 'border-box',
               background: '#313e4c',
-              color: 'white',
+              color: 'white'
             },
           }}
           variant="persistent"
@@ -279,7 +279,7 @@ export default function SideMenu(values) {
                     zIndex: '10000000',
                     color: 'white',
                     left: '16px',
-                    top: '21px',
+                    top: '21px'
                   }}
                 >
                   <span style={{ width: '500px' }}>
