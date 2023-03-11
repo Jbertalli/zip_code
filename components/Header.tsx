@@ -135,7 +135,7 @@ export default function Header() {
           </div>
         </div>
       </div>
-      {router.pathname === '/antinode_map' ? (
+      {router.pathname === '/antinode_map' || router.pathname === '/history' ? (
       <>
         <div
             style={{
