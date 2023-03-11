@@ -198,7 +198,7 @@ export default function SideMenu(values) {
         >
           <div 
             style={{ 
-              position: 'absolute', 
+              position: 'fixed', 
               top: '0px', 
               background: '#313e4c',
               width: open ? '100%' : '200px',
