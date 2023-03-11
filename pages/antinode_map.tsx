@@ -120,7 +120,7 @@ export default function Antinode() {
                 fontWeight: '300',
                 position: 'absolute',
                 zIndex: '10',
-                transform: 'translate(50%, 55px)',
+                transform: 'translate(50%, 54px)',
                 width: '50%',
                 display: 'flex',
                 justifyContent: 'center'

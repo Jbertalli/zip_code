@@ -115,7 +115,8 @@ export default function History() {
             <div
                 style={{
                     transform: 'translate(20px) scale(1.1)',
-                    position: 'fixed'
+                    position: 'fixed',
+                    zIndex: '1'
                 }}
             >
                 <MobileHeader />
