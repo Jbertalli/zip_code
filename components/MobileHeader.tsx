@@ -141,9 +141,10 @@ export default function MobileHeader() {
       <>
         <div
             style={{
-                position: 'absolute',
-                width: '50vw',
-                height: '100px',
+                position: 'fixed',
+                zIndex: '1',
+                width: '106vw',
+                height: '54px',
                 background: '#313e4c'
             }}
         />
