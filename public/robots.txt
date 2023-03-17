@@ -26,4 +26,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: http://localhost:3060/api/my-sitemap
+Sitemap: https://www.antinodelocation.com/api/my-sitemap
